@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Atlas &mdash; Rare Diseases</title>
+<meta name="description" content="An explorable knowledge graph of rare diseases: genes, mechanisms, trials, patient organizations, and one family's journey.">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <h1>AI Atlas <span class="thin">for Rare Diseases</span></h1>
+    <p class="tagline" id="graphMeta">Loading knowledge graph&hellip;</p>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Atlas views">
+    <button role="tab" id="tab-explore" data-tab="explore" class="active" aria-selected="true">Explore</button>
+    <button role="tab" id="tab-clusters" data-tab="clusters" aria-selected="false">Clusters</button>
+    <button role="tab" id="tab-action" data-tab="action" aria-selected="false">Patient Action</button>
+    <button role="tab" id="tab-journey" data-tab="journey" aria-selected="false">Maria&rsquo;s Journey</button>
+  </nav>
+</header>
+
+<main>
+  <!-- ============ EXPLORE ============ -->
+  <section id="view-explore" class="view active" role="tabpanel" aria-labelledby="tab-explore">
+    <div class="searchbar">
+      <input id="search" type="text" autocomplete="off" spellcheck="false"
+             placeholder="Search diseases, genes, symptoms&hellip; (e.g. sanfilippo)" aria-label="Graph search">
+      <div id="suggestions" class="suggestions" hidden></div>
+    </div>
+    <div class="explore-controls">
+      <span class="control-label">Neighborhood:</span>
+      <div class="seg" role="radiogroup" aria-label="Hop depth">
+        <button id="hops1" class="seg-btn active" role="radio" aria-checked="true">1 hop</button>
+        <button id="hops2" class="seg-btn" role="radio" aria-checked="false">2 hops</button>
+      </div>
+      <label class="check"><input type="checkbox" id="clusterOnly"> Cluster only</label>
+      <span id="viewStats" class="view-stats" aria-live="polite"></span>
+    </div>
+    <div class="explore-grid">
+      <div class="canvas-wrap">
+        <div id="network" aria-label="Knowledge graph canvas"></div>
+        <div id="loading" class="loading">Loading graph&hellip;</div>
+      </div>
+      <aside id="panel" class="panel" aria-live="polite">
+        <p class="panel-hint">Search for a disease, gene, or symptom, then click any node or edge to inspect it.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ CLUSTERS ============ -->
+  <section id="view-clusters" class="view" role="tabpanel" aria-labelledby="tab-clusters" hidden>
+    <p class="section-lede">Disease groups that share a reusable mechanism &mdash; the unit of cross-disease learning.</p>
+    <div id="clusterCards" class="cards"></div>
+  </section>
+
+  <!-- ============ PATIENT ACTION ============ -->
+  <section id="view-action" class="view" role="tabpanel" aria-labelledby="tab-action" hidden>
+    <div class="action-head">
+      <label for="diseaseSelect" class="control-label">Disease</label>
+      <select id="diseaseSelect"></select>
+    </div>
+    <div id="actionBody"></div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section id="view-journey" class="view" role="tabpanel" aria-labelledby="tab-journey" hidden>
+    <div class="stepper-bar">
+      <button id="prevStep" class="btn">&larr; Prev</button>
+      <span id="stepCount" class="step-count">Step 1 of 8</span>
+      <button id="nextStep" class="btn">Next &rarr;</button>
+    </div>
+    <div id="stepDots" class="step-dots" role="tablist" aria-label="Journey steps"></div>
+    <div class="journey-grid">
+      <div class="canvas-wrap small">
+        <div id="journeyNetwork" aria-label="Journey path canvas"></div>
+      </div>
+      <aside id="stepPanel" class="panel journey-panel"></aside>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Built from <code>graph.json</code>. Click any node or edge for its evidence. <span id="footerStats"></span></p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
