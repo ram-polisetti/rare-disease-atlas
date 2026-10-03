@@ -31,8 +31,8 @@ function viewsBoot() {
   initJourneyBuilder();
   initNightMode();
   initA11y();
-  // Mobile: persona entry is the landing page on narrow screens.
-  if (window.innerWidth <= 700 && state.tab === 'explore') switchTab('start');
+  // Mobile: the guided front door is the landing page on narrow screens.
+  if (window.innerWidth <= 700 && state.tab !== 'guide') switchTab('guide');
 }
 viewsBoot();
 

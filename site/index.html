@@ -26,8 +26,9 @@
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Atlas views">
+    <button role="tab" id="tab-guide" data-tab="guide" class="active" aria-selected="true">Guide</button>
     <button role="tab" id="tab-start" data-tab="start" aria-selected="false">Start</button>
-    <button role="tab" id="tab-explore" data-tab="explore" class="active" aria-selected="true">Explore</button>
+    <button role="tab" id="tab-explore" data-tab="explore" aria-selected="false">Explore</button>
     <button role="tab" id="tab-clusters" data-tab="clusters" aria-selected="false">Clusters</button>
     <button role="tab" id="tab-subway" data-tab="subway" aria-selected="false">Subway map</button>
     <button role="tab" id="tab-action" data-tab="action" aria-selected="false">Patient Action</button>
@@ -41,6 +42,11 @@
 </header>
 
 <main>
+  <!-- ============ GUIDE (zero-knowledge front door) ============ -->
+  <section id="view-guide" class="view active" role="tabpanel" aria-labelledby="tab-guide">
+    <div id="guideBody" class="guide-body" aria-live="polite"></div>
+  </section>
+
   <!-- ============ START (persona landing) ============ -->
   <section id="view-start" class="view" role="tabpanel" aria-labelledby="tab-start" hidden>
     <h2 class="start-q">I&rsquo;m here because&hellip;</h2>
@@ -49,7 +55,7 @@
   </section>
 
   <!-- ============ EXPLORE ============ -->
-  <section id="view-explore" class="view active" role="tabpanel" aria-labelledby="tab-explore">
+  <section id="view-explore" class="view" role="tabpanel" aria-labelledby="tab-explore" hidden>
     <div class="searchbar">
       <input id="search" type="text" autocomplete="off" spellcheck="false"
              placeholder="Search diseases, genes, symptoms&hellip; (e.g. sanfilippo)" aria-label="Graph search">
@@ -184,5 +190,6 @@
 <script src="app.js"></script>
 <script src="views.js"></script>
 <script src="whatif.js"></script>
+<script src="guide.js"></script>
 </body>
 </html>
