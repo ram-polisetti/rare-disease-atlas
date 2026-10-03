@@ -107,7 +107,13 @@ function displayName(n) {
     return s && s.toLowerCase() !== label.toLowerCase() && s.length <= 40;
   });
   if (!cands.length) return label;
-  const words = cands.filter(function (s) { return /[a-z]/.test(s) && /\s/.test(s); });
+  // Prefer synonyms that read like disease names; never surface drug names
+  // (e.g. MONDO lists "Aglucosidase alfa" as a synonym of Pompe disease).
+  const drugPat = /(alfa|beta|mab|nib|pase)\b/i;
+  const diseasePat = /(disease|deficiency|syndrome|disorder|dystrophy|lipidosis|mucopolysaccharidosis|gangliosidosis)/i;
+  const named = cands.filter(function (s) { return diseasePat.test(s) && !drugPat.test(s); });
+  const pool = named.length ? named : cands.filter(function (s) { return !drugPat.test(s); });
+  const words = pool.filter(function (s) { return /[a-z]/.test(s) && /\s/.test(s); });
   const codes = cands.filter(function (s) {
     // All-caps short tokens: acronyms with digits (MPS3A) or Roman numerals (MPS IIIA).
     return !/[a-z]/.test(s) && /^[A-Z0-9][A-Z0-9().\-\s]{1,19}$/.test(s);
