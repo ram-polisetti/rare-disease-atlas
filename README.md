@@ -8,10 +8,29 @@ variants, phenotypes, papers, trials, funding, patient organizations, mechanisms
 and a patient journey — browsable as a static single-page site. Every extracted
 biomedical claim carries a verbatim source quote and provenance metadata.
 
-**Graph as built (2026-10-03):** 1,546 nodes, 4,060 edges, 8 Louvain communities
-(modularity 0.54). Node mix: 850 phenotypes, 199 trials, 160 variants, 103
+**Graph as built (2026-10-03):** 1,547 nodes, 4,065 edges, 8 Louvain communities
+(modularity 0.55). Node mix: 850 phenotypes, 199 trials, 160 variants, 103
 researchers, 100 funding records, 51 diseases, 48 reusable assets, 16 genes,
-12 patient organizations, 7 mechanisms.
+12 patient organizations, 7 mechanisms, 1 therapy (Fayuvi).
+
+## Clustering methodology
+
+Clusters are computed with Louvain (resolution 1.0, seed 42) on a
+**mechanism-only weighted projection**: node types
+{disease, gene, variant, phenotype, mechanism} and biological relations only.
+Funding, patient-org, trial, literature, and authorship edges (1,337) are
+excluded — an external architecture review showed they contaminate communities
+with non-biological signal (the first clustering had lumped GBA/GLA/NPC1/NPC2/SMPD1
+into one 605-member cluster via shared funding/literature edges). Edge weights:
+mechanism/pathway relations x5/x3, gene–disease x2–3, phenotype x1, so the 2,057
+`has_phenotype` edges do not drown the 73 mechanism edges. Result: all six
+glycosaminoglycan-catabolism genes (GNS, HGSNAT, IDS, IDUA, NAGLU, SGSH)
+co-cluster. Recompute: `scripts/recompute_mechanism_clusters.py`.
+
+Every cluster card in the UI carries a limitation callout: shared mechanism does
+**not** imply treatment transferability (e.g. MPS II's Elaprase does not cross
+the blood–brain barrier, so it cannot treat Sanfilippo's CNS disease despite
+shared heparan-sulfate buildup).
 
 ## Architecture
 
