@@ -1,0 +1,1792 @@
+[
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "lysosomal SM turnover",
+    "relation": "disrupts",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "SMPD1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "salvage pathway",
+    "relation": "disrupts",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "SMPD1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "SMPD1"
+   }
+  ],
+  "pmid": "PPR:PPR1329380"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Niemann-Pick type C",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NPC1"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "impaired intracellular cholesterol trafficking",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Niemann-Pick type C"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "NPC1 disease",
+    "relation": "treated_by",
+    "sentences": [
+     3,
+     5
+    ],
+    "subject": "BET inhibitor JQ1"
+   }
+  ],
+  "pmid": "PPR:PPR1312746"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "accumulation of GM2 and GM3",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NPC2 disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Niemann-Pick disease type C2",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NPC2"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "NPC2-deficient mice",
+    "relation": "studied_in",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "NPC2 gene therapy"
+   }
+  ],
+  "pmid": "PPR:PPR1322574"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "psoriasis",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     4
+    ],
+    "subject": "SGSH"
+   }
+  ],
+  "pmid": "PPR:PPR1278271"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIB",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NAGLU"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIB",
+    "relation": "studied_in",
+    "sentences": [
+     12,
+     12
+    ],
+    "subject": "RDGT-101"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "reduction in urinary HS",
+    "relation": "associated_with",
+    "sentences": [
+     3,
+     7
+    ],
+    "subject": "RDGT-101"
+   }
+  ],
+  "pmid": "PPR:PPR1249019"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIC",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "HGSNAT"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "complete phenotypic rescue",
+    "relation": "associated_with",
+    "sentences": [
+     5,
+     5
+    ],
+    "subject": "HGSNAT"
+   }
+  ],
+  "pmid": "PPR:PPR1284231"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Gaucher disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "glucocerebrosidase",
+    "relation": "encodes",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "seizures",
+    "relation": "presents_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "Gaucher disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "hyperexcitability",
+    "relation": "presents_with",
+    "sentences": [
+     8,
+     8
+    ],
+    "subject": "Gaucher disease"
+   }
+  ],
+  "pmid": "PPR:PPR1330793"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Niemann\u2013Pick disease type C",
+    "relation": "studied_in",
+    "sentences": [
+     4,
+     5
+    ],
+    "subject": "PrimeKG-Plus"
+   }
+  ],
+  "pmid": "PPR:PPR1281346"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Type 1 Tay-Sachs Disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "HEXA"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "accumulation of lysosomal GM2 gangliosides",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Tay-Sachs disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Type 1 TSD",
+    "relation": "studied_in",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "Miglustat"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Type 1 TSD",
+    "relation": "studied_in",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "Ambroxol"
+   }
+  ],
+  "pmid": "PPR:PPR944667"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "accumulation of GM2 ganglioside in lysosomes",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Sandhoff Disease"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Sandhoff Disease",
+    "relation": "treated_by",
+    "sentences": [
+     0,
+     3
+    ],
+    "subject": "AAV gene therapy"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "reduction of GM2 ganglioside storage",
+    "relation": "associated_with",
+    "sentences": [
+     4,
+     7
+    ],
+    "subject": "AAV treatment"
+   }
+  ],
+  "pmid": "PPR:PPR940925"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Niemann-Pick type C",
+    "relation": "associated_with",
+    "sentences": [
+     4,
+     4
+    ],
+    "subject": "acid ceramidase"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "reduction in lysosomal area",
+    "relation": "associated_with",
+    "sentences": [
+     5,
+     5
+    ],
+    "subject": "carmofur"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Krabbe disease",
+    "relation": "associated_with",
+    "sentences": [
+     7,
+     7
+    ],
+    "subject": "acid ceramidase"
+   }
+  ],
+  "pmid": "PPR:PPR940271"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "skeletal abnormalities",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "MPS I"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "increased metabolites",
+    "relation": "presents_with",
+    "sentences": [
+     9,
+     9
+    ],
+    "subject": "MPS IH"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "MPS I",
+    "relation": "treated_by",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "enzyme replacement"
+   }
+  ],
+  "pmid": "PPR:PPR1315193"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "acid \u03b1-glucosidase",
+    "relation": "encodes",
+    "sentences": [
+     6,
+     6
+    ],
+    "subject": "GAA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "lung adenocarcinoma",
+    "relation": "associated_with",
+    "sentences": [
+     7,
+     8
+    ],
+    "subject": "GAA"
+   }
+  ],
+  "pmid": "PPR:PPR1311967"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Niemann Pick disease type C",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "NPC1"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "neurodegeneration",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "NPC1 deficiency"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "improved lysosomal cholesterol trafficking",
+    "relation": "associated_with",
+    "sentences": [
+     7,
+     7
+    ],
+    "subject": "Fingolimod"
+   }
+  ],
+  "pmid": "PPR:PPR1278383"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "cerebral small vessel diseases",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     3
+    ],
+    "subject": "GLA"
+   }
+  ],
+  "pmid": "PPR:PPR1268761"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "accumulation of toxic sphingolipids",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "higher total GLA activity",
+    "relation": "associated_with",
+    "sentences": [
+     11,
+     11
+    ],
+    "subject": "Female patients"
+   }
+  ],
+  "pmid": "PPR:PPR1087018"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "\u03b1-galactosidase A deficiency",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Fabry disease"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "treated_by",
+    "sentences": [
+     3,
+     8
+    ],
+    "subject": "modGLA"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "mitochondrial dysfunction",
+    "relation": "presents_with",
+    "sentences": [
+     6,
+     6
+    ],
+    "subject": "Fabry disease"
+   }
+  ],
+  "pmid": "PPR:PPR1232416"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Burning pain",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "Fabry disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "shorter neurite length",
+    "relation": "presents_with",
+    "sentences": [
+     5,
+     5
+    ],
+    "subject": "FD sensory neurons"
+   }
+  ],
+  "pmid": "PPR:PPR1079543"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "cardiac and renal manifestations",
+    "relation": "associated_with",
+    "sentences": [
+     12,
+     12
+    ],
+    "subject": "mtUPR activation"
+   }
+  ],
+  "pmid": "PPR:PPR1087734"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "acid \u03b1-glucosidase deficiency",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Pompe disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "lysosomal glycogen accumulation",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Pompe disease"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "mitochondria-lysosome contacts",
+    "relation": "presents_with",
+    "sentences": [
+     3,
+     6
+    ],
+    "subject": "Gaa \u207b/\u207b"
+   }
+  ],
+  "pmid": "PPR:PPR1286475"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "increase in GAA activity",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     2
+    ],
+    "subject": "GC801"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Pompe disease",
+    "relation": "treated_by",
+    "sentences": [
+     0,
+     4
+    ],
+    "subject": "GC301"
+   }
+  ],
+  "pmid": "PPR:PPR1330601"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "melanoma cells",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "GALC"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "mitochondrial metabolism",
+    "relation": "associated_with",
+    "sentences": [
+     4,
+     4
+    ],
+    "subject": "GALC"
+   }
+  ],
+  "pmid": "PPR:PPR1302865"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "alpha-N-acetylglucosaminidase",
+    "relation": "encodes",
+    "sentences": [
+     0,
+     2
+    ],
+    "subject": "NAGLU"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "heparan sulfate catabolism",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Sanfilippo B syndrome"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "therapeutic biomarker",
+    "relation": "associated_with",
+    "sentences": [
+     5,
+     6
+    ],
+    "subject": "CSF HS"
+   }
+  ],
+  "pmid": "PPR:PPR1012712"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Mucopolysaccharidosis IIIC",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "HGSNAT"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "heparan sulfate (HS) degradation",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "HGSNAT"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Mucopolysaccharidosis IIIC",
+    "relation": "studied_in",
+    "sentences": [
+     2,
+     8
+    ],
+    "subject": "NDST1"
+   }
+  ],
+  "pmid": "PPR:PPR1297624"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "deficiency in the \u03b2 subunit of the \u03b2-hexosaminidase enzyme",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "Sandhoff disease"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Sandhoff disease",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "HEXB"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Sandhoff disease",
+    "relation": "treated_by",
+    "sentences": [
+     1,
+     5
+    ],
+    "subject": "bone marrow transplant"
+   }
+  ],
+  "pmid": "PPR:PPR928792"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "neuroanatomical deviation",
+    "relation": "presents_with",
+    "sentences": [
+     11,
+     11
+    ],
+    "subject": "leukodystrophy subtypes"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "clinical function",
+    "relation": "associated_with",
+    "sentences": [
+     19,
+     19
+    ],
+    "subject": "regional volume loss"
+   }
+  ],
+  "pmid": "PPR:PPR1238418"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "impaired degradation of heparan sulfate",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "MPS IIIA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "biomarker",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "heparan sulfate"
+   }
+  ],
+  "pmid": "PPR:PPR1266801"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Niemann-Pick disease type C",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NPC1"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "ventricular fibrotic remodelling",
+    "relation": "presents_with",
+    "sentences": [
+     10,
+     10
+    ],
+    "subject": "Npc1-/- mice"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "seizures",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "Niemann-Pick Type C"
+   }
+  ],
+  "pmid": "PPR:PPR1277398"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Alzheimer\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     5,
+     5
+    ],
+    "subject": "IDUA"
+   }
+  ],
+  "pmid": "PPR:PPR1129053"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Krabbe disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GALC"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "accumulation of galactosylceramide",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GALC"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "normalized psychosine levels",
+    "relation": "associated_with",
+    "sentences": [
+     4,
+     4
+    ],
+    "subject": "tezacaftor"
+   }
+  ],
+  "pmid": "PPR:PPR1298937"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Mucopolysaccharidosis Type II",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "IDS"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "iduronate 2-sulphatase",
+    "relation": "encodes",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "IDS"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "cardiac dysfunction",
+    "relation": "studied_in",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "Idursulfase"
+   }
+  ],
+  "pmid": "PPR:PPR1317866"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "mucopolysaccharidosis IIIA",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "SGSH"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIA",
+    "relation": "studied_in",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "Sgsh R245H"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "spatial memory deficits",
+    "relation": "presents_with",
+    "sentences": [
+     6,
+     7
+    ],
+    "subject": "Sgsh R245H MPS IIIA mice"
+   }
+  ],
+  "pmid": "PPR:PPR1232558"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "amyloidogenesis",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     1
+    ],
+    "subject": "cathepsin B"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "MPS III",
+    "relation": "treated_by",
+    "sentences": [
+     4,
+     6
+    ],
+    "subject": "E64"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIC",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "HGSNAT"
+   }
+  ],
+  "pmid": "PPR:PPR969646"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Punjabi population",
+    "relation": "associated_with",
+    "sentences": [
+     3,
+     8
+    ],
+    "subject": "Niemann\u2013Pick disease"
+   }
+  ],
+  "pmid": "PPR:PPR1114742"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "\u00df-hexosamindase A",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "late-onset Tay-Sachs"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "sensory neuropathy",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     13
+    ],
+    "subject": "late-onset Sandhoff disease"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Lower limb weakness",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     6
+    ],
+    "subject": "late-onset GM2 gangliosidosis"
+   }
+  ],
+  "pmid": "PPR:PPR1065197"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "defective enzymatic pathways",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Gaucher Disease"
+   }
+  ],
+  "pmid": "PPR:PPR1311167"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "ALS",
+    "relation": "associated_with",
+    "sentences": [
+     5,
+     6
+    ],
+    "subject": "FGF14 GAA repeats"
+   }
+  ],
+  "pmid": "PPR:PPR1300460"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Ebola virus",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "NPC1"
+   }
+  ],
+  "pmid": "PPR:PPR1315911"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "interstitial lung disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     10
+    ],
+    "subject": "NPC2"
+   }
+  ],
+  "pmid": "PPR:PPR1257182"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     2
+    ],
+    "subject": "GALC"
+   }
+  ],
+  "pmid": "PPR:PPR1260603"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Mucopolysaccharidosis III",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "SGSH"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "MPS III",
+    "relation": "treated_by",
+    "sentences": [
+     4,
+     6
+    ],
+    "subject": "ACTH (4-7) PGP"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "childhood dementia",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "MPS III"
+   }
+  ],
+  "pmid": "PPR:PPR1222583"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "decreased IA risk",
+    "relation": "associated_with",
+    "sentences": [
+     6,
+     6
+    ],
+    "subject": "NAGLU"
+   }
+  ],
+  "pmid": "PPR:PPR1119171"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "MPS IIIC",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "HGSNAT"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "MPS IIIC",
+    "relation": "treated_by",
+    "sentences": [
+     2,
+     6
+    ],
+    "subject": "HSPC transplant"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "corrected several behaviour deficits",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     5
+    ],
+    "subject": "HSPC transplant"
+   }
+  ],
+  "pmid": "PPR:PPR834021"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     5
+    ],
+    "subject": "maximum myocardial wall thickness"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "affecting multiple organ systems",
+    "relation": "presents_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Fabry disease"
+   }
+  ],
+  "pmid": "PPR:PPR1265081"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     10
+    ],
+    "subject": "GBA"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "rescued multiple PD-associated phenotypes",
+    "relation": "associated_with",
+    "sentences": [
+     8,
+     8
+    ],
+    "subject": "Simvastatin"
+   }
+  ],
+  "pmid": "PPR:PPR1310170"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "reduction in dorsal striatal dopamine release",
+    "relation": "presents_with",
+    "sentences": [
+     7,
+     7
+    ],
+    "subject": "GBA-L444P"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "\u03b1-synuclein pathology",
+    "relation": "associated_with",
+    "sentences": [
+     7,
+     8
+    ],
+    "subject": "GBA-L444P"
+   }
+  ],
+  "pmid": "PPR:PPR1241209"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     8,
+     8
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1318135"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "glucocerebrosidase",
+    "relation": "encodes",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "biomarker",
+    "relation": "associated_with",
+    "sentences": [
+     1,
+     7
+    ],
+    "subject": "GlcSph"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "higher levels of CSF and plasma GlcSph",
+    "relation": "associated_with",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1257341"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1318141"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "Lysosomal dysfunction"
+   }
+  ],
+  "pmid": "PPR:PPR1319978"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s Diagnosis",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     1
+    ],
+    "subject": "GBA N370S"
+   }
+  ],
+  "pmid": "PPR:PPR1279150"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s Disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     2
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1293098"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "immune-related activation",
+    "relation": "associated_with",
+    "sentences": [
+     6,
+     6
+    ],
+    "subject": "GBA"
+   }
+  ],
+  "pmid": "PPR:PPR1270866"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "lysosomal transport",
+    "relation": "associated_with",
+    "sentences": [
+     11,
+     11
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1312796"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Gaucher\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     4,
+     4
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Parkinson\u2019s Patients",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     4
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1324998"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Parkinson\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     0,
+     0
+    ],
+    "subject": "GBA1"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "neuroinflammatory and lysosomal pathways",
+    "relation": "associated_with",
+    "sentences": [
+     8,
+     8
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1278361"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "increased iron in SNc/N1",
+    "relation": "presents_with",
+    "sentences": [
+     7,
+     7
+    ],
+    "subject": "GBA-PD"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "iron-driven NM imbalance",
+    "relation": "associated_with",
+    "sentences": [
+     10,
+     10
+    ],
+    "subject": "GBA mutation severity"
+   }
+  ],
+  "pmid": "PPR:PPR1113208"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "Crohn\u2019s disease",
+    "relation": "associated_with",
+    "sentences": [
+     6,
+     6
+    ],
+    "subject": "GBA1"
+   }
+  ],
+  "pmid": "PPR:PPR1271317"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "SAA positivity",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "GBA1-PD"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "GBA1-PD",
+    "relation": "associated_with",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "GBA1+LRRK2-PD"
+   }
+  ],
+  "pmid": "PPR:PPR1240310"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "associated_with",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "impaired mitophagy",
+    "relation": "presents_with",
+    "sentences": [
+     6,
+     7
+    ],
+    "subject": "FD"
+   },
+   {
+    "confidence": "medium",
+    "contradicts": false,
+    "object": "prevented the development of cardiac abnormalities",
+    "relation": "associated_with",
+    "sentences": [
+     10,
+     10
+    ],
+    "subject": "L-arginine"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "\u03b1-galactosidase A",
+    "relation": "encodes",
+    "sentences": [
+     2,
+     2
+    ],
+    "subject": "GLA"
+   }
+  ],
+  "pmid": "PPR:PPR1214242"
+ },
+ {
+  "claims": [
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Gb3 accumulation",
+    "relation": "associated_with",
+    "sentences": [
+     3,
+     4
+    ],
+    "subject": "GLA"
+   },
+   {
+    "confidence": "high",
+    "contradicts": false,
+    "object": "Fabry disease",
+    "relation": "studied_in",
+    "sentences": [
+     3,
+     3
+    ],
+    "subject": "GLA knock-out"
+   }
+  ],
+  "pmid": "PPR:PPR1128164"
+ }
+]

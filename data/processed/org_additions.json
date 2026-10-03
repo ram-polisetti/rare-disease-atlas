@@ -1,0 +1,793 @@
+{
+ "nodes": [
+  {
+   "id": "atlas:org-cure-sanfilippo-foundation",
+   "type": "patient_org",
+   "label": "Cure Sanfilippo Foundation",
+   "synonyms": [
+    "Cure Sanfilippo",
+    "CSF"
+   ],
+   "description": "US 501(c)(3) nonprofit dedicated to funding research for Sanfilippo syndrome (MPS III).",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://curesanfilippofoundation.org",
+    "assets": [
+     "Research grant program: 50+ Sanfilippo research projects funded ($20M raised since 2013); funded multiple clinical trials",
+     "Global family network: meet-the-families stories and family support/engagement worldwide"
+    ]
+   }
+  },
+  {
+   "id": "atlas:asset-csf-research-grant-program",
+   "type": "asset",
+   "label": "Cure Sanfilippo Foundation research grant program",
+   "synonyms": [],
+   "description": "50+ Sanfilippo research projects funded since 2013 ($20M raised); funded multiple clinical trials.",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://curesanfilippofoundation.org"
+   }
+  },
+  {
+   "id": "atlas:asset-csf-family-network",
+   "type": "asset",
+   "label": "Cure Sanfilippo Foundation family network",
+   "synonyms": [],
+   "description": "Global family network: meet-the-families stories, family engagement and support worldwide.",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://curesanfilippofoundation.org"
+   }
+  },
+  {
+   "id": "atlas:org-eurordis-rare-diseases-europe",
+   "type": "patient_org",
+   "label": "EURORDIS-Rare Diseases Europe",
+   "synonyms": [
+    "EURORDIS"
+   ],
+   "description": "Patient-driven alliance of 960+ rare-disease patient organisations across 74 countries, improving quality of life for people with rare diseases in Europe.",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://www.eurordis.org",
+    "assets": [
+     "Member network of 960+ rare-disease patient organisations across 74 countries",
+     "Founder and lead coordinator of Rare Disease Day (since 2008); pan-European patient advocacy at EU institutions"
+    ]
+   }
+  },
+  {
+   "id": "atlas:asset-eurordis-member-network",
+   "type": "asset",
+   "label": "EURORDIS member patient-organisation network",
+   "synonyms": [],
+   "description": "Pan-European network of 960+ rare-disease patient organisations in 74 countries for cross-disease recruitment and knowledge sharing.",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://www.eurordis.org"
+   }
+  },
+  {
+   "id": "atlas:asset-rare-disease-day",
+   "type": "asset",
+   "label": "Rare Disease Day",
+   "synonyms": [],
+   "description": "Annual awareness campaign founded by EURORDIS in 2008, lead-coordinated by EURORDIS each year.",
+   "cluster_id": 5,
+   "extra": {
+    "url": "https://www.eurordis.org"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "source": "MONDO:0018937",
+   "target": "atlas:org-cure-sanfilippo-foundation",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation advocates for and funds research for Sanfilippo syndrome (MONDO:0018937).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009655",
+   "target": "atlas:org-cure-sanfilippo-foundation",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation advocates for and funds research for Sanfilippo syndrome (MONDO:0009655).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009656",
+   "target": "atlas:org-cure-sanfilippo-foundation",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation advocates for and funds research for Sanfilippo syndrome (MONDO:0009656).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "atlas:org-cure-sanfilippo-foundation",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation advocates for and funds research for Sanfilippo syndrome (MONDO:0009657).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009658",
+   "target": "atlas:org-cure-sanfilippo-foundation",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation advocates for and funds research for Sanfilippo syndrome (MONDO:0009658).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011945",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011945.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009265.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009266",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009266.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009267",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009267.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009268",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009268.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0008199",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0008199.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0007488",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0007488.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0010526.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017694",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017694.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018485",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0018485.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009290.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009756.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011871",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011871.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009757",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009757.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016306",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016306.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016307",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016307.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016308",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016308.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016310",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016310.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016309",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016309.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011873",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011873.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010100",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0010100.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017724",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017724.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017726",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017726.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017725",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017725.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0010006.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017722",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017722.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017723",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017723.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017721",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017721.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011758",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011758.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011759",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011759.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011760",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0011760.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0001586.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009499",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009499.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016089",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016089.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016090",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016090.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016091",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016091.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009591",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009591.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017730",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017730.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0017729",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0017729.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009655",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009655.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009656",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009656.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009657.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009658",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0009658.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0010674.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016315",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016315.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0016316",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0016316.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0018937.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0014665",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0014665.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0014687",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0014687.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0019200",
+   "target": "atlas:org-eurordis-rare-diseases-europe",
+   "relation": "advocated_by",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS represents rare-disease patient organisations across diseases including MONDO:0019200.",
+   "contradicts": false
+  },
+  {
+   "source": "atlas:org-cure-sanfilippo-foundation",
+   "target": "atlas:asset-csf-research-grant-program",
+   "relation": "provides",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation architects and funds Sanfilippo research projects and clinical trials.",
+   "contradicts": false
+  },
+  {
+   "source": "atlas:org-cure-sanfilippo-foundation",
+   "target": "atlas:asset-csf-family-network",
+   "relation": "provides",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "manual",
+   "source_ref": "https://curesanfilippofoundation.org",
+   "date": "2026-10-03",
+   "note": "Cure Sanfilippo Foundation runs a global Sanfilippo family network.",
+   "contradicts": false
+  },
+  {
+   "source": "atlas:org-eurordis-rare-diseases-europe",
+   "target": "atlas:asset-eurordis-member-network",
+   "relation": "provides",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS provides a member network of 960+ rare-disease patient organisations in 74 countries.",
+   "contradicts": false
+  },
+  {
+   "source": "atlas:org-eurordis-rare-diseases-europe",
+   "target": "atlas:asset-rare-disease-day",
+   "relation": "provides",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "manual",
+   "source_ref": "https://www.eurordis.org",
+   "date": "2026-10-03",
+   "note": "EURORDIS founded and lead-coordinates Rare Disease Day.",
+   "contradicts": false
+  }
+ ]
+}
