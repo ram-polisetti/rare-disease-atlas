@@ -1,0 +1,1811 @@
+[
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "caused_by_variant_in",
+  "object": "guanine-adenine-adenine (GAA)-trinucleotide repeat",
+  "pmid": "9630233",
+  "source_quote": "The classic form of autosomal recessive ataxia, Friedreich's ataxia (FA), is now known to be due to an intronic expansion of a guanine-adenine-adenine (GAA)-trinucleotide repeat.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SCA-3",
+  "relation": "presents_with",
+  "object": "abnormal ataxin-3",
+  "pmid": "9630233",
+  "source_quote": "In SCA-3, abnormal ataxin-3 is aggregated in neuronal nuclei",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SCA-6",
+  "relation": "presents_with",
+  "object": "abnormal calcium channel function",
+  "pmid": "9630233",
+  "source_quote": "in SCA-6, a mutated alpha1A-calcium channel protein is the likely cause of abnormal calcium channel function in Purkinje cells and in the death of these neurons.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "presents_with",
+  "object": "ataxia with retained or brisk reflexes",
+  "pmid": "14653404",
+  "source_quote": "the phenotype associated with the FA mutation is much wider than that defined by clinical criteria and includes ataxia with retained or brisk reflexes as well as late onset ataxia with or without retained reflexes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "caused_by_variant_in",
+  "object": "unstable GAA expansion",
+  "pmid": "14653404",
+  "source_quote": "It is now clear that the unstable GAA expansion that underlies FA causes a deficiency of the mitochondrial protein frataxin",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "unstable GAA expansion",
+  "relation": "disrupts",
+  "object": "mitochondrial protein frataxin",
+  "pmid": "14653404",
+  "source_quote": "the unstable GAA expansion that underlies FA causes a deficiency of the mitochondrial protein frataxin",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GAA",
+  "relation": "associated_with",
+  "object": "Pompe disease",
+  "pmid": "31076647",
+  "source_quote": "Our results provide insights into GAA gene mutation profiles and the relationship between GAA and Pompe disease in Asian populations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "caused_by_variant_in",
+  "object": "c.[1726G>A; 2965G>A]",
+  "pmid": "31076647",
+  "source_quote": "it was difficult to distinguish newborns with c.[1726G>A; 2965G>A] alleles from newborns with pre-symptomatic Pompe disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich ataxia",
+  "relation": "caused_by_variant_in",
+  "object": "intoronic GAA repeat expansions",
+  "pmid": "12235812",
+  "source_quote": "In Japan, Friedreich ataxia with intoronic GAA repeat expansions has not been known.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "NPD type A and B",
+  "pmid": "38397448",
+  "source_quote": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "associated_with",
+  "object": "NPD type C",
+  "pmid": "38397448",
+  "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "associated_with",
+  "object": "NPD type C",
+  "pmid": "38397448",
+  "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type B",
+  "relation": "presents_with",
+  "object": "interstitial lung disease",
+  "pmid": "38397448",
+  "source_quote": "lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Olipudase \u03b1",
+  "relation": "studied_in",
+  "object": "ASMD",
+  "pmid": "38397448",
+  "source_quote": "Enzyme replacement therapy with Olipudase \u03b1 is the first and only approved disease-modifying therapy for patients with ASMD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "miglustat",
+  "relation": "studied_in",
+  "object": "NPD type C",
+  "pmid": "38397448",
+  "source_quote": "The only approved disease-modifying therapy in NPD type C is miglustat, a substrate-reduction treatment.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "Acid Sphingomyelinase Deficiency",
+  "pmid": "37069638",
+  "source_quote": "Acid Sphingomyelinase Deficiency (ASMD) is a rare autosomal recessive disorder caused by mutations in the SMPD1 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "presents_with",
+  "object": "fatal infantile neurovisceral disorder",
+  "pmid": "37069638",
+  "source_quote": "The clinical spectrum of ASMD, although a continuum, varies substantially with subtypes ranging from a fatal infantile neurovisceral disorder to an adult-onset chronic visceral disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "acid sphingomyelinase-deficient Niemann-Pick disease",
+  "pmid": "23622394",
+  "source_quote": "acid sphingomyelinase-deficient Niemann-Pick disease (ASM-deficient NPD) resulting from mutations in the SMPD1 gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "23622394",
+  "source_quote": "Niemann-Pick disease type C (NP-C) including also type D, resulting from mutations in either the NPC1 or the NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Type A NPD",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "25987176",
+  "source_quote": "Type A NPD patients exhibit hepatosplenomegaly in infancy and profound central nervous system involvement.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Type B",
+  "relation": "presents_with",
+  "object": "pathologic alterations of their lungs",
+  "pmid": "25987176",
+  "source_quote": "Type B patients also have hepatosplenomegaly and pathologic alterations of their lungs, but there are usually no central nervous system signs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "types A and B NPD",
+  "pmid": "28164782",
+  "source_quote": "All patients with types A and B NPD have mutations in the gene encoding ASM (SMPD1)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Type A NPD",
+  "relation": "presents_with",
+  "object": "profound CNS involvement",
+  "pmid": "28164782",
+  "source_quote": "Type A NPD patients exhibit hepatosplenomegaly in infancy and profound CNS involvement.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Type B",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "28164782",
+  "source_quote": "Type B patients also have hepatosplenomegaly and pathologic alterations of their lungs",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "associated_with",
+  "object": "Niemann-Pick type C disease",
+  "pmid": "37003582",
+  "source_quote": "Acid sphingomyelinase deficiency (ASMD) and Niemann-Pick type C disease (NPCD) are caused by specific variants of the sphingomyelin phosphodiesterase 1 (SMPD1) and NPC intracellular cholesterol transporter 1 (NPC1) or NPC intracellular cholesterol transporter 2 (NPC2) genes",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD Type A",
+  "relation": "presents_with",
+  "object": "infantile neurological form",
+  "pmid": "20040312",
+  "source_quote": "The clinical spectrum of this disorder ranges from the infantile neurological form that results in death by 3 years of age (NPD Type A) to the non-neurological form that is compatible with survival into adulthood (NPD Type B).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "ASM-deficient NPD",
+  "pmid": "20040312",
+  "source_quote": "over 100 mutations in SMPD1 have been found to cause ASM-deficient NPD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "non-neurological ASM-deficient NPD",
+  "pmid": "20040312",
+  "source_quote": "clinical trials of ERT are underway in patients with non-neurological ASM-deficient NPD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "presents_with",
+  "object": "interstitial lung disease",
+  "pmid": "41043473",
+  "source_quote": "In ASMD, ILD is frequent and is usually associated with spleen and/or liver enlargement, low platelet count, and low level of high-density lipoprotein cholesterol.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "presents_with",
+  "object": "exertional dyspnea",
+  "pmid": "41043473",
+  "source_quote": "An history of lower respiratory tract infections and exertional dyspnea are the most frequent respiratory manifestations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "olipudase alfa",
+  "relation": "studied_in",
+  "object": "type B or AB",
+  "pmid": "41043473",
+  "source_quote": "An enzyme replacement therapy (ERT), based on intravenous recombinant enzyme infusions (olipudase alfa), is available from 2021 with very encouraging results both in pediatric and adult patients affected with type B or AB.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Types A and B",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "26499107",
+  "source_quote": "Niemann-Pick Types A and B (NPA/B) diseases are autosomal recessive lysosomal storage disorders caused by the deficient activity of acid sphingomyelinase (ASM) because of the mutations in the SMPD1 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "p.R610del",
+  "relation": "associated_with",
+  "object": "NP disease type B",
+  "pmid": "26499107",
+  "source_quote": "The most frequently reported mutation worldwide is the p.R610del, clearly associated with an attenuated NP disease type B phenotype.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Acid sphingomyelinase deficiency",
+  "relation": "accumulates_in",
+  "object": "sphingomyelin",
+  "pmid": "40414757",
+  "source_quote": "It is a lysosomal storage disease that leads to the accumulation of sphingomyelin mainly in macrophages",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Acid sphingomyelinase deficiency",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "40414757",
+  "source_quote": "resulting in a multisystemic phenotype, primarily manifesting as hepatosplenomegaly and pulmonary involvement.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Type A NPD",
+  "relation": "presents_with",
+  "object": "frequent pulmonary infections",
+  "pmid": "27491215",
+  "source_quote": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "type C NPD",
+  "relation": "presents_with",
+  "object": "Impaired intracellular trafficking of cholesterol",
+  "pmid": "27491215",
+  "source_quote": "Impaired intracellular trafficking of cholesterol causes type C NPD",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "encodes",
+  "object": "Acid sphingomyelinase",
+  "pmid": "25803076",
+  "source_quote": "In mammals, the expression of a single gene, SMPD1, results in two forms of the enzyme",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "Niemann-Pick disease B",
+  "pmid": "25803076",
+  "source_quote": "Polymorphisms or mutations of SMPD1 lead to decreased S-ASM activity, as detected in patients with Niemann-Pick disease B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "24262184",
+  "source_quote": "Examples of risk genes include the two lysosomal enzyme coding genes GBA and SMPD1, which are associated with a 5-fold and 9-fold increased risk of PD, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "24262184",
+  "source_quote": "Examples of risk genes include the two lysosomal enzyme coding genes GBA and SMPD1, which are associated with a 5-fold and 9-fold increased risk of PD, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "encodes",
+  "object": "ASM",
+  "pmid": "31155842",
+  "source_quote": "Recessive mutations in SMPD1, the gene encoding ASM, cause Niemann-Pick Disease Types A and B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "Niemann-Pick Disease Types A and B",
+  "pmid": "31155842",
+  "source_quote": "Recessive mutations in SMPD1, the gene encoding ASM, cause Niemann-Pick Disease Types A and B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "acid sphingomyelinase deficiency",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "41076598",
+  "source_quote": "Acid sphingomyelinase deficiency is an ultra-rare disease characterised by generalised storage of sphingomyelin, caused by deficiency of the lysosomal enzyme acid sphingomyelinase, owing to the presence of biallelic pathogenic variants in the SMPD1 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "acid sphingomyelinase deficiency",
+  "relation": "presents_with",
+  "object": "anaemia",
+  "pmid": "41076598",
+  "source_quote": "Patients show variable degrees of anaemia, thrombocytopenia and lipid abnormalities, among other findings.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "olipudase alfa",
+  "relation": "studied_in",
+  "object": "acid sphingomyelinase deficiency type B and A/B",
+  "pmid": "41076598",
+  "source_quote": "In 2022, a specific enzyme replacement therapy with olipudase alfa was approved, and the results available indicate that it changed the therapeutic landscape for patients with acid sphingomyelinase deficiency type B and A/B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher",
+  "relation": "accumulates_in",
+  "object": "glucocerebroside",
+  "pmid": "42450239",
+  "source_quote": "This review focuses on Gaucher, Niemann-Pick (types A, B, A/B) and Fabry diseases, selected because they exhibit clinically significant cardiovascular manifestations and each accumulates a distinct sphingolipid-glucocerebroside, sphingomyelin, or globotriaosylceramide",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick",
+  "relation": "accumulates_in",
+  "object": "sphingomyelin",
+  "pmid": "42450239",
+  "source_quote": "This review focuses on Gaucher, Niemann-Pick (types A, B, A/B) and Fabry diseases, selected because they exhibit clinically significant cardiovascular manifestations and each accumulates a distinct sphingolipid-glucocerebroside, sphingomyelin, or globotriaosylceramide",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry diseases",
+  "relation": "accumulates_in",
+  "object": "globotriaosylceramide",
+  "pmid": "42450239",
+  "source_quote": "This review focuses on Gaucher, Niemann-Pick (types A, B, A/B) and Fabry diseases, selected because they exhibit clinically significant cardiovascular manifestations and each accumulates a distinct sphingolipid-glucocerebroside, sphingomyelin, or globotriaosylceramide",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "accumulation and aggregation of misfolded \u03b1-synuclein",
+  "pmid": "32098196",
+  "source_quote": "Parkinson's disease, the most common neurodegenerative movement disorder, is characterized by the accumulation and aggregation of misfolded \u03b1-synuclein",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "31761667",
+  "source_quote": "Genes such as GBA and LRRK2, which harbor some of the most common mutations associated with PD, have essential roles in the ALP.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "SNCA",
+  "relation": "encodes",
+  "object": "\u03b1-synuclein",
+  "pmid": "31761667",
+  "source_quote": "\u03b1-synuclein, encoded by the SNCA gene, is degraded mainly by the ALP",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "mutations/multiplications in SNCA",
+  "relation": "disrupts",
+  "object": "chaperone mediated autophagy",
+  "pmid": "31761667",
+  "source_quote": "mutations/multiplications in SNCA may lead to impairment of chaperone mediated autophagy or other ALP functions.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "30514648",
+  "source_quote": "Acid sphingomyelinase deficiency (ASMD), a rare lysosomal storage disease, results from mutations in SMPD1",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "accumulates_in",
+  "object": "sphingomyelin",
+  "pmid": "30514648",
+  "source_quote": "As a result, sphingomyelin accumulates in multiple organs including spleen, liver, lung, bone marrow, lymph nodes, and in the most severe form, in the CNS and peripheral nerves.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "olipudase alfa",
+  "relation": "studied_in",
+  "object": "ASMD",
+  "pmid": "30514648",
+  "source_quote": "There is currently no disease-specific treatment for ASMD, although enzyme replacement therapy with a recombinant human ASM (olipudase alfa) is in clinical development.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "30726573",
+  "source_quote": "However, recently, many additional lysosomal storage disorder genes have been similarly implicated, including SMPD1, ATP13A2, GALC, and others.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "23290778",
+  "source_quote": "Mutations in the ASM gene (SMPD1) result in the rare lysosomal storage disorder, Niemann-Pick disease (NPD).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "rhASM",
+  "relation": "studied_in",
+  "object": "NPD",
+  "pmid": "23290778",
+  "source_quote": "Of note, recombinant human ASM (rhASM) has been produced for human use and is being evaluated as a treatment for NPD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "c.1361C>A (p. Ala454Asp)",
+  "pmid": "41991317",
+  "source_quote": "Next-generation sequencing revealed heterozygous SMPD1 mutations c.1361C>A (p. Ala454Asp) and c.1666C>T (p. His556Tyr).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SMPD1",
+  "relation": "associated_with",
+  "object": "c.1666C>T (p. His556Tyr)",
+  "pmid": "41991317",
+  "source_quote": "Next-generation sequencing revealed heterozygous SMPD1 mutations c.1361C>A (p. Ala454Asp) and c.1666C>T (p. His556Tyr).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type A",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "38397448",
+  "source_quote": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type B",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "38397448",
+  "source_quote": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "38397448",
+  "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "38397448",
+  "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type B",
+  "relation": "presents_with",
+  "object": "recurrent pulmonary infections",
+  "pmid": "38397448",
+  "source_quote": "lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type B",
+  "relation": "presents_with",
+  "object": "respiratory failure",
+  "pmid": "38397448",
+  "source_quote": "lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASMD",
+  "relation": "treated_by",
+  "object": "Olipudase \u03b1",
+  "pmid": "38397448",
+  "source_quote": "Enzyme replacement therapy with Olipudase \u03b1 is the first and only approved disease-modifying therapy for patients with ASMD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPD type C",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "38397448",
+  "source_quote": "The only approved disease-modifying therapy in NPD type C is miglustat, a substrate-reduction treatment.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "20525256",
+  "source_quote": "The most characteristic sign is vertical supranuclear gaze palsy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "cerebellar ataxia",
+  "pmid": "20525256",
+  "source_quote": "The neurological disorder consists mainly of cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "progressive dementia",
+  "pmid": "20525256",
+  "source_quote": "The neurological disorder consists mainly of cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "20525256",
+  "source_quote": "NP-C is transmitted in an autosomal recessive manner and is caused by mutations of either the NPC1 (95% of families) or the NPC2 genes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "20525256",
+  "source_quote": "NP-C is transmitted in an autosomal recessive manner and is caused by mutations of either the NPC1 (95% of families) or the NPC2 genes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "20525256",
+  "source_quote": "A first product, miglustat, has been granted marketing authorization in Europe and several other countries for specific treatment of the neurological manifestations.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASM-deficient NPD",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "23622394",
+  "source_quote": "acid sphingomyelinase-deficient Niemann-Pick disease (ASM-deficient NPD) resulting from mutations in the SMPD1 gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "23622394",
+  "source_quote": "Niemann-Pick disease type C (NP-C) including also type D, resulting from mutations in either the NPC1 or the NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "presents_with",
+  "object": "cerebellar ataxia",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "presents_with",
+  "object": "progressive dementia",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "progressive neurodegenerative disorder",
+  "pmid": "25946402",
+  "source_quote": "clinically presents as a progressive neurodegenerative disorder.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "accumulates_in",
+  "object": "sphingosine",
+  "pmid": "25946402",
+  "source_quote": "Niemann-Pick disease type C is a rare, devastating, inherited lysosomal storage disease with a unique cellular phenotype characterized by lysosomal accumulation of sphingosine, various glycosphingolipids and cholesterol",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "accumulates_in",
+  "object": "cholesterol",
+  "pmid": "25946402",
+  "source_quote": "Niemann-Pick disease type C is a rare, devastating, inherited lysosomal storage disease with a unique cellular phenotype characterized by lysosomal accumulation of sphingosine, various glycosphingolipids and cholesterol",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "37003582",
+  "source_quote": "Acid sphingomyelinase deficiency (ASMD) and Niemann-Pick type C disease (NPCD) are caused by specific variants of the sphingomyelin phosphodiesterase 1 (SMPD1) and NPC intracellular cholesterol transporter 1 (NPC1) or NPC intracellular cholesterol transporter 2 (NPC2) genes",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "37003582",
+  "source_quote": "Acid sphingomyelinase deficiency (ASMD) and Niemann-Pick type C disease (NPCD) are caused by specific variants of the sphingomyelin phosphodiesterase 1 (SMPD1) and NPC intracellular cholesterol transporter 1 (NPC1) or NPC intracellular cholesterol transporter 2 (NPC2) genes",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "accumulates_in",
+  "object": "unesterified cholesterol",
+  "pmid": "12974729",
+  "source_quote": "At the cellular level, the disorder is characterized by accumulation of unesterified cholesterol and glycolipids in the lysosomal/late endosomal system.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "encodes",
+  "object": "a large membrane glycoprotein",
+  "pmid": "12974729",
+  "source_quote": "Approximatively 95% of patients have mutations in the NPC1 gene (mapped at 18q11) which encodes a large membrane glycoprotein primarily located to late endosomes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "encodes",
+  "object": "a small soluble lysosomal protein",
+  "pmid": "12974729",
+  "source_quote": "The remainder have mutations in the NPC2 gene (mapped at 14q24.3) which encodes a small soluble lysosomal protein with cholesterol-binding properties.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "25145893",
+  "source_quote": "Niemann Pick disease type C (NP-C) is a rare autosomal recessive disorder that results from mutations in either the NPC1 or the NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "25145893",
+  "source_quote": "Niemann Pick disease type C (NP-C) is a rare autosomal recessive disorder that results from mutations in either the NPC1 or the NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "associated_with",
+  "object": "NPC1",
+  "pmid": "27421092",
+  "source_quote": "Homozygous mutations in these proteins lead to a lysosomal lipid storage disorder, Niemann-Pick disease type C.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "associated_with",
+  "object": "NPC2",
+  "pmid": "27421092",
+  "source_quote": "Homozygous mutations in these proteins lead to a lysosomal lipid storage disorder, Niemann-Pick disease type C.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "severe visceral and neurologic involvement",
+  "pmid": "22378675",
+  "source_quote": "Niemann-Pick disease type C, an autosomal recessive lysosomal storage disorder, can present with severe visceral and neurologic involvement",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "seizure",
+  "pmid": "22378675",
+  "source_quote": "Perianesthetic morbidity included need for tracheal reintubation, pneumonitis, hypothermia, and seizure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "29625568",
+  "source_quote": "Niemann-Pick Type C (NPC) is a progressive and life limiting autosomal recessive disorder caused by mutations in either the NPC1 or NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Type C",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "29625568",
+  "source_quote": "Niemann-Pick Type C (NPC) is a progressive and life limiting autosomal recessive disorder caused by mutations in either the NPC1 or NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early infantile form of NPC",
+  "relation": "presents_with",
+  "object": "visceromegaly",
+  "pmid": "32709131",
+  "source_quote": "Extra-neuronal features were common; visceromegaly reported in 80/89 NPC1 and in 15/16 NPC2, prolonged jaundice in 30/89 NPC1 and 7/16 NPC2.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early infantile form of NPC",
+  "relation": "presents_with",
+  "object": "prolonged jaundice",
+  "pmid": "32709131",
+  "source_quote": "Extra-neuronal features were common; visceromegaly reported in 80/89 NPC1 and in 15/16 NPC2, prolonged jaundice in 30/89 NPC1 and 7/16 NPC2.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early infantile form of NPC",
+  "relation": "presents_with",
+  "object": "Developmental delay",
+  "pmid": "32709131",
+  "source_quote": "Developmental delay and hypotonia were the commonest first detected neurological symptoms reported in 39/89 and 18/89 NPC1, and in 8/16 and 10/16 NPC2, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early infantile form of NPC",
+  "relation": "presents_with",
+  "object": "hypotonia",
+  "pmid": "32709131",
+  "source_quote": "Developmental delay and hypotonia were the commonest first detected neurological symptoms reported in 39/89 and 18/89 NPC1, and in 8/16 and 10/16 NPC2, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "accumulates_in",
+  "object": "free cholesterol",
+  "pmid": "21235443",
+  "source_quote": "Several types of lipids including free cholesterol (unesterified), sphingosine, sphingomyelin, phospholipids and glycosphingolipids (glucosylceramide and gangliosides GM2 and GM3) are accumulated in lysosomes and late endosomes of cells",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "presents_with",
+  "object": "progressive neurological deterioration",
+  "pmid": "21235443",
+  "source_quote": "Clinical symptoms include progressive neurological deterioration and visceral organomegaly.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "presents_with",
+  "object": "visceral organomegaly",
+  "pmid": "21235443",
+  "source_quote": "Clinical symptoms include progressive neurological deterioration and visceral organomegaly.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "2-hydroxypropyl-\u03b2-cyclodextrin",
+  "relation": "studied_in",
+  "object": "NPC",
+  "pmid": "36356931",
+  "source_quote": "A biocompatible cholesterol solubilizer 2-hydroxypropyl-\u03b2-cyclodextrin (HP-\u03b2-CD) was recently used in NPC patients for compassionate use and in clinical trials.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HP\u03b2CD",
+  "relation": "studied_in",
+  "object": "NPC1",
+  "pmid": "29065825",
+  "source_quote": "Animal investigations of 2-hydroxypropyl-\u03b2-cyclodextrins (HP\u03b2CD) in NPC1 in mice demonstrated that HP\u03b2CD does not cross the blood-brain barrier in significant amounts",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HP\u03b2-CD",
+  "relation": "studied_in",
+  "object": "NPC",
+  "pmid": "32428546",
+  "source_quote": "This review is focused on the novelty of CD based materials for NPC treatment.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "26014711",
+  "source_quote": "Typically, hepatosplenomegaly, dystaxia, dysphagia, dysarthria and dementia are presented in NPC patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "presents_with",
+  "object": "dysphagia",
+  "pmid": "26014711",
+  "source_quote": "Typically, hepatosplenomegaly, dystaxia, dysphagia, dysarthria and dementia are presented in NPC patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "26014711",
+  "source_quote": "Neurologic symptoms vary according to the onset age, but prolonged neonatal cholestasis, splenomegaly, cataplexy and vertical supranuclear gaze palsy are more specific signs to the diagnosis of the disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "26014711",
+  "source_quote": "Impaired cholesterol trafficking and unesterified cholesterol accumulation in the late endosomes and lysosomals, as a results of mutations in NPC1 or NPC2 genes, are initial for the disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "26014711",
+  "source_quote": "Impaired cholesterol trafficking and unesterified cholesterol accumulation in the late endosomes and lysosomals, as a results of mutations in NPC1 or NPC2 genes, are initial for the disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC",
+  "relation": "treated_by",
+  "object": "Miglustat",
+  "pmid": "26014711",
+  "source_quote": "Miglustat, the only available treatment approved to date, can alleviate neurological symptoms and slow disease progression when administered earlier.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "25784942",
+  "source_quote": "It is an autosomal recessive disorder, caused by mutations in the NPC1 or NPC2 genes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC2",
+  "pmid": "25784942",
+  "source_quote": "It is an autosomal recessive disorder, caused by mutations in the NPC1 or NPC2 genes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NP-C",
+  "relation": "accumulates_in",
+  "object": "cholesterol",
+  "pmid": "25784942",
+  "source_quote": "Niemann-Pick disease (NP-C) is a lysosomal storage disease in which impaired intracellular lipid transport leads to accumulation of cholesterol and glycosphingolipids in various neurovisceral tissues.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Disease Type C",
+  "relation": "presents_with",
+  "object": "progressive neurological impairment",
+  "pmid": "19566836",
+  "source_quote": "The condition manifests as progressive neurological impairment and leads to death at an early age.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "associated_with",
+  "object": "Niemann-Pick Disease Type C",
+  "pmid": "19566836",
+  "source_quote": "Mutations in the NPC1 gene cause approximately 95% of cases of NPC",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "associated_with",
+  "object": "Niemann-Pick Disease Type C",
+  "pmid": "19566836",
+  "source_quote": "mutations in the NPC2 gene account for the remainder of cases.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "disrupts",
+  "object": "calcium-mediated fusion of endosomes with lysosomes",
+  "pmid": "19566836",
+  "source_quote": "Loss-of-function mutations in the NPC1 gene lead to a failure of the calcium-mediated fusion of endosomes with lysosomes",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease Type C1",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "33445799",
+  "source_quote": "Clinical manifestations include neurological symptoms and systemic symptoms, such as hepatosplenomegaly and pulmonary manifestations",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "presents_with",
+  "object": "pulmonary manifestations",
+  "pmid": "33445799",
+  "source_quote": "Clinical manifestations include neurological symptoms and systemic symptoms, such as hepatosplenomegaly and pulmonary manifestations, the latter being particularly pronounced in NPC2 patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "cerebellar ataxia",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "progressive dementia",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "cholestatic jaundice",
+  "pmid": "20525256",
+  "source_quote": "The neurological involvement defines the disease severity in most patients but is typically preceded by systemic signs (cholestatic jaundice in the neonatal period or isolated spleno- or hepatosplenomegaly in infancy or childhood).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "cataplexy",
+  "pmid": "20525256",
+  "source_quote": "Cataplexy, seizures and dystonia are other common features.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "miglustat",
+  "relation": "studied_in",
+  "object": "Niemann-Pick C disease",
+  "pmid": "20525256",
+  "source_quote": "A first product, miglustat, has been granted marketing authorization in Europe and several other countries for specific treatment of the neurological manifestations.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "encodes",
+  "object": "large membrane glycoprotein",
+  "pmid": "12974729",
+  "source_quote": "the NPC1 gene (mapped at 18q11) which encodes a large membrane glycoprotein primarily located to late endosomes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "encodes",
+  "object": "small soluble lysosomal protein",
+  "pmid": "12974729",
+  "source_quote": "the NPC2 gene (mapped at 14q24.3) which encodes a small soluble lysosomal protein with cholesterol-binding properties.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Disease",
+  "relation": "presents_with",
+  "object": "interstitial lung disease",
+  "pmid": "38397448",
+  "source_quote": "lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick Disease",
+  "relation": "presents_with",
+  "object": "recurrent pulmonary infections",
+  "pmid": "38397448",
+  "source_quote": "lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "dysphagia",
+  "pmid": "23039766",
+  "source_quote": "Typical neurological manifestations include vertical supranuclear gaze palsy, saccadic eye movement abnormalities, cerebellar ataxia, dystonia, dysmetria, dysphagia and dysarthria.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C disease",
+  "relation": "presents_with",
+  "object": "schizophrenia-like psychosis",
+  "pmid": "23928063",
+  "source_quote": "For one third of cases, it can also express as an isolated psychiatric-disorder form, such as schizophrenia-like psychosis (paranoid delusions, auditory hallucinations, interpretative thoughts, and disorganization), depression, bipolar disorder, obsessive-compulsive behaviour and behavioural problems",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C disease",
+  "relation": "presents_with",
+  "object": "auditory hallucinations",
+  "pmid": "23928063",
+  "source_quote": "For one third of cases, it can also express as an isolated psychiatric-disorder form, such as schizophrenia-like psychosis (paranoid delusions, auditory hallucinations, interpretative thoughts, and disorganization), depression, bipolar disorder, obsessive-compulsive behaviour and behavioural problems",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C disease",
+  "relation": "presents_with",
+  "object": "bipolar disorder",
+  "pmid": "23928063",
+  "source_quote": "For one third of cases, it can also express as an isolated psychiatric-disorder form, such as schizophrenia-like psychosis (paranoid delusions, auditory hallucinations, interpretative thoughts, and disorganization), depression, bipolar disorder, obsessive-compulsive behaviour and behavioural problems",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "cognitive impairment",
+  "pmid": "26998855",
+  "source_quote": "An increasing number of adolescent/adult-onset cases have been reported following initial recognition of cognitive impairment and/or psychiatric signs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Miglustat",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "25784942",
+  "source_quote": "Therapy is mostly supportive and since 2009, the first specific therapy approved for use was Miglustat (Zavesca) aimed at stabilizing the rate of progression of neurological manifestation.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "associated_with",
+  "object": "cholesterol transport",
+  "pmid": "31098815",
+  "source_quote": "studies have implicated the coordinated action of NPC1 and NPC2 in intralysosomal transport and efflux of cholesterol.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "associated_with",
+  "object": "cholesterol transport",
+  "pmid": "31098815",
+  "source_quote": "studies have implicated the coordinated action of NPC1 and NPC2 in intralysosomal transport and efflux of cholesterol.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "gelastic cataplexy",
+  "pmid": "22572546",
+  "source_quote": "Characteristic neurological manifestations of NP-C include saccadic eye movement (SEM) abnormalities or vertical supranuclear gaze palsy (VSGP), cerebellar signs (ataxia, dystonia/dysmetria, dysarthria and dysphagia) and gelastic cataplexy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "Epileptic seizures",
+  "pmid": "22572546",
+  "source_quote": "Epileptic seizures are also common in affected patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "dementia",
+  "pmid": "26014711",
+  "source_quote": "Typically, hepatosplenomegaly, dystaxia, dysphagia, dysarthria and dementia are presented in NPC patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC1",
+  "relation": "disrupts",
+  "object": "cholesterol trafficking",
+  "pmid": "26014711",
+  "source_quote": "Impaired cholesterol trafficking and unesterified cholesterol accumulation in the late endosomes and lysosomals, as a results of mutations in NPC1 or NPC2 genes, are initial for the disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "disrupts",
+  "object": "cholesterol trafficking",
+  "pmid": "26014711",
+  "source_quote": "Impaired cholesterol trafficking and unesterified cholesterol accumulation in the late endosomes and lysosomals, as a results of mutations in NPC1 or NPC2 genes, are initial for the disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "2-hydroxypropyl-\u03b2-cyclodextrin",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease type C1",
+  "pmid": "24283970",
+  "source_quote": "This paper describes one of the first TRND programs, the development of 2-hydroxypropyl-\u03b2-cyclodextrin (HP-\u03b2-CD) for the treatment of Niemann-Pick disease type C1 (NPC1).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C1",
+  "relation": "presents_with",
+  "object": "swallowing problems",
+  "pmid": "24283970",
+  "source_quote": "Affected individuals typically exhibit ataxia, swallowing problems, seizures, and progressive impairment of motor and intellectual function in early childhood",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C",
+  "relation": "presents_with",
+  "object": "broad phenotypic spectrum",
+  "pmid": "37567876",
+  "source_quote": "NPC patients can present with a broad phenotypic spectrum, with differences at the age of onset, rate of progression, severity, organs involved, effects on the central nervous system, and even response to pharmacological treatments.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "c.141C > A",
+  "pmid": "28095804",
+  "source_quote": "Molecular analysis revealed homozygous mutation c.141C > A in exon 2 of NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "caused_by_variant_in",
+  "object": "T > C transition in intron 1",
+  "pmid": "28095804",
+  "source_quote": "Homozygous T > C transition in intron 1 of the NPC2 gene was identified.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "alveolar proteinosis",
+  "pmid": "28095804",
+  "source_quote": "Our study demonstrates that NPC2 can present in early years of life with pulmonary complications like alveolar proteinosis and hepatosplenomegaly or hepatomegaly due to mutation in NPC2 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "failure to thrive",
+  "pmid": "28095804",
+  "source_quote": "Case-1, a 14-months-old female presented with recurrent respiratory distress, failure to thrive and hepatosplenomegaly.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "recurrent respiratory distress",
+  "pmid": "28095804",
+  "source_quote": "Case-1, a 14-months-old female presented with recurrent respiratory distress, failure to thrive and hepatosplenomegaly.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "progressive neurodegeneration",
+  "pmid": "38136141",
+  "source_quote": "The mutation of NPC1 and NPC2 genes induces Niemann-Pick disease type C (NPDC), which is a hereditary disease and causes progressive neurodegeneration, developmental disability, hypotonia, and ataxia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "developmental disability",
+  "pmid": "38136141",
+  "source_quote": "The mutation of NPC1 and NPC2 genes induces Niemann-Pick disease type C (NPDC), which is a hereditary disease and causes progressive neurodegeneration, developmental disability, hypotonia, and ataxia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "hypotonia",
+  "pmid": "38136141",
+  "source_quote": "The mutation of NPC1 and NPC2 genes induces Niemann-Pick disease type C (NPDC), which is a hereditary disease and causes progressive neurodegeneration, developmental disability, hypotonia, and ataxia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "defective lysosomal calcium homeostasis",
+  "pmid": "20059748",
+  "source_quote": "Niemann-Pick disease type C is a complex lysosomal storage disorder caused by mutations in either the NPC1 or NPC2 genes that is characterized at the cellular level by the storage of multiple lipids, defective lysosomal calcium homeostasis and unique trafficking defects.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "caused_by_variant_in",
+  "object": "HEXA",
+  "pmid": "1834320",
+  "source_quote": "It results from mutations of the HEXA gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "encodes",
+  "object": "alpha subunit of beta-hexosaminidase",
+  "pmid": "1834320",
+  "source_quote": "HEXA gene encoding the alpha subunit of beta-hexosaminidase",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "ganglioside accumulation in lysosomes",
+  "pmid": "1834320",
+  "source_quote": "producing a destructive ganglioside accumulation in lysosomes, principally in neurons.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "irreversible brain damage",
+  "pmid": "40710901",
+  "source_quote": "The inability to break down these lipids leads to their progressive accumulation, resulting in irreversible brain damage.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "encodes",
+  "object": "alpha subunit of hexosaminidase A",
+  "pmid": "40710901",
+  "source_quote": "HEXA gene, which encodes the alpha subunit of hexosaminidase A.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "caused_by_variant_in",
+  "object": "HEXB",
+  "pmid": "40710901",
+  "source_quote": "Sandhoff disease, a related disorder caused by mutations in the HEXB gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "encodes",
+  "object": "beta subunit",
+  "pmid": "40710901",
+  "source_quote": "HEXB gene, which encodes the beta subunit shared by hexosaminidase A and B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gemfibrozil",
+  "relation": "studied_in",
+  "object": "Tay-Sachs disease",
+  "pmid": "40710901",
+  "source_quote": "Certain compounds, such as gemfibrozil, have shown potential to slow symptom progression.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "associated_with",
+  "object": "HEXB",
+  "pmid": "8411702",
+  "source_quote": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "lack the activity or formation of both hexosaminidase A and B",
+  "pmid": "8411702",
+  "source_quote": "Patients with the defect lack the activity or formation of both hexosaminidase A and B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "disrupts",
+  "object": "3' splice acceptor site",
+  "pmid": "8411702",
+  "source_quote": "point mutation of the HEXB gene, creating a new 3' splice acceptor site.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "associated_with",
+  "object": "GM2 gangliosidosis",
+  "pmid": "1825792",
+  "source_quote": "The biochemistry of HEXA and HEXB gene mutations causing GM2 gangliosidosis.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "associated_with",
+  "object": "GM2 gangliosidosis",
+  "pmid": "1825792",
+  "source_quote": "The biochemistry of HEXA and HEXB gene mutations causing GM2 gangliosidosis.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs Disease",
+  "relation": "presents_with",
+  "object": "neuronal storage of GM2 ganglioside",
+  "pmid": "3549015",
+  "source_quote": "Defects in either three components results in the neuronal storage of GM2 ganglioside and the manifestations of Tay-Sachs Disease in children or motor neuron disease in adults.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "acute neurodegeneration",
+  "pmid": "30524313",
+  "source_quote": "Tay-Sachs disease is characterized by acute neurodegeneration preceded by activated microglia expansion, macrophage and astrocyte activation along with inflammatory mediator production.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "muscle weakness",
+  "pmid": "30524313",
+  "source_quote": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "ataxia",
+  "pmid": "30524313",
+  "source_quote": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "miglustat",
+  "relation": "studied_in",
+  "object": "Tay-Sachs disease",
+  "pmid": "30524313",
+  "source_quote": "There are also clinical reports of substrate reduction therapy using miglustat and bone marrow or hematopoietic stem cell transplantation.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "associated_with",
+  "object": "Tay-Sachs disease",
+  "pmid": "11339652",
+  "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "associated_with",
+  "object": "Sandhoff disease",
+  "pmid": "11339652",
+  "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidoses",
+  "relation": "presents_with",
+  "object": "accumulation of GM2 ganglioside in neuronal cells",
+  "pmid": "11339652",
+  "source_quote": "The GM2 gangliosidoses are a group of recessive disorders characterized by accumulation of GM2 ganglioside in neuronal cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "associated_with",
+  "object": "beta-hexosaminidase A",
+  "pmid": "10571007",
+  "source_quote": "two of these proteins are the alpha- (HEXA gene) and beta- (HEXB) subunits of beta-hexosaminidase A",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "associated_with",
+  "object": "beta-hexosaminidase A",
+  "pmid": "10571007",
+  "source_quote": "two of these proteins are the alpha- (HEXA gene) and beta- (HEXB) subunits of beta-hexosaminidase A",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2-gangliosidosis",
+  "relation": "presents_with",
+  "object": "storage of the ganglioside, primarily in the lysosomes of neuronal cells",
+  "pmid": "10571007",
+  "source_quote": "A deficiency of any one of these proteins leads to storage of the ganglioside, primarily in the lysosomes of neuronal cells, and one of the three forms of GM2-gangliosidosis, Tay-Sachs disease, Sandhoff disease or the AB-variant form.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "PARK2",
+  "relation": "associated_with",
+  "object": "ASD",
+  "pmid": "36738194",
+  "source_quote": "PD gene PARK2 copy number variations appear more frequently in ASD cases than controls.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "RIT2",
+  "relation": "associated_with",
+  "object": "ASD",
+  "pmid": "36738194",
+  "source_quote": "Evidence suggests that RIT2 and CD157/BST1 are implicated in ASD and PD",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "RIT2",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "36738194",
+  "source_quote": "Evidence suggests that RIT2 and CD157/BST1 are implicated in ASD and PD",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "ATP13A2",
+  "relation": "associated_with",
+  "object": "autistic behavior",
+  "pmid": "36738194",
+  "source_quote": "Rare mutations, such as ATP13A2, CLN3, and WDR45, could result in autistic behavior and concomitant parkinsonism.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "ATP13A2",
+  "relation": "associated_with",
+  "object": "parkinsonism",
+  "pmid": "36738194",
+  "source_quote": "Rare mutations, such as ATP13A2, CLN3, and WDR45, could result in autistic behavior and concomitant parkinsonism.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type A",
+  "relation": "associated_with",
+  "object": "acid sphingomyelinase",
+  "pmid": "10608504",
+  "source_quote": "Cells from both human and murine Niemann-Pick disease type A have been studied to assess the role of acid sphingomyelinase in signal transduction pathways involving cell proliferation, differentiation, and apoptosis.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "type A disease",
+  "relation": "presents_with",
+  "object": "nervous system involvement",
+  "pmid": "10608504",
+  "source_quote": "Lysosphingomyelin has been implicated in the nervous system involvement associated with type A disease in humans",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease, type C",
+  "relation": "presents_with",
+  "object": "cholesterol trafficking defect",
+  "pmid": "27923544",
+  "source_quote": "These led initially to identification of the cholesterol trafficking defect in the mouse, and then in human Niemann-Pick disease, type C (NPC).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann Pick disease Type C",
+  "relation": "presents_with",
+  "object": "accumulation of lipids in the cells",
+  "pmid": "32428546",
+  "source_quote": "Niemann Pick disease Type C (NPC) is a recessive rare disease caused by the mutation on NPC1 and/or NPC2 genes changing the processing of the Low-density proteins (LDL) resulting in an accumulation of lipids in the cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann Pick disease Type C",
+  "relation": "treated_by",
+  "object": "cyclodextrins",
+  "pmid": "32428546",
+  "source_quote": "Among all the treatments proposed the use of cyclodextrins (CDs), nanocarriers which can complex cholesterol, is one of the most useful alternatives.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "2-hydroxypropyl-\u03b2-CD",
+  "relation": "studied_in",
+  "object": "NPC",
+  "pmid": "32428546",
+  "source_quote": "Indeed, for several years 2-hydroxypropyl-\u03b2-CD (HP\u03b2-CD) is approved as orphan drug for FDA and EMA to the treatment.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "Impaired egress of cholesterol",
+  "pmid": "25425283",
+  "source_quote": "Impaired egress of cholesterol from the late endosomal/lysosomal (LE/L) compartment is a specific and key element of the pathogenesis",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "neurodegenerative disease",
+  "pmid": "25425283",
+  "source_quote": "Although a neurovisceral disorder, it is above all a neurodegenerative disease in the vast majority of patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "lysosomal cholesterol trafficking and lipid storage disorder",
+  "pmid": "27339554",
+  "source_quote": "Niemann-Pick disease type C (NP-C) is a neurovisceral lysosomal cholesterol trafficking and lipid storage disorder caused by mutations in one of the two genes, NPC1 or NPC2.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease, type C",
+  "relation": "associated_with",
+  "object": "NPC1",
+  "pmid": "23530428",
+  "source_quote": "Niemann-Pick disease, type C is a rare hereditary disorder of the group of lisosomal storage diseases, caused by mutations in the genes NPC1 or NPC2.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease, type C",
+  "relation": "associated_with",
+  "object": "NPC2",
+  "pmid": "23530428",
+  "source_quote": "Niemann-Pick disease, type C is a rare hereditary disorder of the group of lisosomal storage diseases, caused by mutations in the genes NPC1 or NPC2.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "presents_with",
+  "object": "neurodegeneration",
+  "pmid": "15465429",
+  "source_quote": "the underlying events that lead to neurodegeneration",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease type C",
+  "relation": "associated_with",
+  "object": "deregulated cholesterol trafficking",
+  "pmid": "19660552",
+  "source_quote": "deregulated cholesterol trafficking appears to be involved in the pathogenesis of Alzheimer's disease (AD), Parkinson's disease (PD) and Niemann-Pick disease type C (NPC) diseases",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "repeat expansion diseases",
+  "relation": "caused_by_variant_in",
+  "object": "expansions of simple sequence repeats",
+  "pmid": "29325606",
+  "source_quote": "are caused by expansions of simple sequence repeats dispersed throughout the human genome",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "C9ORF72",
+  "relation": "associated_with",
+  "object": "amyotrophic lateral sclerosis",
+  "pmid": "29325606",
+  "source_quote": "the most common genetic cause of amyotrophic lateral sclerosis/frontotemporal dementia (C9ORF72)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "C9ORF72",
+  "relation": "associated_with",
+  "object": "frontotemporal dementia",
+  "pmid": "29325606",
+  "source_quote": "the most common genetic cause of amyotrophic lateral sclerosis/frontotemporal dementia (C9ORF72)",
+  "confidence": "high",
+  "contradicts": false
+ }
+]

@@ -1,0 +1,1415 @@
+[
+ {
+  "subject": "Krabbe's disease",
+  "relation": "associated_with",
+  "object": "globoid cell leukodystrophy",
+  "pmid": "9422247",
+  "source_quote": "globoid cell leukodystrophy or Krabbe's disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Krabbe's disease",
+  "pmid": "27638611",
+  "source_quote": "This Review discusses the relative merits of stem cell therapy, molecular chaperone therapy, gene therapy, substrate reduction therapy, enzyme replacement therapy, and combination therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "associated_with",
+  "object": "Krabbe disease",
+  "pmid": "40500501",
+  "source_quote": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "white matter atrophy",
+  "pmid": "40500501",
+  "source_quote": "the diseases have in common white matter atrophy caused by the loss of oligodendrocytes and myelin",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "caused_by_variant_in",
+  "object": "GALC",
+  "pmid": "34449528",
+  "source_quote": "Krabbe disease is an autosomal recessive leukodystrophy caused by pathogenic variants in the galactocerebrosidase (GALC) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "hematopoietic stem cell transplantation",
+  "relation": "studied_in",
+  "object": "Krabbe disease",
+  "pmid": "34449528",
+  "source_quote": "Treatment of pre-symptomatic or mildly symptomatic patients at this time is limited to hematopoietic stem cell transplantation.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "psychosine",
+  "relation": "accumulates_in",
+  "object": "Krabbe's disease",
+  "pmid": "27638582",
+  "source_quote": "Krabbe's disease (KD), or globoid cell leukodystrophy, was one of the first sphingolipidosis for which the raft concept offered a potential mechanism. KD is caused by mutations in the enzyme \u03b2-galactocerebrosidase; however, elevation of its substrate, galactosylceramide, is not observed or considered detrimental. Instead, it was found that a byproduct of galactosylceramide metabolism, the lysosphingolipid psychosine, is accumulated.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "psychosine",
+  "relation": "disrupts",
+  "object": "lipid rafts",
+  "pmid": "27638582",
+  "source_quote": "psychosine disrupts lipid rafts and vesicular transport critical for the function of glia and neurons",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "presents_with",
+  "object": "demyelination",
+  "pmid": "27638584",
+  "source_quote": "Krabbe's disease (KD; also called globoid cell leukodystrophy) is a genetic disorder involving demyelination of the central (CNS) and peripheral (PNS) nervous systems.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "galactoceramide",
+  "relation": "accumulates_in",
+  "object": "Krabbe's disease",
+  "pmid": "27638584",
+  "source_quote": "KD is an autosomal recessive disorder caused by a deficiency of galactocerebrosidase activity in lysosomes, leading to accumulation of galactoceramide and neurotoxic galactosylsphingosine (psychosine [PSY]) in macrophages (globoid cells) as well as neural cells, especially in oligodendrocytes and Schwann cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "abnormal neurophysiologic studies",
+  "pmid": "15326231",
+  "source_quote": "Children with early infantile Krabbe disease and late-onset Krabbe disease have different patterns of abnormalities in neurophysiologic studies.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycosphingolipid",
+  "relation": "accumulates_in",
+  "object": "Krabbe disease",
+  "pmid": "32808655",
+  "source_quote": "In lysosomal storage diseases such as Gaucher Disease, Fabry Disease, Krabbe disease, GM1 -and GM2 gangliosidosis, Niemann Pick type C and Metachromatic leukodystrophy massive intra-lysosomal glycosphingolipid accumulation occurs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycosphingolipid",
+  "relation": "accumulates_in",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "32808655",
+  "source_quote": "In lysosomal storage diseases such as Gaucher Disease, Fabry Disease, Krabbe disease, GM1 -and GM2 gangliosidosis, Niemann Pick type C and Metachromatic leukodystrophy massive intra-lysosomal glycosphingolipid accumulation occurs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ARSA",
+  "relation": "associated_with",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "26462614",
+  "source_quote": "The disease is caused by variants in the ARSA gene, which codes for the lysosomal enzyme arylsulfatase A, or, more rarely, in the PSAP gene, which codes for the activator protein saposin B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "PSAP",
+  "relation": "associated_with",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "26462614",
+  "source_quote": "The disease is caused by variants in the ARSA gene, which codes for the lysosomal enzyme arylsulfatase A, or, more rarely, in the PSAP gene, which codes for the activator protein saposin B.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "progressive demyelination",
+  "pmid": "26462614",
+  "source_quote": "Metachromatic leukodystrophy is a neurodegenerative disorder characterized by progressive demyelination.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ex vivo gene therapy",
+  "relation": "studied_in",
+  "object": "MLD",
+  "pmid": "38613540",
+  "source_quote": "In early onset MLD, including late infantile and early juvenile subtypes, ex vivo gene therapy should be considered for presymptomatic patients where available",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "hematopoietic cell transplant",
+  "relation": "studied_in",
+  "object": "MLD",
+  "pmid": "38613540",
+  "source_quote": "In late-onset MLD, including late juvenile and adult subtypes, hematopoietic cell transplant (HCT) should be considered for patients with no or minimal disease involvement.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "demyelination",
+  "pmid": "40577679",
+  "source_quote": "MLD is characterized by demyelination and neurodegeneration of the central and peripheral nervous system",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "progressive motor and cognitive defects",
+  "pmid": "40577679",
+  "source_quote": "MLD is characterized by demyelination and neurodegeneration of the central and peripheral nervous system, manifesting as progressive motor and cognitive defects in affected individuals.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "sulfatides",
+  "relation": "accumulates_in",
+  "object": "MLD",
+  "pmid": "40577679",
+  "source_quote": "Metachromatic leukodystrophy (MLD) is a rare autosomal recessive lysosomal storage disorder caused by disease-causing variants in the gene coding for arylsulfatase A, leading to deficient enzyme activity and subsequent accumulation of sulfatides.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "hematopoietic stem cell gene therapy",
+  "relation": "studied_in",
+  "object": "MLD",
+  "pmid": "40577679",
+  "source_quote": "the development of novel therapeutic approaches, including hematopoietic stem cell gene therapy, which is now authorized in the EU, United Kingdom, and United States as treatment for selected patients with early-onset forms of MLD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Allogenic haematopoietic stem cell transplantation",
+  "relation": "studied_in",
+  "object": "metachromatic leukodystrophy",
+  "pmid": "40279833",
+  "source_quote": "Allogenic haematopoietic stem cell transplantation (HSCT), used since the 1980s, has shown efficacy in specific leukodystrophies, such as adrenoleukodystrophy and metachromatic leukodystrophy, when administered early.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "atidarsagene autotemcel",
+  "relation": "studied_in",
+  "object": "MLD",
+  "pmid": "40279833",
+  "source_quote": "Gene therapy has become a viable option, with ex vivo approaches like atidarsagene autotemcel providing promising outcomes for early-onset MLD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "Rapid motor decline",
+  "pmid": "20571983",
+  "source_quote": "Rapid motor decline is typical for the first and also the second forms",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "cognitive and behavioural problems",
+  "pmid": "20571983",
+  "source_quote": "the second may be preceded by cognitive and behavioural problems, which mainly characterize the adult form.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "stem cell transplantation",
+  "relation": "studied_in",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "20571983",
+  "source_quote": "Interest in the disease has increased as therapeutic options such as stem cell transplantation, enzyme replacement and gene therapy are topics of current research.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement",
+  "relation": "studied_in",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "20571983",
+  "source_quote": "Interest in the disease has increased as therapeutic options such as stem cell transplantation, enzyme replacement and gene therapy are topics of current research.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Metachromatic leukodystrophy",
+  "pmid": "20571983",
+  "source_quote": "Interest in the disease has increased as therapeutic options such as stem cell transplantation, enzyme replacement and gene therapy are topics of current research.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "Pompe disease",
+  "pmid": "29152458",
+  "source_quote": "Examples include glycogen in the case of Pompe disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "imiglucerase",
+  "relation": "studied_in",
+  "object": "Gaucher disease",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "idursulfase",
+  "relation": "studied_in",
+  "object": "Hunter disease",
+  "pmid": "29152458",
+  "source_quote": "idursulfase for Hunter disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "alglucosidase alfa",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "29152458",
+  "source_quote": "alglucosidase alfa for Pompe disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "agalsidase alfa and beta",
+  "relation": "studied_in",
+  "object": "Fabry disease",
+  "pmid": "29152458",
+  "source_quote": "agalsidase alfa and beta for Fabry disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "eliglustat",
+  "relation": "studied_in",
+  "object": "Gaucher disease",
+  "pmid": "29152458",
+  "source_quote": "substrate reduction therapy has been approved for certain disorders, such as eliglustat for Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SHANK3",
+  "relation": "associated_with",
+  "object": "Phelan-McDermid syndrome",
+  "pmid": "31879555",
+  "source_quote": "Phelan-McDermid syndrome (PMS) is caused by haploinsufficiency of the SHANK3 gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Phelan-McDermid syndrome",
+  "relation": "presents_with",
+  "object": "intellectual disability",
+  "pmid": "31879555",
+  "source_quote": "is characterized by intellectual disability, hypotonia, severe speech impairments, and autism spectrum disorder.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Phelan-McDermid syndrome",
+  "relation": "presents_with",
+  "object": "hypotonia",
+  "pmid": "31879555",
+  "source_quote": "is characterized by intellectual disability, hypotonia, severe speech impairments, and autism spectrum disorder.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Phelan-McDermid syndrome",
+  "relation": "presents_with",
+  "object": "severe speech impairments",
+  "pmid": "31879555",
+  "source_quote": "is characterized by intellectual disability, hypotonia, severe speech impairments, and autism spectrum disorder.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Phelan-McDermid syndrome",
+  "relation": "presents_with",
+  "object": "autism spectrum disorder",
+  "pmid": "31879555",
+  "source_quote": "is characterized by intellectual disability, hypotonia, severe speech impairments, and autism spectrum disorder.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "atidarsagene autotemcel",
+  "relation": "studied_in",
+  "object": "early-onset MLD",
+  "pmid": "36811406",
+  "source_quote": "Here, we review the preclinical and clinical studies that facilitated the approval of the ex vivo gene therapy atidarsagene autotemcel for early-onset MLD by the European Medicines Agency (EMA) in December 2020.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "central and peripheral nervous system demyelination",
+  "pmid": "36811406",
+  "source_quote": "The main clinical signs of the disease are secondary to central and peripheral nervous system demyelination.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "hematopoietic stem cell transplantation",
+  "relation": "studied_in",
+  "object": "late-onset MLD",
+  "pmid": "36811406",
+  "source_quote": "The evidence for the efficacy of hematopoietic stem cell transplantation is limited to the late-onset MLD subtype.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "damage of the myelin sheath",
+  "pmid": "33195324",
+  "source_quote": "Metachromatic leukodystrophy is a lysosomal storage disease, which is characterized by damage of the myelin sheath that covers most of nerve fibers of the central and peripheral nervous systems.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "progressive motor and cognitive deficiency",
+  "pmid": "33195324",
+  "source_quote": "The disease occurs due to a deficiency of the lysosomal enzyme arylsulfatase A (ARSA) or its sphingolipid activator protein B (SapB) and it clinically manifests as progressive motor and cognitive deficiency.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ARSA",
+  "relation": "encodes",
+  "object": "arylsulfatase A",
+  "pmid": "25987178",
+  "source_quote": "Metachromatic leukodystrophy is an inherited lysosomal disorder caused by recessive mutations in ARSA encoding arylsulfatase A.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "sulfatides",
+  "relation": "accumulates_in",
+  "object": "central and peripheral nervous system",
+  "pmid": "25987178",
+  "source_quote": "Low activity of arylsulfatase A results in the accumulation of sulfatides in the central and peripheral nervous system leading to demyelination.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "early-onset MLD",
+  "pmid": "38554683",
+  "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HSCT",
+  "relation": "studied_in",
+  "object": "late-onset MLD",
+  "pmid": "38554683",
+  "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "progressive neurodegeneration",
+  "pmid": "38554683",
+  "source_quote": "As a result affected individuals exhibit progressive neurodegeneration.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "HSCT",
+  "relation": "studied_in",
+  "object": "Metachromatic Leukodystrophy",
+  "pmid": "39322389",
+  "source_quote": "In this chapter, we explore the rationale, indication, and outcome of HSCT in Cerebral Adrenoleukodystrophy (CALD), Metachromatic Leukodystrophy (MLD), Krabbe Disease (KD), and Adult-onset Leukoencephalopathy with Axonal Spheroids and Pigmented Glia (ALSP), which are among the most frequent leukodystrophies.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "motor symptoms and developmental delay",
+  "pmid": "38494502",
+  "source_quote": "Typically, patients with late-infantile MLD presented predominantly with motor symptoms and developmental delay; patients with juvenile MLD presented with motor, cognitive, and behavioral symptoms; and patients with adult MLD presented with cognitive symptoms and psychiatric and mood disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "motor, cognitive, and behavioral symptoms",
+  "pmid": "38494502",
+  "source_quote": "Typically, patients with late-infantile MLD presented predominantly with motor symptoms and developmental delay; patients with juvenile MLD presented with motor, cognitive, and behavioral symptoms; and patients with adult MLD presented with cognitive symptoms and psychiatric and mood disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "cognitive symptoms and psychiatric and mood disorders",
+  "pmid": "38494502",
+  "source_quote": "Typically, patients with late-infantile MLD presented predominantly with motor symptoms and developmental delay; patients with juvenile MLD presented with motor, cognitive, and behavioral symptoms; and patients with adult MLD presented with cognitive symptoms and psychiatric and mood disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MLD",
+  "relation": "presents_with",
+  "object": "ataxia",
+  "pmid": "38494502",
+  "source_quote": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "MLD",
+  "relation": "presents_with",
+  "object": "epilepsy",
+  "pmid": "38494502",
+  "source_quote": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "MLD",
+  "relation": "presents_with",
+  "object": "neuropathy",
+  "pmid": "38494502",
+  "source_quote": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "19524782",
+  "source_quote": "Susceptibility genes including alpha-synuclein, leucine rich repeat kinase 2 (LRRK-2), and glucocerebrosidase (GBA) have shown that genetic predisposition is another important causal factor.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "severe pars-compacta nigral-cell loss",
+  "pmid": "19524782",
+  "source_quote": "It is characterised by the presence of severe pars-compacta nigral-cell loss, and accumulation of aggregated alpha-synuclein in specific brain stem, spinal cord, and cortical regions.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Dopamine replacement therapy",
+  "relation": "studied_in",
+  "object": "Parkinson's disease",
+  "pmid": "19524782",
+  "source_quote": "Dopamine replacement therapy considerably reduces motor handicap, and effective treatment of associated depression, pain, constipation, and nocturnal difficulties can improve quality of life.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "encodes",
+  "object": "glucocerebrosidase",
+  "pmid": "35455941",
+  "source_quote": "The GBA gene encodes for the lysosomal enzyme glucocerebrosidase (GCase), which maintains glycosphingolipid homeostasis.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "associated_with",
+  "object": "Parkinson disease",
+  "pmid": "35455941",
+  "source_quote": "Approximately 5-15% of PD patients have mutations in the GBA gene, making it numerically the most important genetic risk factor for Parkinson disease (PD).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "disrupts",
+  "object": "alpha-synuclein metabolism",
+  "pmid": "35455941",
+  "source_quote": "Mutations in the GBA gene may lead to loss of GCase activity and lysosomal dysfunction, which may impair alpha-synuclein metabolism.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glycosphingolipids",
+  "relation": "accumulates_in",
+  "object": "GBA-associated PD",
+  "pmid": "35455941",
+  "source_quote": "This dysfunction can also lead to aberrant lipid metabolism, including the accumulation of glycosphingolipids, glucosylceramide and glucosylsphingosine.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "degeneration of the substantia nigra pars compacta",
+  "pmid": "34236893",
+  "source_quote": "Parkinson's disease (PD) is a common neurodegenerative disorder characterized by degeneration of the substantia nigra pars compacta and by accumulation of \u03b1-synuclein in Lewy bodies.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "accumulation of \u03b1-synuclein in Lewy bodies",
+  "pmid": "34236893",
+  "source_quote": "Parkinson's disease (PD) is a common neurodegenerative disorder characterized by degeneration of the substantia nigra pars compacta and by accumulation of \u03b1-synuclein in Lewy bodies.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Alzheimer's disease",
+  "relation": "presents_with",
+  "object": "accumulation of amyloid-beta (A\u03b2) plaques and hyperphosphorylated tau tangles",
+  "pmid": "38337696",
+  "source_quote": "Alzheimer's disease (AD), the most prevalent form of dementia, is characterized by the accumulation of amyloid-beta (A\u03b2) plaques and hyperphosphorylated tau tangles.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy to correct mutated GBA",
+  "relation": "studied_in",
+  "object": "Parkinson's disease",
+  "pmid": "40409318",
+  "source_quote": "An ongoing trial of gene therapy to correct mutated GBA in patients with Parkinson's disease and GBA mutations is the first to use gene therapy to try to correct a genetic cause of Parkinson's disease in human beings.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA mutations",
+  "relation": "disrupts",
+  "object": "\u03b1-syn clearance",
+  "pmid": "25820783",
+  "source_quote": "Although the mechanism for this association remains elusive, some hypotheses have been proposed to explain it, including gain of function caused by GBA mutations, which increases \u03b1-synuclein (\u03b1-syn) aggregation, loss of function due to lysosomal enzyme deficiency, which affects \u03b1-syn clearance, and even a bidirectional feedback loop, but each of these hypotheses has its limitations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Attention deficit hyperactivity disorder",
+  "relation": "presents_with",
+  "object": "difficulty maintaining attention, impulsivity, and hyperactivity",
+  "pmid": "39339712",
+  "source_quote": "Attention deficit hyperactivity disorder (ADHD) is the most common childhood-onset neurodevelopmental disorder, characterized by difficulty maintaining attention, impulsivity, and hyperactivity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ASD",
+  "relation": "presents_with",
+  "object": "behavioral and gastrointestinal (GI) symptoms",
+  "pmid": "40218893",
+  "source_quote": "Dysbiosis, or an imbalance in the microbiota, has been linked to both behavioral and gastrointestinal (GI) symptoms in individuals with ASD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Dietary modifications",
+  "relation": "studied_in",
+  "object": "ASD",
+  "pmid": "40218893",
+  "source_quote": "Dietary modifications, such as gluten-free or antioxidant-rich diets, have shown potential for improving gut health and alleviating behavioral symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fecal microbiota transplantation",
+  "relation": "studied_in",
+  "object": "ASD",
+  "pmid": "40218893",
+  "source_quote": "Fecal microbiota transplantation (FMT) is being considered, particularly for individuals with persistent GI symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "associated_with",
+  "object": "dementia with Lewy bodies",
+  "pmid": "35332438",
+  "source_quote": "Glucocerebrosidase (GBA) gene may be a risk factor for dementia with Lewy bodies (DLB).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "dementia with Lewy bodies",
+  "relation": "presents_with",
+  "object": "cognitive impairment",
+  "pmid": "35332438",
+  "source_quote": "Patients harbouring GBA variants have an earlier age of onset, more severe cognitive impairment, and rapid symptom progression",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "dementia with Lewy bodies",
+  "relation": "presents_with",
+  "object": "rapid symptom progression",
+  "pmid": "35332438",
+  "source_quote": "Patients harbouring GBA variants have an earlier age of onset, more severe cognitive impairment, and rapid symptom progression",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA",
+  "relation": "encodes",
+  "object": "lysosomal enzyme",
+  "pmid": "23079555",
+  "source_quote": "Mutations in the glucocerebrosidase (GBA) gene, which encodes the lysosomal enzyme that is deficient in Gaucher's disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GBA mutations",
+  "relation": "disrupts",
+  "object": "\u03b1-synuclein processing and clearance",
+  "pmid": "23079555",
+  "source_quote": "substrate accumulation due to enzymatic loss-of-function, which affects \u03b1-synuclein processing and clearance",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "caused_by_variant_in",
+  "object": "GBA",
+  "pmid": "38413480",
+  "source_quote": "Gaucher disease (GD) is a rare lysosomal storage disease that is caused by mutations in the GBA gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "chronic neuronopathic GD",
+  "relation": "presents_with",
+  "object": "progressive neurological damage",
+  "pmid": "38413480",
+  "source_quote": "chronic neuronopathic GD (GD3) is characterized by progressive neurological damage.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "bradykinesia",
+  "pmid": "42162439",
+  "source_quote": "It is clinically defined by its cardinal motor features of bradykinesia, rest tremor and rigidity",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "rest tremor",
+  "pmid": "42162439",
+  "source_quote": "It is clinically defined by its cardinal motor features of bradykinesia, rest tremor and rigidity",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "presents_with",
+  "object": "rigidity",
+  "pmid": "42162439",
+  "source_quote": "It is clinically defined by its cardinal motor features of bradykinesia, rest tremor and rigidity",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Parkinson's disease",
+  "relation": "treated_by",
+  "object": "levodopa",
+  "pmid": "42162439",
+  "source_quote": "levodopa is still considered the gold-standard of symptomatic efficacy",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "tavapadon",
+  "relation": "studied_in",
+  "object": "PD",
+  "pmid": "42162439",
+  "source_quote": "tavapadon, a selective dopamine D1/D5 receptor partial agonist, was shown to be efficacious as monotherapy in early PD and adjunct to levodopa in patients with motor fluctuations.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "PD-GBA",
+  "relation": "presents_with",
+  "object": "cognitive decline",
+  "pmid": "30363594",
+  "source_quote": "There is a higher prevalence of cognitive decline and more rapid trajectory of disease progression in PD-GBA carriers, compared to noncarriers.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "PD-GBA",
+  "relation": "presents_with",
+  "object": "visual memory",
+  "pmid": "30363594",
+  "source_quote": "PD-GBA carriers also have domain-specific cognitive impairment, particularly in visual memory tasks.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "perinatal lethal Gaucher disease",
+  "relation": "presents_with",
+  "object": "hydrops fetalis",
+  "pmid": "36220738",
+  "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "perinatal lethal Gaucher disease",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "36220738",
+  "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "perinatal lethal Gaucher disease",
+  "relation": "presents_with",
+  "object": "thrombocytopenia",
+  "pmid": "36220738",
+  "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "perinatal lethal Gaucher disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "36220738",
+  "source_quote": "We report a case of perinatal lethal Gaucher disease treated with enzyme replacement therapy (ERT) who survived for 9 months",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "hypertrophic cardiomyopathy",
+  "pmid": "33172708",
+  "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "stroke",
+  "pmid": "33172708",
+  "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "chronic kidney disease",
+  "pmid": "33172708",
+  "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "accumulates_in",
+  "object": "globotriaosyl-ceramide",
+  "pmid": "40840785",
+  "source_quote": "Fabry disease or Anderson-Fabry disease is an X-linked lysosomal storage disorder caused by a deficiency of \u03b1-galactosidase A (GLA), leading to systemic accumulation of globotriaosyl-ceramide (Gb3).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "left ventricular hypertrophy",
+  "pmid": "40840785",
+  "source_quote": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "heart failure",
+  "pmid": "40840785",
+  "source_quote": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "40840785",
+  "source_quote": "Management strategies are centered around enzyme replacement therapy",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "caused_by_variant_in",
+  "object": "GLA",
+  "pmid": "32640076",
+  "source_quote": "Fabry disease (FD) is an X-linked lysosomal storage disorder caused by pathogenic variants in the \u03b1-galactosidase A (GLA) gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "accumulates_in",
+  "object": "globotriaosylceramide",
+  "pmid": "32640076",
+  "source_quote": "progressive accumulation of globotriaosylceramide and its deacylated form globotriaosylsphingosine in cells throughout the body.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "cardiac hypertrophy",
+  "pmid": "32640076",
+  "source_quote": "Cardiac involvement is characterized by progressive cardiac hypertrophy, fibrosis, arrhythmias, heart failure and sudden cardiac death.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "arrhythmias",
+  "pmid": "32640076",
+  "source_quote": "Cardiac involvement is characterized by progressive cardiac hypertrophy, fibrosis, arrhythmias, heart failure and sudden cardiac death.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "Renal, cardiac, and neurovascular involvements",
+  "pmid": "28745569",
+  "source_quote": "Renal, cardiac, and neurovascular involvements are the main life-threatening complications",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLA",
+  "relation": "encodes",
+  "object": "\u03b1-galactosidase A",
+  "pmid": "26564084",
+  "source_quote": "mutations of the GLA gene that codes for \u03b1-galactosidase A",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "ischemic stroke",
+  "pmid": "26564084",
+  "source_quote": "patients have a markedly increased risk of developing ischemic stroke, small-fiber peripheral neuropathy, cardiac dysfunction and chronic kidney disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "small-fiber peripheral neuropathy",
+  "pmid": "26564084",
+  "source_quote": "patients have a markedly increased risk of developing ischemic stroke, small-fiber peripheral neuropathy, cardiac dysfunction and chronic kidney disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "neuropathic pain",
+  "pmid": "26835405",
+  "source_quote": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "gastrointestinal dysfunction",
+  "pmid": "26835405",
+  "source_quote": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "heat intolerance",
+  "pmid": "26835405",
+  "source_quote": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLA variants",
+  "relation": "associated_with",
+  "object": "Fabry disease",
+  "pmid": "38047356",
+  "source_quote": "This systematic review and meta-analysis aimed to investigate the prevalence of FD in high-risk populations and newborns and evaluate the impact of different GLA variant classifications on the estimated prevalence of FD.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Complex lymphatic anomalies",
+  "relation": "presents_with",
+  "object": "recurrent effusion",
+  "pmid": "25241096",
+  "source_quote": "Outcomes include recurrent effusion, infection, pain, fracture, mortality, and rarely, malignancy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "caused_by_variant_in",
+  "object": "GLA gene",
+  "pmid": "37918171",
+  "source_quote": "Fabry disease (FD) is an X-linked lysosomal storage disease caused by pathogenic variants in the GLA gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "kidney involvement",
+  "pmid": "37918171",
+  "source_quote": "One of the main features of FD is kidney involvement;",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "32183665",
+  "source_quote": "Fabry disease is an X-linked disorder of glycosphingolipid metabolism that results in progressive accumulation of neutral glycosphingolipids, predominantly globotriaosylsphingosine (Gb3) in lysosomes",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "acroparesthesias",
+  "pmid": "32183665",
+  "source_quote": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "hypohidrosis",
+  "pmid": "32183665",
+  "source_quote": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "angiokeratomas",
+  "pmid": "32183665",
+  "source_quote": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Anderson-Fabry disease",
+  "pmid": "32183665",
+  "source_quote": "The current treatment of Anderson-Fabry disease is represented by enzyme replacement therapy (ERT) and oral pharmacological chaperone.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "oral pharmacological chaperone",
+  "relation": "studied_in",
+  "object": "Anderson-Fabry disease",
+  "pmid": "32183665",
+  "source_quote": "The current treatment of Anderson-Fabry disease is represented by enzyme replacement therapy (ERT) and oral pharmacological chaperone.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "caused_by_variant_in",
+  "object": "GAA gene",
+  "pmid": "32745073",
+  "source_quote": "Pompe disease (PD) is a rare autosomal recessive disorder caused by mutations in the GAA gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GAA gene",
+  "relation": "encodes",
+  "object": "acid alpha-1,4-glucosidase",
+  "pmid": "32745073",
+  "source_quote": "GAA gene, localized on chromosome 17 and encoding for acid alpha-1,4-glucosidase (GAA).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "limb-girdle muscle weakness",
+  "pmid": "32745073",
+  "source_quote": "PD is a chronic and progressive pathology usually characterized by limb-girdle muscle weakness and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "respiratory failure",
+  "pmid": "32745073",
+  "source_quote": "PD is a chronic and progressive pathology usually characterized by limb-girdle muscle weakness and respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "37759679",
+  "source_quote": "Enzyme replacement therapy (ERT), which was introduced over 15 years ago, changes the natural progression of the disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "accumulates_in",
+  "object": "glycogen",
+  "pmid": "39418752",
+  "source_quote": "Pompe disease is a debilitating and life-threatening disease caused by aberrant accumulation of glycogen resulting from reduced acid alpha-glucosidase activity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Myozyme",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "39418752",
+  "source_quote": "The first treatment for Pompe disease, the enzyme replacement therapy, Myozyme\u00ae (recombinant human acid alpha-glucosidase, alglucosidase alfa), is a lifesaving treatment for the most severe form of the disease and provided clinically meaningful benefits to patients with milder phenotypes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "cardiac, motor, and respiratory dysfunctions",
+  "pmid": "39134822",
+  "source_quote": "Pathological glycogen storage, the hallmark of the disease, disrupts the metabolism and function of various cell types, especially muscle cells, leading to cardiac, motor, and respiratory dysfunctions.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "LOPD",
+  "relation": "presents_with",
+  "object": "muscle weakness",
+  "pmid": "39134822",
+  "source_quote": "LOPD, less severe due to partial GAA activity, appears in childhood, adolescence, or adulthood with muscle weakness and respiratory problems.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "LOPD",
+  "relation": "presents_with",
+  "object": "respiratory problems",
+  "pmid": "39134822",
+  "source_quote": "LOPD, less severe due to partial GAA activity, appears in childhood, adolescence, or adulthood with muscle weakness and respiratory problems.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "39134822",
+  "source_quote": "Notably, gene therapy using intravenous delivery of adeno-associated virus (AAV) vectors is in phase I/II clinical trials for both LOPD and IOPD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "avalglucosidase alfa",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "40237692",
+  "source_quote": "Efficacy and safety of avalglucosidase alfa in late-onset and infantile-onset PD are also discussed.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "cipaglucosidase alfa",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "40237692",
+  "source_quote": "A brief overview of the newest ERT, cipaglucosidase alfa, is also provided.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "spinocerebellar ataxia 27B",
+  "relation": "caused_by_variant_in",
+  "object": "FGF14",
+  "pmid": "38279833",
+  "source_quote": "spinocerebellar ataxia 27B (SCA27B) caused by a (GAA)\u2022(TTC) repeat expansion in intron 1 of the fibroblast growth factor 14 (FGF14) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "spinocerebellar ataxia 27B",
+  "relation": "presents_with",
+  "object": "downbeat nystagmus",
+  "pmid": "38279833",
+  "source_quote": "which consists of a late-onset slowly progressive pan-cerebellar syndrome that is frequently associated with cerebellar oculomotor signs, such as downbeat nystagmus, and episodic symptoms.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "4-aminopyridine",
+  "relation": "studied_in",
+  "object": "SCA27B",
+  "pmid": "38279833",
+  "source_quote": "preliminary studies in patients with SCA27B have shown promising symptomatic benefits of 4-aminopyridine",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SCA27B",
+  "relation": "presents_with",
+  "object": "diplopia",
+  "pmid": "38609751",
+  "source_quote": "The core phenotype of the disease consists of slowly progressive late-onset ataxia with cerebellar syndrome, oculomotor disorders including downbeat nystagmus, and episodic symptoms such as diplopia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "acetazolamide",
+  "relation": "studied_in",
+  "object": "SCA27B",
+  "pmid": "38609751",
+  "source_quote": "Therapeutic approaches have been proposed, including acetazolamide, and 4-aminopyridine, the latter with a better benefit/tolerance profile.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "caused_by_variant_in",
+  "object": "frataxin gene",
+  "pmid": "12878293",
+  "source_quote": "Friedreich's ataxia, the most common hereditary ataxia, is caused by expansion of a GAA triplet located within the first intron of the frataxin gene on chromosome 9q13.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "presents_with",
+  "object": "cardiomyopathy",
+  "pmid": "40541211",
+  "source_quote": "Common extraneural manifestations include cardiomyopathy, which is the most common cause of mortality, and also scoliosis and diabetes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "presents_with",
+  "object": "scoliosis",
+  "pmid": "40541211",
+  "source_quote": "Common extraneural manifestations include cardiomyopathy, which is the most common cause of mortality, and also scoliosis and diabetes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich's ataxia",
+  "relation": "presents_with",
+  "object": "diabetes",
+  "pmid": "40541211",
+  "source_quote": "Common extraneural manifestations include cardiomyopathy, which is the most common cause of mortality, and also scoliosis and diabetes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "FXN",
+  "relation": "associated_with",
+  "object": "Friedreich ataxia",
+  "pmid": "19320530",
+  "source_quote": "Friedreich ataxia (FA) is a progressive genetic neurological disorder associated with degeneration of the dorsal columns, spinocerebellar tracts and other regions of the nervous system. The disorder results from mutations in the gene referred to as FXN.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Friedreich ataxia",
+  "relation": "presents_with",
+  "object": "degeneration of the dorsal columns",
+  "pmid": "19320530",
+  "source_quote": "Friedreich ataxia (FA) is a progressive genetic neurological disorder associated with degeneration of the dorsal columns, spinocerebellar tracts and other regions of the nervous system.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "idebenone",
+  "relation": "studied_in",
+  "object": "Friedreich ataxia",
+  "pmid": "19320530",
+  "source_quote": "Idebenone is presently in a phase III trial in the US and in Europe, with the primary outcome measure being neurological function.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Deferiprone",
+  "relation": "studied_in",
+  "object": "Friedreich ataxia",
+  "pmid": "19320530",
+  "source_quote": "Deferiprone, an atypical iron chelator, may decrease build-up of toxic iron in the mitochondria in patients. It has entered a phase II trial in Europe, Australia and Canada directed toward improvement of neurological abilities.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "baclofen",
+  "relation": "studied_in",
+  "object": "Friedreich ataxia",
+  "pmid": "19320530",
+  "source_quote": "Symptomatic therapies are also in use for specific symptoms such as spasticity (baclofen).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "sphingolipidoses",
+  "pmid": "36835039",
+  "source_quote": "In this review, we discuss gene therapy approaches for sphingolipidoses that are currently being investigated in clinical trials",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sphingolipidoses",
+  "relation": "presents_with",
+  "object": "nervous system",
+  "pmid": "36835039",
+  "source_quote": "Enzyme deficiency results in accumulation of sphingolipids in various cell types, and the nervous system is also usually affected.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "inborn errors of metabolism",
+  "relation": "presents_with",
+  "object": "neurological dysfunction",
+  "pmid": "6807191",
+  "source_quote": "Inborn errors of metabolism often cause neurological dysfunction.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "undegradable material",
+  "relation": "accumulates_in",
+  "object": "metachromatic leukodystrophy",
+  "pmid": "31220974",
+  "source_quote": "Inherited defects of lysosomal hydrolases or lipid-binding proteins cause the accumulation of undegradable material in lysosomal storage diseases (GM1 and GM2 gangliosidosis; Fabry, Gaucher, and Krabbe diseases; and metachromatic leukodystrophy).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "small glycosphingolipids and cholesterol",
+  "relation": "accumulates_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "31220974",
+  "source_quote": "the pathological accumulation of primary storage compounds can trigger an accumulation of secondary storage compounds (e.g., small glycosphingolipids and cholesterol in Niemann-Pick disease).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "spinocerebellar ataxia type 27B",
+  "relation": "caused_by_variant_in",
+  "object": "FGF14",
+  "pmid": "38760634",
+  "source_quote": "This includes short-tandem repeat (STR) expansions in RFC1, causing cerebellar ataxia, neuropathy, vestibular areflexia syndrome (CANVAS), FGF14-GAA causing spinocerebellar ataxia type 27B (SCA27B), and THAP11.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "cerebellar ataxia, neuropathy, vestibular areflexia syndrome",
+  "relation": "caused_by_variant_in",
+  "object": "RFC1",
+  "pmid": "38760634",
+  "source_quote": "This includes short-tandem repeat (STR) expansions in RFC1, causing cerebellar ataxia, neuropathy, vestibular areflexia syndrome (CANVAS), FGF14-GAA causing spinocerebellar ataxia type 27B (SCA27B), and THAP11.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SCA4",
+  "relation": "caused_by_variant_in",
+  "object": "ZFHX3",
+  "pmid": "38760634",
+  "source_quote": "In addition, the genetic basis for SCA4, has recently been identified as a STR expansion in ZFHX3.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "spinocerebellar atrophy type 27B",
+  "relation": "caused_by_variant_in",
+  "object": "FGF14",
+  "pmid": "40983776",
+  "source_quote": "These additional causes include sporadic genetic disorders, such as spinocerebellar atrophy type 27B, caused by GAA expansion in the FGF14 gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "cerebellar ataxia with neuropathy and vestibular areflexia syndrome",
+  "relation": "caused_by_variant_in",
+  "object": "RFC1",
+  "pmid": "40983776",
+  "source_quote": "cerebellar ataxia with neuropathy and vestibular areflexia syndrome (CANVAS), caused by biallelic expansions in the RFC1 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLA",
+  "relation": "associated_with",
+  "object": "Fabry disease",
+  "pmid": "33160817",
+  "source_quote": "Fabry disease is an X-linked lysosomal storage disorder caused by pathogenic variants in the GLA gene",
+  "confidence": "high",
+  "contradicts": false
+ }
+]
