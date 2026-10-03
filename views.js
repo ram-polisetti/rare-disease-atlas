@@ -8,6 +8,11 @@
 
 function vEl(id) { return document.getElementById(id); }
 
+/* initOutreach: the outreach composer is wired via the showNode override below,
+ * so there is nothing to initialize — this no-op exists so viewsBoot() runs
+ * to completion (compare, assets, journey builder, night mode, a11y). */
+function initOutreach() {}
+
 /* ---------------- boot (waits for graph) ---------------- */
 
 function viewsBoot() {
