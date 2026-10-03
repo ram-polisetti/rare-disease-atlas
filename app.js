@@ -68,7 +68,9 @@ const state = {
   clusterOnly: false,
   recentOnly: false,
   strongOnly: false,
-  journeyStep: 0
+  journeyStep: 0,
+  selectedDisease: null,
+  lastNode: null
 };
 
 let net = null;        // explore vis-network
@@ -109,7 +111,7 @@ function displayName(n) {
   if (!cands.length) return label;
   // Prefer synonyms that read like disease names; never surface drug names
   // (e.g. MONDO lists "Aglucosidase alfa" as a synonym of Pompe disease).
-  const drugPat = /(alfa|beta|mab|nib|pase)\b/i;
+  const drugPat = /(alfa|beta|gamma|mab|nib|tinib|pase|zyme|plasm)\b/i;
   const diseasePat = /(disease|deficiency|syndrome|disorder|dystrophy|lipidosis|mucopolysaccharidosis|gangliosidosis)/i;
   const named = cands.filter(function (s) { return diseasePat.test(s) && !drugPat.test(s); });
   const pool = named.length ? named : cands.filter(function (s) { return !drugPat.test(s); });
@@ -130,7 +132,10 @@ function displayName(n) {
 function shortLabel(n, max) {
   max = max || 30;
   const d = displayName(n);
-  return d.length > max ? d.slice(0, max - 1) + '...' : d;
+  if (d.length <= max) return d;
+  const cut = d.slice(0, max - 1);
+  const sp = cut.lastIndexOf(' ');
+  return (sp > max * 0.5 ? cut.slice(0, sp) : cut) + '\u2026';
 }
 
 function humanize(s) {
@@ -186,12 +191,15 @@ function buildIndices() {
 }
 
 function init() {
-  el('loading').style.display = 'none';
-  el('graphMeta').textContent =
+  var loadingEl = el('loading');
+  if (loadingEl) loadingEl.style.display = 'none';
+  var metaEl = el('graphMeta');
+  if (metaEl) metaEl.textContent =
     GRAPH.nodes.length.toLocaleString() + ' nodes · ' +
     GRAPH.edges.length.toLocaleString() + ' edges · ' +
-    GRAPH.clusters.length + ' mechanism clusters';
-  el('footerStats').textContent =
+    (GRAPH.clusters || []).length + ' mechanism clusters';
+  var footEl = el('footerStats');
+  if (footEl) footEl.textContent =
     'Slice: ' + (GRAPH.meta && GRAPH.meta.slice ? GRAPH.meta.slice : 'rare diseases') + '.';
 
   buildTypeLegend();
@@ -236,6 +244,10 @@ function switchTab(name) {
   });
   document.querySelectorAll('.view').forEach(function (v) { v.hidden = true; });
   el('view-' + name).hidden = false;
+  if (name === 'action') {
+    const dsel = el('diseaseSelect');
+    if (dsel && state.selectedDisease && nodesById[state.selectedDisease]) dsel.value = state.selectedDisease;
+  }
   if (name === 'journey') {
     // Rebuild the journey canvas after it becomes visible so vis can measure it.
     renderJourneyStep(state.journeyStep);
@@ -247,6 +259,8 @@ function switchTab(name) {
 function initSearch() {
   const input = el('search');
   const box = el('suggestions');
+  if (input) { input.setAttribute('aria-controls', 'suggestions'); input.setAttribute('aria-autocomplete', 'list'); }
+  if (box) { box.setAttribute('role', 'listbox'); box.setAttribute('aria-label', 'Search suggestions'); }
   let items = [];
 
   function search(q) {
@@ -263,10 +277,15 @@ function initSearch() {
     });
     scored.sort(function (a, b) { return a[0] - b[0] || a[1].localeCompare(b[1]); });
     items = scored.slice(0, 8);
-    if (!items.length) { box.hidden = true; return; }
+    if (input) input.setAttribute('aria-expanded', items.length ? 'true' : 'false');
+    if (!items.length) {
+      box.innerHTML = '<div class="sug no-results" role="option" aria-selected="false">No matches found — try a different spelling</div>';
+      box.hidden = false;
+      return;
+    }
     box.innerHTML = items.map(function (it, i) {
       const n = nodesById[it[2]];
-      return '<button class="sug' + (i === 0 ? ' highlight' : '') + '" data-i="' + i + '">' +
+      return '<button class="sug' + (i === 0 ? ' highlight' : '') + '" data-i="' + i + '" role="option" aria-selected="' + (i === 0 ? 'true' : 'false') + '">' +
         '<span class="sug-type">' + esc(humanize(n.type)) + '</span>' +
         '<span class="sug-name">' + esc(displayName(n)) + '</span>' +
         '<span class="sug-sub">matched &ldquo;' + esc(synOrig[it[1]]) + '&rdquo;</span>' +
@@ -283,7 +302,7 @@ function initSearch() {
     input.value = '';
     state.center = id;
     state.hops = 1; state.clusterOnly = false;
-    el('hops1').classList.add('active'); el('hops2').classList.remove('active');
+    setHopsButtonsOnly(1);
     el('clusterOnly').checked = false;
     if (state.tab !== 'explore') switchTab('explore');
     renderExplore();
@@ -337,6 +356,8 @@ function setHops(h) {
   el('hops2').classList.toggle('active', h === 1 ? false : true);
   el('hops1').setAttribute('aria-checked', h === 1 ? 'true' : 'false');
   el('hops2').setAttribute('aria-checked', h === 2 ? 'true' : 'false');
+  el('hops1').setAttribute('aria-pressed', h === 1 ? 'true' : 'false');
+  el('hops2').setAttribute('aria-pressed', h === 2 ? 'true' : 'false');
   renderExplore();
 }
 
@@ -451,6 +472,22 @@ function renderExplore(explicitIds, note) {
     net.setData({ nodes: visNodes, edges: visEdges });
   }
 
+  if (ids.size === 0) {
+    el('viewStats').textContent = 'No nodes to display.';
+    if (net) net.setData({ nodes: new vis.DataSet([]), edges: new vis.DataSet([]) });
+    el('panel').innerHTML = '<p>Search for a disease, gene, or trial to begin exploring.</p>';
+    return;
+  }
+  var sumEl = document.getElementById('networkSummary');
+  if (!sumEl) {
+    sumEl = document.createElement('div');
+    sumEl.id = 'networkSummary';
+    sumEl.className = 'sr-only';
+    sumEl.setAttribute('aria-live', 'polite');
+    el('network').parentNode.insertBefore(sumEl, el('network'));
+  }
+  sumEl.textContent = 'Network graph showing ' + ids.size + ' nodes and ' + edgeList.length +
+    ' connections' + (center && nodesById[center] ? ' centered on ' + displayName(nodesById[center]) : '') + '.';
   const stats = ids.size + ' nodes · ' + edgeList.length + ' edges' +
     (truncated ? ' · capped at 150 (showing highest-degree nodes)' : '') +
     (note ? ' · ' + note : '');
@@ -470,6 +507,8 @@ function setHopsButtonsOnly(h) {
   state.hops = h;
   el('hops1').classList.toggle('active', h === 1);
   el('hops2').classList.toggle('active', h === 2);
+  el('hops1').setAttribute('aria-pressed', h === 1 ? 'true' : 'false');
+  el('hops2').setAttribute('aria-pressed', h === 2 ? 'true' : 'false');
 }
 
 function exploreOptions() {
@@ -494,7 +533,11 @@ function onCanvasClick(params) {
 function showNode(id) {
   const n = nodesById[id];
   if (!n) return;
+  state.lastNode = id;
   const panel = el('panel');
+  panel.setAttribute('aria-live', 'polite');
+  panel.setAttribute('role', 'region');
+  panel.setAttribute('aria-label', 'Details panel');
   const edges = incidentEdges(id);
 
   const byRel = {};
@@ -562,8 +605,9 @@ function showEdge(e) {
       (ref ? '<a href="' + esc(ref.url) + '" target="_blank" rel="noopener">' + esc(ref.label) + '</a>'
            : esc(e.source_ref)) + '</dd>';
   }
-  html += '<dt>Confidence</dt><dd><span class="badge conf-' + esc(e.confidence) + '">' +
-    esc(e.confidence) + '</span> <span class="conf-plain">' + esc(plainConfidence(e)) + '</span></dd>';
+  var confIcon = e.confidence === 'low' ? '\u25CB ' : e.confidence === 'medium' ? '\u25D0 ' : '\u25CF ';
+  html += '<dt>Confidence</dt><dd><span class="badge conf-' + esc(e.confidence) + '" aria-label="Confidence: ' + esc(e.confidence) + '">' +
+    confIcon + esc(e.confidence) + '</span> <span class="conf-plain">' + esc(plainConfidence(e)) + '</span></dd>';
   if (e.evidence) html += '<dt>Evidence</dt><dd>' + esc(e.evidence) + '</dd>';
   if (e.evidence_type) html += '<dt>Study type</dt><dd>' + esc(evidenceLabel(e.evidence_type)) + '</dd>';
   if (e.publication_year) html += '<dt>Published</dt><dd>' + esc(e.publication_year) + '</dd>';
@@ -571,7 +615,7 @@ function showEdge(e) {
   html += '</dl>';
   html += '<p><button class="btn" id="backToNode">&larr; Back to node</button></p>';
   panel.innerHTML = html;
-  el('backToNode').addEventListener('click', function () { showNode(e.source); });
+  el('backToNode').addEventListener('click', function () { showNode(state.lastNode || e.source); });
 }
 
 /* ---------------- clusters ---------------- */
@@ -594,7 +638,9 @@ function initClusters() {
       'applicability needs separate validation. Example: MPS II&rsquo;s Elaprase does not cross the ' +
       'blood&ndash;brain barrier, so it cannot treat Sanfilippo&rsquo;s brain disease despite their ' +
       'shared heparan-sulfate buildup.</div>' +
-      '<button class="btn" data-cluster="' + c.id + '">Load members in Explore</button>' +
+      ((c.members && c.members.length)
+        ? '<button class="btn" data-cluster="' + c.id + '">Load members in Explore</button>'
+        : '<p class="item-sub">No members in this cluster.</p>') +
       '</article>';
   }).join('');
 
@@ -602,9 +648,11 @@ function initClusters() {
     btn.addEventListener('click', function () {
       const c = GRAPH.clusters.find(function (cl) { return String(cl.id) === btn.dataset.cluster; });
       if (!c) return;
-      state.center = c.members[0] || null;
+      const valid = (c.members || []).filter(function (id) { return nodesById[id]; });
+      if (!valid.length) { alert('No valid nodes found in this cluster.'); return; }
+      state.center = valid[0];
       switchTab('explore');
-      renderExplore(c.members.slice(), 'cluster: ' + c.label);
+      renderExplore(valid.slice(), 'cluster: ' + c.label);
     });
   });
 }
@@ -621,7 +669,10 @@ function initPatientAction() {
   }).join('');
   const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
   if (start && nodesById[start]) sel.value = start;
-  sel.addEventListener('change', function () { renderPatientAction(sel.value); });
+  sel.addEventListener('change', function () { state.selectedDisease = sel.value; renderPatientAction(sel.value); });
+  var initial = (state.selectedDisease && nodesById[state.selectedDisease]) ? state.selectedDisease : sel.value;
+  sel.value = initial;
+  state.selectedDisease = sel.value;
   renderPatientAction(sel.value);
 }
 
@@ -682,7 +733,8 @@ function renderPatientAction(diseaseId) {
   recruiting.concat(others).forEach(function (t) {
     const ex = t.node.extra || {};
     const status = ex.status || 'UNKNOWN';
-    const cls = status === 'RECRUITING' ? 'recruiting' : 'notrecruiting';
+    const STATUS_CLASSES = { RECRUITING: 'recruiting', ACTIVE_NOT_RECRUITING: 'active', ENROLLING_BY_INVITATION: 'recruiting', COMPLETED: 'completed', TERMINATED: 'terminated', SUSPENDED: 'warning', WITHDRAWN: 'terminated', UNKNOWN: 'unknown' };
+    const cls = STATUS_CLASSES[status] || 'unknown';
     const phases = (ex.phase || []).map(humanize).join(', ');
     html += '<div class="action-item"><div class="item-title">' + esc(t.node.label) +
       '<span class="status ' + cls + '">' + esc(humanize(status).toLowerCase()) + '</span></div>' +
@@ -792,6 +844,13 @@ function journeySteps() {
 
 function initJourney() {
   const steps = journeySteps();
+  if (!steps.length) {
+    el('stepPanel').innerHTML = '<p>No journey data available.</p>';
+    el('prevStep').disabled = true;
+    el('nextStep').disabled = true;
+    el('stepCount').textContent = 'No steps';
+    return;
+  }
   el('prevStep').addEventListener('click', function () { stepTo(state.journeyStep - 1); });
   el('nextStep').addEventListener('click', function () { stepTo(state.journeyStep + 1); });
   const dots = el('stepDots');
@@ -829,6 +888,8 @@ function updateJourneyChrome() {
   el('stepDots').querySelectorAll('.dot').forEach(function (d, i) {
     d.classList.toggle('current', i === state.journeyStep);
     d.classList.toggle('done', i < state.journeyStep);
+    d.setAttribute('aria-current', i === state.journeyStep ? 'step' : 'false');
+    d.setAttribute('aria-selected', i === state.journeyStep ? 'true' : 'false');
   });
 }
 

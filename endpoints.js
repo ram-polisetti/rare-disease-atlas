@@ -15,13 +15,13 @@
 var EP_FAMILIES = [
   { id: 'gaucher',  name: 'Gaucher disease',            re: /gaucher/i, exclude: /parkinson|lewy/i },
   { id: 'fabry',    name: 'Fabry disease',              re: /fabry/i },
-  { id: 'pompe',    name: 'Pompe disease',              re: /acid maltase|glycogen storage disease ii/i },
+  { id: 'pompe',    name: 'Pompe disease',              re: /pompe|acid maltase|glycogen storage disease ii/i },
   { id: 'npab',     name: 'Niemann-Pick A/B',           re: /niemann-pick disease type [ab](?![\w])/i },
   { id: 'npc',      name: 'Niemann-Pick C',             re: /niemann-pick disease[,\s]*type c/i },
   { id: 'taysachs', name: 'Tay-Sachs disease',          re: /tay-sachs/i },
   { id: 'sandhoff', name: 'Sandhoff disease',           re: /sandhoff/i },
   { id: 'mps1',     name: 'MPS I (Hurler/Scheie)',      re: /hurler|scheie|mucopolysaccharidosis type 1(?![\d])/i },
-  { id: 'mps2',     name: 'MPS II (Hunter)',            re: /mucopolysaccharidosis type 2/i },
+  { id: 'mps2',     name: 'MPS II (Hunter)',            re: /hunter|mucopolysaccharidosis type 2/i },
   { id: 'mps3a',    name: 'Sanfilippo A (MPS IIIA)',    re: /mucopolysaccharidosis type 3a/i },
   { id: 'mps3b',    name: 'Sanfilippo B (MPS IIIB)',    re: /mucopolysaccharidosis type 3b/i },
   { id: 'mps3c',    name: 'Sanfilippo C (MPS IIIC)',    re: /mucopolysaccharidosis type 3c/i },
@@ -151,11 +151,13 @@ function epFamilyOf(nodeId) {
   var n = nodesById[nodeId];
   if (!n || n.type !== 'disease') return null;
   var label = n.label || '';
+  var hits = [];
   for (var i = 0; i < EP_FAMILIES.length; i++) {
     var f = EP_FAMILIES[i];
-    if (f.re.test(label) && !(f.exclude && f.exclude.test(label))) return f.id;
+    if (f.re.test(label) && !(f.exclude && f.exclude.test(label))) hits.push(f.id);
   }
-  return null;
+  if (hits.length > 1 && typeof console !== 'undefined') console.warn('epFamilyOf: label matched multiple families:', label, hits);
+  return hits.length ? hits[0] : null;
 }
 
 function epFamilyDiseaseIds(fid) {
@@ -278,7 +280,7 @@ function epCard(row) {
   }).join(' ');
 
   var html = '<div class="card ep-card">';
-  html += '<h2>' + esc(ep.term) + '</h2>';
+  html += '<h3>' + esc(ep.term) + '</h3>';
   html += '<div class="count">' + esc(ep.plain) + '</div>';
   html += '<div style="margin:6px 0">' + epTierBadge(ep.tier) + ' <span class="ep-deriv">' + esc(ep.deriv.label) + '</span></div>';
   html += '<p>' + esc(ep.what) + '</p>';
@@ -290,6 +292,7 @@ function epCard(row) {
     html += '<div class="kv-line"><strong>' + trials.length + ' trial' + (trials.length === 1 ? '' : 's') + ' in these diseases:</strong> ';
     html += trials.slice(0, 4).map(function (t) {
       var url = t.extra && t.extra.url;
+      if (url && !/^https?:\/\//i.test(url)) url = null;
       var label = (t.extra && t.extra.nct) || shortLabel(t.label, 40);
       return url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label);
     }).join(', ') + (trials.length > 4 ? '…' : '') + '</div>';
@@ -322,7 +325,7 @@ function epMatrix(rows) {
     EP_FAMILIES.forEach(function (f) {
       var on = row.fams.indexOf(f.id) >= 0;
       var title = on ? esc((row.evidence[f.id] || []).join('; ')) : '';
-      html += '<td class="' + (on ? 'on' : '') + '" title="' + title + '">' + (on ? '✓' : '·') + '</td>';
+      html += '<td class="' + (on ? 'on' : '') + '" title="' + title + '" aria-label="' + esc(f.name) + ': ' + (on ? 'measures' : 'does not measure') + ' ' + esc(row.ep.term) + '">' + (on ? '✓' : '·') + '</td>';
     });
     html += '</tr>';
   });
@@ -332,7 +335,7 @@ function epMatrix(rows) {
 
 function epDiseasePicker(rows) {
   var html = '<h2>Pick a disease</h2><p>Everything measurable about one disease — and who else measures the same things.</p>';
-  html += '<select id="epPick" class="ep-pick">';
+  html += '<label class="sr-only" for="epPick">Choose a disease group</label><select id="epPick" class="ep-pick" aria-label="Choose a disease group">';
   html += '<option value="">— choose a disease group —</option>';
   EP_FAMILIES.forEach(function (f) { html += '<option value="' + f.id + '">' + esc(f.name) + '</option>'; });
   html += '</select><div id="epPickOut" style="margin-top:1rem"></div>';
@@ -341,7 +344,8 @@ function epDiseasePicker(rows) {
 
 function epRenderPick(fid, rows) {
   var out = document.getElementById('epPickOut');
-  if (!fid) { out.innerHTML = ''; return; }
+  if (!out) return;
+  if (!fid) { out.innerHTML = '<p class="wi-sub">Choose a disease group above to see its measurable endpoints.</p>'; return; }
   var mine = rows.filter(function (r) { return r.fams.indexOf(fid) >= 0; });
   var html = '<h3>' + esc(epFamName(fid)) + ' — measurable ' + mine.length + ' way' + (mine.length === 1 ? '' : 's') + '</h3>';
   if (!mine.length) {
@@ -383,7 +387,7 @@ function initEndpoints() {
 
   [1, 2, 3, 4].forEach(function (tier) {
     var tierRows = rows.filter(function (r) { return r.ep.tier === tier && r.fams.length > 0; });
-    html += '<h2 style="margin-top:1.6rem">' + esc(EP_TIER_NAMES[tier]) + '</h2>';
+    html += '<h2 style="margin-top:1.6rem">' + esc(EP_TIER_NAMES[tier] || ('Tier ' + tier)) + '</h2>';
     if (!tierRows.length) {
       html += '<p class="wi-unknown">No disease groups in the current graph match this tier.</p>';
       return;
@@ -399,7 +403,8 @@ function initEndpoints() {
   }
 
   body.innerHTML = html;
-  document.getElementById('epPick').addEventListener('change', function (e) {
+  var pick = document.getElementById('epPick');
+  if (pick) pick.addEventListener('change', function (e) {
     epRenderPick(e.target.value, rows);
   });
 }

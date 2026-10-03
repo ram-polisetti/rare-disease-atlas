@@ -17,50 +17,50 @@
     </div>
     <div class="header-controls">
       <div class="seg reading-seg" role="radiogroup" aria-label="Reading level">
-        <button class="seg-btn" data-reading="plain" role="radio" aria-checked="false" title="Simplified wording for non-specialists">Plain language</button>
-        <button class="seg-btn active" data-reading="standard" role="radio" aria-checked="true" title="Standard wording">Standard</button>
-        <button class="seg-btn" data-reading="detailed" role="radio" aria-checked="false" title="Adds study types and dates">Detailed</button>
+        <button type="button" class="seg-btn" data-reading="plain" role="radio" aria-checked="false" title="Simplified wording for non-specialists">Plain language</button>
+        <button type="button" class="seg-btn active" data-reading="standard" role="radio" aria-checked="true" title="Standard wording">Standard</button>
+        <button type="button" class="seg-btn" data-reading="detailed" role="radio" aria-checked="false" title="Adds study types and dates">Detailed</button>
       </div>
       <button id="nightToggle" class="btn small" aria-pressed="false" title="Dark theme for nighttime reading">Night mode</button>
       <button id="a11yToggle" class="btn small" aria-pressed="false" title="Dyslexia-friendly text, focus mode, print view">Accessibility</button>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Atlas views">
-    <button role="tab" id="tab-guide" data-tab="guide" class="active" aria-selected="true">Guide</button>
-    <button role="tab" id="tab-start" data-tab="start" aria-selected="false">Start</button>
-    <button role="tab" id="tab-explore" data-tab="explore" aria-selected="false">Explore</button>
-    <button role="tab" id="tab-clusters" data-tab="clusters" aria-selected="false">Clusters</button>
-    <button role="tab" id="tab-subway" data-tab="subway" aria-selected="false">Subway map</button>
-    <button role="tab" id="tab-action" data-tab="action" aria-selected="false">Patient Action</button>
-    <button role="tab" id="tab-journey" data-tab="journey" aria-selected="false">Maria&rsquo;s Journey</button>
-    <button role="tab" id="tab-impact" data-tab="impact" aria-selected="false">10&times; Impact</button>
-    <button role="tab" id="tab-contradictions" data-tab="contradictions" aria-selected="false">Contradictions</button>
-    <button role="tab" id="tab-recent" data-tab="recent" aria-selected="false">Recent</button>
-    <button role="tab" id="tab-gaps" data-tab="gaps" aria-selected="false">Gaps</button>
-    <button role="tab" id="tab-whatif" data-tab="whatif" aria-selected="false">What If</button>
-    <button role="tab" id="tab-endpoints" data-tab="endpoints" aria-selected="false">Endpoints</button>
+    <button type="button" role="tab" id="tab-guide" data-tab="guide" aria-controls="view-guide" class="active" aria-selected="true">Guide</button>
+    <button type="button" role="tab" id="tab-start" data-tab="start" aria-controls="view-start" aria-selected="false">Start</button>
+    <button type="button" role="tab" id="tab-explore" data-tab="explore" aria-controls="view-explore" aria-selected="false">Explore</button>
+    <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false">Clusters</button>
+    <button type="button" role="tab" id="tab-subway" data-tab="subway" aria-controls="view-subway" aria-selected="false">Subway map</button>
+    <button type="button" role="tab" id="tab-action" data-tab="action" aria-controls="view-action" aria-selected="false">Patient Action</button>
+    <button type="button" role="tab" id="tab-journey" data-tab="journey" aria-controls="view-journey" aria-selected="false">Maria&rsquo;s Journey</button>
+    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false">10&times; Impact</button>
+    <button type="button" role="tab" id="tab-contradictions" data-tab="contradictions" aria-controls="view-contradictions" aria-selected="false">Contradictions</button>
+    <button type="button" role="tab" id="tab-recent" data-tab="recent" aria-controls="view-recent" aria-selected="false">Recent</button>
+    <button type="button" role="tab" id="tab-gaps" data-tab="gaps" aria-controls="view-gaps" aria-selected="false">Gaps</button>
+    <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false">What If</button>
+    <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false">Endpoints</button>
   </nav>
 </header>
 
 <main>
   <!-- ============ GUIDE (zero-knowledge front door) ============ -->
-  <section id="view-guide" class="view active" role="tabpanel" aria-labelledby="tab-guide">
+  <section id="view-guide" class="view active" role="tabpanel" tabindex="0" aria-labelledby="tab-guide">
     <div id="guideBody" class="guide-body" aria-live="polite"></div>
   </section>
 
   <!-- ============ START (persona landing) ============ -->
-  <section id="view-start" class="view" role="tabpanel" aria-labelledby="tab-start" hidden>
+  <section id="view-start" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-start" hidden>
     <h2 class="start-q">I&rsquo;m here because&hellip;</h2>
     <div class="persona-grid" id="personaGrid"></div>
     <div id="guidedBox" class="guided-box" hidden></div>
   </section>
 
   <!-- ============ EXPLORE ============ -->
-  <section id="view-explore" class="view" role="tabpanel" aria-labelledby="tab-explore" hidden>
+  <section id="view-explore" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-explore" hidden>
     <div class="searchbar">
       <input id="search" type="text" autocomplete="off" spellcheck="false"
              placeholder="Search diseases, genes, symptoms&hellip; (e.g. sanfilippo)" aria-label="Graph search">
-      <div id="suggestions" class="suggestions" hidden></div>
+      <div id="suggestions" class="suggestions" role="listbox" aria-label="Search suggestions" hidden></div>
     </div>
     <div class="explore-controls">
       <span class="control-label">Neighborhood:</span>
@@ -75,8 +75,8 @@
     </div>
     <div class="explore-grid">
       <div class="canvas-wrap">
-        <div id="network" aria-label="Knowledge graph canvas"></div>
-        <div id="loading" class="loading">Loading graph&hellip;</div>
+        <div id="network" role="img" aria-label="Knowledge graph canvas. Use the search to explore nodes and connections."></div>
+        <div id="loading" class="loading" role="status">Loading graph&hellip;</div><noscript><p>This atlas needs JavaScript to load the knowledge graph.</p></noscript>
       </div>
       <aside id="panel" class="panel" aria-live="polite">
         <p class="panel-hint">Search for a disease, gene, or symptom, then click any node or edge to inspect it.</p>
@@ -85,7 +85,7 @@
   </section>
 
   <!-- ============ CLUSTERS ============ -->
-  <section id="view-clusters" class="view" role="tabpanel" aria-labelledby="tab-clusters" hidden>
+  <section id="view-clusters" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-clusters" hidden>
     <p class="section-lede">Disease groups that share a reusable mechanism &mdash; the unit of cross-disease learning.</p>
     <div id="clusterCards" class="cards"></div>
     <hr class="section-div">
@@ -97,13 +97,13 @@
     <h2 class="subhead">Shared assets library</h2>
     <p class="section-lede">Registries, study designs, and other reusable research assets in the graph.</p>
     <div class="explore-controls">
-      <input id="assetSearch" type="text" placeholder="Filter assets&hellip;" aria-label="Filter assets" class="text-input">
+      <input id="assetSearch" type="text" placeholder="Filter assets&hellip;" aria-label="Filter assets" aria-describedby="assetSearchHint" class="text-input"><span id="assetSearchHint" class="item-sub">Type to filter the asset list below.</span>
     </div>
     <div id="assetsBody" class="cards"></div>
   </section>
 
   <!-- ============ SUBWAY MAP ============ -->
-  <section id="view-subway" class="view" role="tabpanel" aria-labelledby="tab-subway" hidden>
+  <section id="view-subway" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-subway" hidden>
     <p class="section-lede">Each line is a biological pathway. Stations are diseases. <strong>Transfer stations</strong> &mdash; diseases on more than one line &mdash; are where mechanisms overlap and research may be shared.</p>
     <div class="subway-grid">
       <div class="canvas-wrap subway-scroll">
@@ -116,7 +116,7 @@
   </section>
 
   <!-- ============ PATIENT ACTION ============ -->
-  <section id="view-action" class="view" role="tabpanel" aria-labelledby="tab-action" hidden>
+  <section id="view-action" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-action" hidden>
     <div class="action-head">
       <label for="diseaseSelect" class="control-label">Disease</label>
       <select id="diseaseSelect"></select>
@@ -125,7 +125,7 @@
   </section>
 
   <!-- ============ JOURNEY ============ -->
-  <section id="view-journey" class="view" role="tabpanel" aria-labelledby="tab-journey" hidden>
+  <section id="view-journey" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-journey" hidden>
     <div class="stepper-bar">
       <button id="prevStep" class="btn">&larr; Prev</button>
       <span id="stepCount" class="step-count">Step 1 of 8</span>
@@ -143,26 +143,26 @@
   </section>
 
   <!-- ============ 10x IMPACT ============ -->
-  <section id="view-impact" class="view" role="tabpanel" aria-labelledby="tab-impact" hidden>
+  <section id="view-impact" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-impact" hidden>
     <div class="impact-wrap" id="impactBody">
       <p class="section-lede">Computing the 10&times; case&hellip;</p>
     </div>
   </section>
 
   <!-- ============ CONTRADICTIONS ============ -->
-  <section id="view-contradictions" class="view" role="tabpanel" aria-labelledby="tab-contradictions" hidden>
+  <section id="view-contradictions" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-contradictions" hidden>
     <p class="section-lede">Where the science disagrees with itself. Each card shows the claim as recorded, why it is contested, and the source &mdash; so nobody mistakes a live debate for a settled fact.</p>
     <div id="contradictionBody" class="cards"></div>
   </section>
 
   <!-- ============ RECENT ============ -->
-  <section id="view-recent" class="view" role="tabpanel" aria-labelledby="tab-recent" hidden>
+  <section id="view-recent" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-recent" hidden>
     <p class="section-lede">The newest evidence in the graph, by publication year. The atlas is a living record, not a snapshot.</p>
     <div class="explore-controls">
       <span class="control-label">Show findings from the last:</span>
       <div class="seg" role="radiogroup" aria-label="Year range">
-        <button class="seg-btn" data-years="1" role="radio" aria-checked="false">1 year</button>
-        <button class="seg-btn" data-years="3" role="radio" aria-checked="false">3 years</button>
+        <button type="button" class="seg-btn" data-years="1" id="years1" role="radio" aria-checked="false">1 year</button>
+        <button type="button" class="seg-btn" data-years="3" id="years3" role="radio" aria-checked="false">3 years</button>
         <button class="seg-btn active" data-years="5" role="radio" aria-checked="true">5 years</button>
       </div>
       <span id="recentStats" class="view-stats" aria-live="polite"></span>
@@ -171,25 +171,25 @@
   </section>
 
   <!-- ============ GAPS ============ -->
-  <section id="view-gaps" class="view" role="tabpanel" aria-labelledby="tab-gaps" hidden>
+  <section id="view-gaps" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-gaps" hidden>
     <p class="section-lede">Where the atlas is weak, thin, or silent. Absence of evidence is not evidence of absence &mdash; these gaps are shown plainly so nobody mistakes an empty search for a settled answer.</p>
     <div id="gapsBody"></div>
   </section>
 
   <!-- ============ WHAT IF (scenario planner) ============ -->
-  <section id="view-whatif" class="view" role="tabpanel" aria-labelledby="tab-whatif" hidden>
+  <section id="view-whatif" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-whatif" hidden>
     <div id="whatifBody"></div>
   </section>
-  <section id="view-endpoints" class="view" role="tabpanel" aria-labelledby="tab-endpoints" hidden>
+  <section id="view-endpoints" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-endpoints" hidden>
     <div id="endpointsBody"></div>
   </section>
 </main>
 
 <footer>
-  <p>Built from <code>graph.json</code>. Click any node or edge for its evidence. <span id="footerStats"></span></p>
+  <p>Built from <code>graph.json</code>. Click any node or edge for its evidence. <span id="footerStats" aria-live="polite"></span></p>
 </footer>
 
-<div id="glossTip" class="gloss-tip" hidden></div>
+<div id="glossTip" class="gloss-tip" role="tooltip" aria-live="polite" hidden></div>
 
 <script src="app.js"></script>
 <script src="views.js"></script>

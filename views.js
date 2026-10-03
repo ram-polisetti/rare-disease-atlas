@@ -15,8 +15,11 @@ function initOutreach() {}
 
 /* ---------------- boot (waits for graph) ---------------- */
 
+var __viewsBooted = false;
 function viewsBoot() {
+  if (__viewsBooted) return;
   if (!window.__atlasReady || !GRAPH) { setTimeout(viewsBoot, 250); return; }
+  __viewsBooted = true;
   initStartTab();
   initContradictions();
   initRecent();
@@ -112,12 +115,16 @@ const PERSONAS = [
 
 function diseaseOptions() {
   return GRAPH.nodes
-    .filter(function (n) { return n.type === 'disease'; })
+    .filter(function (n) {
+      return n.type === 'disease' && n.id && n.label &&
+        !/\b(drug|therapy|treatment|compound)\b/i.test(n.label);
+    })
     .sort(function (a, b) { return displayName(a).localeCompare(displayName(b)); });
 }
 
 function initStartTab() {
   const grid = vEl('personaGrid');
+  if (!grid) return;
   grid.innerHTML = PERSONAS.map(function (p) {
     return '<article class="card persona-card">' +
       '<h2>' + esc(p.title) + '</h2>' +
@@ -136,7 +143,7 @@ function startPersona(pid) {
   if (pid === 'devon') renderDevonGuide(box);
   else if (pid === 'maria') renderMariaGuide(box);
   else if (pid === 'priya') { switchTab('clusters'); }
-  else if (pid === 'osei') { switchTab('explore'); setTimeout(function(){ vEl('search').focus(); }, 50); }
+  else if (pid === 'osei') { switchTab('explore'); setTimeout(function(){ var s = vEl('search'); if (s) s.focus(); }, 50); }
   box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -159,7 +166,7 @@ function renderDevonGuide(box) {
         const go = b.dataset.goto;
         if (go === 'action') {
           const sel = vEl('diseaseSelect');
-          if (sel) { sel.value = id; sel.dispatchEvent(new Event('change')); }
+          if (sel && sel.querySelector('option[value="' + id + '"]')) { sel.value = id; sel.dispatchEvent(new Event('change')); }
           switchTab('action');
         } else if (go === 'explore') {
           state.center = id; switchTab('explore'); renderExplore();
@@ -170,7 +177,11 @@ function renderDevonGuide(box) {
 
   input.addEventListener('input', function () {
     const q = input.value.trim().toLowerCase();
-    if (q.length < 2) { sug.hidden = true; return; }
+    if (q.length < 2) {
+      if (q.length === 1) { sug.innerHTML = '<div class="sug" style="cursor:default">Keep typing…</div>'; sug.hidden = false; }
+      else { sug.hidden = true; }
+      return;
+    }
     const hits = [];
     const seen = new Set();
     Object.keys(synToId).forEach(function (key) {
@@ -206,11 +217,19 @@ function renderDevonGuide(box) {
     sug.hidden = false;
   });
   input.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Enter') {
-      const first = sug.querySelector('.sug[data-i], .sug[data-fuzzy]');
+    const btns = Array.prototype.slice.call(sug.querySelectorAll('.sug[data-i], .sug[data-fuzzy]'));
+    const focused = sug.querySelector('.sug:focus');
+    const idx = btns.indexOf(focused);
+    if (ev.key === 'ArrowDown' && btns.length) {
+      ev.preventDefault();
+      btns[Math.min(idx + 1, btns.length - 1)].focus();
+    } else if (ev.key === 'ArrowUp') {
+      ev.preventDefault();
+      if (idx > 0) btns[idx - 1].focus(); else input.focus();
+    } else if (ev.key === 'Enter') {
+      const first = focused || sug.querySelector('.sug[data-i], .sug[data-fuzzy]');
       if (first) { ev.preventDefault(); first.click(); }
-    }
-    if (ev.key === 'Escape') sug.hidden = true;
+    } else if (ev.key === 'Escape') { sug.hidden = true; input.focus(); }
   });
   setTimeout(function(){ input.focus(); }, 50);
 }
@@ -364,6 +383,7 @@ function toggleWatch(key) {
 let recentYears = 5;
 
 function initRecent() {
+  tagRadioGroup('[data-years]', 'Year range');
   document.querySelectorAll('[data-years]').forEach(function (btn) {
     btn.addEventListener('click', function () {
       document.querySelectorAll('[data-years]').forEach(function (b) {
@@ -389,14 +409,23 @@ function recentEdges() {
   });
 }
 
+function tagRadioGroup(sel, label) {
+  var g = document.querySelector(sel);
+  if (g && g.parentElement && !g.parentElement.getAttribute('role')) {
+    g.parentElement.setAttribute('role', 'radiogroup');
+    if (label) g.parentElement.setAttribute('aria-label', label);
+  }
+}
 function renderRecent() {
   const body = vEl('recentBody');
+  const keepScroll = body ? body.scrollTop : 0;
   const list = recentEdges();
   vEl('recentStats').textContent = list.length + ' findings';
   if (!list.length) {
     body.innerHTML = '<p class="section-lede">No findings in this window yet.</p>';
     return;
   }
+  if (body) body.scrollTop = keepScroll;
   const byYear = {};
   list.forEach(function (e) {
     const y = e.publication_year;
@@ -673,6 +702,7 @@ const GLOSSARY = {
 const GLOSS_KEYS = Object.keys(GLOSSARY).sort(function (a, b) { return b.length - a.length; });
 
 function initReading() {
+  tagRadioGroup('[data-reading]', 'Reading level');
   document.querySelectorAll('[data-reading]').forEach(function (btn) {
     const on = btn.dataset.reading === reading;
     btn.classList.toggle('active', on);
@@ -701,7 +731,7 @@ function applyReading() {
   const whyEl = sp.querySelector('.why');
   if (!whyEl) return;
   if (!whyEl.dataset.orig) whyEl.dataset.orig = whyEl.textContent;
-  const i = state.journeyStep;
+  const i = (typeof state.journeyStep === 'number') ? state.journeyStep : 0;
   if (reading === 'plain' && PLAIN_WHY[i]) {
     whyEl.textContent = PLAIN_WHY[i];
   } else if (reading === 'detailed') {
@@ -786,6 +816,8 @@ function initGlossary() {
   function showTip(span) {
     const def = GLOSSARY[span.dataset.term];
     if (!def) return;
+    tip.setAttribute('role', 'tooltip');
+    tip.setAttribute('aria-live', 'polite');
     tip.innerHTML = '<strong>' + esc(span.dataset.term) + '</strong><p>' + esc(def) + '</p>' +
       '<button class="btn small" id="glossClose">Close</button>';
     tip.hidden = false;
@@ -939,6 +971,7 @@ function outreachHTML(n) {
   });
   const mechs = [];
   incidentEdges(n.id).forEach(function (e) {
+    if (!/mechanism/.test(e.relation || '')) return;
     const other = nodesById[e.source === n.id ? e.target : e.source];
     if (other && other.type === 'mechanism' && mechs.indexOf(other.label) === -1) mechs.push(other.label);
   });
@@ -1043,7 +1076,7 @@ function diseaseProfile(id) {
   incidentEdges(id).forEach(function (e) {
     const other = nodesById[e.source === id ? e.target : e.source];
     if (!other) return;
-    if (other.type === 'gene' && genes.indexOf(other) === -1) genes.push(other);
+    if (other.type === 'gene' && /^(variant_of|causal_for|associated_with|causes)$/.test(e.relation || '') && genes.indexOf(other) === -1) genes.push(other);
     if (other.type === 'mechanism' && mechs.indexOf(other.label) === -1) mechs.push(other.label);
     if (other.type === 'patient_org' && orgs.indexOf(other) === -1) orgs.push(other);
     if (other.type === 'asset' && assets.indexOf(other) === -1) assets.push(other);
@@ -1057,17 +1090,23 @@ function diseaseProfile(id) {
   return {
     node: n, genes: genes, mechs: mechs, trials: trials.length, recruiting: recruiting,
     orgs: orgs.length, assets: assets.length,
-    therapy: ts && ts.note ? ts.note : 'No approved therapy recorded in the graph.',
+    therapy: (ts && ts.note && !/^[A-Z0-9_\-]+$/.test(ts.note.trim())) ? ts.note : 'No approved therapy recorded in the graph.',
     gaps: cluster && cluster.gaps ? cluster.gaps.length : 0
   };
 }
 
 function initCompare() {
   const picker = vEl('comparePicker');
+  if (!picker) return;
+  const prev = Array.prototype.map.call(picker.querySelectorAll('input:checked'), function (c) { return c.value; });
   const diseases = diseaseOptions();
   picker.innerHTML = '<div class="compare-list">' + diseases.map(function (d) {
     return '<label class="check"><input type="checkbox" value="' + esc(d.id) + '"> ' + esc(displayName(d)) + '</label>';
   }).join('') + '</div><p><button class="btn" id="compareGo">Compare selected</button> <span class="item-sub">Pick 2\u20135 diseases.</span></p>';
+  prev.forEach(function (id) {
+    const cb = picker.querySelector('input[value="' + id + '"]');
+    if (cb) cb.checked = true;
+  });
   vEl('compareGo').addEventListener('click', function () {
     const sel = Array.from(picker.querySelectorAll('input:checked')).map(function (c) { return c.value; }).slice(0, 5);
     renderCompare(sel);
@@ -1076,14 +1115,14 @@ function initCompare() {
 
 function renderCompare(ids) {
   const body = vEl('compareBody');
-  if (ids.length < 2) { body.innerHTML = '<p class="section-lede">Select at least two diseases to compare.</p>'; return; }
+  if (ids.length < 2) { body.innerHTML = '<p class="section-lede">Select at least two diseases above to compare.</p><p><button class="btn" id="compareBack">Back to selection</button></p>'; vEl('compareBack').addEventListener('click', function () { vEl('comparePicker').scrollIntoView({ behavior: 'smooth' }); }); return; }
   const profs = ids.map(diseaseProfile);
   function row(label, fn) {
     return '<tr><th>' + esc(label) + '</th>' + profs.map(function (p) {
       return '<td>' + fn(p) + '</td>';
     }).join('') + '</tr>';
   }
-  body.innerHTML = '<div class="table-scroll"><table class="compare-table"><thead><tr><th></th>' +
+  body.innerHTML = '<div class="table-scroll"><table class="compare-table"><caption class="sr-only">Comparison of ' + ids.length + ' diseases</caption><thead><tr><th scope="col"></th>' +
     profs.map(function (p) { return '<th>' + esc(displayName(p.node)) + '</th>'; }).join('') +
     '</tr></thead><tbody>' +
     row('Gene target(s)', function (p) { return esc(p.genes.map(function (g) { return displayName(g); }).join(', ') || 'not recorded'); }) +
@@ -1102,6 +1141,9 @@ function renderCompare(ids) {
 function initAssets() {
   const body = vEl('assetsBody');
   const input = vEl('assetSearch');
+  if (!body || !input) return;
+  if (input.dataset.done === '1') return;
+  input.dataset.done = '1';
   function render() {
     const q = input.value.trim().toLowerCase();
     const assets = GRAPH.nodes.filter(function (n) {
