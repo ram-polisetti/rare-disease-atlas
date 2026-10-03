@@ -21,6 +21,7 @@ function wiNodes(type) {
   return GRAPH.nodes.filter(function (n) { return n.type === type; });
 }
 function wiBlob(n) {
+  if (!n) return '';
   return ((n.label || '') + ' ' + (n.description || '')).toLowerCase();
 }
 function wiGrantsFor(rid) {
@@ -105,7 +106,12 @@ function wiActive() {
   try { return localStorage.getItem(WHATIF_KEY); } catch (e) { return null; }
 }
 function wiSetActive(v) {
-  try { localStorage.setItem(WHATIF_KEY, v); } catch (e) {}
+  var allowed = ['A', 'B', 'both', null];
+  if (allowed.indexOf(v) === -1) return;
+  try {
+    if (v === null) localStorage.removeItem(WHATIF_KEY);
+    else localStorage.setItem(WHATIF_KEY, v);
+  } catch (e) {}
   renderWhatIf();
 }
 
@@ -165,7 +171,8 @@ function wiScenarioA() {
   html += '<li>An available investigator team, engaged patient group, and funding are assumed &mdash; none are in hand yet.</li></ul>';
 
   html += '<h4>Patient-org allies</h4>';
-  orgs.forEach(function (o) { html += wiOrgLine(o); });
+  if (orgs.length) orgs.forEach(function (o) { html += wiOrgLine(o); });
+  else html += '<p class="wi-unknown">unknown &mdash; not in our sources</p>';
   html += '<p class="wi-note">The National MPS Society already runs cross-subtype infrastructure your study could plug into.</p>';
 
   html += wiActiveButton('A');
@@ -257,7 +264,7 @@ function wiBoth() {
     'Build the study first; the screening case inherits its evidence.</p>';
 
   html += '<h4>Side-by-side comparison</h4>';
-  html += '<table class="compare-table"><thead><tr><th></th><th>Scenario A: Natural-history study</th><th>Scenario B: Screening advocacy</th></tr></thead><tbody>';
+  html += '<table class="compare-table"><caption class="sr-only">Scenario comparison</caption><thead><tr><th scope="col"></th><th scope="col">Scenario A: Natural-history study</th><th scope="col">Scenario B: Screening advocacy</th></tr></thead><tbody>';
   html += '<tr><td><strong>Core question</strong></td><td>What does untreated Sanfilippo A look like, precisely?</td><td>Should every newborn be tested for Sanfilippo?</td></tr>';
   html += '<tr><td><strong>Modeled timeline</strong></td><td>~2.2 yrs shared (see 10&times; Impact tab)</td><td class="wi-unknown">unknown &mdash; not in our sources</td></tr>';
   html += '<tr><td><strong>Key reusable asset</strong></td><td>Shared MPS I/II natural-history study design</td><td>MPS I screening-advocacy precedent (same patient society)</td></tr>';
@@ -293,9 +300,9 @@ function renderWhatIf() {
     'resources, collaborators, timelines &mdash; before spending two years on it. Everything below comes from the atlas graph unless labeled.</p>';
 
   html += '<div class="seg" role="radiogroup" aria-label="Scenario">';
-  html += '<button class="seg-btn' + (wiMode === 'A' ? ' active' : '') + '" data-wi-mode="A" role="radio">Scenario A: Natural-history study</button>';
-  html += '<button class="seg-btn' + (wiMode === 'B' ? ' active' : '') + '" data-wi-mode="B" role="radio">Scenario B: Screening advocacy</button>';
-  html += '<button class="seg-btn' + (wiMode === 'both' ? ' active' : '') + '" data-wi-mode="both" role="radio">Both</button>';
+  html += '<button class="seg-btn' + (wiMode === 'A' ? ' active' : '') + '" data-wi-mode="A" role="radio" aria-checked="' + (wiMode === 'A' ? 'true' : 'false') + '">Scenario A: Natural-history study</button>';
+  html += '<button class="seg-btn' + (wiMode === 'B' ? ' active' : '') + '" data-wi-mode="B" role="radio" aria-checked="' + (wiMode === 'B' ? 'true' : 'false') + '">Scenario B: Screening advocacy</button>';
+  html += '<button class="seg-btn' + (wiMode === 'both' ? ' active' : '') + '" data-wi-mode="both" role="radio" aria-checked="' + (wiMode === 'both' ? 'true' : 'false') + '">Both</button>';
   html += '</div>';
 
   if (wiMode === 'A') html += wiScenarioA();
@@ -308,7 +315,12 @@ function renderWhatIf() {
   body.innerHTML = html;
 
   body.querySelectorAll('[data-wi-mode]').forEach(function (b) {
-    b.addEventListener('click', function () { wiMode = b.dataset.wiMode; renderWhatIf(); });
+    b.addEventListener('click', function () {
+      wiMode = b.dataset.wiMode;
+      renderWhatIf();
+      var nb = document.querySelector('[data-wi-mode="' + wiMode + '"]');
+      if (nb) nb.focus();
+    });
   });
   body.querySelectorAll('[data-wi-active]').forEach(function (b) {
     b.addEventListener('click', function () { wiSetActive(b.dataset.wiActive); });

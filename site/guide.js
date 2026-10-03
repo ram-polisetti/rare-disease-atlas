@@ -10,6 +10,23 @@
 (function () {
 'use strict';
 
+var __fb = {
+  el: function (id) { return document.getElementById(id); },
+  esc: function (s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  },
+  displayName: function (n) { return (n && (n.label || n.id)) || ''; },
+  humanize: function (s) {
+    return String(s || '').replace(/_/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+  }
+};
+function el(id) { return (typeof window.el === 'function' ? window.el(id) : __fb.el(id)); }
+function esc(s) { return (typeof window.esc === 'function' ? window.esc(s) : __fb.esc(s)); }
+function displayName(n) { return (typeof window.displayName === 'function' ? window.displayName(n) : __fb.displayName(n)); }
+function humanize(s) { return (typeof window.humanize === 'function' ? window.humanize(s) : __fb.humanize(s)); }
+
 /* ---------------- data helpers ---------------- */
 
 function outEdges(id, rel) {
@@ -108,7 +125,8 @@ function interpret(q) {
   if (!hits.length) {
     var gene = GRAPH.nodes.filter(function (n) { return n.type === 'gene'; }).filter(function (g) {
       var names = [g.label].concat(g.synonyms || []).map(function (s) { return s.toLowerCase(); });
-      return names.indexOf(low) !== -1;
+      return names.indexOf(low) !== -1 ||
+        names.some(function (n) { return n.indexOf(low) === 0 || low.indexOf(n) === 0; });
     })[0];
     if (gene) {
       var ds = {};
@@ -157,7 +175,11 @@ function go(screen) {
   G.screen = screen;
   renderGuide();
   var body = el('guideBody');
-  if (body) body.scrollTop = 0;
+  if (body) {
+    body.scrollTop = 0;
+    var h = body.querySelector('h2.guide-h');
+    if (h) { h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true }); }
+  }
   window.scrollTo(0, 0);
 }
 
@@ -174,7 +196,11 @@ function bridgeHTML() {
 
 function wireBridge(scope) {
   (scope || document).querySelectorAll('[data-go-tab]').forEach(function (b) {
-    b.addEventListener('click', function () { switchTab(b.getAttribute('data-go-tab')); });
+    b.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      var t = b.getAttribute('data-go-tab');
+      if (t && typeof switchTab === 'function') switchTab(t);
+    });
   });
 }
 
@@ -186,10 +212,13 @@ function esc2(s) { return esc(String(s == null ? '' : s)); }
  * as if they were the disease. */
 var COMMON_NAMES = /sanfilippo|hunter|fabry|gaucher|pompe|krabbe|tay[\s-]?sachs|niemann|sandhoff|metachromatic|hurler|scheie/i;
 var DISEASE_WORDS = /disease|syndrome|deficiency|disorder|dystrophy|lipidosis|gangliosidosis|leukodystrophy/i;
+var DRUG_PAT = /(alfa|beta|gamma|mab|nib|tinib|pase|zyme|plasm)\b/i;
 function guideName(n) {
   if (!n) return '';
   if (n.type !== 'disease') return displayName(n);
-  var cands = [n.label].concat(n.synonyms || []).filter(function (s) { return s && s.length <= 60; });
+  var cands = [n.label].concat(n.synonyms || []).filter(function (s) {
+    return s && s.length <= 60 && !DRUG_PAT.test(s);
+  });
   var i, common = null, dw = null;
   for (i = 0; i < cands.length; i++) {
     if (COMMON_NAMES.test(cands[i]) && !common) common = cands[i];
@@ -201,6 +230,11 @@ function guideName(n) {
   return pick.charAt(0).toUpperCase() + pick.slice(1);
 }
 
+function safeUrl(u) {
+  u = String(u || '').trim();
+  if (/^https?:\/\//i.test(u)) return u;
+  return 'https://clinicaltrials.gov/';
+}
 function renderGuide() {
   var body = el('guideBody');
   if (!body) return;
@@ -254,7 +288,8 @@ function vConfirm() {
   var phenos = phenosFor(d.id).slice(0, 4);
   var ak = alsoCalled(d);
   var checks = phenos.map(function (p, i) {
-    return '<label class="guide-check"><input type="checkbox" data-ph="' + i + '"> ' + esc2(humanize(p.label)) + '</label>';
+    var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
+    return '<label class="guide-check"><input type="checkbox" data-ph="' + i + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
   }).join('');
   return '<div class="guide-pane">' +
     '<button class="guide-back" data-nav="landing">&larr; Start over</button>' +
@@ -279,16 +314,17 @@ function vConfirm() {
 /* ---- Ambiguous: candidate cards ---- */
 
 function vAmbiguous() {
+  if (!G.candidates || !G.candidates.length) return vLanding();
   var via = G.via === 'symptoms'
     ? 'Based on the symptoms you described, these are the closest matches in our data.'
     : 'A few conditions match what you typed.';
   var cards = G.candidates.map(function (d) {
     var phenos = phenosFor(d.id).slice(0, 3).map(function (p) { return esc2(humanize(p.label)); }).join('; ');
     var nOrg = orgsFor(d.id).length;
-    return '<button class="guide-cand" data-pick="' + d.id + '">' +
+    return '<button class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
-      (nOrg ? '<span class="guide-cand-n">' + nOrg + ' familie' + (nOrg === 1 ? 's' : 's') + ' connected through patient groups</span>'
+      (nOrg ? '<span class="guide-cand-n">' + nOrg + (nOrg === 1 ? ' family' : ' families') + ' connected through patient groups</span>'
             : '<span class="guide-cand-n">Patient-group data not yet recorded</span>') +
       '</button>';
   }).join('');
@@ -348,10 +384,10 @@ function vHub() {
     '<div class="guide-nextstep"><strong>One thing for tomorrow:</strong> ' + nextStep + '</div>' +
     '<h3 class="guide-h3">What would help you most right now?</h3>' +
     '<div class="guide-cards">' +
-    '<button class="guide-card" data-nav="families"><span class="gc-emoji">👨‍👩‍👧</span><strong>Talk to another family</strong><span>' + c.orgs + ' patient group' + (c.orgs === 1 ? '' : 's') + ' in our data</span></button>' +
-    '<button class="guide-card" data-nav="understand"><span class="gc-emoji">📋</span><strong>Understand what this means</strong><span>Plain-language guide, no jargon</span></button>' +
-    '<button class="guide-card" data-nav="research"><span class="gc-emoji">🔬</span><strong>See what research is happening</strong><span>' + c.trials + ' studies recorded' + (c.rec ? ', ' + c.rec + ' recruiting now' : '') + '</span></button>' +
-    '<button class="guide-card" data-nav="connections"><span class="gc-emoji">🤝</span><strong>Find related communities</strong><span>' + c.rel + ' connected condition' + (c.rel === 1 ? '' : 's') + ' sharing biology</span></button>' +
+    '<button class="guide-card" data-nav="families" aria-label="Talk to another family"><span class="gc-emoji">👨‍👩‍👧</span><strong>Talk to another family</strong><span>' + c.orgs + ' patient group' + (c.orgs === 1 ? '' : 's') + ' in our data</span></button>' +
+    '<button class="guide-card" data-nav="understand" aria-label="Understand what this means"><span class="gc-emoji">📋</span><strong>Understand what this means</strong><span>Plain-language guide, no jargon</span></button>' +
+    '<button class="guide-card" data-nav="research" aria-label="See what research is happening"><span class="gc-emoji">🔬</span><strong>See what research is happening</strong><span>' + c.trials + ' studies recorded' + (c.rec ? ', ' + c.rec + ' recruiting now' : '') + '</span></button>' +
+    '<button class="guide-card" data-nav="connections" aria-label="Find related communities"><span class="gc-emoji">🤝</span><strong>Find related communities</strong><span>' + c.rel + ' connected condition' + (c.rel === 1 ? '' : 's') + ' sharing biology</span></button>' +
     '</div>' +
     bridgeHTML() +
     '</div>';
@@ -369,7 +405,7 @@ function vFamilies() {
       '<strong>' + esc2(o.label) + '</strong>' +
       (verified ? '<span class="verified">✓ Verified non-profit &mdash; listed in a trusted directory</span>' : '') +
       (o.description ? '<p>' + esc2(o.description) + '</p>' : '') +
-      (url ? '<a class="btn small" href="' + esc2(url) + '" target="_blank" rel="noopener">Visit their site &rarr;</a>' : '') +
+      (url ? '<a class="btn small" href="' + esc2(safeUrl(url)) + '" target="_blank" rel="noopener">Visit their site &rarr;</a>' : '') +
       '</div>';
   }).join('');
   if (!cards) cards = '<p class="guide-sub">We don&rsquo;t have a patient group recorded for this condition yet. ' +
@@ -443,7 +479,7 @@ function vResearch() {
       '<strong>' + esc2(humanize(p.title)) + '</strong>' +
       '<span class="guide-trial-meta">' + esc2(p.meta) + '</span>' +
       '<p class="guide-fine">This is a research study testing a possible treatment &mdash; not an approved medicine.</p>' +
-      '<div class="guide-btnrow"><a class="btn small" href="' + esc2(p.url) + '" target="_blank" rel="noopener">View on ClinicalTrials.gov &rarr;</a>' +
+      '<div class="guide-btnrow"><a class="btn small" href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">View on ClinicalTrials.gov &rarr;</a>' +
       (isRec ? '<button class="btn small" data-go-tab="action">Check eligibility &rarr;</button>' : '') + '</div>' +
       '</div>';
   }).join('');
@@ -535,6 +571,7 @@ function wireGuide(scope) {
         hint = document.createElement('p');
         hint.id = 'guideHint';
         hint.className = 'guide-hint';
+        hint.setAttribute('aria-live', 'polite');
         hint.textContent = 'Tell us what brings you here first — a diagnosis name, a gene, or even symptoms like "he has seizures".';
         q.parentNode.appendChild(hint);
       }
