@@ -36,6 +36,7 @@
     <button role="tab" id="tab-contradictions" data-tab="contradictions" aria-selected="false">Contradictions</button>
     <button role="tab" id="tab-recent" data-tab="recent" aria-selected="false">Recent</button>
     <button role="tab" id="tab-gaps" data-tab="gaps" aria-selected="false">Gaps</button>
+    <button role="tab" id="tab-whatif" data-tab="whatif" aria-selected="false">What If</button>
   </nav>
 </header>
 
@@ -167,6 +168,11 @@
     <p class="section-lede">Where the atlas is weak, thin, or silent. Absence of evidence is not evidence of absence &mdash; these gaps are shown plainly so nobody mistakes an empty search for a settled answer.</p>
     <div id="gapsBody"></div>
   </section>
+
+  <!-- ============ WHAT IF (scenario planner) ============ -->
+  <section id="view-whatif" class="view" role="tabpanel" aria-labelledby="tab-whatif" hidden>
+    <div id="whatifBody"></div>
+  </section>
 </main>
 
 <footer>
@@ -177,5 +183,6 @@
 
 <script src="app.js"></script>
 <script src="views.js"></script>
+<script src="whatif.js"></script>
 </body>
 </html>

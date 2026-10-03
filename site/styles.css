@@ -456,3 +456,21 @@ body.dark .explainer-one { color: var(--ink); }
   main { max-width: 100%; }
   .panel, .card { break-inside: avoid; }
 }
+
+/* ---------------- What If scenario planner ---------------- */
+.wi-scenario { margin-top: 1.2rem; }
+.wi-title { font-size: 1.25rem; margin: 0 0 0.4rem; }
+.wi-scenario h4 { margin: 1.4rem 0 0.5rem; font-size: 1.02rem; }
+.wi-item { border: 1px solid #e2e5ea; border-radius: 8px; padding: 0.6rem 0.8rem; margin: 0.4rem 0; background: #fbfcfe; }
+.wi-sub { color: #5b6472; font-size: 0.9rem; margin-top: 0.25rem; }
+.wi-person { border-left: 3px solid #0d9488; padding: 0.5rem 0.8rem; margin: 0.5rem 0; background: #f7fefe; }
+.wi-contact-note { color: #8a6d1b; font-size: 0.85rem; margin-top: 0.3rem; font-style: italic; }
+.wi-note { color: #445; font-size: 0.92rem; background: #f4f6fa; border-radius: 6px; padding: 0.5rem 0.7rem; margin: 0.6rem 0; }
+.wi-unknown { color: #8a6d1b; font-style: italic; }
+.wi-active-note { color: #0d6e5f; font-weight: 600; margin-top: 0.8rem; }
+.wi-export { margin-top: 1.6rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.compare-table { width: 100%; border-collapse: collapse; margin: 0.8rem 0; font-size: 0.93rem; }
+.compare-table th, .compare-table td { border: 1px solid #e2e5ea; padding: 0.5rem 0.7rem; text-align: left; vertical-align: top; }
+.compare-table thead th { background: #f1f4f9; }
+.compare-table td.wi-unknown { background: #fffdf4; }
+.ref { color: #5b6472; font-size: 0.85rem; }
