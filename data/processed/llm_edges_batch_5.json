@@ -1,0 +1,866 @@
+[
+  {
+    "subject": "MPS II",
+    "relation": "caused_by_variant_in",
+    "object": "IDS",
+    "pmid": "39617925",
+    "source_quote": "Mucopolysaccharidosis type II (MPS II) is a rare X-linked lysosomal storage disorder caused by genetic alterations in the iduronate 2-sulfatase (IDS) gene.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "IDS",
+    "relation": "associated_with",
+    "object": "mucopolysaccharidosis 2",
+    "pmid": "28401457",
+    "source_quote": "IDS is responsible for the lysosomal degradation of heparan sulfate and dermatan sulfate and linked to an X-linked lysosomal storage disease, mucopolysaccharidosis 2 (MPS2), resulting in neurological damage and early death.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "childhood dementia",
+    "pmid": "36303195",
+    "source_quote": "Sanfilippo syndrome is a group of rare, complex, and progressive neurodegenerative lysosomal storage disorders that is characterized by childhood dementia.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "Progressive cognitive decline",
+    "pmid": "26710524",
+    "source_quote": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "dementia",
+    "pmid": "26710524",
+    "source_quote": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "behavioural abnormalities",
+    "pmid": "26710524",
+    "source_quote": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "intellectual regression",
+    "pmid": "32944950",
+    "source_quote": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "sleep disturbances",
+    "pmid": "32944950",
+    "source_quote": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "loss of ambulation",
+    "pmid": "32944950",
+    "source_quote": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "progressive mental retardation",
+    "pmid": "34271605",
+    "source_quote": "Mucopolysaccharidosis III, an autosomal recessive lysosomal storage disorder, is characterized by progressive mental retardation and behavioral problems.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "behavioral problems",
+    "pmid": "34271605",
+    "source_quote": "Mucopolysaccharidosis III, an autosomal recessive lysosomal storage disorder, is characterized by progressive mental retardation and behavioral problems.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "intellectual disability",
+    "pmid": "40032500",
+    "source_quote": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%), and behavioural issues (16/30, 53.3%).",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "movement incoordination",
+    "pmid": "40032500",
+    "source_quote": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%), and behavioural issues (16/30, 53.3%).",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "behavioural issues",
+    "pmid": "40032500",
+    "source_quote": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%), and behavioural issues (16/30, 53.3%).",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "progressive cognitive decline",
+    "pmid": "23336697",
+    "source_quote": "Mucopolysaccharidosis III is a rare genetic disease characterized by progressive cognitive decline and severe hyperactivity that does not respond to stimulants.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "severe hyperactivity",
+    "pmid": "23336697",
+    "source_quote": "Mucopolysaccharidosis III is a rare genetic disease characterized by progressive cognitive decline and severe hyperactivity that does not respond to stimulants.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "progressive dementia",
+    "pmid": "21235449",
+    "source_quote": "MPS III is clinically characterized by progressive dementia with distinct behavioral disturbances and relatively mild somatic disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "distinct behavioral disturbances",
+    "pmid": "21235449",
+    "source_quote": "MPS III is clinically characterized by progressive dementia with distinct behavioral disturbances and relatively mild somatic disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "severe neurocognitive deterioration",
+    "pmid": "21654471",
+    "source_quote": "The most pronounced symptom in mucopolysaccharidosis type III (MPS III, Sanfilippo Syndrome) is the severe neurocognitive deterioration of the central nervous system.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "scoliosis",
+    "pmid": "21654471",
+    "source_quote": "Three had significant scoliosis (21 to 99 degrees) and 2 others had L1 hypoplasia.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "osteonecrosis of the femoral heads",
+    "pmid": "21654471",
+    "source_quote": "Four patients had osteonecrosis of the femoral heads.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "valvular heart disease",
+    "pmid": "31196149",
+    "source_quote": "Echocardiographic examinations (n = 26) revealed that 10 patients (38%) had valvular heart disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "mitral regurgitation",
+    "pmid": "31196149",
+    "source_quote": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "aortic regurgitation",
+    "pmid": "31196149",
+    "source_quote": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "accumulates_in",
+    "object": "heparan sulfate",
+    "pmid": "41108524",
+    "source_quote": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "progressive neuroinflammation",
+    "pmid": "41108524",
+    "source_quote": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "neurodegeneration",
+    "pmid": "41108524",
+    "source_quote": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "progressive neurological deterioration",
+    "pmid": "25127543",
+    "source_quote": "Mucopolysaccharidosis type III (MPS III) is characterized by progressive neurological deterioration, behavioral abnormalities, a relatively mild somatic phenotype, and early mortality.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "behavioral abnormalities",
+    "pmid": "25127543",
+    "source_quote": "Mucopolysaccharidosis type III (MPS III) is characterized by progressive neurological deterioration, behavioral abnormalities, a relatively mild somatic phenotype, and early mortality.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "accumulates_in",
+    "object": "heparan sulfate",
+    "pmid": "36158637",
+    "source_quote": "This leads to primary accumulation of HS, and secondary storage of other compounds, combined with changes in expressions of hundreds of genes and many defects in organelles and various biochemical processes in the cell.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "progressive neurocognitive degeneration",
+    "pmid": "29631636",
+    "source_quote": "Sanfilippo syndrome (mucopolysaccharidosis [MPS] III subtypes A, B, C, and D) is a rare autosomal recessive inherited metabolic disorder that causes progressive neurocognitive degeneration.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "gene therapy",
+    "relation": "studied_in",
+    "object": "MPSIII",
+    "pmid": "31482754",
+    "source_quote": "In this study, we discuss the adeno-associated virus (AAV) vector-mediated gene transfer strategies currently being developed for MPSIII disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "symptoms of ASD",
+    "pmid": "28856504",
+    "source_quote": "MPS III is a recessively inherited metabolic disorder and evidence suggests that symptoms of ASD present in MPS III.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "difficulties within speech, language and communication",
+    "pmid": "28856504",
+    "source_quote": "Results indicated that difficulties within speech, language and communication consistent with ASD were present in MPS III, whilst repetitive and restricted behaviours and interests were less widely reported.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS IIIA",
+    "relation": "associated_with",
+    "object": "deficiency of sulphamidase",
+    "pmid": "10224661",
+    "source_quote": "Deficiency of sulphamidase results in the lysosomal storage of the glycosaminoglycan (GAG) heparan sulphate (HS) and is termed mucopolysaccharidosis type IIIA (MPS IIIA).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS IIIA",
+    "relation": "presents_with",
+    "object": "lysosomal storage of the glycosaminoglycan (GAG) heparan sulphate (HS)",
+    "pmid": "10224661",
+    "source_quote": "Deficiency of sulphamidase results in the lysosomal storage of the glycosaminoglycan (GAG) heparan sulphate (HS) and is termed mucopolysaccharidosis type IIIA (MPS IIIA).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "degeneration of the central nervous system",
+    "pmid": "26648750",
+    "source_quote": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "mental retardation",
+    "pmid": "26648750",
+    "source_quote": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS III",
+    "relation": "presents_with",
+    "object": "hyperactivity",
+    "pmid": "26648750",
+    "source_quote": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "intrathecally-delivered enzyme replacement therapy",
+    "relation": "studied_in",
+    "object": "MPS IIIA",
+    "pmid": "26648750",
+    "source_quote": "Indeed, clinical trials to evaluate intrathecally-delivered enzyme replacement therapy in MPS IIIA patients, and gene therapy for MPS IIIA and MPS IIIB patients are planned or underway.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "gene therapy",
+    "relation": "studied_in",
+    "object": "MPS IIIA",
+    "pmid": "26648750",
+    "source_quote": "Indeed, clinical trials to evaluate intrathecally-delivered enzyme replacement therapy in MPS IIIA patients, and gene therapy for MPS IIIA and MPS IIIB patients are planned or underway.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "gene therapy",
+    "relation": "studied_in",
+    "object": "MPS IIIB",
+    "pmid": "26648750",
+    "source_quote": "Indeed, clinical trials to evaluate intrathecally-delivered enzyme replacement therapy in MPS IIIA patients, and gene therapy for MPS IIIA and MPS IIIB patients are planned or underway.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "neurodegenerative disease",
+    "pmid": "38738088",
+    "source_quote": "Sanfilippo syndrome is a childhood-onset (1-4 years) autosomal recessive lysosomal storage disease that presents as a neurodegenerative disease by targeting the brain and spinal cord.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "delayed speech",
+    "pmid": "38738088",
+    "source_quote": "Mucopolysaccharidosis III is divided into four subtypes (A, B, C, or D). It can cause delayed speech, behavior problems, and features of autism spectrum disorder.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "behavior problems",
+    "pmid": "38738088",
+    "source_quote": "Mucopolysaccharidosis III is divided into four subtypes (A, B, C, or D). It can cause delayed speech, behavior problems, and features of autism spectrum disorder.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis III",
+    "relation": "presents_with",
+    "object": "features of autism spectrum disorder",
+    "pmid": "38738088",
+    "source_quote": "Mucopolysaccharidosis III is divided into four subtypes (A, B, C, or D). It can cause delayed speech, behavior problems, and features of autism spectrum disorder.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "delayed language development",
+    "pmid": "37357981",
+    "source_quote": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2 years of age, followed by unremitting and overt loss of previously acquired skills.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "insomnia",
+    "pmid": "37357981",
+    "source_quote": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2 years of age, followed by unremitting and overt loss of previously acquired skills.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "loss of previously acquired skills",
+    "pmid": "37357981",
+    "source_quote": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2 years of age, followed by unremitting and overt loss of previously acquired skills.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Sanfilippo syndrome",
+    "relation": "associated_with",
+    "object": "KBS",
+    "pmid": "37854727",
+    "source_quote": "Our research suggests that there may be a significant overlap between Sanfilippo syndrome and KBS, suggesting that refined guidelines for establishing diagnosis may be required for children.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "neurologic involvement",
+    "pmid": "24399699",
+    "source_quote": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "severe airways obstruction",
+    "pmid": "24399699",
+    "source_quote": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "skeletal deformities",
+    "pmid": "24399699",
+    "source_quote": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "cardiomyopathy",
+    "pmid": "24399699",
+    "source_quote": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "treated_by",
+    "object": "idursulfase",
+    "pmid": "24399699",
+    "source_quote": "Enzyme replacement therapy with intravenous infusions of idursulfase has emerged as a new treatment for mucopolysaccharidosis type II.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "multisystemic disease",
+    "pmid": "33138761",
+    "source_quote": "Mucopolysaccharidosis type II (Hunter syndrome, or MPS II) is an X-linked lysosomal disorder caused by the deficiency of iduronate-2-sulfatase, which leads to the accumulation of glycosaminoglycans (GAGs) in a variety of tissues, resulting in a multisystemic disease that can also impair the central nervous system (CNS).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "accumulation of glycosaminoglycans (GAGs)",
+    "pmid": "33138761",
+    "source_quote": "Mucopolysaccharidosis type II (Hunter syndrome, or MPS II) is an X-linked lysosomal disorder caused by the deficiency of iduronate-2-sulfatase, which leads to the accumulation of glycosaminoglycans (GAGs) in a variety of tissues, resulting in a multisystemic disease that can also impair the central nervous system (CNS).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "ivory-colored \"pebbly\" papules",
+    "pmid": "27601403",
+    "source_quote": "More specific skin findings include ivory-colored \"pebbly\" papules found in Hunter syndrome and extensive dermal melanocytosis found in Hurler and Hunter syndromes.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "extensive dermal melanocytosis",
+    "pmid": "27601403",
+    "source_quote": "More specific skin findings include ivory-colored \"pebbly\" papules found in Hunter syndrome and extensive dermal melanocytosis found in Hurler and Hunter syndromes.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "severe airway obstruction",
+    "pmid": "18038146",
+    "source_quote": "Clinical manifestations include severe airway obstruction, skeletal deformities, cardiomyopathy and, in most patients, neurological decline.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "neurological decline",
+    "pmid": "18038146",
+    "source_quote": "Clinical manifestations include severe airway obstruction, skeletal deformities, cardiomyopathy and, in most patients, neurological decline.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "IDS",
+    "relation": "encodes",
+    "object": "iduronate-2-sulfatase",
+    "pmid": "33004112",
+    "source_quote": "Mucopolysaccharidosis type II (MPS II, Hunter syndrome) is a rare X-linked lysosomal storage disease caused by mutations of the gene encoding the lysosomal enzyme iduronate-2-sulfatase (IDS), the role of which is to hydrolytically remove O-linked sulfates from the two glycosaminoglycans (GAGs) heparan sulfate (HS) and dermatan sulfate (DS).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis type II",
+    "relation": "treated_by",
+    "object": "enzyme replacement therapy",
+    "pmid": "28640238",
+    "source_quote": "studies of males with confirmed mucopolysaccharidosis type II (any age, phenotype, genotype, family history) treated with enzyme replacement therapy or hematopoietic stem cell transplantation.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis type II",
+    "relation": "treated_by",
+    "object": "hematopoietic stem cell transplantation",
+    "pmid": "28640238",
+    "source_quote": "studies of males with confirmed mucopolysaccharidosis type II (any age, phenotype, genotype, family history) treated with enzyme replacement therapy or hematopoietic stem cell transplantation.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "joint stiffness",
+    "pmid": "25345092",
+    "source_quote": "Children with severe form, diagnosed at 12-36 months, have coarse facial feature, short stature, joint stiffness, short neck, broad chest, large head circumference, watery diarrhea, skeletal changes, progressive and profound mental retardation, retinal degeneration' hearing loss, cardiomyopathy, valvular involvement, with progressive thickening and stiffening of the valve leaflets leading to mitral and aortic regurgitation and stenosis .",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "sleep apnea",
+    "pmid": "25345092",
+    "source_quote": "Recurrent and prolonged rhinitis with persistent nasal discharge are the first symptoms of airway disease that manifests itself as noisy breathing and later sleep apnea.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "ivory-colored skin lesions",
+    "pmid": "25345092",
+    "source_quote": "Some patients develop ivory-colored skin lesions on the upper back and sides of the upper arms, pathogenomic of Hunter syndrome.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "treated_by",
+    "object": "idursulfase",
+    "pmid": "22210671",
+    "source_quote": "Enzyme replacement therapy (ERT) is now available for MPS I (Hurler, Hurler-Scheie and Scheie syndromes) (laronidase), MPS II (Hunter syndrome) (idursulfase) and MPS VI Maroteaux-Lamy (galsulfase), and is in development for MPS IV (Morquio syndrome) and MPS VII (Sly syndrome).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "IDS",
+    "relation": "associated_with",
+    "object": "Mucopolysaccharidosis type II",
+    "pmid": "21235446",
+    "source_quote": "Mucopolysaccharidosis (MPS) type II (Hunter syndrome, OMIM 309900) is an X-linked lysosomal storage disorder caused by a deficiency of the lysosomal enzyme iduronate-2-sulfatase (IDS).",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "joint contractures",
+    "pmid": "21235446",
+    "source_quote": "Major clinical manifestations include joint contractures, obstructive and restrictive airway disease, cardiac disease, skeletal deformities and often mental retardation.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "cardiac disease",
+    "pmid": "21235446",
+    "source_quote": "Major clinical manifestations include joint contractures, obstructive and restrictive airway disease, cardiac disease, skeletal deformities and often mental retardation.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis II",
+    "relation": "accumulates_in",
+    "object": "tissues and organs",
+    "pmid": "18245410",
+    "source_quote": "In patients with mucopolysaccharidosis II, glycosaminoglycans accumulate within tissues and organs, contributing to the signs and symptoms of the disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis II",
+    "relation": "presents_with",
+    "object": "facial dysmorphism",
+    "pmid": "18245410",
+    "source_quote": "Common presenting features include excess urinary glycosaminoglycan excretion, facial dysmorphism, organomegaly, joint stiffness and contractures, pulmonary dysfunction, myocardial enlargement and valvular dysfunction, and neurologic involvement.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis II",
+    "relation": "presents_with",
+    "object": "organomegaly",
+    "pmid": "18245410",
+    "source_quote": "Common presenting features include excess urinary glycosaminoglycan excretion, facial dysmorphism, organomegaly, joint stiffness and contractures, pulmonary dysfunction, myocardial enlargement and valvular dysfunction, and neurologic involvement.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "respiratory problems",
+    "pmid": "18339190",
+    "source_quote": "Respiratory problems are frequently encountered by patients with Hunter syndrome and contribute to the premature mortality seen in individuals with the disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "presents_with",
+    "object": "Sleep apnoea",
+    "pmid": "18339190",
+    "source_quote": "Sleep apnoea is another common feature of Hunter syndrome, which can lead to a reduction in oxygen saturation of the blood and severely disrupts sleep.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter syndrome",
+    "relation": "treated_by",
+    "object": "continuous positive airway pressure",
+    "pmid": "18339190",
+    "source_quote": "In our clinic, continuous positive airway pressure (CPAP), in which inspired air at elevated pressure is delivered through a specially designed mask, has proved to be effective for reducing sleep apnoea in patients with Hunter syndrome.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "Hunter's syndrome",
+    "relation": "presents_with",
+    "object": "oral manifestations",
+    "pmid": "7603911",
+    "source_quote": "Review of the literature on Hunter's syndrome and oral manifestations in pediatric dental patients including the primary and secondary systemic manifestations are presented.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "progressive central nervous system involvement",
+    "pmid": "28860717",
+    "source_quote": "Accumulation of the glycosaminoglycans dermatan sulfate and heparan sulfate results in a broad range of disease manifestations that are highly variable in presentation and severity; notably, approximately two-thirds of individuals are affected by progressive central nervous system involvement.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "treated_by",
+    "object": "intravenous idursulfase",
+    "pmid": "28860717",
+    "source_quote": "The pivotal Phase II/III clinical trial of intravenous idursulfase (Elaprase®; Shire, Lexington, MA, USA) demonstrated improvements in a range of clinical parameters; based on these findings, intravenous idursulfase was approved for use in patients with MPS II in the USA in 2006 and in Europe and Japan in 2007.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "associated_with",
+    "object": "deficit of the lysosomal hydrolase iduronate 2-sulphatase",
+    "pmid": "32070051",
+    "source_quote": "The complex disease is due to a deficit of the lysosomal hydrolase iduronate 2-sulphatase, which is a crucial enzyme in the stepwise degradation of heparan and dermatan sulphate.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "IDS",
+    "relation": "encodes",
+    "object": "iduronate 2-sulphatase",
+    "pmid": "34070997",
+    "source_quote": "Mucopolysaccharidosis type II (MPS II) is a lysosomal storage disorder based on a mutation in the IDS gene that encodes iduronate 2-sulphatase.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "hepatomegaly",
+    "pmid": "34070997",
+    "source_quote": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "splenomegaly",
+    "pmid": "34070997",
+    "source_quote": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "associated_with",
+    "object": "deficiency of the lysosomal enzyme iduronate-2-sulfatase",
+    "pmid": "22059643",
+    "source_quote": "Mucopolysaccharidosis type II (MPS II) is a rare, life-limiting, X-linked recessive disease characterised by deficiency of the lysosomal enzyme iduronate-2-sulfatase.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "cognitive impairment",
+    "pmid": "39201256",
+    "source_quote": "Signs and symptoms typically emerge at 1.5-4 years of age and may include cognitive impairment, depending on whether patients have the neuronopathic or non-neuronopathic form of the disease.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "neurological and cognitive impairment",
+    "pmid": "41075684",
+    "source_quote": "All people with the rare, inherited, lysosomal disease mucopolysaccharidosis type II (MPS II) experience somatic manifestations, and approximately two-thirds develop neurological and cognitive impairment.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis type II",
+    "relation": "presents_with",
+    "object": "cardiorespiratory and neurological complications",
+    "pmid": "17345555",
+    "source_quote": "The different phenotypes are described and the multisystem clinical symptoms are considered, with special emphasis on skeletal deformities and cardiorespiratory and neurological complications.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "Mucopolysaccharidosis type II",
+    "relation": "caused_by_variant_in",
+    "object": "iduronate-2-sulfatase gene",
+    "pmid": "15797184",
+    "source_quote": "Mucopolysaccharidosis type II (Hunter disease, iduronate-2-sulfatase deficiency) was diagnosed in a 4-year-old female by demonstrating low iduronate-2-sulfatase activity both in leukocytes and fibroblasts and by the presence of a novel, complex rearrangement of the iduronate-2-sulfatase gene in heterozygous form.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "treated_by",
+    "object": "tividenofusp alfa",
+    "pmid": "42313339",
+    "source_quote": "Based on a reduction in cerebrospinal fluid heparan sulphate levels in patients with MPS II treated with tividenofusp alfa in a phase I/II trial, in March 2026 tividenofusp alfa was approved in the USA, under accelerated approval, for the treatment of neurologic manifestations of MPS II when initiated in presymptomatic or symptomatic paediatric patients weighing ≥ 5 kg prior to advanced neurologic impairment.",
+    "confidence": "high",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "associated_with",
+    "object": "heparan sulfate",
+    "pmid": "39593190",
+    "source_quote": "Based on scientific evidence, the experts concluded that HS in CSF is predominantly derived from the brain and reflects neurological impairment in patients with MPS II.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS-II",
+    "relation": "accumulates_in",
+    "object": "joints and connective tissue",
+    "pmid": "20354449",
+    "source_quote": "The skeletal-muscle system involvement is because of essential accumulated GAGs in joints and connective tissue.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "airway obstruction",
+    "pmid": "40011961",
+    "source_quote": "Survival, airway obstruction, and quality of life were outcomes identified as important to always measure in all MPS II clinical trials and/or in clinical practice.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "swallowing difficulties",
+    "pmid": "40011961",
+    "source_quote": "Other outcomes for younger children included swallowing difficulties, cognitive development, ability to participate in education, and communication.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "chronic otitis media",
+    "pmid": "40011961",
+    "source_quote": "The adolescent group included safety of chewing and swallowing, complications of anaesthesia, sleep quality and apnoea, nasal problems, and chronic otitis media.",
+    "confidence": "medium",
+    "contradicts": false
+  },
+  {
+    "subject": "mucopolysaccharidosis type II",
+    "relation": "caused_by_variant_in",
+    "object": "iduronate-2-sulphatase gene",
+    "pmid": "8111411",
+    "source_quote": "A number of mutations in the X-chromosomal human iduronate-2-sulphatase gene have now been identified as the primary genetic defect leading to the clinical condition known as Hunter syndrome or mucopolysaccharidosis type II.",
+    "confidence": "high",
+    "contradicts": false
+  }
+]
