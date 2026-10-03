@@ -1,0 +1,77 @@
+{
+ "verified_by": "claude-haiku-4-5",
+ "date": "2026-10-03",
+ "purpose": "independent cross-check of Codex extraction; coordinator to diff against llm_edges.json on arrival",
+ "claims": [
+  {
+   "pmid": "25851924",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH deficiency causes heparan sulfate accumulation in lysosomal storage disorder MPS III",
+   "status": "established"
+  },
+  {
+   "pmid": "27100513",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH dysfunction causes heparan sulfate accumulation in lysosomes in MPS IIIA",
+   "status": "established"
+  },
+  {
+   "pmid": "28921412",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH mutations cause heparan sulfate accumulation leading to neurodegenerative changes in MPS III",
+   "status": "established"
+  },
+  {
+   "pmid": "39404425",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH pathogenic variants are associated with increased cancer prevalence",
+   "status": "established"
+  },
+  {
+   "pmid": "11668611",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH deficiency causes heparan sulfate accumulation and central nervous system degeneration in MPS IIIA",
+   "status": "established"
+  },
+  {
+   "pmid": "21235444",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH is under study as a hypothesized neuronal ceroid lipofuscinosis gene",
+   "status": "hypothesis"
+  },
+  {
+   "pmid": "25345095",
+   "gene": "SGSH",
+   "variant": null,
+   "mechanism": "SGSH deficiency causes heparan sulfate accumulation leading to neurodegenerative disorder in MPS III Type A",
+   "status": "established"
+  },
+  {
+   "pmid": "28218669",
+   "gene": "GBA",
+   "variant": null,
+   "mechanism": "GBA deficiency causes glucosylceramide accumulation in macrophages in Gaucher disease",
+   "status": "established"
+  },
+  {
+   "pmid": "40611398",
+   "gene": "GBA",
+   "variant": null,
+   "mechanism": "GBA deficiency causes glucocerebrosidase deficiency leading to Gaucher cell formation and pathological lesions",
+   "status": "established"
+  },
+  {
+   "pmid": "35439918",
+   "gene": "GBA",
+   "variant": null,
+   "mechanism": "GBA deficiency causes glucocerebrosidase deficiency in Gaucher disease",
+   "status": "established"
+  }
+ ]
+}
