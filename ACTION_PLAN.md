@@ -2,11 +2,8 @@
 Hack-Nation 7, Challenge 05 (OpenAI x Buffalo Initiative). Solo builder: Charan.
 Submission deadline: **Sun Oct 4, 9:00 AM ET sharp.** All deliverables ready by 8:00 AM.
 
-## Roles
-- **Idris (brainstormer/planner):** architecture, scrutiny of the brief, milestone verification.
-- **Codex CLI (executor):** all code-writing, via `codex exec` with precise briefs. Authenticated to Charan's ChatGPT account.
-- **Build coordinator (foreman):** drives Codex phase by phase, verifies outputs, keeps the project log, pushes to GitHub.
-- **Charan:** records the videos, submits. Involved at every milestone (see below).
+## Team
+Solo build by Ram Charan Polisetti.
 
 ## The idea (one paragraph)
 A knowledge graph of lysosomal storage diseases (LSDs): diseases, genes, variants,
