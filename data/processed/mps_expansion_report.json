@@ -1,0 +1,389 @@
+{
+ "retrieved": "2026-10-03",
+ "failures": [],
+ "queries": [
+  "https://api-v3.monarchinitiative.org/v3/api/search?q=IDS&category=biolink%3AGene&limit=10",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A5389&category=biolink%3ACausalGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A5389&category=biolink%3ACorrelatedGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/search?q=SGSH&category=biolink%3AGene&limit=10",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A10818&category=biolink%3ACausalGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A10818&category=biolink%3ACorrelatedGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/search?q=NAGLU&category=biolink%3AGene&limit=10",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A7632&category=biolink%3ACausalGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A7632&category=biolink%3ACorrelatedGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/search?q=HGSNAT&category=biolink%3AGene&limit=10",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A26527&category=biolink%3ACausalGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A26527&category=biolink%3ACorrelatedGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/search?q=GNS&category=biolink%3AGene&limit=10",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A4422&category=biolink%3ACausalGeneToDiseaseAssociation&limit=100",
+  "https://api-v3.monarchinitiative.org/v3/api/association?subject=HGNC%3A4422&category=biolink%3ACorrelatedGeneToDiseaseAssociation&limit=100",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=IDS%5Bgene%5D+AND+%28%22pathogenic%22%5BClinical+significance%5D+OR+%22likely+pathogenic%22%5BClinical+significance%5D%29&retmax=80&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=4975477%2C4953171%2C4884744%2C4880506%2C4880012%2C4856312%2C4855847%2C4852056%2C4851495%2C4851184%2C4851137%2C4849576%2C4820100%2C4817913%2C4796070%2C4770968%2C4755393%2C4728373%2C4683026%2C4539014%2C4538695%2C4532261%2C4532163%2C4530716%2C4528907%2C4528906%2C4293535%2C4279168%2C4277406%2C4088131%2C4081450%2C4078970%2C4078968%2C4078962%2C4075694%2C3891320%2C3859389%2C3781150%2C3774414%2C3663207%2C3658743%2C3619927%2C3607306%2C3598111%2C3598110%2C3598109%2C3391960%2C3390741%2C3368598%2C3365782%2C3365393%2C3349727%2C3338633%2C3285265%2C3256109%2C3256108%2C3256107%2C3256106%2C3256105%2C3256104%2C3256103%2C3256102%2C3256101%2C3256100%2C3256098%2C3256097%2C3256096%2C3256095%2C3256094%2C3256093%2C3256092%2C3256091%2C3256090%2C3256089%2C3256088%2C3256087%2C3256086%2C3256085%2C3256084%2C3256083&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=SGSH%5Bgene%5D+AND+%28%22pathogenic%22%5BClinical+significance%5D+OR+%22likely+pathogenic%22%5BClinical+significance%5D%29&retmax=80&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=4937435%2C4886975%2C4886974%2C4854399%2C4817912%2C4817911%2C4817908%2C4817907%2C4817906%2C4817905%2C4817904%2C4817903%2C4817901%2C4809985%2C4800922%2C4797463%2C4765375%2C4761457%2C4710437%2C4536143%2C4535841%2C4525894%2C4428588%2C4428574%2C4428563%2C4279221%2C4077508%2C4077507%2C4061361%2C4061357%2C4061354%2C3906112%2C3663345%2C3662336%2C3644953%2C3643122%2C3603296%2C3603295%2C3583114%2C3583113%2C3583112%2C3583111%2C3583109%2C3583108%2C3393592%2C3393159%2C3391013%2C3384028%2C3363892%2C3362306%2C3256113%2C3251421%2C3242930%2C3242929%2C3242928%2C3240458%2C3240457%2C3240456%2C3240455%2C3240454%2C3240453%2C3240452%2C3161053%2C3064735%2C3009303%2C3004153%2C2992827%2C2918842%2C2894590%2C2879174%2C2847131%2C2837119%2C2831487%2C2817814%2C2812792%2C2812649%2C2791543%2C2778794%2C2757673%2C2757203&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=NAGLU%5Bgene%5D+AND+%28%22pathogenic%22%5BClinical+significance%5D+OR+%22likely+pathogenic%22%5BClinical+significance%5D%29&retmax=80&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=4935251%2C4935249%2C4935248%2C4886978%2C4886977%2C4886976%2C4820060%2C4818045%2C4818043%2C4818042%2C4818041%2C4818040%2C4818038%2C4818037%2C4818036%2C4783876%2C4783827%2C4755407%2C4688839%2C4687892%2C4687441%2C4526785%2C4293318%2C4081749%2C4058302%2C4058285%2C4058254%2C3907232%2C3907121%2C3902480%2C3901609%2C3877543%2C3776800%2C3776261%2C3763692%2C3763115%2C3759448%2C3759436%2C3759435%2C3756578%2C3756323%2C3756134%2C3756117%2C3755942%2C3755785%2C3754334%2C3751193%2C3749412%2C3602199%2C3581963%2C3581961%2C3581959%2C3581958%2C3581957%2C3581956%2C3581955%2C3581953%2C3581952%2C3402542%2C3374959%2C3366057%2C3336585%2C3336582%2C3336548%2C3336527%2C3242217%2C3068857%2C2951600%2C2951386%2C2951244%2C2949336%2C2949063%2C2948075%2C2947556%2C2947317%2C2946754%2C2944642%2C2942497%2C2941785%2C2939060&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=HGSNAT%5Bgene%5D+AND+%28%22pathogenic%22%5BClinical+significance%5D+OR+%22likely+pathogenic%22%5BClinical+significance%5D%29&retmax=80&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=4900220%2C4900217%2C4900213%2C4900196%2C4900192%2C4900190%2C4900185%2C4900183%2C4888407%2C4881394%2C4856909%2C4851250%2C4851197%2C4816876%2C4816875%2C4816874%2C4816873%2C4816872%2C4816871%2C4816870%2C4816869%2C4816868%2C4816867%2C4816866%2C4816865%2C4816864%2C4816863%2C4816862%2C4816861%2C4816860%2C4816859%2C4816858%2C4786739%2C4784515%2C4783869%2C4687187%2C4682714%2C4534627%2C4347355%2C4347354%2C4347350%2C4293176%2C4069310%2C4069302%2C4069299%2C4069291%2C4069278%2C3905869%2C3905631%2C3777075%2C3755566%2C3754844%2C3754576%2C3754315%2C3752459%2C3750224%2C3602732%2C3595623%2C3595621%2C3595620%2C3595619%2C3595618%2C3595617%2C3391848%2C3391813%2C3382577%2C3373167%2C3250247%2C3245544%2C3245541%2C3245540%2C3245539%2C3245538%2C3245536%2C3068822%2C3063038%2C3063025%2C3063013%2C2953989%2C2953254&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=GNS%5Bgene%5D+AND+%28%22pathogenic%22%5BClinical+significance%5D+OR+%22likely+pathogenic%22%5BClinical+significance%5D%29&retmax=80&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=4880592%2C4857746%2C4814997%2C4814996%2C4814995%2C4814994%2C4724139%2C4387899%2C4387897%2C4081433%2C4068901%2C3723231%2C3721441%2C3645579%2C3644400%2C3640536%2C3575160%2C3575159%2C3575158%2C3575157%2C3381090%2C3370808%2C3244247%2C3244246%2C3244245%2C3061394%2C3002485%2C2843121%2C2825520%2C2825435%2C2813749%2C2794860%2C2759930%2C2741491%2C2735909%2C2735908%2C2711402%2C2706431%2C2696295%2C2690616%2C2685437%2C2506276%2C2501802%2C2425940%2C2137388%2C2137387%2C2135833%2C2102240%2C2033415%2C2031201%2C2018370%2C1999386%2C1974056%2C1961741%2C1936254%2C1879249%2C1722378%2C1479117%2C1469838%2C1465334%2C1460021%2C1459210%2C1455915%2C1453450%2C1453303%2C1452923%2C1441162%2C1428962%2C1418992%2C1414671%2C1413883%2C1408205%2C1402148%2C1391029%2C1360836%2C1358146%2C1354681%2C1323028%2C1299282%2C1075873&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22SGSH%22%5Bgene%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31536183%2C25851924%2C27100513%2C28921412%2C39404425%2C11668611%2C21235444%2C25345095%2C40804664&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22NAGLU%22%5Bgene%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31536183%2C35453363%2C20301462%2C41873862%2C34347683&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22HGSNAT%22%5Bgene%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=20301590%2C31536183%2C19479962%2C18392742%2C41883052%2C33105639&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22GNS%22%5Bgene%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35175837%2C37364816%2C35817519%2C41071671%2C31536183%2C41010890%2C12746805%2C24433501%2C31831498%2C31374570%2C36497219%2C7809504%2C32200430%2C40469278%2C27085467%2C27125143%2C27049372%2C27381365%2C28198657%2C30236026%2C37659751&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22IDS%22%5Bgene%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40152990%2C39617925%2C15996383%2C35101185%2C34188553%2C35323288%2C34501883%2C35799257%2C38534867%2C38759648%2C40797342%2C30000312%2C36287325%2C26225041%2C31355198%2C40202292%2C18702341%2C23232096%2C20301451%2C18030006%2C28401457%2C16131323%2C34010755%2C37181980&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22mucopolysaccharidosis+type+III%22%5BTitle%2FAbstract%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=36303195%2C26710524%2C31536183%2C32944950%2C34271605%2C40032500%2C8215557%2C32949598%2C23336697%2C21235449%2C21654471%2C31196149%2C41108524%2C25127543%2C36158637%2C29631636%2C27384562%2C31482754%2C18033028%2C28856504%2C28933412%2C9645103&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Sanfilippo+syndrome%22%5BTitle%2FAbstract%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=26613630%2C10224661%2C31536183%2C26648750%2C26604866%2C11031994%2C38738088%2C37357981%2C37854727&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Hunter+syndrome%22%5BTitle%2FAbstract%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=3099554%2C24399699%2C22071845%2C33138761%2C23622395%2C37371763%2C39640315%2C26845288%2C27601403%2C18038146%2C33004112%2C28640238%2C20301451%2C25345092%2C22210671%2C21235446%2C27610119%2C18245410%2C18339190%2C25828501%2C7603911%2C28860717%2C28450231&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22mucopolysaccharidosis+type+II%22%5BTitle%2FAbstract%5D+AND+review%5Bpt%5D&retmax=25&sort=relevance&retmode=json&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=32070051%2C34070997%2C22059643%2C39201256%2C41075684%2C17345555%2C20301451%2C15797184%2C42313339%2C39593190%2C20354449%2C40011961%2C8111411&rettype=abstract&retmode=xml&tool=rare-disease-atlas&email=rare-disease-atlas%40example.org",
+  "https://clinicaltrials.gov/api/v2/studies?query.cond=Mucopolysaccharidosis+type+II&filter.overallStatus=RECRUITING%7CACTIVE_NOT_RECRUITING%7CNOT_YET_RECRUITING&pageSize=100",
+  "https://clinicaltrials.gov/api/v2/studies?query.cond=Mucopolysaccharidosis+type+IIIA&filter.overallStatus=RECRUITING%7CACTIVE_NOT_RECRUITING%7CNOT_YET_RECRUITING&pageSize=100",
+  "https://clinicaltrials.gov/api/v2/studies?query.cond=Mucopolysaccharidosis+type+IIIB&filter.overallStatus=RECRUITING%7CACTIVE_NOT_RECRUITING%7CNOT_YET_RECRUITING&pageSize=100",
+  "https://clinicaltrials.gov/api/v2/studies?query.cond=Mucopolysaccharidosis+type+IIIC&filter.overallStatus=RECRUITING%7CACTIVE_NOT_RECRUITING%7CNOT_YET_RECRUITING&pageSize=100",
+  "https://clinicaltrials.gov/api/v2/studies?query.cond=Mucopolysaccharidosis+type+IIID&filter.overallStatus=RECRUITING%7CACTIVE_NOT_RECRUITING%7CNOT_YET_RECRUITING&pageSize=100",
+  "https://clinicaltrials.gov/api/v2/studies/NCT00144794",
+  "https://clinicaltrials.gov/api/v2/studies/NCT03292887"
+ ],
+ "added": {
+  "monarch": 15,
+  "clinvar": 400,
+  "pubmed": 120,
+  "clinicaltrials": 20
+ },
+ "before": {
+  "nodes": 1120,
+  "edges": 2819
+ },
+ "diseases": {
+  "IDS": "MONDO:0010674",
+  "SGSH": "MONDO:0009655",
+  "NAGLU": "MONDO:0009656",
+  "HGSNAT": "MONDO:0009657",
+  "GNS": "MONDO:0009658"
+ },
+ "slice_diseases": [
+  {
+   "mondo_id": "MONDO:0009655",
+   "label": "mucopolysaccharidosis type 3A",
+   "synonyms": [
+    "MPS III A",
+    "MPS3A",
+    "MPSIIIA",
+    "Sanfilippo A",
+    "Sanfilippo syndrome a",
+    "Sanfilippo syndrome type A",
+    "heparan sulfamidase deficiency",
+    "mucopolysaccharidosis type 3A",
+    "mucopolysaccharidosis type IIIA",
+    "MPS IIIA",
+    "heparan sulphate sulfatase deficiency",
+    "heparane sulfamidase deficiency",
+    "mucopoly-saccharidosis type 3A",
+    "mucopolysaccharidosis, type IIIA"
+   ],
+   "xrefs": [
+    "DOID:0111395",
+    "GARD:0007071",
+    "MEDGEN:39264",
+    "NANDO:1200101",
+    "NANDO:2201174",
+    "NCIT:C84897",
+    "OMIM:252900",
+    "Orphanet:79269",
+    "SCTID:41572006",
+    "UMLS:C0086647",
+    "icd11.foundation:182200345"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme heparan sulfate sulfatase. It is characterized by behavioral changes, sleep disturbances, mental developmental delays and seizures.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009656",
+   "label": "mucopolysaccharidosis type 3B",
+   "synonyms": [
+    "MPS III B",
+    "MPS3B",
+    "MPSIIIB",
+    "N-acetyl-alpha-glucosaminidase deficiency",
+    "Sanfilippo B",
+    "Sanfilippo syndrome B",
+    "Sanfilippo syndrome type B",
+    "mucopolysaccharidosis type 3B",
+    "mucopolysaccharidosis type IIIB",
+    "MPS IIIB",
+    "Mucopoly-saccharidosis type 3B",
+    "mucopolysaccharidosis, type IIIB"
+   ],
+   "xrefs": [
+    "DOID:0111394",
+    "GARD:0007072",
+    "MEDGEN:88601",
+    "NANDO:1200102",
+    "NANDO:2201175",
+    "NCIT:C84898",
+    "OMIM:252920",
+    "Orphanet:79270",
+    "SCTID:59990008",
+    "UMLS:C0086648",
+    "icd11.foundation:117303909"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme N-acetyl-alpha-D-glucosaminidase. It is characterized by behavioral changes, sleep disturbances, and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009657",
+   "label": "mucopolysaccharidosis type 3C",
+   "synonyms": [
+    "HGSNAT deficiency",
+    "MPS III C",
+    "MPS3C",
+    "MPSIIIC",
+    "Sanfilippo C",
+    "Sanfilippo syndrome type C",
+    "heparan-alpha-glucosaminide N-acetyltransferase deficiency",
+    "mucopolysaccharidosis type 3C",
+    "mucopolysaccharidosis type IIIC",
+    "Acetyl-CoA alpha-glucosaminide n-acetyltransferase deficiency",
+    "MPS IIIC",
+    "Mucopoly-saccharidosis type 3C",
+    "mucopolysaccharidosis, type IIIC"
+   ],
+   "xrefs": [
+    "DOID:0111393",
+    "GARD:0007073",
+    "MEDGEN:39477",
+    "NANDO:1200103",
+    "NANDO:2201176",
+    "NCIT:C84899",
+    "OMIM:252930",
+    "Orphanet:79271",
+    "SCTID:75238000",
+    "UMLS:C0086649",
+    "icd11.foundation:1755913480"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme acetyl-CoA:alpha-glucosaminide acetyltransferase. It is characterized by behavioral changes, sleep disturbances, and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009658",
+   "label": "mucopolysaccharidosis type 3D",
+   "synonyms": [
+    "GNS deficiency",
+    "MPS III D",
+    "MPS3D",
+    "MPSIIID",
+    "Sanfilippo D",
+    "Sanfilippo syndrome D",
+    "Sanfilippo syndrome type D",
+    "glucosamine N-acetyl-6-sulfatase deficiency",
+    "mucopolysaccharidosis type 3D",
+    "mucopolysaccharidosis type IIID",
+    "MPS IIID",
+    "Mucopoly-saccharidosis type 3D",
+    "N-acetylglucosamine-6-sulfate sulfatase deficiency",
+    "mucopolysaccharidosis, type IIID"
+   ],
+   "xrefs": [
+    "DOID:0111402",
+    "GARD:0007074",
+    "MEDGEN:88602",
+    "NANDO:1200104",
+    "NANDO:2201177",
+    "NCIT:C84900",
+    "OMIM:252940",
+    "Orphanet:79272",
+    "SCTID:15892005",
+    "UMLS:C0086650",
+    "icd11.foundation:1780990193"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme N-acetylglucosamine-6-sulfatase. It is characterized by behavioral changes, sleep disturbances and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0010674",
+   "label": "mucopolysaccharidosis type 2",
+   "synonyms": [
+    "Hunter syndrome",
+    "Hunter's syndrome",
+    "I2S deficiency",
+    "IDS deficiency",
+    "MPS 2",
+    "MPS II",
+    "MPS with skin involvement",
+    "MPS2",
+    "MPSII",
+    "Mucopolysaccharidosis Type II",
+    "SIDS deficiency",
+    "attenuated MPS (subtype; formerly known as mild MPS II)",
+    "iduronate 2-sulfatase deficiency",
+    "mucopolysaccharidosis II, X-linked recessive",
+    "mucopolysaccharidosis type 2",
+    "mucopolysaccharidosis type II",
+    "mucopolysaccharidosis with skin involvement",
+    "mucopolysaccharidosis, type 2",
+    "mucopolysaccharidosis, type II",
+    "severe MPS II",
+    "sulfoiduronate sulfatase deficiency"
+   ],
+   "xrefs": [
+    "DOID:12799",
+    "GARD:0006675",
+    "ICD10CM:E76.1",
+    "MEDGEN:7734",
+    "MESH:D016532",
+    "MedDRA:10056889",
+    "NANDO:1200097",
+    "NANDO:2200548",
+    "NCIT:C61260",
+    "NORD:1255",
+    "OMIM:309900",
+    "Orphanet:580",
+    "Orphanet:79388",
+    "SCTID:70737009",
+    "UMLS:C0026705",
+    "icd11.foundation:1056274204"
+   ],
+   "definition": "A lysosomal storage disease leading to a massive accumulation of glycosaminoglycans and a wide variety of symptoms including distinctive coarse facial features, short stature, cardio-respiratory involvement and skeletal abnormalities. It manifests as a continuum varying from a severe to an attenuated form without neuronal involvement.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016315",
+   "label": "mucopolysaccharidosis type 2, severe form",
+   "synonyms": [
+    "Hunter syndrome type A",
+    "MPS2A",
+    "MPSIIA",
+    "iduronate 2-sulfatase deficiency type A",
+    "mucopolysaccharidosis type 2, severe form",
+    "mucopolysaccharidosis type 2A",
+    "mucopolysaccharidosis type II, severe form",
+    "mucopolysaccharidosis type IIA"
+   ],
+   "xrefs": [
+    "GARD:0017118",
+    "MEDGEN:575246",
+    "NANDO:1200098",
+    "NANDO:2201173",
+    "Orphanet:217085",
+    "SCTID:73146005",
+    "UMLS:C0342841"
+   ],
+   "definition": "Mucopolysaccharidosis type 2 (MPS2), severe form (MPS2S), is associated with a massive accumulation of glycosaminoglycans and a wide variety of symptoms including a rapidly progressive cognitive decline; it is most often fatal in the second or third decade.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016316",
+   "label": "mucopolysaccharidosis type 2, attenuated form",
+   "synonyms": [
+    "Hunter syndrome type B",
+    "MPS2B",
+    "MPSIIB",
+    "iduronate 2-sulfatase deficiency type B",
+    "mucopolysaccharidosis type 2, attenuated form",
+    "mucopolysaccharidosis type 2B",
+    "mucopolysaccharidosis type II, attenuated form",
+    "mucopolysaccharidosis type IIB"
+   ],
+   "xrefs": [
+    "GARD:0017119",
+    "MEDGEN:1826165",
+    "NANDO:1200099",
+    "NANDO:2201171",
+    "NANDO:2201172",
+    "Orphanet:217093",
+    "SCTID:5667009",
+    "UMLS:C5679815"
+   ],
+   "definition": "Mucopolysaccharidosis type 2, attenuated form (MPS2att), the less severe form of MPS2, leads to a massive accumulation of glycosaminoglycans and a wide variety of symptoms including distinctive facies, short stature, cardiorespiratory and skeletal findings. It is differentiated from mucopolysaccharidosis type 2, severe form by the absence of cognitive decline.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0018937",
+   "label": "mucopolysaccharidosis type 3",
+   "synonyms": [
+    "MPS3",
+    "MPSIII",
+    "Mucopoly-saccharidosis type 3",
+    "Mucopolysaccharidosis Type III",
+    "Sanfilippo disease",
+    "Sanfilippo syndrome",
+    "heparan sulphate sulfatase deficiency",
+    "mucopolysaccharidosis type III"
+   ],
+   "xrefs": [
+    "DOID:12801",
+    "GARD:0003807",
+    "MEDGEN:6452",
+    "MedDRA:10056890",
+    "NANDO:1200100",
+    "NANDO:2200549",
+    "NCIT:C61262",
+    "NORD:1463",
+    "Orphanet:581",
+    "SCTID:88393000",
+    "UMLS:C0026706",
+    "icd11.foundation:1477250013"
+   ],
+   "definition": "A lysosomal disease characterized by progressive neurocognitive decline, severe  intellectual deterioration, loss of functional abilities, and premature death.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  }
+ ],
+ "genes": {
+  "IDS": {
+   "id": "HGNC:5389",
+   "name": "IDS"
+  },
+  "SGSH": {
+   "id": "HGNC:10818",
+   "name": "SGSH"
+  },
+  "NAGLU": {
+   "id": "HGNC:7632",
+   "name": "NAGLU"
+  },
+  "HGSNAT": {
+   "id": "HGNC:26527",
+   "name": "HGSNAT"
+  },
+  "GNS": {
+   "id": "HGNC:4422",
+   "name": "GNS"
+  }
+ },
+ "orphanet_org_matches": [],
+ "patient_org_matches": [
+  {
+   "name": "National MPS Society",
+   "diseases": [
+    "Mucopolysaccharidosis type I"
+   ],
+   "url": "https://mpssociety.org",
+   "assets": [
+    "Family assistance; research grants; MPS I included in newborn screening advocacy"
+   ],
+   "url_verified": {
+    "ok": true,
+    "http_status": 200,
+    "page_title": "National MPS Society | Cure, Support, and Advocate for MPS and ML."
+   },
+   "source": "Hand-curated (agent), URL verified 2026-10-03"
+  }
+ ]
+}

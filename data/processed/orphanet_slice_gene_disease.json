@@ -1,0 +1,377 @@
+{
+ "source": "Orphanet orphadata en_product6.xml (https://www.orphadata.com/)",
+ "retrieved": "2026-10-03",
+ "n_links": 37,
+ "links": [
+  {
+   "orphanet_id": "ORPHA:324",
+   "disease": "Fabry disease",
+   "gene_symbol": "GLA",
+   "gene_name": "galactosidase alpha",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:2072",
+   "disease": "Gaucher disease-ophthalmoplegia-cardiovascular calcification syndrome",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:206436",
+   "disease": "Infantile Krabbe disease",
+   "gene_symbol": "GALC",
+   "gene_name": "galactosylceramidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:206443",
+   "disease": "Late-infantile/juvenile Krabbe disease",
+   "gene_symbol": "GALC",
+   "gene_name": "galactosylceramidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:206448",
+   "disease": "Adult Krabbe disease",
+   "gene_symbol": "GALC",
+   "gene_name": "galactosylceramidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216972",
+   "disease": "Niemann-Pick disease type C, severe perinatal form",
+   "gene_symbol": "NPC1",
+   "gene_name": "NPC intracellular cholesterol transporter 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216972",
+   "disease": "Niemann-Pick disease type C, severe perinatal form",
+   "gene_symbol": "NPC2",
+   "gene_name": "NPC intracellular cholesterol transporter 2",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216978",
+   "disease": "Niemann-Pick disease type C, late infantile neurologic onset",
+   "gene_symbol": "NPC1",
+   "gene_name": "NPC intracellular cholesterol transporter 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216978",
+   "disease": "Niemann-Pick disease type C, late infantile neurologic onset",
+   "gene_symbol": "NPC2",
+   "gene_name": "NPC intracellular cholesterol transporter 2",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216975",
+   "disease": "Niemann-Pick disease type C, severe early infantile neurologic onset",
+   "gene_symbol": "NPC1",
+   "gene_name": "NPC intracellular cholesterol transporter 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216975",
+   "disease": "Niemann-Pick disease type C, severe early infantile neurologic onset",
+   "gene_symbol": "NPC2",
+   "gene_name": "NPC intracellular cholesterol transporter 2",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216986",
+   "disease": "Niemann-Pick disease type C, adult neurologic onset",
+   "gene_symbol": "NPC1",
+   "gene_name": "NPC intracellular cholesterol transporter 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216986",
+   "disease": "Niemann-Pick disease type C, adult neurologic onset",
+   "gene_symbol": "NPC2",
+   "gene_name": "NPC intracellular cholesterol transporter 2",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216981",
+   "disease": "Niemann-Pick disease type C, juvenile neurologic onset",
+   "gene_symbol": "NPC1",
+   "gene_name": "NPC intracellular cholesterol transporter 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:216981",
+   "disease": "Niemann-Pick disease type C, juvenile neurologic onset",
+   "gene_symbol": "NPC2",
+   "gene_name": "NPC intracellular cholesterol transporter 2",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:308552",
+   "disease": "Glycogen storage disease due to acid maltase deficiency, infantile onset",
+   "gene_symbol": "GAA",
+   "gene_name": "alpha glucosidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309271",
+   "disease": "Metachromatic leukodystrophy, adult form",
+   "gene_symbol": "ARSA",
+   "gene_name": "arylsulfatase A",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309256",
+   "disease": "Metachromatic leukodystrophy, late infantile form",
+   "gene_symbol": "ARSA",
+   "gene_name": "arylsulfatase A",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309263",
+   "disease": "Metachromatic leukodystrophy, juvenile form",
+   "gene_symbol": "ARSA",
+   "gene_name": "arylsulfatase A",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309185",
+   "disease": "Tay-Sachs disease, juvenile form",
+   "gene_symbol": "HEXA",
+   "gene_name": "hexosaminidase subunit alpha",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309178",
+   "disease": "Tay-Sachs disease, infantile form",
+   "gene_symbol": "HEXA",
+   "gene_name": "hexosaminidase subunit alpha",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309192",
+   "disease": "Tay-Sachs disease, adult form",
+   "gene_symbol": "HEXA",
+   "gene_name": "hexosaminidase subunit alpha",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309155",
+   "disease": "Sandhoff disease, infantile form",
+   "gene_symbol": "HEXB",
+   "gene_name": "hexosaminidase subunit beta",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309169",
+   "disease": "Sandhoff disease, adult form",
+   "gene_symbol": "HEXB",
+   "gene_name": "hexosaminidase subunit beta",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:309162",
+   "disease": "Sandhoff disease, juvenile form",
+   "gene_symbol": "HEXB",
+   "gene_name": "hexosaminidase subunit beta",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:411602",
+   "disease": "Hereditary late-onset Parkinson disease",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Major susceptibility factor in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:420429",
+   "disease": "Glycogen storage disease due to acid maltase deficiency, late-onset",
+   "gene_symbol": "GAA",
+   "gene_name": "alpha glucosidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:77293",
+   "disease": "Chronic visceral acid sphingomyelinase deficiency",
+   "gene_symbol": "SMPD1",
+   "gene_name": "sphingomyelin phosphodiesterase 1",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:77261",
+   "disease": "Gaucher disease type 3",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:77292",
+   "disease": "Infantile neurovisceral acid sphingomyelinase deficiency",
+   "gene_symbol": "SMPD1",
+   "gene_name": "sphingomyelin phosphodiesterase 1",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:77260",
+   "disease": "Gaucher disease type 2",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:77259",
+   "disease": "Gaucher disease type 1",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:85212",
+   "disease": "Fetal Gaucher disease",
+   "gene_symbol": "GBA1",
+   "gene_name": "glucosylceramidase beta 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:93474",
+   "disease": "Scheie syndrome",
+   "gene_symbol": "IDUA",
+   "gene_name": "alpha-L-iduronidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:93476",
+   "disease": "Hurler-Scheie syndrome",
+   "gene_symbol": "IDUA",
+   "gene_name": "alpha-L-iduronidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:93473",
+   "disease": "Hurler syndrome",
+   "gene_symbol": "IDUA",
+   "gene_name": "alpha-L-iduronidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:618891",
+   "disease": "Chronic neurovisceral acid sphingomyelinase deficiency",
+   "gene_symbol": "SMPD1",
+   "gene_name": "sphingomyelin phosphodiesterase 1",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  }
+ ]
+}

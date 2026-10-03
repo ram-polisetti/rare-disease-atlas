@@ -1,0 +1,1346 @@
+{
+ "source": "Monarch Biolink API v3",
+ "retrieved": "2026-10-03",
+ "n_diseases": 50,
+ "diseases": [
+  {
+   "mondo_id": "MONDO:0011945",
+   "label": "Gaucher disease perinatal lethal",
+   "synonyms": [
+    "Gaucher disease collodion type",
+    "Gaucher disease perinatal lethal",
+    "Gaucher disease, collodion type",
+    "Gaucher disease, perinatal lethal",
+    "Gaucher disease, perinatal-lethal form",
+    "Gaucher's disease perinatal lethal",
+    "fetal Gaucher disease",
+    "foetal Gaucher disease",
+    "perinatal lethal Gaucher disease"
+   ],
+   "xrefs": [
+    "DOID:0110960",
+    "GARD:0010675",
+    "MEDGEN:374996",
+    "MESH:C564306",
+    "OMIM:608013",
+    "Orphanet:85212",
+    "SCTID:870313002",
+    "UMLS:C1842704"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009265",
+   "label": "Gaucher disease type I",
+   "synonyms": [
+    "Gaucher disease type I",
+    "Gaucher disease, noncerebral juvenile",
+    "Gaucher's disease type I",
+    "Gba deficiency",
+    "acid Beta-glucosidase deficiency",
+    "non-cerebral juvenile Gaucher disease"
+   ],
+   "xrefs": [
+    "DOID:0110957",
+    "GARD:0002441",
+    "MEDGEN:409531",
+    "NANDO:1200057",
+    "NANDO:2201210",
+    "OMIM:230800",
+    "Orphanet:77259",
+    "SCTID:62201009",
+    "UMLS:C1961835"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009266",
+   "label": "Gaucher disease type II",
+   "synonyms": [
+    "Gaucher disease type II",
+    "Gaucher disease, acute neuronopathic type",
+    "Gaucher disease, infantile cerebral",
+    "Gaucher's disease type II",
+    "acute neuronopathic Gaucher disease",
+    "infantile cerebral Gaucher disease"
+   ],
+   "xrefs": [
+    "DOID:0110958",
+    "GARD:0002442",
+    "MEDGEN:78652",
+    "NANDO:1200058",
+    "NANDO:2201211",
+    "OMIM:230900",
+    "Orphanet:77260",
+    "SCTID:12246008",
+    "UMLS:C0268250"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009267",
+   "label": "Gaucher disease type III",
+   "synonyms": [
+    "Gaucher disease type III",
+    "Gaucher disease, Subacute neuronopathic type",
+    "Gaucher disease, chronic neuronopathic type",
+    "Gaucher disease, juvenile and adult, cerebral",
+    "Gaucher disease, subacute neuronopathic type",
+    "Gaucher's disease type III",
+    "cerebral juvenile and adult form of Gaucher disease",
+    "chronic neuronopathic Gaucher disease"
+   ],
+   "xrefs": [
+    "DOID:0110959",
+    "GARD:0002443",
+    "MEDGEN:78653",
+    "NANDO:1200059",
+    "NANDO:2201212",
+    "OMIM:231000",
+    "Orphanet:77261",
+    "SCTID:5963005",
+    "UMLS:C0268251"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009268",
+   "label": "Gaucher disease-ophthalmoplegia-cardiovascular calcification syndrome",
+   "synonyms": [
+    "Gaucher disease - ophthalmoplegia - cardiovascular calcification",
+    "Gaucher disease type 3C",
+    "Gaucher disease-ophthalmoplegia-cardiovascular calcification syndrome",
+    "Gaucher-like disease",
+    "cardiovascular Gaucher disease",
+    "pseudo Gaucher disease"
+   ],
+   "xrefs": [
+    "DOID:0112250",
+    "GARD:0012504",
+    "MEDGEN:341563",
+    "MESH:C565553",
+    "OMIM:231005",
+    "Orphanet:2072",
+    "SCTID:1156813002",
+    "UMLS:C1856476"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0008199",
+   "label": "late-onset Parkinson disease",
+   "synonyms": [
+    "LOPD",
+    "PARK",
+    "PD",
+    "Parkinson disease, age of onset, modifier, Multifactorial",
+    "Parkinson disease, late-onset",
+    "Parkinson disease, late-onset, susceptibility to, Multifactorial",
+    "Parkinson disease, susceptibility to, Multifactorial",
+    "autosomal dominant late-onset Parkinson disease",
+    "hereditary late onset Parkinson disease",
+    "hereditary late-onset Parkinson disease",
+    "late-onset Parkinson disease"
+   ],
+   "xrefs": [
+    "DOID:0060892",
+    "GARD:0017684",
+    "MEDGEN:463618",
+    "OMIM:168600",
+    "Orphanet:411602",
+    "SCTID:716662004",
+    "UMLS:C3160718"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0007488",
+   "label": "Lewy body dementia",
+   "synonyms": [
+    "DLB",
+    "Lewy body dementia",
+    "Lewy body disease",
+    "cortical Lewy body disease",
+    "dementia with Lewy bodies",
+    "dementia, Lewy body",
+    "lewy body dementia, susceptibility to"
+   ],
+   "xrefs": [
+    "DOID:12217",
+    "EFO:0006792",
+    "ICD10CM:G31.83",
+    "ICD9:331.82",
+    "MEDGEN:199874",
+    "NCIT:C84826",
+    "OMIM:127750",
+    "Orphanet:1648",
+    "SCTID:312991009",
+    "UMLS:C0752347"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0010526",
+   "label": "Fabry disease",
+   "synonyms": [
+    "Alpha-galactosidase A deficiency",
+    "Anderson-Fabry disease",
+    "FD",
+    "Fabry disease",
+    "Fabry's disease",
+    "Fd",
+    "angiokeratoma corporis diffusum",
+    "angiokeratoma, diffuse",
+    "diffuse angiokeratoma"
+   ],
+   "xrefs": [
+    "DOID:14499",
+    "GARD:0006400",
+    "MEDGEN:8083",
+    "MESH:D000795",
+    "MedDRA:10016016",
+    "NANDO:1200157",
+    "NANDO:2200563",
+    "NCIT:C84701",
+    "NORD:1115",
+    "OMIM:301500",
+    "Orphanet:324",
+    "SCTID:16652001",
+    "UMLS:C0002986",
+    "icd11.foundation:66996647"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017694",
+   "label": "glycogen storage disease due to acid maltase deficiency, infantile onset",
+   "synonyms": [
+    "GSD due to acid maltase deficiency, infantile onset",
+    "GSD type 2, infantile onset",
+    "GSD type II, infantile onset",
+    "Pompe disease, infantile onset",
+    "alpha-1,4-glucosidase acid deficiency, infantile onset",
+    "glycogen storage disease type 2, infantile onset",
+    "glycogen storage disease type II, infantile onset",
+    "glycogenosis due to acid maltase deficiency, infantile onset",
+    "glycogenosis type 2, infantile onset",
+    "glycogenosis type II, infantile onset"
+   ],
+   "xrefs": [
+    "GARD:0021310",
+    "MEDGEN:923868",
+    "NANDO:1200139",
+    "NANDO:2201229",
+    "OMIM:232300",
+    "Orphanet:308552",
+    "SCTID:722302009",
+    "UMLS:C3888924",
+    "icd11.foundation:1496243702"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0018485",
+   "label": "glycogen storage disease due to acid maltase deficiency, late-onset",
+   "synonyms": [
+    "Alpha-1,4-glucosidase acid deficiency, late onset",
+    "Alpha-1,4-glucosidase acid deficiency, late-onset",
+    "GSD due to acid maltase deficiency, late onset",
+    "GSD due to acid maltase deficiency, late-onset",
+    "GSD type 2, late onset",
+    "GSD type 2, late-onset",
+    "GSD type II, late onset",
+    "GSD type II, late-onset",
+    "LOPD",
+    "Pompe disease, late onset",
+    "Pompe disease, late-onset",
+    "glycogen storage disease type 2, late onset",
+    "glycogen storage disease type 2, late-onset",
+    "glycogen storage disease type II, late onset",
+    "glycogen storage disease type II, late-onset",
+    "glycogenosis type 2, late onset",
+    "glycogenosis type 2, late-onset",
+    "glycogenosis type II, late onset",
+    "glycogenosis type II, late-onset"
+   ],
+   "xrefs": [
+    "GARD:0021746",
+    "MEDGEN:575206",
+    "OMIM:621314",
+    "Orphanet:420429",
+    "SCTID:722343009",
+    "UMLS:C0342753"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009290",
+   "label": "glycogen storage disease II",
+   "synonyms": [
+    "Aglucosidase alfa",
+    "Alpha-1,4-glucosidase acid deficiency",
+    "GAA glycogen storage disease",
+    "GSD II",
+    "GSD due to acid maltase deficiency",
+    "GSD type 2",
+    "GSD type II",
+    "GSD2",
+    "Pompe Disease",
+    "Pompe disease",
+    "acid maltase deficiency",
+    "acid maltase deficiency disease",
+    "deficiency of alpha-glucosidase",
+    "deficiency of lysosomal alpha-glucosidase",
+    "generalised glycogenosis",
+    "glucosidase acid-1,4-alpha deficiency",
+    "glycogen storage disease II",
+    "glycogen storage disease caused by mutation in GAA",
+    "glycogen storage disease type 2",
+    "glycogen storage disease type II",
+    "glycogenosis due to acid maltase deficiency",
+    "glycogenosis type 2",
+    "glycogenosis type II"
+   ],
+   "xrefs": [
+    "DOID:2752",
+    "GARD:0005714",
+    "ICD10CM:E74.02",
+    "MEDGEN:5340",
+    "MedDRA:10053185",
+    "NANDO:1200138",
+    "NANDO:1200825",
+    "NANDO:2200569",
+    "NCIT:C84734",
+    "NORD:1595",
+    "Orphanet:365",
+    "SCTID:274864009",
+    "UMLS:C0017921",
+    "icd11.foundation:1427054474"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009756",
+   "label": "Niemann-Pick disease type A",
+   "synonyms": [],
+   "xrefs": [
+    "DOID:0070111",
+    "GARD:0007206",
+    "ICD10CM:E75.240",
+    "MEDGEN:78650",
+    "MESH:D052536",
+    "NANDO:1200061",
+    "NANDO:2201206",
+    "NCIT:C126561",
+    "OMIM:257200",
+    "Orphanet:77292",
+    "SCTID:52165006",
+    "UMLS:C0268242",
+    "icd11.foundation:530611243"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0011871",
+   "label": "Niemann-Pick disease type B",
+   "synonyms": [
+    "Niemann Pick disease type B",
+    "type B Niemann-Pick disease"
+   ],
+   "xrefs": [
+    "DOID:0070112",
+    "GARD:0010729",
+    "ICD10CM:E75.241",
+    "MEDGEN:78651",
+    "MESH:D052537",
+    "NANDO:1200062",
+    "NANDO:2201207",
+    "NCIT:C126866",
+    "OMIM:607616",
+    "Orphanet:77293",
+    "SCTID:39390005",
+    "UMLS:C0268243",
+    "icd11.foundation:327269975"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009757",
+   "label": "Niemann-Pick disease, type C1",
+   "synonyms": [
+    "NPC1",
+    "Niemann-Pick disease type C1",
+    "Niemann-Pick disease, type C1",
+    "type C1 Niemann-Pick disease"
+   ],
+   "xrefs": [
+    "DOID:0070113",
+    "GARD:0024693",
+    "MEDGEN:465922",
+    "NCIT:C126864",
+    "OMIM:257220",
+    "SCTID:18927009",
+    "SCTID:67855008",
+    "UMLS:C3179455"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016306",
+   "label": "Niemann-Pick disease type C, severe perinatal form",
+   "synonyms": [],
+   "xrefs": [
+    "GARD:0020504",
+    "MEDGEN:1842349",
+    "Orphanet:216972",
+    "UMLS:C5680866"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016307",
+   "label": "Niemann-Pick disease type C, severe early infantile neurologic onset",
+   "synonyms": [],
+   "xrefs": [
+    "GARD:0020505",
+    "MEDGEN:1842400",
+    "Orphanet:216975",
+    "UMLS:C5680868",
+    "icd11.foundation:587642791"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016308",
+   "label": "Niemann-Pick disease type C, late infantile neurologic onset",
+   "synonyms": [],
+   "xrefs": [
+    "GARD:0020506",
+    "MEDGEN:1843353",
+    "Orphanet:216978",
+    "UMLS:C5680867",
+    "icd11.foundation:2075382821"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016310",
+   "label": "Niemann-Pick disease type C, adult neurologic onset",
+   "synonyms": [],
+   "xrefs": [
+    "GARD:0020508",
+    "MEDGEN:1826101",
+    "NANDO:1200065",
+    "NANDO:2201209",
+    "Orphanet:216986",
+    "UMLS:C5680869",
+    "icd11.foundation:77127214"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016309",
+   "label": "Niemann-Pick disease type C, juvenile neurologic onset",
+   "synonyms": [
+    "Niemann-Pick disease type C, classic form"
+   ],
+   "xrefs": [
+    "GARD:0020507",
+    "MEDGEN:1842257",
+    "Orphanet:216981",
+    "UMLS:C5679813",
+    "icd11.foundation:2006062681"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0011873",
+   "label": "Niemann-Pick disease, type C2",
+   "synonyms": [
+    "NPC2",
+    "Niemann-Pick disease type C2",
+    "Niemann-Pick disease, type C2",
+    "type C2 Niemann-Pick disease"
+   ],
+   "xrefs": [
+    "DOID:0070114",
+    "GARD:0003992",
+    "MEDGEN:335942",
+    "MESH:C536119",
+    "NCIT:C126865",
+    "OMIM:607625",
+    "UMLS:C1843366"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0010100",
+   "label": "Tay-Sachs disease",
+   "synonyms": [
+    "B variant GM2 gangliosidosis",
+    "GM2 gangliosidosis, B, B1 variant",
+    "GM2 gangliosidosis, type 1",
+    "GM2-gangliosidosis, several forms",
+    "Hex A pseudodeficiency",
+    "TSD",
+    "Tay Sachs Disease",
+    "Tay-Sachs disease",
+    "disease, Tay-Sachs",
+    "gangliosidosis GM2, type 1",
+    "hexosaminidase A deficiency",
+    "hexosaminidase alpha-subunit deficiency (variant B)",
+    "sphingolipidosis, Tay-Sachs"
+   ],
+   "xrefs": [
+    "DOID:3320",
+    "GARD:0007737",
+    "ICD10CM:E75.02",
+    "MEDGEN:11713",
+    "MESH:D013661",
+    "MedDRA:10043147",
+    "NANDO:1200071",
+    "NANDO:2201199",
+    "NCIT:C85184",
+    "NORD:1761",
+    "OMIM:272800",
+    "Orphanet:845",
+    "SCTID:111385000",
+    "SCTID:49562005",
+    "UMLS:C0039373",
+    "icd11.foundation:215008783"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017724",
+   "label": "Tay-Sachs disease, b variant, infantile form",
+   "synonyms": [
+    "GM2 gangliosidosis, B variant, infantile form",
+    "hexosaminidase A deficiency, infantile form"
+   ],
+   "xrefs": [
+    "GARD:0021324",
+    "MEDGEN:1863558",
+    "Orphanet:309178",
+    "SCTID:238021002",
+    "UMLS:C5925031"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017726",
+   "label": "Tay-Sachs disease, B variant, adult form",
+   "synonyms": [
+    "GM2 gangliosidosis, B variant, adult form",
+    "hexosaminidase A deficiency, adult form"
+   ],
+   "xrefs": [
+    "GARD:0021326",
+    "MEDGEN:336450",
+    "Orphanet:309192",
+    "SCTID:238023004",
+    "UMLS:C1848914"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017725",
+   "label": "Tay-Sachs disease, b variant, juvenile form",
+   "synonyms": [
+    "GM2 gangliosidosis, B variant, juvenile form",
+    "hexosaminidase A deficiency, juvenile form"
+   ],
+   "xrefs": [
+    "GARD:0021325",
+    "MEDGEN:1863740",
+    "Orphanet:309185",
+    "SCTID:238022009",
+    "UMLS:C5925030"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0010006",
+   "label": "Sandhoff disease",
+   "synonyms": [
+    "GM2 gangliosidosis 0 variant",
+    "GM2 gangliosidosis, 0 variant",
+    "Hexosaminidases A and B deficiency",
+    "Sandhoff Jatzkewitz disease",
+    "Sandhoff disease"
+   ],
+   "xrefs": [
+    "DOID:3323",
+    "GARD:0002521",
+    "ICD10CM:E75.01",
+    "MEDGEN:11313",
+    "MESH:D012497",
+    "NANDO:1200072",
+    "NANDO:2201200",
+    "NCIT:C85052",
+    "NORD:1688",
+    "OMIM:268800",
+    "Orphanet:796",
+    "SCTID:23849003",
+    "UMLS:C0036161",
+    "icd11.foundation:708581915"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017722",
+   "label": "Sandhoff disease, juvenile form",
+   "synonyms": [
+    "Hexosaminidases A and B deficiency, juvenile form",
+    "juvenile GM2 gangliosidosis 0 variant"
+   ],
+   "xrefs": [
+    "GARD:0017404",
+    "MEDGEN:148320",
+    "Orphanet:309162",
+    "SCTID:238019007",
+    "UMLS:C0751491"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017723",
+   "label": "Sandhoff disease, adult form",
+   "synonyms": [
+    "Hexosaminidases A and B deficiency, adult form",
+    "Sandhoff disease of adults",
+    "adult GM2 gangliosidosis 0 variant",
+    "adult Sandhoff disease"
+   ],
+   "xrefs": [
+    "GARD:0017405",
+    "MEDGEN:148319",
+    "Orphanet:309169",
+    "SCTID:238020001",
+    "UMLS:C0751489"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017721",
+   "label": "Sandhoff disease, infantile form",
+   "synonyms": [
+    "Hexosaminidases A and B deficiency, infantile form",
+    "infantile GM2 gangliosidosis 0 variant"
+   ],
+   "xrefs": [
+    "GARD:0007604",
+    "MEDGEN:199669",
+    "Orphanet:309155",
+    "SCTID:238018004",
+    "UMLS:C0751490"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0011758",
+   "label": "Hurler syndrome",
+   "synonyms": [
+    "Hurler disease",
+    "Hurler syndrome",
+    "MPS I H",
+    "MPS1-H",
+    "MPS1H",
+    "MPSIH",
+    "mucopolysaccharidosis IH",
+    "mucopolysaccharidosis type 1H",
+    "mucopolysaccharidosis type IH"
+   ],
+   "xrefs": [
+    "DOID:0111390",
+    "GARD:0012559",
+    "MEDGEN:39698",
+    "NANDO:1200094",
+    "NANDO:2201168",
+    "NCIT:C61261",
+    "OMIM:607014",
+    "Orphanet:93473",
+    "SCTID:65327002",
+    "UMLS:C0086795"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0011759",
+   "label": "Hurler-Scheie syndrome",
+   "synonyms": [
+    "Hurler-Scheie syndrome",
+    "Hurler\u2013Scheie syndrome",
+    "MPS I H-S",
+    "MPS1-HS",
+    "MPS1H/S",
+    "MPSIH/S",
+    "mucopolysaccharidosis IH/S",
+    "mucopolysaccharidosis type 1H/S",
+    "mucopolysaccharidosis type IH/S",
+    "mucopolysaccharidosis, mps-I-s"
+   ],
+   "xrefs": [
+    "DOID:0111389",
+    "GARD:0012560",
+    "ICD10CM:E76.02",
+    "MEDGEN:88566",
+    "MedDRA:10056916",
+    "NANDO:1200096",
+    "NANDO:2201170",
+    "NCIT:C122782",
+    "OMIM:607015",
+    "Orphanet:93476",
+    "SCTID:26745009",
+    "UMLS:C0086431"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0011760",
+   "label": "Scheie syndrome",
+   "synonyms": [
+    "MPS I S",
+    "MPS1-S",
+    "MPS1S",
+    "MPS5, formerly",
+    "MPSIS",
+    "Scheie syndrome",
+    "mucopolysaccharidosis Is",
+    "mucopolysaccharidosis type 1S",
+    "mucopolysaccharidosis type IS"
+   ],
+   "xrefs": [
+    "DOID:0060222",
+    "GARD:0012561",
+    "MEDGEN:6453",
+    "NANDO:1200095",
+    "NANDO:2201169",
+    "NCIT:C61265",
+    "OMIM:607016",
+    "Orphanet:93474",
+    "SCTID:73123008",
+    "UMLS:C0026708"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0001586",
+   "label": "mucopolysaccharidosis type 1",
+   "synonyms": [
+    "Alpha-L-iduronidase deficiency",
+    "Hurler syndrome",
+    "Hurler syndrome (subtype)",
+    "Hurler-Scheie syndrome (subtype)",
+    "IDUA deficiency",
+    "MPS 1",
+    "MPS I",
+    "MPS1",
+    "MPSI",
+    "Mucopolysaccharidosis Type I",
+    "Scheie syndrome (subtype) formerly known as Mucopoly-saccharidosis type V)",
+    "attenuated MPS I (subtype, includes Hurler-Scheie and Scheie syndrome)",
+    "lipochondrodystrophy",
+    "mucopolysaccharidosis type 1",
+    "mucopolysaccharidosis type I",
+    "severe MPS I (subtype, also known as Hurler syndrome)"
+   ],
+   "xrefs": [
+    "DOID:12802",
+    "GARD:0010335",
+    "MEDGEN:44171",
+    "MedDRA:10056886",
+    "NANDO:2200547",
+    "NANDO:2201168",
+    "NCIT:C85053",
+    "NORD:1462",
+    "Orphanet:579",
+    "SCTID:75610003",
+    "UMLS:C0023786",
+    "icd11.foundation:1539226250"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009499",
+   "label": "Krabbe disease",
+   "synonyms": [
+    "GALC deficiency",
+    "GALC enzyme deficiency",
+    "GLD",
+    "Krabbe disease",
+    "Krabbe leukodystrophy",
+    "Krabbe's leukodystrophy",
+    "Leukodystrophy, Krabbe's",
+    "diffuse globoid body sclerosis",
+    "galactocerebrosidase deficiency",
+    "galactosylceramidase deficiency",
+    "galactosylceramide lipidosis",
+    "globoid cell leukodystrophy",
+    "globoid cell leukoencephalopathy",
+    "later onset Krabbe disease",
+    "later-onset Krabbe disease"
+   ],
+   "xrefs": [
+    "DOID:10587",
+    "GARD:0006844",
+    "ICD10CM:E75.23",
+    "MEDGEN:44131",
+    "MESH:D007965",
+    "MedDRA:10023492",
+    "NANDO:1200074",
+    "NANDO:2200564",
+    "NCIT:C61254",
+    "NORD:1368",
+    "OMIM:245200",
+    "Orphanet:487",
+    "SCTID:189979005",
+    "SCTID:192782005",
+    "UMLS:C0023521",
+    "icd11.foundation:796317173"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016089",
+   "label": "infantile Krabbe disease",
+   "synonyms": [
+    "Krabbe disease, classic form",
+    "Krabbe disease, early-onset",
+    "early onset Krabbe disease",
+    "early symptomatic Krabbe disease",
+    "early-onset Krabbe disease",
+    "infantile onset Krabbe disease",
+    "infantile-onset Krabbe disease"
+   ],
+   "xrefs": [
+    "GARD:0020343",
+    "MEDGEN:148270",
+    "NANDO:1200075",
+    "NANDO:2201216",
+    "Orphanet:206436",
+    "SCTID:238030005",
+    "UMLS:C0751273",
+    "icd11.foundation:999546344"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016090",
+   "label": "late-infantile/juvenile Krabbe disease",
+   "synonyms": [
+    "Krabbe disease, late-onset"
+   ],
+   "xrefs": [
+    "GARD:0020344",
+    "Orphanet:206443",
+    "SCTID:41142009"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016091",
+   "label": "adult Krabbe disease",
+   "synonyms": [
+    "Krabbe disease of adults"
+   ],
+   "xrefs": [
+    "GARD:0020345",
+    "MEDGEN:120623",
+    "NANDO:1200077",
+    "NANDO:2201219",
+    "Orphanet:206448",
+    "UMLS:C0268252",
+    "icd11.foundation:699668826"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009591",
+   "label": "metachromatic leukodystrophy, juvenile form",
+   "synonyms": [
+    "ARSA deficiency",
+    "MLD",
+    "MLD, juvenile form",
+    "arylsulfatase A deficiency",
+    "arylsulfatase A deficiency, juvenile form",
+    "cerebral sclerosis diffuse metachromatic form",
+    "cerebroside sulfatase deficiency",
+    "leukodystrophy metachromatic",
+    "metachromatic leukodystrophy, juvenile form",
+    "metachromatic leukoencephalopathy",
+    "sulfatide lipidosis"
+   ],
+   "xrefs": [
+    "GARD:0021329",
+    "MEDGEN:155528",
+    "NANDO:1200080",
+    "NANDO:2201203",
+    "OMIM:250100",
+    "Orphanet:309263",
+    "SCTID:44359008",
+    "UMLS:C0751276"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017730",
+   "label": "metachromatic leukodystrophy, adult form",
+   "synonyms": [
+    "MLD, adult form",
+    "arylsulfatase A deficiency, adult form"
+   ],
+   "xrefs": [
+    "GARD:0021330",
+    "MEDGEN:199625",
+    "NANDO:1200081",
+    "NANDO:2201204",
+    "Orphanet:309271",
+    "SCTID:24326000",
+    "UMLS:C0751279"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0017729",
+   "label": "metachromatic leukodystrophy, late infantile form",
+   "synonyms": [
+    "MLD, late infantile form",
+    "arylsulfatase A deficiency, late infantile form"
+   ],
+   "xrefs": [
+    "GARD:0021328",
+    "MEDGEN:155529",
+    "NANDO:1200079",
+    "NANDO:2201202",
+    "Orphanet:309256",
+    "SCTID:47683004",
+    "UMLS:C0751278"
+   ],
+   "definition": null,
+   "source": "Monarch Biolink API v3",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009655",
+   "label": "mucopolysaccharidosis type 3A",
+   "synonyms": [
+    "MPS III A",
+    "MPS3A",
+    "MPSIIIA",
+    "Sanfilippo A",
+    "Sanfilippo syndrome a",
+    "Sanfilippo syndrome type A",
+    "heparan sulfamidase deficiency",
+    "mucopolysaccharidosis type 3A",
+    "mucopolysaccharidosis type IIIA",
+    "MPS IIIA",
+    "heparan sulphate sulfatase deficiency",
+    "heparane sulfamidase deficiency",
+    "mucopoly-saccharidosis type 3A",
+    "mucopolysaccharidosis, type IIIA"
+   ],
+   "xrefs": [
+    "DOID:0111395",
+    "GARD:0007071",
+    "MEDGEN:39264",
+    "NANDO:1200101",
+    "NANDO:2201174",
+    "NCIT:C84897",
+    "OMIM:252900",
+    "Orphanet:79269",
+    "SCTID:41572006",
+    "UMLS:C0086647",
+    "icd11.foundation:182200345"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme heparan sulfate sulfatase. It is characterized by behavioral changes, sleep disturbances, mental developmental delays and seizures.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009656",
+   "label": "mucopolysaccharidosis type 3B",
+   "synonyms": [
+    "MPS III B",
+    "MPS3B",
+    "MPSIIIB",
+    "N-acetyl-alpha-glucosaminidase deficiency",
+    "Sanfilippo B",
+    "Sanfilippo syndrome B",
+    "Sanfilippo syndrome type B",
+    "mucopolysaccharidosis type 3B",
+    "mucopolysaccharidosis type IIIB",
+    "MPS IIIB",
+    "Mucopoly-saccharidosis type 3B",
+    "mucopolysaccharidosis, type IIIB"
+   ],
+   "xrefs": [
+    "DOID:0111394",
+    "GARD:0007072",
+    "MEDGEN:88601",
+    "NANDO:1200102",
+    "NANDO:2201175",
+    "NCIT:C84898",
+    "OMIM:252920",
+    "Orphanet:79270",
+    "SCTID:59990008",
+    "UMLS:C0086648",
+    "icd11.foundation:117303909"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme N-acetyl-alpha-D-glucosaminidase. It is characterized by behavioral changes, sleep disturbances, and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009657",
+   "label": "mucopolysaccharidosis type 3C",
+   "synonyms": [
+    "HGSNAT deficiency",
+    "MPS III C",
+    "MPS3C",
+    "MPSIIIC",
+    "Sanfilippo C",
+    "Sanfilippo syndrome type C",
+    "heparan-alpha-glucosaminide N-acetyltransferase deficiency",
+    "mucopolysaccharidosis type 3C",
+    "mucopolysaccharidosis type IIIC",
+    "Acetyl-CoA alpha-glucosaminide n-acetyltransferase deficiency",
+    "MPS IIIC",
+    "Mucopoly-saccharidosis type 3C",
+    "mucopolysaccharidosis, type IIIC"
+   ],
+   "xrefs": [
+    "DOID:0111393",
+    "GARD:0007073",
+    "MEDGEN:39477",
+    "NANDO:1200103",
+    "NANDO:2201176",
+    "NCIT:C84899",
+    "OMIM:252930",
+    "Orphanet:79271",
+    "SCTID:75238000",
+    "UMLS:C0086649",
+    "icd11.foundation:1755913480"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme acetyl-CoA:alpha-glucosaminide acetyltransferase. It is characterized by behavioral changes, sleep disturbances, and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0009658",
+   "label": "mucopolysaccharidosis type 3D",
+   "synonyms": [
+    "GNS deficiency",
+    "MPS III D",
+    "MPS3D",
+    "MPSIIID",
+    "Sanfilippo D",
+    "Sanfilippo syndrome D",
+    "Sanfilippo syndrome type D",
+    "glucosamine N-acetyl-6-sulfatase deficiency",
+    "mucopolysaccharidosis type 3D",
+    "mucopolysaccharidosis type IIID",
+    "MPS IIID",
+    "Mucopoly-saccharidosis type 3D",
+    "N-acetylglucosamine-6-sulfate sulfatase deficiency",
+    "mucopolysaccharidosis, type IIID"
+   ],
+   "xrefs": [
+    "DOID:0111402",
+    "GARD:0007074",
+    "MEDGEN:88602",
+    "NANDO:1200104",
+    "NANDO:2201177",
+    "NCIT:C84900",
+    "OMIM:252940",
+    "Orphanet:79272",
+    "SCTID:15892005",
+    "UMLS:C0086650",
+    "icd11.foundation:1780990193"
+   ],
+   "definition": "A rare autosomal recessive lysosomal storage disease caused by deficiency of the enzyme N-acetylglucosamine-6-sulfatase. It is characterized by behavioral changes, sleep disturbances and mental developmental delays.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0010674",
+   "label": "mucopolysaccharidosis type 2",
+   "synonyms": [
+    "Hunter syndrome",
+    "Hunter's syndrome",
+    "I2S deficiency",
+    "IDS deficiency",
+    "MPS 2",
+    "MPS II",
+    "MPS with skin involvement",
+    "MPS2",
+    "MPSII",
+    "Mucopolysaccharidosis Type II",
+    "SIDS deficiency",
+    "attenuated MPS (subtype; formerly known as mild MPS II)",
+    "iduronate 2-sulfatase deficiency",
+    "mucopolysaccharidosis II, X-linked recessive",
+    "mucopolysaccharidosis type 2",
+    "mucopolysaccharidosis type II",
+    "mucopolysaccharidosis with skin involvement",
+    "mucopolysaccharidosis, type 2",
+    "mucopolysaccharidosis, type II",
+    "severe MPS II",
+    "sulfoiduronate sulfatase deficiency"
+   ],
+   "xrefs": [
+    "DOID:12799",
+    "GARD:0006675",
+    "ICD10CM:E76.1",
+    "MEDGEN:7734",
+    "MESH:D016532",
+    "MedDRA:10056889",
+    "NANDO:1200097",
+    "NANDO:2200548",
+    "NCIT:C61260",
+    "NORD:1255",
+    "OMIM:309900",
+    "Orphanet:580",
+    "Orphanet:79388",
+    "SCTID:70737009",
+    "UMLS:C0026705",
+    "icd11.foundation:1056274204"
+   ],
+   "definition": "A lysosomal storage disease leading to a massive accumulation of glycosaminoglycans and a wide variety of symptoms including distinctive coarse facial features, short stature, cardio-respiratory involvement and skeletal abnormalities. It manifests as a continuum varying from a severe to an attenuated form without neuronal involvement.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016315",
+   "label": "mucopolysaccharidosis type 2, severe form",
+   "synonyms": [
+    "Hunter syndrome type A",
+    "MPS2A",
+    "MPSIIA",
+    "iduronate 2-sulfatase deficiency type A",
+    "mucopolysaccharidosis type 2, severe form",
+    "mucopolysaccharidosis type 2A",
+    "mucopolysaccharidosis type II, severe form",
+    "mucopolysaccharidosis type IIA"
+   ],
+   "xrefs": [
+    "GARD:0017118",
+    "MEDGEN:575246",
+    "NANDO:1200098",
+    "NANDO:2201173",
+    "Orphanet:217085",
+    "SCTID:73146005",
+    "UMLS:C0342841"
+   ],
+   "definition": "Mucopolysaccharidosis type 2 (MPS2), severe form (MPS2S), is associated with a massive accumulation of glycosaminoglycans and a wide variety of symptoms including a rapidly progressive cognitive decline; it is most often fatal in the second or third decade.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0016316",
+   "label": "mucopolysaccharidosis type 2, attenuated form",
+   "synonyms": [
+    "Hunter syndrome type B",
+    "MPS2B",
+    "MPSIIB",
+    "iduronate 2-sulfatase deficiency type B",
+    "mucopolysaccharidosis type 2, attenuated form",
+    "mucopolysaccharidosis type 2B",
+    "mucopolysaccharidosis type II, attenuated form",
+    "mucopolysaccharidosis type IIB"
+   ],
+   "xrefs": [
+    "GARD:0017119",
+    "MEDGEN:1826165",
+    "NANDO:1200099",
+    "NANDO:2201171",
+    "NANDO:2201172",
+    "Orphanet:217093",
+    "SCTID:5667009",
+    "UMLS:C5679815"
+   ],
+   "definition": "Mucopolysaccharidosis type 2, attenuated form (MPS2att), the less severe form of MPS2, leads to a massive accumulation of glycosaminoglycans and a wide variety of symptoms including distinctive facies, short stature, cardiorespiratory and skeletal findings. It is differentiated from mucopolysaccharidosis type 2, severe form by the absence of cognitive decline.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0018937",
+   "label": "mucopolysaccharidosis type 3",
+   "synonyms": [
+    "MPS3",
+    "MPSIII",
+    "Mucopoly-saccharidosis type 3",
+    "Mucopolysaccharidosis Type III",
+    "Sanfilippo disease",
+    "Sanfilippo syndrome",
+    "heparan sulphate sulfatase deficiency",
+    "mucopolysaccharidosis type III"
+   ],
+   "xrefs": [
+    "DOID:12801",
+    "GARD:0003807",
+    "MEDGEN:6452",
+    "MedDRA:10056890",
+    "NANDO:1200100",
+    "NANDO:2200549",
+    "NCIT:C61262",
+    "NORD:1463",
+    "Orphanet:581",
+    "SCTID:88393000",
+    "UMLS:C0026706",
+    "icd11.foundation:1477250013"
+   ],
+   "definition": "A lysosomal disease characterized by progressive neurocognitive decline, severe  intellectual deterioration, loss of functional abilities, and premature death.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0014665",
+   "label": "Charcot-Marie-Tooth disease axonal type 2V",
+   "synonyms": [
+    "CMT2V",
+    "Charcot-Marie-Tooth disease caused by mutation in NAGLU",
+    "NAGLU Charcot-Marie-Tooth disease",
+    "autosomal dominant Charcot-Marie-Tooth disease type 2 due to NAGLU mutation",
+    "autosomal dominant Charcot-Marie-Tooth disease type 2V",
+    "hereditary adult-onset painful axonal polyneuropathy",
+    "Charcot-Marie-Tooth disease, axonal, type 2V"
+   ],
+   "xrefs": [
+    "DOID:0110178",
+    "GARD:0017777",
+    "MEDGEN:1800473",
+    "OMIM:616491",
+    "Orphanet:447964",
+    "UMLS:C5569050"
+   ],
+   "definition": "Any Charcot-Marie-Tooth disease in which the cause of the disease is a mutation in the NAGLU gene.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0014687",
+   "label": "retinitis pigmentosa 73",
+   "synonyms": [
+    "HGSNAT retinitis pigmentosa",
+    "RP73",
+    "retinitis pigmentosa 73",
+    "retinitis pigmentosa caused by mutation in HGSNAT",
+    "retinitis pigmentosa type 73"
+   ],
+   "xrefs": [
+    "DOID:0110389",
+    "GARD:0016135",
+    "MEDGEN:907690",
+    "OMIM:616544",
+    "UMLS:C4225287"
+   ],
+   "definition": "Any retinitis pigmentosa in which the cause of the disease is a mutation in the HGSNAT gene.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "mondo_id": "MONDO:0019200",
+   "label": "retinitis pigmentosa",
+   "synonyms": [
+    "retinitis pigmentosa",
+    "pericentral pigmentary retinopathy",
+    "Rod-cone dystrophy"
+   ],
+   "xrefs": [
+    "DOID:10584",
+    "GARD:0005694",
+    "MEDGEN:20551",
+    "MESH:D012174",
+    "MedDRA:10038914",
+    "NANDO:1200431",
+    "NCIT:C85045",
+    "NORD:21",
+    "OMIM:268000",
+    "OMIMPS:268000",
+    "Orphanet:791",
+    "SCTID:28835009",
+    "UMLS:C0035334"
+   ],
+   "definition": "Retinitis pigmentosa (RP) is an inherited retinal dystrophy leading to progressive loss of the photoreceptors and retinal pigment epithelium and resulting in blindness usually after several decades.",
+   "source": "MONDO local OBO-Graphs release",
+   "retrieved": "2026-10-03"
+  }
+ ]
+}

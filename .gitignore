@@ -1,0 +1,5 @@
+# raw downloads are reproducible via data/SOURCES.md — never commit
+/data/raw/
+__pycache__/
+*.pyc
+.codex/
