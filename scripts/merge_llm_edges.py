@@ -91,7 +91,7 @@ def main():
         obj = pick(it, "object", "target", "entity_b", "tail")
         rel = pick(it, "relation", "predicate", "edge_type") or "extracted_claim"
         pmid = pick(it, "pmid", "PMID", "source_pmid")
-        quote = pick(it, "quote", "evidence_text", "sentence", "text") or ""
+        quote = pick(it, "source_quote", "quote", "evidence_text", "sentence", "text") or ""
         conf = str(pick(it, "confidence", "conf") or "medium").lower()
         conf = conf if conf in ("high", "medium", "low") else "medium"
         contra = bool(it.get("contradicts", False))
