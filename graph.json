@@ -46,7 +46,8 @@
     "url": "",
     "retrieved": "2026-10-03"
    }
-  ]
+  ],
+  "quotes_restored": "2026-10-03: full source_quote restored on 106 PubMed claim edges via scripts/merge_graph.py"
  },
  "nodes": [
   {
@@ -68000,7 +68001,8 @@
    "source_ref": "PMID:28218669",
    "date": "2026-10-03",
    "note": "Mutations in the GBA1 gene should be identified as they may be of prognostic value in some cases.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mutations in the GBA1 gene should be identified as they may be of prognostic value in some cases."
   },
   {
    "source": "MONDO:0009265",
@@ -68012,7 +68014,8 @@
    "source_ref": "PMID:28218669",
    "date": "2026-10-03",
    "note": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells."
   },
   {
    "source": "MONDO:0009265",
@@ -68024,7 +68027,8 @@
    "source_ref": "PMID:35439918",
    "date": "2026-10-03",
    "note": "Splenomegaly, anemia, and thrombocytopenia are the most common findings in GD and so most patients are initially referred to hematologists.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Splenomegaly, anemia, and thrombocytopenia are the most common findings in GD and so most patients are initially referred to hematologists."
   },
   {
    "source": "MONDO:0009265",
@@ -68036,7 +68040,8 @@
    "source_ref": "PMID:32877100",
    "date": "2026-10-03",
    "note": "The most frequent symptoms are cytopenia, splenomegaly, hepatomegaly, and potentially severe bone involvement (bone infarcts, avascular osteonecrosis, and pathological fractures).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The most frequent symptoms are cytopenia, splenomegaly, hepatomegaly, and potentially severe bone involvement (bone infarcts, avascular osteonecrosis, and pathological fractures)."
   },
   {
    "source": "MONDO:0009265",
@@ -68048,7 +68053,8 @@
    "source_ref": "PMID:32877100",
    "date": "2026-10-03",
    "note": "Patients with type 1 Gaucher disease have an increased risk of Parkinson disease, some solid cancers, and some hematologic malignancies including multiple myeloma.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Patients with type 1 Gaucher disease have an increased risk of Parkinson disease, some solid cancers, and some hematologic malignancies including multiple myeloma."
   },
   {
    "source": "MONDO:0009265",
@@ -68060,7 +68066,8 @@
    "source_ref": "PMID:30638965",
    "date": "2026-10-03",
    "note": "The most frequent symptoms are anemia, thrombocytopenia, splenomegaly, and/or hepatomegaly, and a potentially severe bone involvement.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The most frequent symptoms are anemia, thrombocytopenia, splenomegaly, and/or hepatomegaly, and a potentially severe bone involvement."
   },
   {
    "source": "MONDO:0009265",
@@ -68072,7 +68079,8 @@
    "source_ref": "PMID:21221912",
    "date": "2026-10-03",
    "note": "recent studies have revealed that affected individuals have an increased risk of developing peripheral neuropathy and parkinsonian features.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "recent studies have revealed that affected individuals have an increased risk of developing peripheral neuropathy and parkinsonian features."
   },
   {
    "source": "MONDO:0009265",
@@ -68084,7 +68092,8 @@
    "source_ref": "PMID:23510067",
    "date": "2026-10-03",
    "note": "Several reports describe an increased risk of cancer in GD; in particular multiple myeloma.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Several reports describe an increased risk of cancer in GD; in particular multiple myeloma."
   },
   {
    "source": "MONDO:0010526",
@@ -68096,7 +68105,8 @@
    "source_ref": "PMID:33172708",
    "date": "2026-10-03",
    "note": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria."
   },
   {
    "source": "MONDO:0010526",
@@ -68108,7 +68118,8 @@
    "source_ref": "PMID:29530533",
    "date": "2026-10-03",
    "note": "Fabry disease is an X-linked lysosomal storage disorder caused by mutations in the GLA gene leading to deficient \u03b1-galactosidase A activity, glycosphingolipid accumulation, and life-threatening compli...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Fabry disease is an X-linked lysosomal storage disorder caused by mutations in the GLA gene leading to deficient \u03b1-galactosidase A activity, glycosphingolipid accumulation, and life-threatening complications."
   },
   {
    "source": "MONDO:0010526",
@@ -68120,7 +68131,8 @@
    "source_ref": "PMID:29562089",
    "date": "2026-10-03",
    "note": "The cutaneous hallmark of FD is a specific distribution of angiokeratoma.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The cutaneous hallmark of FD is a specific distribution of angiokeratoma."
   },
   {
    "source": "MONDO:0010526",
@@ -68132,7 +68144,8 @@
    "source_ref": "PMID:40840785",
    "date": "2026-10-03",
    "note": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure."
   },
   {
    "source": "MONDO:0010526",
@@ -68144,7 +68157,8 @@
    "source_ref": "PMID:38486361",
    "date": "2026-10-03",
    "note": "Anderson-Fabry disease (AFD) is a lysosomal storage disorder characterized by glycolipid accumulation in cardiac cells, associated with a peculiar form of hypertrophic cardiomyopathy (HCM).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Anderson-Fabry disease (AFD) is a lysosomal storage disorder characterized by glycolipid accumulation in cardiac cells, associated with a peculiar form of hypertrophic cardiomyopathy (HCM)."
   },
   {
    "source": "MONDO:0010526",
@@ -68156,7 +68170,8 @@
    "source_ref": "PMID:33922740",
    "date": "2026-10-03",
    "note": "GB3 accumulation occurs in virtually all cardiac cells (cardiomyocytes, conduction system cells, fibroblasts, and endothelial and smooth muscle vascular cells), ultimately leading to ventricular hyper...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "GB3 accumulation occurs in virtually all cardiac cells (cardiomyocytes, conduction system cells, fibroblasts, and endothelial and smooth muscle vascular cells), ultimately leading to ventricular hypertrophy and fibrosis, heart failure, valve disease, angina, dysrhythmias, cardiac conduction abnormalities, and sudden death."
   },
   {
    "source": "MONDO:0009290",
@@ -68168,7 +68183,8 @@
    "source_ref": "PMID:16898258",
    "date": "2026-10-03",
    "note": "The classic infantile form of the disease occurs in infants (shortly after birth) and is characterized by generalized hypotonia, failure to thrive, and cardiorespiratory failure.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The classic infantile form of the disease occurs in infants (shortly after birth) and is characterized by generalized hypotonia, failure to thrive, and cardiorespiratory failure."
   },
   {
    "source": "MONDO:0009290",
@@ -68180,7 +68196,8 @@
    "source_ref": "PMID:23632029",
    "date": "2026-10-03",
    "note": "In later-onset Pompe disease, symptoms are slower to appear, and patients often progress to wheelchair confinement and eventual respiratory failure.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "In later-onset Pompe disease, symptoms are slower to appear, and patients often progress to wheelchair confinement and eventual respiratory failure."
   },
   {
    "source": "MONDO:0009290",
@@ -68192,7 +68209,8 @@
    "source_ref": "PMID:16702883",
    "date": "2026-10-03",
    "note": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progressio...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progression and death usually occurring by one year of age."
   },
   {
    "source": "MONDO:0009290",
@@ -68204,7 +68222,8 @@
    "source_ref": "PMID:31796685",
    "date": "2026-10-03",
    "note": "Pompe disease (glycogen storage disease type II) is caused by mutations in acid \u03b1-glucosidase (GAA) resulting in lysosomal pathology and impairment of the muscular and cardio-pulmonary systems.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Pompe disease (glycogen storage disease type II) is caused by mutations in acid \u03b1-glucosidase (GAA) resulting in lysosomal pathology and impairment of the muscular and cardio-pulmonary systems."
   },
   {
    "source": "MONDO:0009290",
@@ -68216,7 +68235,8 @@
    "source_ref": "PMID:36503146",
    "date": "2026-10-03",
    "note": "Infantile Pompe disease presents cardiomyopathy and hepatomegaly.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Infantile Pompe disease presents cardiomyopathy and hepatomegaly."
   },
   {
    "source": "MONDO:0009290",
@@ -68228,7 +68248,8 @@
    "source_ref": "PMID:19138339",
    "date": "2026-10-03",
    "note": "patients with pre-existing respiratory insufficiency seemed to profit most.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "patients with pre-existing respiratory insufficiency seemed to profit most."
   },
   {
    "source": "MONDO:0009290",
@@ -68240,7 +68261,8 @@
    "source_ref": "PMID:25047669",
    "date": "2026-10-03",
    "note": "We screened for late-onset Pompe disease in a cohort of undetermined myopathy patients with proximal muscle weakness and/or elevated serum creatine kinase values.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "We screened for late-onset Pompe disease in a cohort of undetermined myopathy patients with proximal muscle weakness and/or elevated serum creatine kinase values."
   },
   {
    "source": "MONDO:0009290",
@@ -68252,7 +68274,8 @@
    "source_ref": "PMID:24726296",
    "date": "2026-10-03",
    "note": "Muscle weakness worsened in 3 women, and first presented in 3 others during the first pregnancy (4.5% each).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Muscle weakness worsened in 3 women, and first presented in 3 others during the first pregnancy (4.5% each)."
   },
   {
    "source": "MONDO:0009290",
@@ -68264,7 +68287,8 @@
    "source_ref": "PMID:33972680",
    "date": "2026-10-03",
    "note": "The following data were collected: clinical details including presence or absence of cardiomyopathy, enzyme activity levels, and features of GAA variants including exon versus intron location and spli...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The following data were collected: clinical details including presence or absence of cardiomyopathy, enzyme activity levels, and features of GAA variants including exon versus intron location and splice site versus non-splice site."
   },
   {
    "source": "HGNC:4065",
@@ -68276,7 +68300,8 @@
    "source_ref": "PMID:37907381",
    "date": "2026-10-03",
    "note": "With the goal of classifying the clinical significance of GAA variants in Pompe disease (Glycogen storage disease, type II)",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "With the goal of classifying the clinical significance of GAA variants in Pompe disease (Glycogen storage disease, type II)"
   },
   {
    "source": "MONDO:0009756",
@@ -68288,7 +68313,8 @@
    "source_ref": "PMID:38397448",
    "date": "2026-10-03",
    "note": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity."
   },
   {
    "source": "MONDO:0009756",
@@ -68300,7 +68326,8 @@
    "source_ref": "PMID:38397448",
    "date": "2026-10-03",
    "note": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification."
   },
   {
    "source": "MONDO:0009756",
@@ -68312,7 +68339,8 @@
    "source_ref": "PMID:23622394",
    "date": "2026-10-03",
    "note": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia."
   },
   {
    "source": "MONDO:0009756",
@@ -68324,7 +68352,8 @@
    "source_ref": "PMID:27491215",
    "date": "2026-10-03",
    "note": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy."
   },
   {
    "source": "MONDO:0009756",
@@ -68336,7 +68365,8 @@
    "source_ref": "PMID:25434476",
    "date": "2026-10-03",
    "note": "Although cataplexy is one of its characteristic symptoms, particularly in the late infantile and juvenile form, sleep disturbances are described only exceptionally.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Although cataplexy is one of its characteristic symptoms, particularly in the late infantile and juvenile form, sleep disturbances are described only exceptionally."
   },
   {
    "source": "MONDO:0009756",
@@ -68348,7 +68378,8 @@
    "source_ref": "PMID:25434476",
    "date": "2026-10-03",
    "note": "A combination of splenomegaly, vertical supranuclear gaze palsy, and cataplexy creates a most useful suspicion index tool for the disease.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "A combination of splenomegaly, vertical supranuclear gaze palsy, and cataplexy creates a most useful suspicion index tool for the disease."
   },
   {
    "source": "MONDO:0009756",
@@ -68360,7 +68391,8 @@
    "source_ref": "PMID:27164983",
    "date": "2026-10-03",
    "note": "Respiratory manifestations range from a lack of symptoms to respiratory failure.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Respiratory manifestations range from a lack of symptoms to respiratory failure."
   },
   {
    "source": "MONDO:0009756",
@@ -68372,7 +68404,8 @@
    "source_ref": "PMID:33892845",
    "date": "2026-10-03",
    "note": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic."
   },
   {
    "source": "MONDO:0009756",
@@ -68384,7 +68417,8 @@
    "source_ref": "PMID:19660552",
    "date": "2026-10-03",
    "note": "we discuss the different lines of evidence supporting different models of anomalous intracellular cholesterol trafficking with emphasis on cholesterol interactions with alpha-synuclein, NPC1 and NPC2 ...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "we discuss the different lines of evidence supporting different models of anomalous intracellular cholesterol trafficking with emphasis on cholesterol interactions with alpha-synuclein, NPC1 and NPC2 in AD, PD and NPC."
   },
   {
    "source": "MONDO:0010100",
@@ -68396,7 +68430,8 @@
    "source_ref": "PMID:40710901",
    "date": "2026-10-03",
    "note": "Mechanistically, TSD is caused by mutations in the HEXA gene, which encodes the alpha subunit of hexosaminidase A.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mechanistically, TSD is caused by mutations in the HEXA gene, which encodes the alpha subunit of hexosaminidase A."
   },
   {
    "source": "MONDO:0010100",
@@ -68408,7 +68443,8 @@
    "source_ref": "PMID:30524313",
    "date": "2026-10-03",
    "note": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders."
   },
   {
    "source": "MONDO:0010006",
@@ -68420,7 +68456,8 @@
    "source_ref": "PMID:8411702",
    "date": "2026-10-03",
    "note": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease."
   },
   {
    "source": "MONDO:0010006",
@@ -68432,7 +68469,8 @@
    "source_ref": "PMID:15159655",
    "date": "2026-10-03",
    "note": "Ataxia and speech abnormalities were the commonest presentation.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Ataxia and speech abnormalities were the commonest presentation."
   },
   {
    "source": "MONDO:0009756",
@@ -68444,7 +68482,8 @@
    "source_ref": "PMID:39057926",
    "date": "2026-10-03",
    "note": "with disorders including Wilson's disease, pantothenate kinase-associated neurodegeneration (PKAN), Niemann-Pick disease type C (NPC), glutaric aciduria type 1, Sanfilippo syndrome (Mucopolysaccharido...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "with disorders including Wilson's disease, pantothenate kinase-associated neurodegeneration (PKAN), Niemann-Pick disease type C (NPC), glutaric aciduria type 1, Sanfilippo syndrome (Mucopolysaccharidosis Type IIIb), and GM2 gangliosidosis (Sandhoff disease) are presented."
   },
   {
    "source": "MONDO:0010006",
@@ -68456,7 +68495,8 @@
    "source_ref": "PMID:11056783",
    "date": "2026-10-03",
    "note": "Sandhoff disease is a GM2 gangliosidosis that may present within the first 6 months of life with developmental regression.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Sandhoff disease is a GM2 gangliosidosis that may present within the first 6 months of life with developmental regression."
   },
   {
    "source": "MONDO:0010006",
@@ -68468,7 +68508,8 @@
    "source_ref": "PMID:23370522",
    "date": "2026-10-03",
    "note": "resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms."
   },
   {
    "source": "MONDO:0001586",
@@ -68480,7 +68521,8 @@
    "source_ref": "PMID:32188113",
    "date": "2026-10-03",
    "note": "Patients usually develop several somatic symptoms such as abdominal hernias, extensive dermal melanocytosis, thoracolumbar kyphosis odontoid dysplasia, arthropathy, coxa valga and genu valgum, coarse ...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Patients usually develop several somatic symptoms such as abdominal hernias, extensive dermal melanocytosis, thoracolumbar kyphosis odontoid dysplasia, arthropathy, coxa valga and genu valgum, coarse facial features, respiratory and cardiac impairment."
   },
   {
    "source": "MONDO:0001586",
@@ -68492,7 +68534,8 @@
    "source_ref": "PMID:33572941",
    "date": "2026-10-03",
    "note": "The disease can be divided into severe (Hurler syndrome) and attenuated (Hurler-Scheie, Scheie) forms.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The disease can be divided into severe (Hurler syndrome) and attenuated (Hurler-Scheie, Scheie) forms."
   },
   {
    "source": "MONDO:0001586",
@@ -68504,7 +68547,8 @@
    "source_ref": "PMID:8680403",
    "date": "2026-10-03",
    "note": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene."
   },
   {
    "source": "MONDO:0001586",
@@ -68516,7 +68560,8 @@
    "source_ref": "PMID:11405343",
    "date": "2026-10-03",
    "note": "ranges from a disorder that is fatal in the early months of life, due to cardiomyopathy, to a condition compatible with a normal life-span.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "ranges from a disorder that is fatal in the early months of life, due to cardiomyopathy, to a condition compatible with a normal life-span."
   },
   {
    "source": "MONDO:0001586",
@@ -68528,7 +68573,8 @@
    "source_ref": "PMID:24365320",
    "date": "2026-10-03",
    "note": "spinal cord compression in osteogenesis imperfecta, and mucopolysaccharidosis type I and VI",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "spinal cord compression in osteogenesis imperfecta, and mucopolysaccharidosis type I and VI"
   },
   {
    "source": "MONDO:0009499",
@@ -68540,7 +68586,8 @@
    "source_ref": "PMID:35087711",
    "date": "2026-10-03",
    "note": "It is caused by mutations on the galactocerebrosidase (GALC) gene.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "It is caused by mutations on the galactocerebrosidase (GALC) gene."
   },
   {
    "source": "HGNC:4115",
@@ -68552,7 +68599,8 @@
    "source_ref": "PMID:40500501",
    "date": "2026-10-03",
    "note": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respect...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respectively."
   },
   {
    "source": "HGNC:713",
@@ -68564,7 +68612,8 @@
    "source_ref": "PMID:25987178",
    "date": "2026-10-03",
    "note": "Metachromatic leukodystrophy is an inherited lysosomal disorder caused by recessive mutations in ARSA encoding arylsulfatase A.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Metachromatic leukodystrophy is an inherited lysosomal disorder caused by recessive mutations in ARSA encoding arylsulfatase A."
   },
   {
    "source": "MONDO:0009591",
@@ -68576,7 +68625,8 @@
    "source_ref": "PMID:38494502",
    "date": "2026-10-03",
    "note": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures."
   },
   {
    "source": "HGNC:4177",
@@ -68588,7 +68638,8 @@
    "source_ref": "PMID:35455941",
    "date": "2026-10-03",
    "note": "Approximately 5-15% of PD patients have mutations in the GBA gene, making it numerically the most important genetic risk factor for Parkinson disease (PD).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Approximately 5-15% of PD patients have mutations in the GBA gene, making it numerically the most important genetic risk factor for Parkinson disease (PD)."
   },
   {
    "source": "HGNC:4177",
@@ -68600,7 +68651,8 @@
    "source_ref": "PMID:35332438",
    "date": "2026-10-03",
    "note": "Glucocerebrosidase (GBA) gene may be a risk factor for dementia with Lewy bodies (DLB).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Glucocerebrosidase (GBA) gene may be a risk factor for dementia with Lewy bodies (DLB)."
   },
   {
    "source": "MONDO:0007488",
@@ -68612,7 +68664,8 @@
    "source_ref": "PMID:35332438",
    "date": "2026-10-03",
    "note": "Patients harbouring GBA variants have an earlier age of onset, more severe cognitive impairment, and rapid symptom progression",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Patients harbouring GBA variants have an earlier age of onset, more severe cognitive impairment, and rapid symptom progression"
   },
   {
    "source": "MONDO:0011945",
@@ -68624,7 +68677,8 @@
    "source_ref": "PMID:36220738",
    "date": "2026-10-03",
    "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive."
   },
   {
    "source": "MONDO:0011945",
@@ -68636,7 +68690,8 @@
    "source_ref": "PMID:36220738",
    "date": "2026-10-03",
    "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive."
   },
   {
    "source": "MONDO:0011945",
@@ -68648,7 +68703,8 @@
    "source_ref": "PMID:36220738",
    "date": "2026-10-03",
    "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thrive."
   },
   {
    "source": "MONDO:0010526",
@@ -68660,7 +68716,8 @@
    "source_ref": "PMID:33172708",
    "date": "2026-10-03",
    "note": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria."
   },
   {
    "source": "MONDO:0010526",
@@ -68672,7 +68729,8 @@
    "source_ref": "PMID:26835405",
    "date": "2026-10-03",
    "note": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance."
   },
   {
    "source": "MONDO:0010526",
@@ -68684,7 +68742,8 @@
    "source_ref": "PMID:32183665",
    "date": "2026-10-03",
    "note": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement)."
   },
   {
    "source": "MONDO:0008199",
@@ -68696,7 +68755,8 @@
    "source_ref": "PMID:39134822",
    "date": "2026-10-03",
    "note": "LOPD, less severe due to partial GAA activity, appears in childhood, adolescence, or adulthood with muscle weakness and respiratory problems.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "LOPD, less severe due to partial GAA activity, appears in childhood, adolescence, or adulthood with muscle weakness and respiratory problems."
   },
   {
    "source": "HGNC:4296",
@@ -68708,7 +68768,8 @@
    "source_ref": "PMID:33160817",
    "date": "2026-10-03",
    "note": "Fabry disease is an X-linked lysosomal storage disorder caused by pathogenic variants in the GLA gene",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Fabry disease is an X-linked lysosomal storage disorder caused by pathogenic variants in the GLA gene"
   },
   {
    "source": "HGNC:11120",
@@ -68720,7 +68781,8 @@
    "source_ref": "PMID:24262184",
    "date": "2026-10-03",
    "note": "Examples of risk genes include the two lysosomal enzyme coding genes GBA and SMPD1, which are associated with a 5-fold and 9-fold increased risk of PD, respectively.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Examples of risk genes include the two lysosomal enzyme coding genes GBA and SMPD1, which are associated with a 5-fold and 9-fold increased risk of PD, respectively."
   },
   {
    "source": "HGNC:4115",
@@ -68732,7 +68794,8 @@
    "source_ref": "PMID:30726573",
    "date": "2026-10-03",
    "note": "However, recently, many additional lysosomal storage disorder genes have been similarly implicated, including SMPD1, ATP13A2, GALC, and others.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "However, recently, many additional lysosomal storage disorder genes have been similarly implicated, including SMPD1, ATP13A2, GALC, and others."
   },
   {
    "source": "MONDO:0009756",
@@ -68744,7 +68807,8 @@
    "source_ref": "PMID:25784942",
    "date": "2026-10-03",
    "note": "It is an autosomal recessive disorder, caused by mutations in the NPC1 or NPC2 genes.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "It is an autosomal recessive disorder, caused by mutations in the NPC1 or NPC2 genes."
   },
   {
    "source": "MONDO:0009757",
@@ -68756,7 +68820,8 @@
    "source_ref": "PMID:33445799",
    "date": "2026-10-03",
    "note": "Clinical manifestations include neurological symptoms and systemic symptoms, such as hepatosplenomegaly and pulmonary manifestations",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Clinical manifestations include neurological symptoms and systemic symptoms, such as hepatosplenomegaly and pulmonary manifestations"
   },
   {
    "source": "MONDO:0010006",
@@ -68768,7 +68833,8 @@
    "source_ref": "PMID:8411702",
    "date": "2026-10-03",
    "note": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease."
   },
   {
    "source": "MONDO:0010100",
@@ -68780,7 +68846,8 @@
    "source_ref": "PMID:30524313",
    "date": "2026-10-03",
    "note": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders."
   },
   {
    "source": "HGNC:4878",
@@ -68792,7 +68859,8 @@
    "source_ref": "PMID:11339652",
    "date": "2026-10-03",
    "note": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis)."
   },
   {
    "source": "HGNC:4879",
@@ -68804,7 +68872,8 @@
    "source_ref": "PMID:11339652",
    "date": "2026-10-03",
    "note": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis)."
   },
   {
    "source": "MONDO:0001586",
@@ -68816,7 +68885,8 @@
    "source_ref": "PMID:25345091",
    "date": "2026-10-03",
    "note": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I."
   },
   {
    "source": "MONDO:0001586",
@@ -68828,7 +68898,8 @@
    "source_ref": "PMID:34189746",
    "date": "2026-10-03",
    "note": "Mucopolysaccharidoses type I (MPS I) is an inherited metabolic disease characterized by a malfunction of the \u03b1-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in the lysosomes...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mucopolysaccharidoses type I (MPS I) is an inherited metabolic disease characterized by a malfunction of the \u03b1-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in the lysosomes."
   },
   {
    "source": "HGNC:5391",
@@ -68840,7 +68911,8 @@
    "source_ref": "PMID:15895714",
    "date": "2026-10-03",
    "note": "Mucopolysaccharidosis (MPS) type I is a lysosomal storage disorder caused by deficiency of the enzyme alpha-L-iduronidase (IDUA)",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mucopolysaccharidosis (MPS) type I is a lysosomal storage disorder caused by deficiency of the enzyme alpha-L-iduronidase (IDUA)"
   },
   {
    "source": "HGNC:4065",
@@ -68852,7 +68924,8 @@
    "source_ref": "PMID:36412587",
    "date": "2026-10-03",
    "note": "PD is marked by a deficiency in acid \u03b1-glucosidase (GAA)",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "PD is marked by a deficiency in acid \u03b1-glucosidase (GAA)"
   },
   {
    "source": "HGNC:4115",
@@ -68864,7 +68937,8 @@
    "source_ref": "PMID:36370000",
    "date": "2026-10-03",
    "note": "GALC encodes the lysosomal enzyme galactosylceramidase",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "GALC encodes the lysosomal enzyme galactosylceramidase"
   },
   {
    "source": "HGNC:713",
@@ -68876,7 +68950,8 @@
    "source_ref": "PMID:37381728",
    "date": "2026-10-03",
    "note": "Rare functional and loss-of-function ARSA variants may be associated with PD.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Rare functional and loss-of-function ARSA variants may be associated with PD."
   },
   {
    "source": "MONDO:0009591",
@@ -68888,7 +68963,8 @@
    "source_ref": "PMID:31684987",
    "date": "2026-10-03",
    "note": "Data about the impact of peripheral neuropathy in MLD patients are currently lacking, although in our experience peripheral neuropathy causes significant morbidity due to neuropathic pain, foot deform...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Data about the impact of peripheral neuropathy in MLD patients are currently lacking, although in our experience peripheral neuropathy causes significant morbidity due to neuropathic pain, foot deformities and neurogenic bladder disturbances."
   },
   {
    "source": "MONDO:0009655",
@@ -68900,7 +68976,8 @@
    "source_ref": "PMID:27100513",
    "date": "2026-10-03",
    "note": "This disease is a complex of four conditions caused by dysfunctions of one of genes coding for lysosomal enzymes involved in degradation of heparan sulfate: SGSH (coding for heparan N-sulfatase) - cau...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "This disease is a complex of four conditions caused by dysfunctions of one of genes coding for lysosomal enzymes involved in degradation of heparan sulfate: SGSH (coding for heparan N-sulfatase) - causing MPS IIIA"
   },
   {
    "source": "MONDO:0009656",
@@ -68912,7 +68989,8 @@
    "source_ref": "PMID:27100513",
    "date": "2026-10-03",
    "note": "NAGLU (coding for alpha-N-acetylglucosaminidase) - causing MPS IIIB",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "NAGLU (coding for alpha-N-acetylglucosaminidase) - causing MPS IIIB"
   },
   {
    "source": "MONDO:0009657",
@@ -68924,7 +69002,8 @@
    "source_ref": "PMID:27100513",
    "date": "2026-10-03",
    "note": "HGSNAT (coding for acetyl CoA alpha-glucosaminide acetyltransferase) - causing MPS IIIC)",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "HGSNAT (coding for acetyl CoA alpha-glucosaminide acetyltransferase) - causing MPS IIIC)"
   },
   {
    "source": "MONDO:0009658",
@@ -68936,7 +69015,8 @@
    "source_ref": "PMID:27100513",
    "date": "2026-10-03",
    "note": "GNS (coding for N-acetylglucosamine-6-sulfatase) - causing MPS IIID.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "GNS (coding for N-acetylglucosamine-6-sulfatase) - causing MPS IIID."
   },
   {
    "source": "MONDO:0009657",
@@ -68948,7 +69028,8 @@
    "source_ref": "PMID:19479962",
    "date": "2026-10-03",
    "note": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and ...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness."
   },
   {
    "source": "MONDO:0009657",
@@ -68960,7 +69041,8 @@
    "source_ref": "PMID:19479962",
    "date": "2026-10-03",
    "note": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and ...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness."
   },
   {
    "source": "MONDO:0018937",
@@ -68972,7 +69054,8 @@
    "source_ref": "PMID:18392742",
    "date": "2026-10-03",
    "note": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge."
   },
   {
    "source": "MONDO:0009657",
@@ -68984,7 +69067,8 @@
    "source_ref": "PMID:41883052",
    "date": "2026-10-03",
    "note": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis."
   },
   {
    "source": "MONDO:0009657",
@@ -68996,7 +69080,8 @@
    "source_ref": "PMID:41883052",
    "date": "2026-10-03",
    "note": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis."
   },
   {
    "source": "MONDO:0010674",
@@ -69008,7 +69093,8 @@
    "source_ref": "PMID:39617925",
    "date": "2026-10-03",
    "note": "Mucopolysaccharidosis type II (MPS II) is a rare X-linked lysosomal storage disorder caused by genetic alterations in the iduronate 2-sulfatase (IDS) gene.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mucopolysaccharidosis type II (MPS II) is a rare X-linked lysosomal storage disorder caused by genetic alterations in the iduronate 2-sulfatase (IDS) gene."
   },
   {
    "source": "MONDO:0018937",
@@ -69020,7 +69106,8 @@
    "source_ref": "PMID:26710524",
    "date": "2026-10-03",
    "note": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome."
   },
   {
    "source": "MONDO:0018937",
@@ -69032,7 +69119,8 @@
    "source_ref": "PMID:32944950",
    "date": "2026-10-03",
    "note": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death."
   },
   {
    "source": "MONDO:0018937",
@@ -69044,7 +69132,8 @@
    "source_ref": "PMID:40032500",
    "date": "2026-10-03",
    "note": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%), and behavioural issues (16/30, 53.3%)."
   },
   {
    "source": "MONDO:0018937",
@@ -69056,7 +69145,8 @@
    "source_ref": "PMID:21654471",
    "date": "2026-10-03",
    "note": "Three had significant scoliosis (21 to 99 degrees) and 2 others had L1 hypoplasia.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Three had significant scoliosis (21 to 99 degrees) and 2 others had L1 hypoplasia."
   },
   {
    "source": "MONDO:0018937",
@@ -69068,7 +69158,8 @@
    "source_ref": "PMID:31196149",
    "date": "2026-10-03",
    "note": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%)."
   },
   {
    "source": "MONDO:0018937",
@@ -69080,7 +69171,8 @@
    "source_ref": "PMID:31196149",
    "date": "2026-10-03",
    "note": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%)."
   },
   {
    "source": "MONDO:0018937",
@@ -69092,7 +69184,8 @@
    "source_ref": "PMID:41108524",
    "date": "2026-10-03",
    "note": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration."
   },
   {
    "source": "MONDO:0018937",
@@ -69104,7 +69197,8 @@
    "source_ref": "PMID:26648750",
    "date": "2026-10-03",
    "note": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood."
   },
   {
    "source": "MONDO:0018937",
@@ -69116,7 +69210,8 @@
    "source_ref": "PMID:37357981",
    "date": "2026-10-03",
    "note": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2\u2009years of age, followed by unremitting and overt loss of previously acquired skills.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2\u2009years of age, followed by unremitting and overt loss of previously acquired skills."
   },
   {
    "source": "MONDO:0010674",
@@ -69128,7 +69223,8 @@
    "source_ref": "PMID:24399699",
    "date": "2026-10-03",
    "note": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy."
   },
   {
    "source": "MONDO:0010674",
@@ -69140,7 +69236,8 @@
    "source_ref": "PMID:25345092",
    "date": "2026-10-03",
    "note": "Children with severe form, diagnosed at 12-36 months, have coarse facial feature, short stature, joint stiffness, short neck, broad chest, large head circumference, watery diarrhea, skeletal changes, ...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Children with severe form, diagnosed at 12-36 months, have coarse facial feature, short stature, joint stiffness, short neck, broad chest, large head circumference, watery diarrhea, skeletal changes, progressive and profound mental retardation, retinal degeneration' hearing loss, cardiomyopathy, valvular involvement, with progressive thickening and stiffening of the valve leaflets leading to mitral and aortic regurgitation and stenosis ."
   },
   {
    "source": "MONDO:0010674",
@@ -69152,7 +69249,8 @@
    "source_ref": "PMID:25345092",
    "date": "2026-10-03",
    "note": "Recurrent and prolonged rhinitis with persistent nasal discharge are the first symptoms of airway disease that manifests itself as noisy breathing and later sleep apnea.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Recurrent and prolonged rhinitis with persistent nasal discharge are the first symptoms of airway disease that manifests itself as noisy breathing and later sleep apnea."
   },
   {
    "source": "HGNC:5389",
@@ -69164,7 +69262,8 @@
    "source_ref": "PMID:21235446",
    "date": "2026-10-03",
    "note": "Mucopolysaccharidosis (MPS) type II (Hunter syndrome, OMIM 309900) is an X-linked lysosomal storage disorder caused by a deficiency of the lysosomal enzyme iduronate-2-sulfatase (IDS).",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Mucopolysaccharidosis (MPS) type II (Hunter syndrome, OMIM 309900) is an X-linked lysosomal storage disorder caused by a deficiency of the lysosomal enzyme iduronate-2-sulfatase (IDS)."
   },
   {
    "source": "MONDO:0010674",
@@ -69176,7 +69275,8 @@
    "source_ref": "PMID:34070997",
    "date": "2026-10-03",
    "note": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly."
   },
   {
    "source": "MONDO:0010674",
@@ -69188,7 +69288,8 @@
    "source_ref": "PMID:39201256",
    "date": "2026-10-03",
    "note": "Signs and symptoms typically emerge at 1.5-4 years of age and may include cognitive impairment, depending on whether patients have the neuronopathic or non-neuronopathic form of the disease.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Signs and symptoms typically emerge at 1.5-4 years of age and may include cognitive impairment, depending on whether patients have the neuronopathic or non-neuronopathic form of the disease."
   },
   {
    "source": "MONDO:0010674",
@@ -69200,7 +69301,8 @@
    "source_ref": "PMID:40011961",
    "date": "2026-10-03",
    "note": "Survival, airway obstruction, and quality of life were outcomes identified as important to always measure in all MPS II clinical trials and/or in clinical practice.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Survival, airway obstruction, and quality of life were outcomes identified as important to always measure in all MPS II clinical trials and/or in clinical practice."
   },
   {
    "source": "MONDO:0010674",
@@ -69212,7 +69314,8 @@
    "source_ref": "PMID:40011961",
    "date": "2026-10-03",
    "note": "The adolescent group included safety of chewing and swallowing, complications of anaesthesia, sleep quality and apnoea, nasal problems, and chronic otitis media.",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "The adolescent group included safety of chewing and swallowing, complications of anaesthesia, sleep quality and apnoea, nasal problems, and chronic otitis media."
   },
   {
    "source": "HGNC:14537",
@@ -69224,7 +69327,8 @@
    "source_ref": "PMID:PPR:PPR1322574",
    "date": "2026-10-03",
    "note": "Ganglioside profiling by ion mobility and mass spectrometry imaging identifies distinct biomolecular isomers in Niemann-Pick Disease Gangliosides are glycosphingolipids implicated in the neurodegenera...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Ganglioside profiling by ion mobility and mass spectrometry imaging identifies distinct biomolecular isomers in Niemann-Pick Disease Gangliosides are glycosphingolipids implicated in the neurodegenerative pathology of Niemann-Pick disease type C2 (NPC2 disease), where accumulation of GM2 and GM3 is a hallmark of disrupted lipid trafficking and disease progression."
   },
   {
    "source": "HGNC:7632",
@@ -69236,7 +69340,8 @@
    "source_ref": "PMID:PPR:PPR1249019",
    "date": "2026-10-03",
    "note": "Three-Month Observational Data for the MPS IIIB Sentinel Subject Following AAV9 Mediated Gene Therapy Background Mucopolysaccharidosis type IIIB (MPS IIIB) is a devastating neurodegenerative lysosomal...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Three-Month Observational Data for the MPS IIIB Sentinel Subject Following AAV9 Mediated Gene Therapy Background Mucopolysaccharidosis type IIIB (MPS IIIB) is a devastating neurodegenerative lysosomal storage disorder caused by alpha-N-acetylglucosaminidase (NAGLU) deficiency."
   },
   {
    "source": "HGNC:26527",
@@ -69248,7 +69353,8 @@
    "source_ref": "PMID:PPR:PPR1284231",
    "date": "2026-10-03",
    "note": "Extracellular vesicles derived from cells overexpressing HGSNAT rescue defects in Mucopolysaccharidosis IIIC neurons Summary Mucopolysaccharidosis III type C (MPS IIIC) is a rare neurological lysosoma...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Extracellular vesicles derived from cells overexpressing HGSNAT rescue defects in Mucopolysaccharidosis IIIC neurons Summary Mucopolysaccharidosis III type C (MPS IIIC) is a rare neurological lysosomal storage disorder caused by genetic deficiency of the lysosomal membrane enzyme, heparan-\u03b1-glucosaminide N-acetyltransferase (HGSNAT)."
   },
   {
    "source": "HGNC:4177",
@@ -69260,7 +69366,8 @@
    "source_ref": "PMID:PPR:PPR1330793",
    "date": "2026-10-03",
    "note": "Isogenic forebrain organoids uncover early neurodevelopmental alterations and imbalances in neuronal function leading to hyperexcitation in Gaucher disease ABSTRACT Gaucher disease is a rare lysosomal...",
-   "contradicts": false
+   "contradicts": false,
+   "source_quote": "Isogenic forebrain organoids uncover early neurodevelopmental alterations and imbalances in neuronal function leading to hyperexcitation in Gaucher disease ABSTRACT Gaucher disease is a rare lysosomal storage disorder caused by autosomal recessive mutations in the GBA1 gene, encoding the lysosomal enzyme glucocerebrosidase."
   }
  ],
  "clusters": [

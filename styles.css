@@ -260,3 +260,11 @@ footer {
   .explore-grid, .journey-grid { grid-template-columns: 1fr; }
   .panel { max-height: none; }
 }
+
+/* verbatim source quote in edge panel */
+.quote {
+  font-style: italic;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
+  color: var(--ink-soft);
+}
