@@ -1,82 +1,446 @@
 {
- "sampled": 5,
- "quarantined": 0,
- "yes": 5,
- "total": 5,
+ "sampled": 30,
+ "quarantined": 1,
+ "yes": 29,
+ "total": 31,
  "claude_tokens": {
-  "in": 573,
-  "out": 141
+  "in": 3627,
+  "out": 804
  },
  "results": [
   {
    "claim": {
-    "subject": "glucocerebrosidase",
-    "relation": "disrupts",
-    "object": "Gaucher disease",
-    "pmid": "17644022",
-    "source_quote": "The common mutations found in the lysosomal enzyme deficient in Gaucher disease, beta-glucocerebrosidase, earmark these proteins for destruction by the endoplasmic reticulum-localised protein folding machinery, resulting in enzyme insufficiency, lysosomal glycolipid storage and subsequent pathology.",
+    "subject": "IDUA rs6831280",
+    "relation": "associated_with",
+    "object": "BMD phenotypes",
+    "pmid": "26256109",
+    "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 \u00d7 10(-10), p = 5.26 \u00d7 10(-10), and p = 3.01 \u00d7 10(-10), respectively) and HIP-BMD (p = 3.26 \u00d7 10(-6), p = 1.97 \u00d7 10(-6), and p = 1.63 \u00d7 10(-12), respectively).",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": true,
+   "verdict": "YES",
+   "reason": "The quote explicitly states IDUA rs6831280 was associated with BMD phenotypes with genome-wide significance."
+  },
+  {
+   "claim": {
+    "subject": "Gaucher disease",
+    "relation": "associated_with",
+    "object": "multiple myeloma",
+    "pmid": "23510067",
+    "source_quote": "Several reports describe an increased risk of cancer in GD; in particular multiple myeloma.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "The quote directly states multiple reports describe increased risk of cancer in Gaucher disease, particularly multiple myeloma."
+  },
+  {
+   "claim": {
+    "subject": "Mucopolysaccharidosis type I",
+    "relation": "presents_with",
+    "object": "dysostosis multiplex",
+    "pmid": "25345091",
+    "source_quote": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I.",
     "confidence": "high",
     "contradicts": false
    },
    "quarantined": false,
    "verdict": "YES",
-   "reason": "quote describes how mutations in beta-glucocerebrosidase cause enzyme insufficiency and subsequent pathology in Gaucher disease"
+   "reason": "The quote states dysostosis multiplex is seen in severe variants of MPS I."
   },
   {
    "claim": {
-    "subject": "CSF HS",
-    "relation": "associated_with",
-    "object": "therapeutic biomarker",
-    "pmid": "PPR:PPR1012712",
-    "source_quote": "We showed that treatment of the brain without treatment of systemic bodily organs resulted in reduction of HS in brain and CSF. These results support the utility of CSF HS as a therapeutic biomarker for Sanfilippo B and other disorders of heparan sulfate catabolism.",
-    "confidence": "medium",
+    "subject": "FD",
+    "relation": "presents_with",
+    "object": "impaired mitophagy",
+    "pmid": "PPR:PPR1214242",
+    "source_quote": "FD cells showed impaired mitophagy, reduced mitochondrial respiration, and increased reactive oxygen species production. Importantly, this mitochondrial dysfunction exacerbated the lysosomal deficit in FD cells, forming a vicious cycle.",
+    "confidence": "high",
     "contradicts": false
    },
    "quarantined": false,
    "verdict": "YES",
-   "reason": "quote explicitly states CSF HS supports its utility as a therapeutic biomarker for Sanfilippo B"
+   "reason": "The quote explicitly describes impaired mitophagy in FD cells."
   },
   {
    "claim": {
     "subject": "Gaucher disease",
-    "relation": "presents_with",
-    "object": "splenomegaly",
-    "pmid": "28218669",
-    "source_quote": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells.",
+    "relation": "associated_with",
+    "object": "Parkinson's disease",
+    "pmid": "40611398",
+    "source_quote": "such as bone disease, predisposition to Parkinson's disease in Type 1 GD, or neurological involvement in Type 2 and Type 3 GD, remain poorly understood.",
     "confidence": "medium",
     "contradicts": false
    },
    "quarantined": false,
    "verdict": "YES",
-   "reason": "quote directly states splenomegaly is associated with Gaucher disease due to Gaucher cell infiltration"
+   "reason": "The quote directly mentions predisposition to Parkinson's disease in Type 1 Gaucher disease."
+  },
+  {
+   "claim": {
+    "subject": "Fabry disease",
+    "relation": "presents_with",
+    "object": "hypertrophic cardiomyopathy",
+    "pmid": "33172708",
+    "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote explicitly lists hypertrophic cardiomyopathy as a classical organ involvement in Fabry disease."
+  },
+  {
+   "claim": {
+    "subject": "GBA1",
+    "relation": "associated_with",
+    "object": "Parkinson\u2019s Patients",
+    "pmid": "PPR:PPR1324998",
+    "source_quote": "Genomic Landscape of Early-Onset and Familial Latin American Parkinson\u2019s Patients ABSTRACT Background Parkinson\u2019s disease (PD), the most common neurodegenerative movement disorder, is commonly thought of as an aging and sporadic disease; however, 5-14% of individuals experience disease onset before the age of 50 years (early-onset PD; EOPD) and about 20% have a positive family history. In the case of both EOPD and people with a family history of PD, evidence suggests higher rates of a disease-causing genetic contribution. Objectives Our goal was to perform a variant screening of seven PD-related genes and 21 genes associated with related parkinsonian disorders to identify pathogenic/likely pathogenic variants and variants of uncertain significance within EOPD and family-history-positive individuals within the Latin American Research Consortium on the Genetics of PD (LARGE-PD). Methods We performed short-read whole-genome sequencing on a subset of 263 individuals with EOPD and/or a familial history of PD who had no known pathogenic PD variant in genotyping data. Results Of the analyzed individuals, a monogenic burden in primary and secondary PD genes due to pathogenic or likely pathogenic variants for PD was observed in 4.7%, an additional 5.5% had pathogenic or likely pathogenic variants for Gaucher\u2019s disease, and 2.7% had known risk variants in GBA1 .",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "NO",
+   "reason": "Quote describes a study about Parkinson's patients but does not mention GBA1 gene or its association."
+  },
+  {
+   "claim": {
+    "subject": "Niemann-Pick disease",
+    "relation": "presents_with",
+    "object": "progressive neurological manifestations",
+    "pmid": "30111334",
+    "source_quote": "Niemann-Pick disease type C (NP-C) is a rare, autosomal recessive, neurodegenerative disease associated with a wide variety of progressive neurological manifestations.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states NPC is associated with progressive neurological manifestations."
+  },
+  {
+   "claim": {
+    "subject": "Fingolimod",
+    "relation": "associated_with",
+    "object": "improved lysosomal cholesterol trafficking",
+    "pmid": "PPR:PPR1278383",
+    "source_quote": "Fingolimod improved lysosomal cholesterol trafficking, increased LAMP1 abundance, attenuated STING associated inflammatory signaling, normalized mitochondrial function, reduced neuroinflammatory and neurodegenerative phenotypes in Npc1 mutant mice, and broadly shifted disease-associated transcriptional programs toward a healthier state.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote explicitly states fingolimod improved lysosomal cholesterol trafficking."
+  },
+  {
+   "claim": {
+    "subject": "early infantile form of NPC",
+    "relation": "presents_with",
+    "object": "prolonged jaundice",
+    "pmid": "32709131",
+    "source_quote": "Extra-neuronal features were common; visceromegaly reported in 80/89 NPC1 and in 15/16 NPC2, prolonged jaundice in 30/89 NPC1 and 7/16 NPC2.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote reports prolonged jaundice occurred in early infantile NPC1 cases."
+  },
+  {
+   "claim": {
+    "subject": "atidarsagene autotemcel",
+    "relation": "studied_in",
+    "object": "early-onset MLD",
+    "pmid": "36811406",
+    "source_quote": "Here, we review the preclinical and clinical studies that facilitated the approval of the ex vivo gene therapy atidarsagene autotemcel for early-onset MLD by the European Medicines Agency (EMA) in December 2020.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states atidarsagene autotemcel was approved for early-onset MLD."
+  },
+  {
+   "claim": {
+    "subject": "Niemann-Pick C disease",
+    "relation": "presents_with",
+    "object": "cataplexy",
+    "pmid": "20525256",
+    "source_quote": "Cataplexy, seizures and dystonia are other common features.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote lists cataplexy as a common feature of Niemann-Pick C disease."
+  },
+  {
+   "claim": {
+    "subject": "gene transfection",
+    "relation": "studied_in",
+    "object": "Niemann-Pick disease",
+    "pmid": "10608504",
+    "source_quote": "These models have been utilized in therapeutic trials of bone marrow transplantation and gene transfection of stem cells and in studies of disease pathogenesis.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote mentions gene transfection studied in therapeutic trials for this disease model."
+  },
+  {
+   "claim": {
+    "subject": "MPS-I",
+    "relation": "caused_by_variant_in",
+    "object": "IDUA",
+    "pmid": "8680403",
+    "source_quote": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote explicitly states MPS-I is caused by mutations in the IDUA gene."
+  },
+  {
+   "claim": {
+    "subject": "FXN",
+    "relation": "associated_with",
+    "object": "Friedreich ataxia",
+    "pmid": "19320530",
+    "source_quote": "Friedreich ataxia (FA) is a progressive genetic neurological disorder associated with degeneration of the dorsal columns, spinocerebellar tracts and other regions of the nervous system. The disorder results from mutations in the gene referred to as FXN.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states Friedreich ataxia results from mutations in the FXN gene."
+  },
+  {
+   "claim": {
+    "subject": "NPC1",
+    "relation": "associated_with",
+    "object": "Niemann-Pick Disease Type C",
+    "pmid": "19566836",
+    "source_quote": "Mutations in the NPC1 gene cause approximately 95% of cases of NPC",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states NPC1 mutations cause NPC disease."
+  },
+  {
+   "claim": {
+    "subject": "HSCT",
+    "relation": "studied_in",
+    "object": "Metachromatic Leukodystrophy",
+    "pmid": "39322389",
+    "source_quote": "In this chapter, we explore the rationale, indication, and outcome of HSCT in Cerebral Adrenoleukodystrophy (CALD), Metachromatic Leukodystrophy (MLD), Krabbe Disease (KD), and Adult-onset Leukoencephalopathy with Axonal Spheroids and Pigmented Glia (ALSP), which are among the most frequent leukodystrophies.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote explicitly lists Metachromatic Leukodystrophy as one of the diseases where HSCT outcomes are explored."
+  },
+  {
+   "claim": {
+    "subject": "Fabry disease",
+    "relation": "presents_with",
+    "object": "renal failure",
+    "pmid": "16511611",
+    "source_quote": "It can present variably and may represent an important cause of occult neurological and cardiac syndromes and renal failure.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote states Fabry disease \"may represent an important cause of...renal failure.\""
   },
   {
    "claim": {
     "subject": "Gaucher disease",
     "relation": "treated_by",
-    "object": "eliglustat",
-    "pmid": "29152458",
-    "source_quote": "In addition, substrate reduction therapy has been approved for certain disorders, such as eliglustat for Gaucher disease.",
+    "object": "substrate reduction therapy",
+    "pmid": "30638965",
+    "source_quote": "Specific treatment, such as enzyme replacement therapy or substrate reduction therapy is indicated in symptomatic type 1 Gaucher disease.",
     "confidence": "high",
     "contradicts": false
    },
    "quarantined": false,
    "verdict": "YES",
-   "reason": "quote directly states eliglustat is approved for Gaucher disease"
+   "reason": "Quote states substrate reduction therapy is indicated treatment for symptomatic type 1 Gaucher disease."
   },
   {
    "claim": {
-    "subject": "Pompe disease",
-    "relation": "presents_with",
-    "object": "hypertrophic cardiomyopathy",
-    "pmid": "16702883",
-    "source_quote": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progression and death usually occurring by one year of age.",
+    "subject": "late-onset MLD",
+    "relation": "treated_by",
+    "object": "HSCT",
+    "pmid": "38554683",
+    "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
     "confidence": "high",
     "contradicts": false
    },
    "quarantined": false,
    "verdict": "YES",
-   "reason": "quote explicitly states hypertrophic cardiomyopathy characterizes infantile-onset Pompe disease"
+   "reason": "Quote explicitly recommends treating late-onset MLD with HSCT."
+  },
+  {
+   "claim": {
+    "subject": "NP-C",
+    "relation": "treated_by",
+    "object": "miglustat",
+    "pmid": "20525256",
+    "source_quote": "A first product, miglustat, has been granted marketing authorization in Europe and several other countries for specific treatment of the neurological manifestations.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states miglustat is granted for treatment of neurological manifestations of NP-C."
+  },
+  {
+   "claim": {
+    "subject": "avalglucosidase alfa",
+    "relation": "studied_in",
+    "object": "Pompe disease",
+    "pmid": "40237692",
+    "source_quote": "Efficacy and safety of avalglucosidase alfa in late-onset and infantile-onset PD are also discussed.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote explicitly discusses efficacy and safety of avalglucosidase alfa in Pompe disease."
+  },
+  {
+   "claim": {
+    "subject": "MPS II",
+    "relation": "presents_with",
+    "object": "splenomegaly",
+    "pmid": "34070997",
+    "source_quote": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "NO",
+   "reason": "Quote describes treatment effects on symptoms, not that MPS II presents with splenomegaly."
+  },
+  {
+   "claim": {
+    "subject": "Niemann-Pick disease",
+    "relation": "presents_with",
+    "object": "ataxia",
+    "pmid": "33892845",
+    "source_quote": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote lists ataxia as a characteristic symptom of Niemann-Pick disease."
+  },
+  {
+   "claim": {
+    "subject": "GALC",
+    "relation": "encodes",
+    "object": "galactosylceramidase",
+    "pmid": "36370000",
+    "source_quote": "GALC encodes the lysosomal enzyme galactosylceramidase",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote directly states GALC encodes galactosylceramidase."
+  },
+  {
+   "claim": {
+    "subject": "GALC",
+    "relation": "associated_with",
+    "object": "accumulation of galactosylceramide",
+    "pmid": "PPR:PPR1298937",
+    "source_quote": "Metabolomic, lipidomic, and N-glycomic analyses of a human cell model of Krabbe disease reveal treatable deficits in glycosylation and serine-ceramide metabolism ABSTRACT Krabbe disease is a rare autosomal recessive lysosomal disease caused by deficiency of galactocerebrosidase (GALC), leading to accumulation of galactosylceramide and formation of the toxic metabolite galactosylsphingosine (psychosine).",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote directly states GALC deficiency leads to accumulation of galactosylceramide"
+  },
+  {
+   "claim": {
+    "subject": "Sanfilippo syndrome",
+    "relation": "presents_with",
+    "object": "delayed language development",
+    "pmid": "37357981",
+    "source_quote": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2\u2009years of age, followed by unremitting and overt loss of previously acquired skills.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote explicitly lists delayed language development as a first symptom of Sanfilippo syndrome"
+  },
+  {
+   "claim": {
+    "subject": "sphingomyelinase",
+    "relation": "associated_with",
+    "object": "Niemann-Pick disease",
+    "pmid": "3009683",
+    "source_quote": "Sphingomyelinases and Niemann-Pick disease.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote title directly associates sphingomyelinases with Niemann-Pick disease"
+  },
+  {
+   "claim": {
+    "subject": "Ambroxol",
+    "relation": "studied_in",
+    "object": "Type 1 TSD",
+    "pmid": "PPR:PPR944667",
+    "source_quote": "This study investigates the therapeutic potential of Miglustat and Ambroxol, individually and combined, in slowing neurodegeneration and cognitive decline in Type 1 TSD, leveraging aiHumanoid virtual simulations.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote directly states the study investigates Ambroxol in Type 1 TSD"
+  },
+  {
+   "claim": {
+    "subject": "IDUA rs3755955",
+    "relation": "associated_with",
+    "object": "BMD phenotypes",
+    "pmid": "26256109",
+    "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 \u00d7 10(-10), p = 5.26 \u00d7 10(-10), and p = 3.01 \u00d7 10(-10), respectively) and HIP-BMD (p = 3.26 \u00d7 10(-6), p = 1.97 \u00d7 10(-6), and p = 1.63 \u00d7 10(-12), respectively).",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote explicitly states IDUA rs3755955 was associated with BMD phenotypes with genome-wide significance"
+  },
+  {
+   "claim": {
+    "subject": "NPC",
+    "relation": "treated_by",
+    "object": "Miglustat",
+    "pmid": "26014711",
+    "source_quote": "Miglustat, the only available treatment approved to date, can alleviate neurological symptoms and slow disease progression when administered earlier.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "Quote states miglustat is an approved treatment for NPC that can alleviate neurological symptoms and slow disease progression."
   }
  ]
 }

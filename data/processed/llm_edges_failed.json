@@ -1,1 +1,44 @@
-[]
+[
+ {
+  "claim": {
+   "subject": "IDUA rs6831280",
+   "relation": "associated_with",
+   "object": "BMD phenotypes",
+   "pmid": "26256109",
+   "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 \u00d7 10(-10), p = 5.26 \u00d7 10(-10), and p = 3.01 \u00d7 10(-10), respectively) and HIP-BMD (p = 3.26 \u00d7 10(-6), p = 1.97 \u00d7 10(-6), and p = 1.63 \u00d7 10(-12), respectively).",
+   "confidence": "high",
+   "contradicts": false
+  },
+  "reasons": [
+   "subject label 'IDUA rs6831280' absent from abstract text"
+  ]
+ },
+ {
+  "claim": {
+   "subject": "MPS III",
+   "relation": "presents_with",
+   "object": "developmental delays",
+   "pmid": "25345095",
+   "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
+   "confidence": "high",
+   "contradicts": false
+  },
+  "reasons": [
+   "subject label 'MPS III' absent from abstract text"
+  ]
+ },
+ {
+  "claim": {
+   "subject": "MPS III",
+   "relation": "presents_with",
+   "object": "developmental regression",
+   "pmid": "25345095",
+   "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
+   "confidence": "high",
+   "contradicts": false
+  },
+  "reasons": [
+   "subject label 'MPS III' absent from abstract text"
+  ]
+ }
+]

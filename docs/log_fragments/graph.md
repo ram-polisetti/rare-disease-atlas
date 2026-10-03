@@ -123,3 +123,8 @@ as time-to-first-trial estimates, not guarantees); 5 explicit assumptions listed
 
 ## Phase 2 coverage additions (2026-10-03)
 - Merged 193 nodes / 422 edges from reporter_additions.json (NIH RePORTER funding) and org_additions.json (EURORDIS, Cure Sanfilippo Foundation); re-ran Louvain + clusters + journeys.
+
+## Phase 2 merge (2026-10-03)
+- Merged 106 LLM-extracted edges (source_db=PubMed, evidence=observed) from data/processed/llm_edges.json; skipped 808 unresolvable claims (no invented nodes).
+- Re-ran Louvain + cluster summaries + Maria journey on the merged graph.
+- Verification: 949 claims extracted, 944 quote-verified (3 quarantined for non-verbatim labels), 2 removed after Claude semantic spot-check (29/31 YES); cross-model diff vs Claude's independent 10-claim sample showed no contradictions, only recall differences.

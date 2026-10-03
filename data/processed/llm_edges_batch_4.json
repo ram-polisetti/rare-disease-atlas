@@ -1,1046 +1,1046 @@
 [
-  {
-    "subject": "Tay-Sachs disease",
-    "relation": "presents_with",
-    "object": "progressive neurologic disorders",
-    "pmid": "23370522",
-    "source_quote": "In Tay-Sachs disease, excessive accumulation of GM2 ganglioside (GM2), mainly in the central nervous system, is caused by a deficiency of the HexA isozyme (αβ heterodimer), resulting in progressive neurologic disorders.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sandhoff disease",
-    "relation": "presents_with",
-    "object": "hepatosplenomegaly",
-    "pmid": "23370522",
-    "source_quote": "In Sandhoff disease, combined deficiencies of HexA and HexB (ββ homodimer) cause not only the accumulation of GM2 but also of oligosaccharides carrying terminal N-acetylhexosamine residues (GlcNAc-oligosaccharides), resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sandhoff disease",
-    "relation": "presents_with",
-    "object": "neurologic symptoms",
-    "pmid": "23370522",
-    "source_quote": "In Sandhoff disease, combined deficiencies of HexA and HexB (ββ homodimer) cause not only the accumulation of GM2 but also of oligosaccharides carrying terminal N-acetylhexosamine residues (GlcNAc-oligosaccharides), resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sandhoff disease",
-    "relation": "treated_by",
-    "object": "novel recombinant human HexA",
-    "pmid": "23370522",
-    "source_quote": "Moreover, we demonstrated the therapeutic effect of an intracerebroventricular administration of novel recombinant human HexA carrying a high content of M6P residue in Sandhoff disease model mice.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "HEXB",
-    "relation": "encodes",
-    "object": "β subunit",
-    "pmid": "37877564",
-    "source_quote": "GM2 ganglioside's degradation requires hexosaminidase A (HexA), a heterodimer composed of an α subunit encoded by HEXA and a β subunit encoded by HEXB.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GM2 gangliosidosis",
-    "relation": "caused_by_variant_in",
-    "object": "HEXB",
-    "pmid": "37877564",
-    "source_quote": "Pathogenic mutations of HEXA, HEXB, and GM2A are responsible for autosomal recessive diseases known as GM2 gangliosidosis, caused by the excessive intralysosomal accumulation of GM2 gangliosides.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GM2 gangliosidoses",
-    "relation": "presents_with",
-    "object": "accumulation of GM2 ganglioside in neuronal cells",
-    "pmid": "11339652",
-    "source_quote": "The GM2 gangliosidoses are a group of recessive disorders characterized by accumulation of GM2 ganglioside in neuronal cells.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "HEXB",
-    "relation": "associated_with",
-    "object": "Sandhoff disease",
-    "pmid": "11339652",
-    "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Infantile Sandhoff disease",
-    "relation": "presents_with",
-    "object": "cherry red spots in the retina",
-    "pmid": "31919734",
-    "source_quote": "Infantile Sandhoff disease is an autosomal recessive inherited disease primarily characterized by cherry red spots in the retina, muscle weakness, seizure, truncal hypotonia, hyperacusis, developmental delay and regression.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Infantile Sandhoff disease",
-    "relation": "presents_with",
-    "object": "developmental delay and regression",
-    "pmid": "31919734",
-    "source_quote": "Infantile Sandhoff disease is an autosomal recessive inherited disease primarily characterized by cherry red spots in the retina, muscle weakness, seizure, truncal hypotonia, hyperacusis, developmental delay and regression.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "HEXB",
-    "relation": "encodes",
-    "object": "β subunit of the hexosaminidase A",
-    "pmid": "31919734",
-    "source_quote": "The pathogenic genetic defects of the HEXB gene, which encodes the β subunit of the hexosaminidase A (ɑβ) and hexosaminidase B (ββ) enzymes, cause deficiency of both the Hex A and Hex B enzymes, resulting in the deposition of GM2 ganglion glycerides in the lysosomes of the central nervous system and somatic cells.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Mucopolysaccharidosis type I",
-    "relation": "presents_with",
-    "object": "dysostosis multiplex",
-    "pmid": "25345091",
-    "source_quote": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IH",
-    "relation": "treated_by",
-    "object": "Haematopoietic stem cell transplantation",
-    "pmid": "25345091",
-    "source_quote": "Haematopoietic stem cell transplantation (HSCT) the standard treatment of MPS IH for 30 years is unpredictable .",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IH",
-    "relation": "treated_by",
-    "object": "Enzyme replacement therapy",
-    "pmid": "25345091",
-    "source_quote": "Enzyme replacement therapy (ERT) in patients with MPS IH is associated with improved GAG excretion, left ventricular hypertrophy,sleep studies and liver size.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I",
-    "relation": "associated_with",
-    "object": "IDUA",
-    "pmid": "34189746",
-    "source_quote": "Mucopolysaccharidoses type I (MPS I) is an inherited metabolic disease characterized by a malfunction of the α-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in the lysosomes.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I-H",
-    "relation": "caused_by_variant_in",
-    "object": "IDUA",
-    "pmid": "28619065",
-    "source_quote": "Mucopolysaccharidosis I-Hurler (MPS I-H) is the most severe form of a metabolic genetic disease caused by mutations of IDUA gene encoding the lysosomal α-L-iduronidase enzyme.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I-H",
-    "relation": "presents_with",
-    "object": "cardiomyopathy",
-    "pmid": "28619065",
-    "source_quote": "MPS I-H is a rare, life-threatening disease, evolving in multisystem morbidity including progressive neurological disease, upper airway obstruction, skeletal deformity and cardiomyopathy.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I-H",
-    "relation": "treated_by",
-    "object": "human recombinant laronidase",
-    "pmid": "28619065",
-    "source_quote": "Enzyme replacement therapy (ERT) with human recombinant laronidase has also been demonstrated to be effective in ameliorating the clinical conditions of pre-transplant MPS I-H patients and in improving HSCT outcome, by peri-transplant co-administration.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Mucopolysaccharidosis type I",
-    "relation": "caused_by_variant_in",
-    "object": "IDUA",
-    "pmid": "29393969",
-    "source_quote": "Mucopolysaccharidosis type I (MPS I) is a rare disorder caused by deleterious sequence variants in the α-L-iduronidase (IDUA) gene.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "p.Trp402Ter",
-    "relation": "associated_with",
-    "object": "MPS I",
-    "pmid": "29393969",
-    "source_quote": "In conclusion, the most common pathogenic IDUA variant in MPS I patients are p.Trp402Ter, p.Gln70Ter and p.Pro533Arg.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPSI",
-    "relation": "presents_with",
-    "object": "skeletal manifestations",
-    "pmid": "36232472",
-    "source_quote": "Skeletal manifestations of MPSI are often refractory to treatment and severely affect patients' quality of life.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "IDUA rs3755955",
-    "relation": "associated_with",
-    "object": "BMD phenotypes",
-    "pmid": "26256109",
-    "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 × 10(-10), p = 5.26 × 10(-10), and p = 3.01 × 10(-10), respectively) and HIP-BMD (p = 3.26 × 10(-6), p = 1.97 × 10(-6), and p = 1.63 × 10(-12), respectively).",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "IDUA rs6831280",
-    "relation": "associated_with",
-    "object": "BMD phenotypes",
-    "pmid": "26256109",
-    "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 × 10(-10), p = 5.26 × 10(-10), and p = 3.01 × 10(-10), respectively) and HIP-BMD (p = 3.26 × 10(-6), p = 1.97 × 10(-6), and p = 1.63 × 10(-12), respectively).",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS-I",
-    "relation": "caused_by_variant_in",
-    "object": "IDUA",
-    "pmid": "8680403",
-    "source_quote": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I",
-    "relation": "presents_with",
-    "object": "corneal clouding",
-    "pmid": "34360653",
-    "source_quote": "However, a few manifestations are disease-specific, including corneal clouding in MPS I, epidermal manifestations in MPS II, and differences in the severity and nature of behavioral concerns.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS II",
-    "relation": "presents_with",
-    "object": "epidermal manifestations",
-    "pmid": "34360653",
-    "source_quote": "However, a few manifestations are disease-specific, including corneal clouding in MPS I, epidermal manifestations in MPS II, and differences in the severity and nature of behavioral concerns.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Mucopolysaccharidosis type I",
-    "relation": "treated_by",
-    "object": "enzyme replacement therapy",
-    "pmid": "33572941",
-    "source_quote": "Currently approved treatments consist of enzyme replacement therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT).",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "Mucopolysaccharidosis type I",
-    "relation": "treated_by",
-    "object": "hematopoietic stem cell transplantation",
-    "pmid": "33572941",
-    "source_quote": "Currently approved treatments consist of enzyme replacement therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT).",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "Mucopolysaccharidosis I",
-    "relation": "treated_by",
-    "object": "alpha-L-iduronidase enzyme replacement therapy",
-    "pmid": "12517274",
-    "source_quote": "These advances have allowed the development of alpha-L-iduronidase enzyme replacement therapy as a treatment strategy for mucopolysaccharidosis I patients.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "IDUA",
-    "relation": "associated_with",
-    "object": "Mucopolysaccharidosis type I",
-    "pmid": "15895714",
-    "source_quote": "Mucopolysaccharidosis (MPS) type I is a lysosomal storage disorder caused by deficiency of the enzyme alpha-L-iduronidase (IDUA)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS I",
-    "relation": "treated_by",
-    "object": "laronidase",
-    "pmid": "15895714",
-    "source_quote": "Treatment for 26 weeks with recombinant human IDUA (laronidase) has been shown to significantly increase the percentage of predicted normal forced vital capacity and the distance walked in the 6-minute walk test.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Hurler's disease",
-    "relation": "treated_by",
-    "object": "HIRMAb-IDUA",
-    "pmid": "19180267",
-    "source_quote": "HIRMAb-IDUA for the treatment of Hurler's disease",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Pompe Disease",
-    "relation": "presents_with",
-    "object": "increased glycogen",
-    "pmid": "36412587",
-    "source_quote": "PD is marked by a deficiency in acid α-glucosidase (GAA), causing increased glycogen, creatine (CRE), and other biomarkers.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GAA",
-    "relation": "associated_with",
-    "object": "PD",
-    "pmid": "36412587",
-    "source_quote": "PD is marked by a deficiency in acid α-glucosidase (GAA)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "caused_by_variant_in",
-    "object": "GalC",
-    "pmid": "40500501",
-    "source_quote": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respectively.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe's disease",
-    "relation": "presents_with",
-    "object": "white matter pathology",
-    "pmid": "27638616",
-    "source_quote": "However, recent studies have shown immune activation preceding clinical symptoms and white matter pathology.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe's disease",
-    "relation": "treated_by",
-    "object": "hematopoietic stem cell transplantation",
-    "pmid": "27638616",
-    "source_quote": "the therapeutic effect underlying hematopoietic stem cell transplantation, the only treatment for Krabbe's disease, has been demonstrated to occur via immunomodulation.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GALC",
-    "relation": "encodes",
-    "object": "galactosylceramidase",
-    "pmid": "36370000",
-    "source_quote": "GALC encodes the lysosomal enzyme galactosylceramidase",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "rs979812",
-    "relation": "associated_with",
-    "object": "increased galactosylceramidase activity",
-    "pmid": "36370000",
-    "source_quote": "The top hit in PD genome-wide association study in the GALC locus, rs979812, is associated with increased galactosylceramidase activity",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "rs979812",
-    "relation": "associated_with",
-    "object": "increased galactosylceramidase expression",
-    "pmid": "36370000",
-    "source_quote": "Colocalization analysis demonstrated that rs979812 was also associated with increased galactosylceramidase expression.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "galactosylceramidase activity",
-    "relation": "associated_with",
-    "object": "PD",
-    "pmid": "36370000",
-    "source_quote": "Mendelian randomization suggested that increased galactosylceramidase activity may be causally associated with PD",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "rare GALC variants",
-    "relation": "associated_with",
-    "object": "PD",
-    "pmid": "36370000",
-    "source_quote": "We did not find an association between rare GALC variants and PD.",
-    "confidence": "high",
-    "contradicts": true
-  },
-  {
-    "subject": "GALC knockout",
-    "relation": "associated_with",
-    "object": "alpha-synuclein accumulation",
-    "pmid": "36370000",
-    "source_quote": "GALC knockout using CRISPR-Cas9 did not lead to alpha-synuclein accumulation",
-    "confidence": "high",
-    "contradicts": true
-  },
-  {
-    "subject": "p.I562T",
-    "relation": "disrupts",
-    "object": "maturation of galactosylceramidase",
-    "pmid": "36370000",
-    "source_quote": "the common variant p.I562T may lead to improper maturation of galactosylceramidase affecting its activity.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "GLD",
-    "relation": "caused_by_variant_in",
-    "object": "GALC",
-    "pmid": "33851745",
-    "source_quote": "GLD is caused by loss-of-function mutations in the lysosomal hydrolase, galactosylceramidase (GALC)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "presents_with",
-    "object": "progressive and profound demyelination",
-    "pmid": "33766733",
-    "source_quote": "Krabbe disease (globoid cell leukodystrophy) is a lysosomal storage disease (LSD) characterized by progressive and profound demyelination.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "presents_with",
-    "object": "miss developmental milestones",
-    "pmid": "33766733",
-    "source_quote": "Children with an infantile-onset generally appear normal at birth but begin to miss developmental milestones by six months of age",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "associated_with",
-    "object": "deficiency of the acid hydrolase galactosylceramidase",
-    "pmid": "33766733",
-    "source_quote": "Krabbe disease is caused by a deficiency of the acid hydrolase galactosylceramidase (GALC)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "galactosylsphingosine (psychosine)",
-    "relation": "accumulates_in",
-    "object": "oligodendrocytes and Schwann cells",
-    "pmid": "33766733",
-    "source_quote": "The absence of GALC leads to the toxic accumulation of galactosylsphingosine (psychosine), a lysoderivative of galactosylceramides, in oligodendrocytes and Schwann cells",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "treated_by",
-    "object": "hematopoietic stem cell transplantation",
-    "pmid": "33766733",
-    "source_quote": "hematopoietic stem cell transplantation can alter the course of Krabbe disease and is the current standard-of-care",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "presents_with",
-    "object": "neuroinflammation",
-    "pmid": "35087711",
-    "source_quote": "Affected individuals accumulate undegraded substrates and suffer from neuroinflammation.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "KD",
-    "relation": "treated_by",
-    "object": "Hematopoietic stem cell transplantation",
-    "pmid": "35087711",
-    "source_quote": "Hematopoietic stem cell transplantation (HSCT) has been partially successful in treating patients with KD when accomplished prior to the onset of symptoms.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "c.1901T>C",
-    "relation": "associated_with",
-    "object": "adult-onset KD",
-    "pmid": "38762762",
-    "source_quote": "She carries the heterozygous mutations in GALC included a missense mutation of c.1901T>C from her mother, and a splicing mutation of c.908+5G>A from her father.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "c.908+5G>A",
-    "relation": "associated_with",
-    "object": "AOKD",
-    "pmid": "38762762",
-    "source_quote": "The splicing mutations in KD are reviewed and confirmed that c.908+5G>A is a novel splicing mutation in AOKD.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GLD",
-    "relation": "presents_with",
-    "object": "widespread loss of myelin",
-    "pmid": "27638598",
-    "source_quote": "Histological signs of disease include the widespread loss of myelin in the central and peripheral nervous systems, profound neruroinflammation, and axonal degeneration.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GLD",
-    "relation": "presents_with",
-    "object": "axonal degeneration",
-    "pmid": "27638598",
-    "source_quote": "Histological signs of disease include the widespread loss of myelin in the central and peripheral nervous systems, profound neruroinflammation, and axonal degeneration.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GLD",
-    "relation": "presents_with",
-    "object": "neurological deterioration",
-    "pmid": "27638598",
-    "source_quote": "Patients suffering from GLD also display neurological deterioration.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GLD",
-    "relation": "treated_by",
-    "object": "hematopoietic stem cell transplantation",
-    "pmid": "27638598",
-    "source_quote": "The current standard of care for GLD patients, hematopoietic stem cell transplantation, serves only to delay disease progression and is not an effective cure.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe disease",
-    "relation": "treated_by",
-    "object": "enzyme replacement therapy",
-    "pmid": "37928748",
-    "source_quote": "Several therapeutic modalities were used to treat patients with Krabbe disease, including hematopoietic stem cell transplantation, enzyme replacement therapy, autophagy activators, intravenous immunoglobulin, and inhibitors of the Pyroptosis process, among many other approaches.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Krabbe's disease",
-    "relation": "presents_with",
-    "object": "oligodendroglia",
-    "pmid": "27638611",
-    "source_quote": "Because KD involves primarily glia, specifically oligodendroglia",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GALC",
-    "relation": "associated_with",
-    "object": "Krabbe disease",
-    "pmid": "35013804",
-    "source_quote": "Krabbe disease (KD) is a rare autosomal recessive lipid storage leukodystrophy. It is caused by deficient enzyme activity resulting from mutations of the β-galactocerebrosidase (GALC) gene.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "adult-onset KD",
-    "relation": "caused_by_variant_in",
-    "object": "p.G286D and p.Y490N",
-    "pmid": "35013804",
-    "source_quote": "An extensive work-up led this motor neuron disease-like disorder to be diagnosed as adult-onset KD. The patient was found to be compound heterozygous for two GALC mutations (p.G286D and p.Y490N).",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "adult-onset KD",
-    "relation": "presents_with",
-    "object": "muscle atrophy and weakness",
-    "pmid": "35013804",
-    "source_quote": "We report a case of a 47-year-old Caucasian man with a 2-year history of muscle atrophy and weakness in both hands associated with pyramidal signs and mild spasticity in the lower limbs. An extensive work-up led this motor neuron disease-like disorder to be diagnosed as adult-onset KD.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GALC",
-    "relation": "associated_with",
-    "object": "multiple sclerosis",
-    "pmid": "41086929",
-    "source_quote": "In recent years, a link between GALC variants and other diseases affecting the nervous system, such as multiple sclerosis and Parkinson's disease, has emerged.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "GALC",
-    "relation": "associated_with",
-    "object": "Parkinson's disease",
-    "pmid": "41086929",
-    "source_quote": "In recent years, a link between GALC variants and other diseases affecting the nervous system, such as multiple sclerosis and Parkinson's disease, has emerged.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "Metachromatic leukodystrophy",
-    "relation": "caused_by_variant_in",
-    "object": "ARSA",
-    "pmid": "26462614",
-    "source_quote": "Metachromatic leukodystrophy is a neurodegenerative disorder characterized by progressive demyelination. The disease is caused by variants in the ARSA gene",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "ARSA",
-    "relation": "encodes",
-    "object": "arylsulfatase A",
-    "pmid": "26462614",
-    "source_quote": "the ARSA gene, which codes for the lysosomal enzyme arylsulfatase A",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "early-onset MLD",
-    "relation": "treated_by",
-    "object": "gene therapy",
-    "pmid": "38554683",
-    "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "late-onset MLD",
-    "relation": "treated_by",
-    "object": "HSCT",
-    "pmid": "38554683",
-    "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "early-onset MLD",
-    "relation": "treated_by",
-    "object": "atidarsagene autotemcel",
-    "pmid": "36811406",
-    "source_quote": "Here, we review the preclinical and clinical studies that facilitated the approval of the ex vivo gene therapy atidarsagene autotemcel for early-onset MLD by the European Medicines Agency (EMA) in December 2020.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MLD",
-    "relation": "presents_with",
-    "object": "central and peripheral nervous system demyelination",
-    "pmid": "36811406",
-    "source_quote": "Metachromatic leukodystrophy (MLD) is a rare autosomal recessive disorder of sphingolipid metabolism, due to a deficiency of the enzyme arylsulfatase A (ARSA). The main clinical signs of the disease are secondary to central and peripheral nervous system demyelination.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "ARSA",
-    "relation": "associated_with",
-    "object": "PD",
-    "pmid": "37381728",
-    "source_quote": "Rare functional and loss-of-function ARSA variants may be associated with PD.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "metachromatic leukodystrophy",
-    "relation": "presents_with",
-    "object": "progressive motor and cognitive deficiency",
-    "pmid": "33195324",
-    "source_quote": "The disease occurs due to a deficiency of the lysosomal enzyme arylsulfatase A (ARSA) or its sphingolipid activator protein B (SapB) and it clinically manifests as progressive motor and cognitive deficiency.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "sulfatides",
-    "relation": "accumulates_in",
-    "object": "neural and visceral tissues",
-    "pmid": "31684987",
-    "source_quote": "Its deficiency results in accumulation of sulfatides in neural and visceral tissues",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MLD",
-    "relation": "presents_with",
-    "object": "peripheral neuropathy",
-    "pmid": "31684987",
-    "source_quote": "Data about the impact of peripheral neuropathy in MLD patients are currently lacking, although in our experience peripheral neuropathy causes significant morbidity due to neuropathic pain, foot deformities and neurogenic bladder disturbances.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "sulfatides",
-    "relation": "accumulates_in",
-    "object": "central and peripheral nervous system",
-    "pmid": "25987178",
-    "source_quote": "Low activity of arylsulfatase A results in the accumulation of sulfatides in the central and peripheral nervous system leading to demyelination.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Gaucher disease",
-    "relation": "associated_with",
-    "object": "Parkinson's disease",
-    "pmid": "32098196",
-    "source_quote": "Parkinson's disease, the most common neurodegenerative movement disorder, is characterized by the accumulation and aggregation of misfolded α-synuclein that seem associated to some lysosomal disorders, in particular Gaucher disease.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "progressive cognitive decline",
-    "pmid": "25851924",
-    "source_quote": "It is characterized by progressive cognitive decline and severe hyperactivity, with relatively mild somatic features.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "severe hyperactivity",
-    "pmid": "25851924",
-    "source_quote": "It is characterized by progressive cognitive decline and severe hyperactivity, with relatively mild somatic features.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIA",
-    "relation": "caused_by_variant_in",
-    "object": "SGSH",
-    "pmid": "27100513",
-    "source_quote": "This disease is a complex of four conditions caused by dysfunctions of one of genes coding for lysosomal enzymes involved in degradation of heparan sulfate: SGSH (coding for heparan N-sulfatase) - causing MPS IIIA",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIB",
-    "relation": "caused_by_variant_in",
-    "object": "NAGLU",
-    "pmid": "27100513",
-    "source_quote": "NAGLU (coding for alpha-N-acetylglucosaminidase) - causing MPS IIIB",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "caused_by_variant_in",
-    "object": "HGSNAT",
-    "pmid": "27100513",
-    "source_quote": "HGSNAT (coding for acetyl CoA alpha-glucosaminide acetyltransferase) - causing MPS IIIC)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIID",
-    "relation": "caused_by_variant_in",
-    "object": "GNS",
-    "pmid": "27100513",
-    "source_quote": "GNS (coding for N-acetylglucosamine-6-sulfatase) - causing MPS IIID.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "SGSH",
-    "relation": "encodes",
-    "object": "heparan N-sulfatase",
-    "pmid": "28921412",
-    "source_quote": "mutations leading to A, B, C, and D subtypes are located in genes coding for heparan N-sulfatase (the SGSH gene)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "NAGLU",
-    "relation": "encodes",
-    "object": "α-N-acetylglucosaminidase",
-    "pmid": "28921412",
-    "source_quote": "α-N-acetylglucosaminidase (the NAGLU gene)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "HGSNAT",
-    "relation": "encodes",
-    "object": "acetyl-CoA:α-glucosaminide acetyltransferase",
-    "pmid": "28921412",
-    "source_quote": "acetyl-CoA:α-glucosaminide acetyltransferase (the HGSNAT gene)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "GNS",
-    "relation": "encodes",
-    "object": "N-acetylglucosamine-6-sulfatase",
-    "pmid": "28921412",
-    "source_quote": "N-acetylglucosamine-6-sulfatase (the GNS gene)",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sanfilippo disease",
-    "relation": "presents_with",
-    "object": "severe cognitive disabilities",
-    "pmid": "28921412",
-    "source_quote": "Neurodegenerative changes in the central nervous system (CNS) are major problems in Sanfilippo disease. They cause severe cognitive disabilities and behavioral disturbances.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sanfilippo disease",
-    "relation": "presents_with",
-    "object": "behavioral disturbances",
-    "pmid": "28921412",
-    "source_quote": "Neurodegenerative changes in the central nervous system (CNS) are major problems in Sanfilippo disease. They cause severe cognitive disabilities and behavioral disturbances.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "enzyme replacement therapy",
-    "relation": "studied_in",
-    "object": "Sanfilippo disease",
-    "pmid": "28921412",
-    "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "gene therapy",
-    "relation": "studied_in",
-    "object": "Sanfilippo disease",
-    "pmid": "28921412",
-    "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "substrate reduction therapy",
-    "relation": "studied_in",
-    "object": "Sanfilippo disease",
-    "pmid": "28921412",
-    "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "SGSH",
-    "relation": "associated_with",
-    "object": "cancer",
-    "pmid": "39404425",
-    "source_quote": "Increased cancer prevalence has also been reported in carriers of a potentially pathogenic variant of an LSD gene, namely CLN3, SGSH, GUSB, NEU1, and, to a lesser extent, in other genes.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS-IIIA",
-    "relation": "presents_with",
-    "object": "severe central nervous system degeneration",
-    "pmid": "11668611",
-    "source_quote": "The progressive lysosomal storage of heparan sulfate eventually results in the clinical onset of disease, which is predominantly characterized by severe central nervous system degeneration. MPS-IIIA and MPS-IIIB involve deficiencies of heparan sulfate sulfamidase (SGSH) and alpha-N-acetylglucosaminidase (NAGLU), respectively.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS-IIIB",
-    "relation": "presents_with",
-    "object": "severe central nervous system degeneration",
-    "pmid": "11668611",
-    "source_quote": "The progressive lysosomal storage of heparan sulfate eventually results in the clinical onset of disease, which is predominantly characterized by severe central nervous system degeneration. MPS-IIIA and MPS-IIIB involve deficiencies of heparan sulfate sulfamidase (SGSH) and alpha-N-acetylglucosaminidase (NAGLU), respectively.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS Ill",
-    "relation": "presents_with",
-    "object": "developmental delays",
-    "pmid": "25345095",
-    "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS Ill",
-    "relation": "presents_with",
-    "object": "developmental regression",
-    "pmid": "25345095",
-    "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sanfilippo A Syndrome",
-    "relation": "associated_with",
-    "object": "sick sinus syndrome",
-    "pmid": "40804664",
-    "source_quote": "This case suggests SSS may be a potential associated feature of Sanfilippo A Syndrome.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "Sanfilippo A Syndrome",
-    "relation": "presents_with",
-    "object": "neurocognitive decline",
-    "pmid": "40804664",
-    "source_quote": "Sanfilippo A Syndrome (mucopolysaccharidosis [MPS] IIIA), an inherited lysosomal storage disorder, is mainly characterized by central nervous system degeneration that is characterized by neurocognitive decline and typically results in early death.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIB",
-    "relation": "associated_with",
-    "object": "decreased or absent enzyme activity",
-    "pmid": "35453363",
-    "source_quote": "Mucopolysaccharidosis, type IIIB (MPS IIIB) is a rare disease caused by mutations in the N-alpha-acetylglucosaminidase (NAGLU) gene resulting in decreased or absent enzyme activity.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIB",
-    "relation": "associated_with",
-    "object": "massive lysosomal storage of heparan sulfate",
-    "pmid": "35453363",
-    "source_quote": "On the cellular level, the disorder is characterized by the massive lysosomal storage of heparan sulfate (HS)-one species of glycosaminoglycans.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "NAGLU",
-    "relation": "associated_with",
-    "object": "CAD",
-    "pmid": "41873862",
-    "source_quote": "In summary, our results identified potential causal associations between SMARCA4, NAGLU, SREBF1, RPTOR, HLA-B, and CAD.",
-    "confidence": "medium",
-    "contradicts": false
-  },
-  {
-    "subject": "mucopolysaccharidosis type IIIB",
-    "relation": "presents_with",
-    "object": "schizophreniform presentation",
-    "pmid": "34347683",
-    "source_quote": "Schizophreniform presentation and abrupt neurologic decline in a patient with late-onset mucopolysaccharidosis type IIIB.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "mucopolysaccharidosis type IIIB",
-    "relation": "presents_with",
-    "object": "abrupt neurologic decline",
-    "pmid": "34347683",
-    "source_quote": "Schizophreniform presentation and abrupt neurologic decline in a patient with late-onset mucopolysaccharidosis type IIIB.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "neurodegeneration",
-    "pmid": "19479962",
-    "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "severely impaired development",
-    "pmid": "19479962",
-    "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "joint stiffness",
-    "pmid": "19479962",
-    "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "developmental delay",
-    "pmid": "18392742",
-    "source_quote": "The clinical course of MPS III can be divided into three phases. In the first phase, which usually starts between 1 and 4 years of age, a developmental delay becomes apparent after an initial normal development during the first 1-2 years of life.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "severe behavioural problems",
-    "pmid": "18392742",
-    "source_quote": "The second phase generally starts around 3-4 years and is characterized by severe behavioural problems and progressive mental deterioration ultimately leading to severe dementia.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "severe dementia",
-    "pmid": "18392742",
-    "source_quote": "The second phase generally starts around 3-4 years and is characterized by severe behavioural problems and progressive mental deterioration ultimately leading to severe dementia.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "swallowing difficulties",
-    "pmid": "18392742",
-    "source_quote": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS III",
-    "relation": "presents_with",
-    "object": "spasticity",
-    "pmid": "18392742",
-    "source_quote": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "hearing loss",
-    "pmid": "41883052",
-    "source_quote": "Clinical features typically include developmental delay, intellectual disability, behavioral disturbances, coarse facial features, hypertrichosis, and hearing loss.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "retinitis pigmentosa",
-    "pmid": "41883052",
-    "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "MPS IIIC",
-    "relation": "presents_with",
-    "object": "intellectual disability",
-    "pmid": "41883052",
-    "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
-    "confidence": "high",
-    "contradicts": false
-  },
-  {
-    "subject": "Sanfilippo syndrome",
-    "relation": "associated_with",
-    "object": "severe central nervous system degeneration",
-    "pmid": "33105639",
-    "source_quote": "Undegraded heparan sulfate molecules accumulate within lysosomes leading to cellular dysfunction and pathology in several organs, with severe central nervous system degeneration as the main phenotypical feature.",
-    "confidence": "high",
-    "contradicts": false
-  }
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "progressive neurologic disorders",
+  "pmid": "23370522",
+  "source_quote": "In Tay-Sachs disease, excessive accumulation of GM2 ganglioside (GM2), mainly in the central nervous system, is caused by a deficiency of the HexA isozyme (\u03b1\u03b2 heterodimer), resulting in progressive neurologic disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "23370522",
+  "source_quote": "In Sandhoff disease, combined deficiencies of HexA and HexB (\u03b2\u03b2 homodimer) cause not only the accumulation of GM2 but also of oligosaccharides carrying terminal N-acetylhexosamine residues (GlcNAc-oligosaccharides), resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "neurologic symptoms",
+  "pmid": "23370522",
+  "source_quote": "In Sandhoff disease, combined deficiencies of HexA and HexB (\u03b2\u03b2 homodimer) cause not only the accumulation of GM2 but also of oligosaccharides carrying terminal N-acetylhexosamine residues (GlcNAc-oligosaccharides), resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "treated_by",
+  "object": "novel recombinant human HexA",
+  "pmid": "23370522",
+  "source_quote": "Moreover, we demonstrated the therapeutic effect of an intracerebroventricular administration of novel recombinant human HexA carrying a high content of M6P residue in Sandhoff disease model mice.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "encodes",
+  "object": "\u03b2 subunit",
+  "pmid": "37877564",
+  "source_quote": "GM2 ganglioside's degradation requires hexosaminidase A (HexA), a heterodimer composed of an \u03b1 subunit encoded by HEXA and a \u03b2 subunit encoded by HEXB.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidosis",
+  "relation": "caused_by_variant_in",
+  "object": "HEXB",
+  "pmid": "37877564",
+  "source_quote": "Pathogenic mutations of HEXA, HEXB, and GM2A are responsible for autosomal recessive diseases known as GM2 gangliosidosis, caused by the excessive intralysosomal accumulation of GM2 gangliosides.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidoses",
+  "relation": "presents_with",
+  "object": "accumulation of GM2 ganglioside in neuronal cells",
+  "pmid": "11339652",
+  "source_quote": "The GM2 gangliosidoses are a group of recessive disorders characterized by accumulation of GM2 ganglioside in neuronal cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "associated_with",
+  "object": "Sandhoff disease",
+  "pmid": "11339652",
+  "source_quote": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Infantile Sandhoff disease",
+  "relation": "presents_with",
+  "object": "cherry red spots in the retina",
+  "pmid": "31919734",
+  "source_quote": "Infantile Sandhoff disease is an autosomal recessive inherited disease primarily characterized by cherry red spots in the retina, muscle weakness, seizure, truncal hypotonia, hyperacusis, developmental delay and regression.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Infantile Sandhoff disease",
+  "relation": "presents_with",
+  "object": "developmental delay and regression",
+  "pmid": "31919734",
+  "source_quote": "Infantile Sandhoff disease is an autosomal recessive inherited disease primarily characterized by cherry red spots in the retina, muscle weakness, seizure, truncal hypotonia, hyperacusis, developmental delay and regression.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXB",
+  "relation": "encodes",
+  "object": "\u03b2 subunit of the hexosaminidase A",
+  "pmid": "31919734",
+  "source_quote": "The pathogenic genetic defects of the HEXB gene, which encodes the \u03b2 subunit of the hexosaminidase A (\u0251\u03b2) and hexosaminidase B (\u03b2\u03b2) enzymes, cause deficiency of both the Hex A and Hex B enzymes, resulting in the deposition of GM2 ganglion glycerides in the lysosomes of the central nervous system and somatic cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "dysostosis multiplex",
+  "pmid": "25345091",
+  "source_quote": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IH",
+  "relation": "treated_by",
+  "object": "Haematopoietic stem cell transplantation",
+  "pmid": "25345091",
+  "source_quote": "Haematopoietic stem cell transplantation (HSCT) the standard treatment of MPS IH for 30 years is unpredictable .",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IH",
+  "relation": "treated_by",
+  "object": "Enzyme replacement therapy",
+  "pmid": "25345091",
+  "source_quote": "Enzyme replacement therapy (ERT) in patients with MPS IH is associated with improved GAG excretion, left ventricular hypertrophy,sleep studies and liver size.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I",
+  "relation": "associated_with",
+  "object": "IDUA",
+  "pmid": "34189746",
+  "source_quote": "Mucopolysaccharidoses type I (MPS I) is an inherited metabolic disease characterized by a malfunction of the \u03b1-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in the lysosomes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I-H",
+  "relation": "caused_by_variant_in",
+  "object": "IDUA",
+  "pmid": "28619065",
+  "source_quote": "Mucopolysaccharidosis I-Hurler (MPS I-H) is the most severe form of a metabolic genetic disease caused by mutations of IDUA gene encoding the lysosomal \u03b1-L-iduronidase enzyme.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I-H",
+  "relation": "presents_with",
+  "object": "cardiomyopathy",
+  "pmid": "28619065",
+  "source_quote": "MPS I-H is a rare, life-threatening disease, evolving in multisystem morbidity including progressive neurological disease, upper airway obstruction, skeletal deformity and cardiomyopathy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I-H",
+  "relation": "treated_by",
+  "object": "human recombinant laronidase",
+  "pmid": "28619065",
+  "source_quote": "Enzyme replacement therapy (ERT) with human recombinant laronidase has also been demonstrated to be effective in ameliorating the clinical conditions of pre-transplant MPS I-H patients and in improving HSCT outcome, by peri-transplant co-administration.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "caused_by_variant_in",
+  "object": "IDUA",
+  "pmid": "29393969",
+  "source_quote": "Mucopolysaccharidosis type I (MPS I) is a rare disorder caused by deleterious sequence variants in the \u03b1-L-iduronidase (IDUA) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "p.Trp402Ter",
+  "relation": "associated_with",
+  "object": "MPS I",
+  "pmid": "29393969",
+  "source_quote": "In conclusion, the most common pathogenic IDUA variant in MPS I patients are p.Trp402Ter, p.Gln70Ter and p.Pro533Arg.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPSI",
+  "relation": "presents_with",
+  "object": "skeletal manifestations",
+  "pmid": "36232472",
+  "source_quote": "Skeletal manifestations of MPSI are often refractory to treatment and severely affect patients' quality of life.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "IDUA rs3755955",
+  "relation": "associated_with",
+  "object": "BMD phenotypes",
+  "pmid": "26256109",
+  "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 \u00d7 10(-10), p = 5.26 \u00d7 10(-10), and p = 3.01 \u00d7 10(-10), respectively) and HIP-BMD (p = 3.26 \u00d7 10(-6), p = 1.97 \u00d7 10(-6), and p = 1.63 \u00d7 10(-12), respectively).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "IDUA rs6831280",
+  "relation": "associated_with",
+  "object": "BMD phenotypes",
+  "pmid": "26256109",
+  "source_quote": "IDUA rs3755955 and rs6831280, and WNT16 rs2707466 were associated with BMD phenotypes in each respective stage, and in three stages combined, achieving GWS for both FN-BMD (p = 8.36 \u00d7 10(-10), p = 5.26 \u00d7 10(-10), and p = 3.01 \u00d7 10(-10), respectively) and HIP-BMD (p = 3.26 \u00d7 10(-6), p = 1.97 \u00d7 10(-6), and p = 1.63 \u00d7 10(-12), respectively).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS-I",
+  "relation": "caused_by_variant_in",
+  "object": "IDUA",
+  "pmid": "8680403",
+  "source_quote": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I",
+  "relation": "presents_with",
+  "object": "corneal clouding",
+  "pmid": "34360653",
+  "source_quote": "However, a few manifestations are disease-specific, including corneal clouding in MPS I, epidermal manifestations in MPS II, and differences in the severity and nature of behavioral concerns.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS II",
+  "relation": "presents_with",
+  "object": "epidermal manifestations",
+  "pmid": "34360653",
+  "source_quote": "However, a few manifestations are disease-specific, including corneal clouding in MPS I, epidermal manifestations in MPS II, and differences in the severity and nature of behavioral concerns.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "33572941",
+  "source_quote": "Currently approved treatments consist of enzyme replacement therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "33572941",
+  "source_quote": "Currently approved treatments consist of enzyme replacement therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis I",
+  "relation": "treated_by",
+  "object": "alpha-L-iduronidase enzyme replacement therapy",
+  "pmid": "12517274",
+  "source_quote": "These advances have allowed the development of alpha-L-iduronidase enzyme replacement therapy as a treatment strategy for mucopolysaccharidosis I patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "IDUA",
+  "relation": "associated_with",
+  "object": "Mucopolysaccharidosis type I",
+  "pmid": "15895714",
+  "source_quote": "Mucopolysaccharidosis (MPS) type I is a lysosomal storage disorder caused by deficiency of the enzyme alpha-L-iduronidase (IDUA)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS I",
+  "relation": "treated_by",
+  "object": "laronidase",
+  "pmid": "15895714",
+  "source_quote": "Treatment for 26 weeks with recombinant human IDUA (laronidase) has been shown to significantly increase the percentage of predicted normal forced vital capacity and the distance walked in the 6-minute walk test.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Hurler's disease",
+  "relation": "treated_by",
+  "object": "HIRMAb-IDUA",
+  "pmid": "19180267",
+  "source_quote": "HIRMAb-IDUA for the treatment of Hurler's disease",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe Disease",
+  "relation": "presents_with",
+  "object": "increased glycogen",
+  "pmid": "36412587",
+  "source_quote": "PD is marked by a deficiency in acid \u03b1-glucosidase (GAA), causing increased glycogen, creatine (CRE), and other biomarkers.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GAA",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "36412587",
+  "source_quote": "PD is marked by a deficiency in acid \u03b1-glucosidase (GAA)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "caused_by_variant_in",
+  "object": "GalC",
+  "pmid": "40500501",
+  "source_quote": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "presents_with",
+  "object": "white matter pathology",
+  "pmid": "27638616",
+  "source_quote": "However, recent studies have shown immune activation preceding clinical symptoms and white matter pathology.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "27638616",
+  "source_quote": "the therapeutic effect underlying hematopoietic stem cell transplantation, the only treatment for Krabbe's disease, has been demonstrated to occur via immunomodulation.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "encodes",
+  "object": "galactosylceramidase",
+  "pmid": "36370000",
+  "source_quote": "GALC encodes the lysosomal enzyme galactosylceramidase",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "rs979812",
+  "relation": "associated_with",
+  "object": "increased galactosylceramidase activity",
+  "pmid": "36370000",
+  "source_quote": "The top hit in PD genome-wide association study in the GALC locus, rs979812, is associated with increased galactosylceramidase activity",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "rs979812",
+  "relation": "associated_with",
+  "object": "increased galactosylceramidase expression",
+  "pmid": "36370000",
+  "source_quote": "Colocalization analysis demonstrated that rs979812 was also associated with increased galactosylceramidase expression.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "galactosylceramidase activity",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "36370000",
+  "source_quote": "Mendelian randomization suggested that increased galactosylceramidase activity may be causally associated with PD",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "rare GALC variants",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "36370000",
+  "source_quote": "We did not find an association between rare GALC variants and PD.",
+  "confidence": "high",
+  "contradicts": true
+ },
+ {
+  "subject": "GALC knockout",
+  "relation": "associated_with",
+  "object": "alpha-synuclein accumulation",
+  "pmid": "36370000",
+  "source_quote": "GALC knockout using CRISPR-Cas9 did not lead to alpha-synuclein accumulation",
+  "confidence": "high",
+  "contradicts": true
+ },
+ {
+  "subject": "p.I562T",
+  "relation": "disrupts",
+  "object": "maturation of galactosylceramidase",
+  "pmid": "36370000",
+  "source_quote": "the common variant p.I562T may lead to improper maturation of galactosylceramidase affecting its activity.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GLD",
+  "relation": "caused_by_variant_in",
+  "object": "GALC",
+  "pmid": "33851745",
+  "source_quote": "GLD is caused by loss-of-function mutations in the lysosomal hydrolase, galactosylceramidase (GALC)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "progressive and profound demyelination",
+  "pmid": "33766733",
+  "source_quote": "Krabbe disease (globoid cell leukodystrophy) is a lysosomal storage disease (LSD) characterized by progressive and profound demyelination.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "miss developmental milestones",
+  "pmid": "33766733",
+  "source_quote": "Children with an infantile-onset generally appear normal at birth but begin to miss developmental milestones by six months of age",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "associated_with",
+  "object": "deficiency of the acid hydrolase galactosylceramidase",
+  "pmid": "33766733",
+  "source_quote": "Krabbe disease is caused by a deficiency of the acid hydrolase galactosylceramidase (GALC)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "galactosylsphingosine (psychosine)",
+  "relation": "accumulates_in",
+  "object": "oligodendrocytes and Schwann cells",
+  "pmid": "33766733",
+  "source_quote": "The absence of GALC leads to the toxic accumulation of galactosylsphingosine (psychosine), a lysoderivative of galactosylceramides, in oligodendrocytes and Schwann cells",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "33766733",
+  "source_quote": "hematopoietic stem cell transplantation can alter the course of Krabbe disease and is the current standard-of-care",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "neuroinflammation",
+  "pmid": "35087711",
+  "source_quote": "Affected individuals accumulate undegraded substrates and suffer from neuroinflammation.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "KD",
+  "relation": "treated_by",
+  "object": "Hematopoietic stem cell transplantation",
+  "pmid": "35087711",
+  "source_quote": "Hematopoietic stem cell transplantation (HSCT) has been partially successful in treating patients with KD when accomplished prior to the onset of symptoms.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "c.1901T>C",
+  "relation": "associated_with",
+  "object": "adult-onset KD",
+  "pmid": "38762762",
+  "source_quote": "She carries the heterozygous mutations in GALC included a missense mutation of c.1901T>C from her mother, and a splicing mutation of c.908+5G>A from her father.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "c.908+5G>A",
+  "relation": "associated_with",
+  "object": "AOKD",
+  "pmid": "38762762",
+  "source_quote": "The splicing mutations in KD are reviewed and confirmed that c.908+5G>A is a novel splicing mutation in AOKD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLD",
+  "relation": "presents_with",
+  "object": "widespread loss of myelin",
+  "pmid": "27638598",
+  "source_quote": "Histological signs of disease include the widespread loss of myelin in the central and peripheral nervous systems, profound neruroinflammation, and axonal degeneration.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLD",
+  "relation": "presents_with",
+  "object": "axonal degeneration",
+  "pmid": "27638598",
+  "source_quote": "Histological signs of disease include the widespread loss of myelin in the central and peripheral nervous systems, profound neruroinflammation, and axonal degeneration.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLD",
+  "relation": "presents_with",
+  "object": "neurological deterioration",
+  "pmid": "27638598",
+  "source_quote": "Patients suffering from GLD also display neurological deterioration.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GLD",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "27638598",
+  "source_quote": "The current standard of care for GLD patients, hematopoietic stem cell transplantation, serves only to delay disease progression and is not an effective cure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "37928748",
+  "source_quote": "Several therapeutic modalities were used to treat patients with Krabbe disease, including hematopoietic stem cell transplantation, enzyme replacement therapy, autophagy activators, intravenous immunoglobulin, and inhibitors of the Pyroptosis process, among many other approaches.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "presents_with",
+  "object": "oligodendroglia",
+  "pmid": "27638611",
+  "source_quote": "Because KD involves primarily glia, specifically oligodendroglia",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "associated_with",
+  "object": "Krabbe disease",
+  "pmid": "35013804",
+  "source_quote": "Krabbe disease (KD) is a rare autosomal recessive lipid storage leukodystrophy. It is caused by deficient enzyme activity resulting from mutations of the \u03b2-galactocerebrosidase (GALC) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "adult-onset KD",
+  "relation": "caused_by_variant_in",
+  "object": "p.G286D and p.Y490N",
+  "pmid": "35013804",
+  "source_quote": "An extensive work-up led this motor neuron disease-like disorder to be diagnosed as adult-onset KD. The patient was found to be compound heterozygous for two GALC mutations (p.G286D and p.Y490N).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "adult-onset KD",
+  "relation": "presents_with",
+  "object": "muscle atrophy and weakness",
+  "pmid": "35013804",
+  "source_quote": "We report a case of a 47-year-old Caucasian man with a 2-year history of muscle atrophy and weakness in both hands associated with pyramidal signs and mild spasticity in the lower limbs. An extensive work-up led this motor neuron disease-like disorder to be diagnosed as adult-onset KD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "associated_with",
+  "object": "multiple sclerosis",
+  "pmid": "41086929",
+  "source_quote": "In recent years, a link between GALC variants and other diseases affecting the nervous system, such as multiple sclerosis and Parkinson's disease, has emerged.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GALC",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "41086929",
+  "source_quote": "In recent years, a link between GALC variants and other diseases affecting the nervous system, such as multiple sclerosis and Parkinson's disease, has emerged.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Metachromatic leukodystrophy",
+  "relation": "caused_by_variant_in",
+  "object": "ARSA",
+  "pmid": "26462614",
+  "source_quote": "Metachromatic leukodystrophy is a neurodegenerative disorder characterized by progressive demyelination. The disease is caused by variants in the ARSA gene",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ARSA",
+  "relation": "encodes",
+  "object": "arylsulfatase A",
+  "pmid": "26462614",
+  "source_quote": "the ARSA gene, which codes for the lysosomal enzyme arylsulfatase A",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early-onset MLD",
+  "relation": "treated_by",
+  "object": "gene therapy",
+  "pmid": "38554683",
+  "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "late-onset MLD",
+  "relation": "treated_by",
+  "object": "HSCT",
+  "pmid": "38554683",
+  "source_quote": "Key recommendations include timely communication by MLD experts with identified families, treating early-onset MLD with gene therapy and late-onset MLD with HSCT, as well as pre-treatment monitoring schemes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "early-onset MLD",
+  "relation": "treated_by",
+  "object": "atidarsagene autotemcel",
+  "pmid": "36811406",
+  "source_quote": "Here, we review the preclinical and clinical studies that facilitated the approval of the ex vivo gene therapy atidarsagene autotemcel for early-onset MLD by the European Medicines Agency (EMA) in December 2020.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MLD",
+  "relation": "presents_with",
+  "object": "central and peripheral nervous system demyelination",
+  "pmid": "36811406",
+  "source_quote": "Metachromatic leukodystrophy (MLD) is a rare autosomal recessive disorder of sphingolipid metabolism, due to a deficiency of the enzyme arylsulfatase A (ARSA). The main clinical signs of the disease are secondary to central and peripheral nervous system demyelination.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ARSA",
+  "relation": "associated_with",
+  "object": "PD",
+  "pmid": "37381728",
+  "source_quote": "Rare functional and loss-of-function ARSA variants may be associated with PD.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "metachromatic leukodystrophy",
+  "relation": "presents_with",
+  "object": "progressive motor and cognitive deficiency",
+  "pmid": "33195324",
+  "source_quote": "The disease occurs due to a deficiency of the lysosomal enzyme arylsulfatase A (ARSA) or its sphingolipid activator protein B (SapB) and it clinically manifests as progressive motor and cognitive deficiency.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "sulfatides",
+  "relation": "accumulates_in",
+  "object": "neural and visceral tissues",
+  "pmid": "31684987",
+  "source_quote": "Its deficiency results in accumulation of sulfatides in neural and visceral tissues",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MLD",
+  "relation": "presents_with",
+  "object": "peripheral neuropathy",
+  "pmid": "31684987",
+  "source_quote": "Data about the impact of peripheral neuropathy in MLD patients are currently lacking, although in our experience peripheral neuropathy causes significant morbidity due to neuropathic pain, foot deformities and neurogenic bladder disturbances.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "sulfatides",
+  "relation": "accumulates_in",
+  "object": "central and peripheral nervous system",
+  "pmid": "25987178",
+  "source_quote": "Low activity of arylsulfatase A results in the accumulation of sulfatides in the central and peripheral nervous system leading to demyelination.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "32098196",
+  "source_quote": "Parkinson's disease, the most common neurodegenerative movement disorder, is characterized by the accumulation and aggregation of misfolded \u03b1-synuclein that seem associated to some lysosomal disorders, in particular Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "progressive cognitive decline",
+  "pmid": "25851924",
+  "source_quote": "It is characterized by progressive cognitive decline and severe hyperactivity, with relatively mild somatic features.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "severe hyperactivity",
+  "pmid": "25851924",
+  "source_quote": "It is characterized by progressive cognitive decline and severe hyperactivity, with relatively mild somatic features.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIA",
+  "relation": "caused_by_variant_in",
+  "object": "SGSH",
+  "pmid": "27100513",
+  "source_quote": "This disease is a complex of four conditions caused by dysfunctions of one of genes coding for lysosomal enzymes involved in degradation of heparan sulfate: SGSH (coding for heparan N-sulfatase) - causing MPS IIIA",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIB",
+  "relation": "caused_by_variant_in",
+  "object": "NAGLU",
+  "pmid": "27100513",
+  "source_quote": "NAGLU (coding for alpha-N-acetylglucosaminidase) - causing MPS IIIB",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "caused_by_variant_in",
+  "object": "HGSNAT",
+  "pmid": "27100513",
+  "source_quote": "HGSNAT (coding for acetyl CoA alpha-glucosaminide acetyltransferase) - causing MPS IIIC)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIID",
+  "relation": "caused_by_variant_in",
+  "object": "GNS",
+  "pmid": "27100513",
+  "source_quote": "GNS (coding for N-acetylglucosamine-6-sulfatase) - causing MPS IIID.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SGSH",
+  "relation": "encodes",
+  "object": "heparan N-sulfatase",
+  "pmid": "28921412",
+  "source_quote": "mutations leading to A, B, C, and D subtypes are located in genes coding for heparan N-sulfatase (the SGSH gene)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NAGLU",
+  "relation": "encodes",
+  "object": "\u03b1-N-acetylglucosaminidase",
+  "pmid": "28921412",
+  "source_quote": "\u03b1-N-acetylglucosaminidase (the NAGLU gene)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "HGSNAT",
+  "relation": "encodes",
+  "object": "acetyl-CoA:\u03b1-glucosaminide acetyltransferase",
+  "pmid": "28921412",
+  "source_quote": "acetyl-CoA:\u03b1-glucosaminide acetyltransferase (the HGSNAT gene)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GNS",
+  "relation": "encodes",
+  "object": "N-acetylglucosamine-6-sulfatase",
+  "pmid": "28921412",
+  "source_quote": "N-acetylglucosamine-6-sulfatase (the GNS gene)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sanfilippo disease",
+  "relation": "presents_with",
+  "object": "severe cognitive disabilities",
+  "pmid": "28921412",
+  "source_quote": "Neurodegenerative changes in the central nervous system (CNS) are major problems in Sanfilippo disease. They cause severe cognitive disabilities and behavioral disturbances.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sanfilippo disease",
+  "relation": "presents_with",
+  "object": "behavioral disturbances",
+  "pmid": "28921412",
+  "source_quote": "Neurodegenerative changes in the central nervous system (CNS) are major problems in Sanfilippo disease. They cause severe cognitive disabilities and behavioral disturbances.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Sanfilippo disease",
+  "pmid": "28921412",
+  "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Sanfilippo disease",
+  "pmid": "28921412",
+  "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "substrate reduction therapy",
+  "relation": "studied_in",
+  "object": "Sanfilippo disease",
+  "pmid": "28921412",
+  "source_quote": "although no therapy is available for Sanfilippo disease now, recent years did bring important breakthroughs in this aspect, and clinical trials are being conducted with enzyme replacement therapy, gene therapy, and substrate reduction therapy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "SGSH",
+  "relation": "associated_with",
+  "object": "cancer",
+  "pmid": "39404425",
+  "source_quote": "Increased cancer prevalence has also been reported in carriers of a potentially pathogenic variant of an LSD gene, namely CLN3, SGSH, GUSB, NEU1, and, to a lesser extent, in other genes.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS-IIIA",
+  "relation": "presents_with",
+  "object": "severe central nervous system degeneration",
+  "pmid": "11668611",
+  "source_quote": "The progressive lysosomal storage of heparan sulfate eventually results in the clinical onset of disease, which is predominantly characterized by severe central nervous system degeneration. MPS-IIIA and MPS-IIIB involve deficiencies of heparan sulfate sulfamidase (SGSH) and alpha-N-acetylglucosaminidase (NAGLU), respectively.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS-IIIB",
+  "relation": "presents_with",
+  "object": "severe central nervous system degeneration",
+  "pmid": "11668611",
+  "source_quote": "The progressive lysosomal storage of heparan sulfate eventually results in the clinical onset of disease, which is predominantly characterized by severe central nervous system degeneration. MPS-IIIA and MPS-IIIB involve deficiencies of heparan sulfate sulfamidase (SGSH) and alpha-N-acetylglucosaminidase (NAGLU), respectively.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "developmental delays",
+  "pmid": "25345095",
+  "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "developmental regression",
+  "pmid": "25345095",
+  "source_quote": "Typically this presents early in life with developmental delays followed by developmental regression",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sanfilippo A Syndrome",
+  "relation": "associated_with",
+  "object": "sick sinus syndrome",
+  "pmid": "40804664",
+  "source_quote": "This case suggests SSS may be a potential associated feature of Sanfilippo A Syndrome.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sanfilippo A Syndrome",
+  "relation": "presents_with",
+  "object": "neurocognitive decline",
+  "pmid": "40804664",
+  "source_quote": "Sanfilippo A Syndrome (mucopolysaccharidosis [MPS] IIIA), an inherited lysosomal storage disorder, is mainly characterized by central nervous system degeneration that is characterized by neurocognitive decline and typically results in early death.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIB",
+  "relation": "associated_with",
+  "object": "decreased or absent enzyme activity",
+  "pmid": "35453363",
+  "source_quote": "Mucopolysaccharidosis, type IIIB (MPS IIIB) is a rare disease caused by mutations in the N-alpha-acetylglucosaminidase (NAGLU) gene resulting in decreased or absent enzyme activity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIB",
+  "relation": "associated_with",
+  "object": "massive lysosomal storage of heparan sulfate",
+  "pmid": "35453363",
+  "source_quote": "On the cellular level, the disorder is characterized by the massive lysosomal storage of heparan sulfate (HS)-one species of glycosaminoglycans.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "NAGLU",
+  "relation": "associated_with",
+  "object": "CAD",
+  "pmid": "41873862",
+  "source_quote": "In summary, our results identified potential causal associations between SMARCA4, NAGLU, SREBF1, RPTOR, HLA-B, and CAD.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "mucopolysaccharidosis type IIIB",
+  "relation": "presents_with",
+  "object": "schizophreniform presentation",
+  "pmid": "34347683",
+  "source_quote": "Schizophreniform presentation and abrupt neurologic decline in a patient with late-onset mucopolysaccharidosis type IIIB.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "mucopolysaccharidosis type IIIB",
+  "relation": "presents_with",
+  "object": "abrupt neurologic decline",
+  "pmid": "34347683",
+  "source_quote": "Schizophreniform presentation and abrupt neurologic decline in a patient with late-onset mucopolysaccharidosis type IIIB.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "neurodegeneration",
+  "pmid": "19479962",
+  "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "severely impaired development",
+  "pmid": "19479962",
+  "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "joint stiffness",
+  "pmid": "19479962",
+  "source_quote": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and skeletal abnormalities, including mild dwarfism, coarse facies, and joint stiffness.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "developmental delay",
+  "pmid": "18392742",
+  "source_quote": "The clinical course of MPS III can be divided into three phases. In the first phase, which usually starts between 1 and 4 years of age, a developmental delay becomes apparent after an initial normal development during the first 1-2 years of life.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "severe behavioural problems",
+  "pmid": "18392742",
+  "source_quote": "The second phase generally starts around 3-4 years and is characterized by severe behavioural problems and progressive mental deterioration ultimately leading to severe dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "severe dementia",
+  "pmid": "18392742",
+  "source_quote": "The second phase generally starts around 3-4 years and is characterized by severe behavioural problems and progressive mental deterioration ultimately leading to severe dementia.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "swallowing difficulties",
+  "pmid": "18392742",
+  "source_quote": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS III",
+  "relation": "presents_with",
+  "object": "spasticity",
+  "pmid": "18392742",
+  "source_quote": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "hearing loss",
+  "pmid": "41883052",
+  "source_quote": "Clinical features typically include developmental delay, intellectual disability, behavioral disturbances, coarse facial features, hypertrichosis, and hearing loss.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "retinitis pigmentosa",
+  "pmid": "41883052",
+  "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "MPS IIIC",
+  "relation": "presents_with",
+  "object": "intellectual disability",
+  "pmid": "41883052",
+  "source_quote": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sanfilippo syndrome",
+  "relation": "associated_with",
+  "object": "severe central nervous system degeneration",
+  "pmid": "33105639",
+  "source_quote": "Undegraded heparan sulfate molecules accumulate within lysosomes leading to cellular dysfunction and pathology in several organs, with severe central nervous system degeneration as the main phenotypical feature.",
+  "confidence": "high",
+  "contradicts": false
+ }
 ]

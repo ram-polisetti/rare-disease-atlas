@@ -1,11 +1,11 @@
 {
  "meta": {
-  "built_at": "2026-10-03T19:20:13.029419+00:00",
+  "built_at": "2026-10-03T20:57:19.116379+00:00",
   "slice": "lysosomal storage diseases",
-  "llm_edges_merged": false,
+  "llm_edges_merged": true,
   "louvain": {
-   "communities": 7,
-   "modularity": 0.5415,
+   "communities": 8,
+   "modularity": 0.54,
    "resolution": 1.0,
    "random_state": 42,
    "note": "Louvain on disease-gene-phenotype subgraph; disease-disease edges weighted by shared primary mechanism (4.0), disease-gene 6.0, disease-phenotype 1.0."
@@ -55,7 +55,7 @@
    "label": "Lysosomal enzyme deficiency",
    "synonyms": [],
    "description": "The shared root defect: lysosomal enzymes or transporters fail, so undegraded substrate accumulates inside cells.",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {}
   },
   {
@@ -1787,7 +1787,7 @@
     "mucopolysaccharidosis type III"
    ],
    "description": "A lysosomal disease characterized by progressive neurocognitive decline, severe  intellectual deterioration, loss of functional abilities, and premature death.",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "xrefs": [
      "DOID:12801",
@@ -1911,7 +1911,7 @@
    "label": "Thick nasal alae",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0009928"
    }
@@ -1933,7 +1933,7 @@
    "label": "Cough",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 0,
+   "cluster_id": 5,
    "extra": {
     "hp_id": "HP:0012735"
    }
@@ -2021,7 +2021,7 @@
    "label": "Everted lower lip vermilion",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 5 slice disease(s).",
-   "cluster_id": 0,
+   "cluster_id": 5,
    "extra": {
     "hp_id": "HP:0000232"
    }
@@ -2054,7 +2054,7 @@
    "label": "Macrocephaly",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 9 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {
     "hp_id": "HP:0000256"
    }
@@ -2131,7 +2131,7 @@
    "label": "Chronic otitis media",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000389"
    }
@@ -2307,7 +2307,7 @@
    "label": "Abnormal aortic valve morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001646"
    }
@@ -2318,7 +2318,7 @@
    "label": "Abnormal heart valve morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 7 slice disease(s).",
-   "cluster_id": 0,
+   "cluster_id": 5,
    "extra": {
     "hp_id": "HP:0001654"
    }
@@ -2428,7 +2428,7 @@
    "label": "Abnormal vertebral body morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0003312"
    }
@@ -2692,7 +2692,7 @@
    "label": "Depression",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 9 slice disease(s).",
-   "cluster_id": 0,
+   "cluster_id": 4,
    "extra": {
     "hp_id": "HP:0000716"
    }
@@ -3374,7 +3374,7 @@
    "label": "Mitral regurgitation",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 7 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {
     "hp_id": "HP:0001653"
    }
@@ -4441,7 +4441,7 @@
    "label": "Opacification of the corneal stroma",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {
     "hp_id": "HP:0007759"
    }
@@ -4628,7 +4628,7 @@
    "label": "Ventriculomegaly",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 4 slice disease(s).",
-   "cluster_id": 4,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0002119"
    }
@@ -4749,7 +4749,7 @@
    "label": "Abnormal temper tantrums",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 0,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0025160"
    }
@@ -6245,7 +6245,7 @@
    "label": "Aggressive behavior",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 4 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000718"
    }
@@ -6432,7 +6432,7 @@
    "label": "Hip dysplasia",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001385"
    }
@@ -6586,7 +6586,7 @@
    "label": "Anteverted nares",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 5 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {
     "hp_id": "HP:0000463"
    }
@@ -6597,7 +6597,7 @@
    "label": "Cerebellar atrophy",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 4,
+   "cluster_id": 5,
    "extra": {
     "hp_id": "HP:0001272"
    }
@@ -7400,7 +7400,7 @@
    "label": "Aspiration pneumonia",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0011951"
    }
@@ -7950,7 +7950,7 @@
    "label": "Cataract",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000518"
    }
@@ -7961,7 +7961,7 @@
    "label": "Atrioventricular block",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001678"
    }
@@ -8126,7 +8126,7 @@
    "label": "Reduced bone mineral density",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0004349"
    }
@@ -8291,7 +8291,7 @@
    "label": "Urinary glycosaminoglycan excretion",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 3 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0003541"
    }
@@ -8533,7 +8533,7 @@
    "label": "Abnormal mitral valve morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001633"
    }
@@ -8588,7 +8588,7 @@
    "label": "Upper airway obstruction",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0002781"
    }
@@ -8940,7 +8940,7 @@
    "label": "Abnormal rib morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000772"
    }
@@ -8951,7 +8951,7 @@
    "label": "Abnormal clavicle morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000889"
    }
@@ -9094,7 +9094,7 @@
    "label": "Micrognathia",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 0,
    "extra": {
     "hp_id": "HP:0000347"
    }
@@ -9127,7 +9127,7 @@
    "label": "Genu valgum",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0002857"
    }
@@ -10271,7 +10271,7 @@
    "label": "Loss of ambulation",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 2 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0002505"
    }
@@ -10854,7 +10854,7 @@
    "label": "Craniofacial hyperostosis",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0004493"
    }
@@ -10865,7 +10865,7 @@
    "label": "Recurrent sinopulmonary infections",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0005425"
    }
@@ -10876,7 +10876,7 @@
    "label": "Recurrent tonsillitis",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0011110"
    }
@@ -10887,7 +10887,7 @@
    "label": "Abnormal skeletal morphology",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0011842"
    }
@@ -10898,7 +10898,7 @@
    "label": "Adenoiditis",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0031458"
    }
@@ -10909,7 +10909,7 @@
    "label": "Thick hair",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0100874"
    }
@@ -10920,7 +10920,7 @@
    "label": "Brain imaging abnormality",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0410263"
    }
@@ -10931,7 +10931,7 @@
    "label": "Thickened helices",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000391"
    }
@@ -10942,7 +10942,7 @@
    "label": "Mixed hearing impairment",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000410"
    }
@@ -10953,7 +10953,7 @@
    "label": "Pigmentary retinopathy",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000580"
    }
@@ -10964,7 +10964,7 @@
    "label": "Vocal cord paresis",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001604"
    }
@@ -10975,7 +10975,7 @@
    "label": "Abnormal facial shape",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0001999"
    }
@@ -10986,7 +10986,7 @@
    "label": "Intermittent diarrhea",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0002254"
    }
@@ -10997,7 +10997,7 @@
    "label": "Abnormality of the middle ear ossicles",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0004452"
    }
@@ -11008,7 +11008,7 @@
    "label": "Avascular necrosis of the capital femoral epiphysis",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0005743"
    }
@@ -11019,7 +11019,7 @@
    "label": "Myopia",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000545"
    }
@@ -11030,7 +11030,7 @@
    "label": "Central nervous system degeneration",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0007009"
    }
@@ -11041,7 +11041,7 @@
    "label": "Severe intellectual disability",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0010864"
    }
@@ -11052,7 +11052,7 @@
    "label": "Otitis media",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000388"
    }
@@ -11063,7 +11063,7 @@
    "label": "Reduced left ventricular ejection fraction",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0012664"
    }
@@ -11074,7 +11074,7 @@
    "label": "Hip pain",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0030838"
    }
@@ -11085,7 +11085,7 @@
    "label": "Decreased circulating vitamin D concentration",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0100512"
    }
@@ -11096,7 +11096,7 @@
    "label": "Hyperorality",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000710"
    }
@@ -11107,7 +11107,7 @@
    "label": "Disinhibition",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:0000734"
    }
@@ -11118,7 +11118,7 @@
    "label": "Amplification of sexual behavior",
    "synonyms": [],
    "description": "Clinical feature from the Human Phenotype Ontology, annotated in 1 slice disease(s).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "hp_id": "HP:5200321"
    }
@@ -17722,7 +17722,7 @@
    "label": "Suarez-Guerrero",
    "synonyms": [],
    "description": "First author on slice literature for Sanfilippo syndrome (see PMID).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "pmid": "26613630"
    }
@@ -17733,7 +17733,7 @@
    "label": "Anson",
    "synonyms": [],
    "description": "First author on slice literature for Sanfilippo syndrome (see PMID).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "pmid": "10224661"
    }
@@ -17788,7 +17788,7 @@
    "label": "Kong",
    "synonyms": [],
    "description": "First author on slice literature for mucopolysaccharidosis type III (see PMID).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "pmid": "34271605"
    }
@@ -17799,7 +17799,7 @@
    "label": "Coutinho",
    "synonyms": [],
    "description": "First author on slice literature for mucopolysaccharidosis type III (see PMID).",
-   "cluster_id": 5,
+   "cluster_id": 7,
    "extra": {
     "pmid": "27384562"
    }
@@ -67989,12 +67989,1284 @@
    "date": "2026-10-03",
    "note": "EURORDIS founded and lead-coordinates Rare Disease Day.",
    "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HGNC:4177",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:28218669",
+   "date": "2026-10-03",
+   "note": "Mutations in the GBA1 gene should be identified as they may be of prognostic value in some cases.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0001744",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:28218669",
+   "date": "2026-10-03",
+   "note": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0001903",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:35439918",
+   "date": "2026-10-03",
+   "note": "Splenomegaly, anemia, and thrombocytopenia are the most common findings in GD and so most patients are initially referred to hematologists.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0002240",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:32877100",
+   "date": "2026-10-03",
+   "note": "The most frequent symptoms are cytopenia, splenomegaly, hepatomegaly, and potentially severe bone involvement (bone infarcts, avascular osteonecrosis, and pathological fractures).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:32877100",
+   "date": "2026-10-03",
+   "note": "Patients with type 1 Gaucher disease have an increased risk of Parkinson disease, some solid cancers, and some hematologic malignancies including multiple myeloma.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0001873",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:30638965",
+   "date": "2026-10-03",
+   "note": "The most frequent symptoms are anemia, thrombocytopenia, splenomegaly, and/or hepatomegaly, and a potentially severe bone involvement.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0009830",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:21221912",
+   "date": "2026-10-03",
+   "note": "recent studies have revealed that affected individuals have an increased risk of developing peripheral neuropathy and parkinsonian features.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009265",
+   "target": "HP:0006775",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:23510067",
+   "date": "2026-10-03",
+   "note": "Several reports describe an increased risk of cancer in GD; in particular multiple myeloma.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0500008",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33172708",
+   "date": "2026-10-03",
+   "note": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HGNC:4296",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:29530533",
+   "date": "2026-10-03",
+   "note": "Fabry disease is an X-linked lysosomal storage disorder caused by mutations in the GLA gene leading to deficient \u03b1-galactosidase A activity, glycosphingolipid accumulation, and life-threatening compli...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0001014",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:29562089",
+   "date": "2026-10-03",
+   "note": "The cutaneous hallmark of FD is a specific distribution of angiokeratoma.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0001712",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40840785",
+   "date": "2026-10-03",
+   "note": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0001639",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:38486361",
+   "date": "2026-10-03",
+   "note": "Anderson-Fabry disease (AFD) is a lysosomal storage disorder characterized by glycolipid accumulation in cardiac cells, associated with a peculiar form of hypertrophic cardiomyopathy (HCM).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0001714",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33922740",
+   "date": "2026-10-03",
+   "note": "GB3 accumulation occurs in virtually all cardiac cells (cardiomyocytes, conduction system cells, fibroblasts, and endothelial and smooth muscle vascular cells), ultimately leading to ventricular hyper...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0001290",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:16898258",
+   "date": "2026-10-03",
+   "note": "The classic infantile form of the disease occurs in infants (shortly after birth) and is characterized by generalized hypotonia, failure to thrive, and cardiorespiratory failure.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0002878",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:23632029",
+   "date": "2026-10-03",
+   "note": "In later-onset Pompe disease, symptoms are slower to appear, and patients often progress to wheelchair confinement and eventual respiratory failure.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0001639",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:16702883",
+   "date": "2026-10-03",
+   "note": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progressio...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HGNC:4065",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:31796685",
+   "date": "2026-10-03",
+   "note": "Pompe disease (glycogen storage disease type II) is caused by mutations in acid \u03b1-glucosidase (GAA) resulting in lysosomal pathology and impairment of the muscular and cardio-pulmonary systems.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0002240",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36503146",
+   "date": "2026-10-03",
+   "note": "Infantile Pompe disease presents cardiomyopathy and hepatomegaly.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0002093",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:19138339",
+   "date": "2026-10-03",
+   "note": "patients with pre-existing respiratory insufficiency seemed to profit most.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0003701",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25047669",
+   "date": "2026-10-03",
+   "note": "We screened for late-onset Pompe disease in a cohort of undetermined myopathy patients with proximal muscle weakness and/or elevated serum creatine kinase values.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0001324",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:24726296",
+   "date": "2026-10-03",
+   "note": "Muscle weakness worsened in 3 women, and first presented in 3 others during the first pregnancy (4.5% each).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009290",
+   "target": "HP:0001638",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33972680",
+   "date": "2026-10-03",
+   "note": "The following data were collected: clinical details including presence or absence of cardiomyopathy, enzyme activity levels, and features of GAA variants including exon versus intron location and spli...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4065",
+   "target": "MONDO:0009290",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:37907381",
+   "date": "2026-10-03",
+   "note": "With the goal of classifying the clinical significance of GAA variants in Pompe disease (Glycogen storage disease, type II)",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HGNC:11120",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:38397448",
+   "date": "2026-10-03",
+   "note": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HGNC:7897",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:38397448",
+   "date": "2026-10-03",
+   "note": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0000511",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:23622394",
+   "date": "2026-10-03",
+   "note": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0001433",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27491215",
+   "date": "2026-10-03",
+   "note": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0002524",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25434476",
+   "date": "2026-10-03",
+   "note": "Although cataplexy is one of its characteristic symptoms, particularly in the late infantile and juvenile form, sleep disturbances are described only exceptionally.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0001744",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25434476",
+   "date": "2026-10-03",
+   "note": "A combination of splenomegaly, vertical supranuclear gaze palsy, and cataplexy creates a most useful suspicion index tool for the disease.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0002878",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27164983",
+   "date": "2026-10-03",
+   "note": "Respiratory manifestations range from a lack of symptoms to respiratory failure.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0001251",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33892845",
+   "date": "2026-10-03",
+   "note": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HGNC:7897",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:19660552",
+   "date": "2026-10-03",
+   "note": "we discuss the different lines of evidence supporting different models of anomalous intracellular cholesterol trafficking with emphasis on cholesterol interactions with alpha-synuclein, NPC1 and NPC2 ...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010100",
+   "target": "HGNC:4878",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40710901",
+   "date": "2026-10-03",
+   "note": "Mechanistically, TSD is caused by mutations in the HEXA gene, which encodes the alpha subunit of hexosaminidase A.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010100",
+   "target": "HP:0001324",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:30524313",
+   "date": "2026-10-03",
+   "note": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "HGNC:4879",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:8411702",
+   "date": "2026-10-03",
+   "note": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "HP:0001251",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:15159655",
+   "date": "2026-10-03",
+   "note": "Ataxia and speech abnormalities were the commonest presentation.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HP:0001332",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:39057926",
+   "date": "2026-10-03",
+   "note": "with disorders including Wilson's disease, pantothenate kinase-associated neurodegeneration (PKAN), Niemann-Pick disease type C (NPC), glutaric aciduria type 1, Sanfilippo syndrome (Mucopolysaccharido...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "HP:0002376",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:11056783",
+   "date": "2026-10-03",
+   "note": "Sandhoff disease is a GM2 gangliosidosis that may present within the first 6 months of life with developmental regression.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "HP:0001433",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:23370522",
+   "date": "2026-10-03",
+   "note": "resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HP:0000280",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:32188113",
+   "date": "2026-10-03",
+   "note": "Patients usually develop several somatic symptoms such as abdominal hernias, extensive dermal melanocytosis, thoracolumbar kyphosis odontoid dysplasia, arthropathy, coxa valga and genu valgum, coarse ...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "MONDO:0011758",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33572941",
+   "date": "2026-10-03",
+   "note": "The disease can be divided into severe (Hurler syndrome) and attenuated (Hurler-Scheie, Scheie) forms.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HGNC:5391",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:8680403",
+   "date": "2026-10-03",
+   "note": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HP:0001638",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:11405343",
+   "date": "2026-10-03",
+   "note": "ranges from a disorder that is fatal in the early months of life, due to cardiomyopathy, to a condition compatible with a normal life-span.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HP:0002176",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:24365320",
+   "date": "2026-10-03",
+   "note": "spinal cord compression in osteogenesis imperfecta, and mucopolysaccharidosis type I and VI",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009499",
+   "target": "HGNC:4115",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:35087711",
+   "date": "2026-10-03",
+   "note": "It is caused by mutations on the galactocerebrosidase (GALC) gene.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4115",
+   "target": "MONDO:0009499",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40500501",
+   "date": "2026-10-03",
+   "note": "The most prevalent leukodystrophies are caused by mutations in oligodendrocyte genes that encode the essential myelin proteins PLP1 and GalC in Pelizaeus-Merzbacher disease and Krabbe disease, respect...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:713",
+   "target": "HGNC:713",
+   "relation": "encodes",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25987178",
+   "date": "2026-10-03",
+   "note": "Metachromatic leukodystrophy is an inherited lysosomal disorder caused by recessive mutations in ARSA encoding arylsulfatase A.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009591",
+   "target": "HP:0001251",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:38494502",
+   "date": "2026-10-03",
+   "note": "Commonly reported comorbidities/complications included ataxia, epilepsy, gallbladder abnormalities, incontinence, neuropathy, and seizures.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4177",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:35455941",
+   "date": "2026-10-03",
+   "note": "Approximately 5-15% of PD patients have mutations in the GBA gene, making it numerically the most important genetic risk factor for Parkinson disease (PD).",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4177",
+   "target": "MONDO:0007488",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:35332438",
+   "date": "2026-10-03",
+   "note": "Glucocerebrosidase (GBA) gene may be a risk factor for dementia with Lewy bodies (DLB).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0007488",
+   "target": "HP:0100543",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:35332438",
+   "date": "2026-10-03",
+   "note": "Patients harbouring GBA variants have an earlier age of onset, more severe cognitive impairment, and rapid symptom progression",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011945",
+   "target": "HP:0001789",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36220738",
+   "date": "2026-10-03",
+   "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011945",
+   "target": "HP:0001433",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36220738",
+   "date": "2026-10-03",
+   "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0011945",
+   "target": "HP:0001873",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36220738",
+   "date": "2026-10-03",
+   "note": "The disease is characterized by hydrops fetalis or a collodion baby phenotype accompanied with progressive neurological manifestations, hepatosplenomegaly, thrombocytopenia, anemia, and failure to thr...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0001297",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33172708",
+   "date": "2026-10-03",
+   "note": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0002046",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:26835405",
+   "date": "2026-10-03",
+   "note": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010526",
+   "target": "HP:0000966",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:32183665",
+   "date": "2026-10-03",
+   "note": "causing multi-organ manifestations (acroparesthesias, hypohidrosis, angiokeratomas, signs and symptoms of cardiac, renal, cerebrovascular involvement).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0008199",
+   "target": "HP:0001324",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:39134822",
+   "date": "2026-10-03",
+   "note": "LOPD, less severe due to partial GAA activity, appears in childhood, adolescence, or adulthood with muscle weakness and respiratory problems.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4296",
+   "target": "MONDO:0010526",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33160817",
+   "date": "2026-10-03",
+   "note": "Fabry disease is an X-linked lysosomal storage disorder caused by pathogenic variants in the GLA gene",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:11120",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:24262184",
+   "date": "2026-10-03",
+   "note": "Examples of risk genes include the two lysosomal enzyme coding genes GBA and SMPD1, which are associated with a 5-fold and 9-fold increased risk of PD, respectively.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4115",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:30726573",
+   "date": "2026-10-03",
+   "note": "However, recently, many additional lysosomal storage disorder genes have been similarly implicated, including SMPD1, ATP13A2, GALC, and others.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009756",
+   "target": "HGNC:14537",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25784942",
+   "date": "2026-10-03",
+   "note": "It is an autosomal recessive disorder, caused by mutations in the NPC1 or NPC2 genes.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009757",
+   "target": "HP:0001433",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:33445799",
+   "date": "2026-10-03",
+   "note": "Clinical manifestations include neurological symptoms and systemic symptoms, such as hepatosplenomegaly and pulmonary manifestations",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010006",
+   "target": "HGNC:4879",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:8411702",
+   "date": "2026-10-03",
+   "note": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010100",
+   "target": "HP:0001251",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:30524313",
+   "date": "2026-10-03",
+   "note": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4878",
+   "target": "MONDO:0010100",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:11339652",
+   "date": "2026-10-03",
+   "note": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4879",
+   "target": "MONDO:0010006",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:11339652",
+   "date": "2026-10-03",
+   "note": "The genes responsible for these disorders are HEXA (Tay-Sachs disease and variants), HEXB (Sandhoff disease and variants), and GM2A (AB variant of GM2 gangliosidosis).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HP:0000943",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25345091",
+   "date": "2026-10-03",
+   "note": "The skeletal disease dysostosis multiplex (DM) is seen in severe variants of MPS I.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0001586",
+   "target": "HGNC:5391",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:34189746",
+   "date": "2026-10-03",
+   "note": "Mucopolysaccharidoses type I (MPS I) is an inherited metabolic disease characterized by a malfunction of the \u03b1-l-iduronidase (IDUA) enzyme leading to the storage of glycosaminoglycans in the lysosomes...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:5391",
+   "target": "MONDO:0001586",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:15895714",
+   "date": "2026-10-03",
+   "note": "Mucopolysaccharidosis (MPS) type I is a lysosomal storage disorder caused by deficiency of the enzyme alpha-L-iduronidase (IDUA)",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4065",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36412587",
+   "date": "2026-10-03",
+   "note": "PD is marked by a deficiency in acid \u03b1-glucosidase (GAA)",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4115",
+   "target": "HGNC:4115",
+   "relation": "encodes",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:36370000",
+   "date": "2026-10-03",
+   "note": "GALC encodes the lysosomal enzyme galactosylceramidase",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:713",
+   "target": "MONDO:0008199",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:37381728",
+   "date": "2026-10-03",
+   "note": "Rare functional and loss-of-function ARSA variants may be associated with PD.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009591",
+   "target": "HP:0009830",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:31684987",
+   "date": "2026-10-03",
+   "note": "Data about the impact of peripheral neuropathy in MLD patients are currently lacking, although in our experience peripheral neuropathy causes significant morbidity due to neuropathic pain, foot deform...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009655",
+   "target": "HGNC:10818",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27100513",
+   "date": "2026-10-03",
+   "note": "This disease is a complex of four conditions caused by dysfunctions of one of genes coding for lysosomal enzymes involved in degradation of heparan sulfate: SGSH (coding for heparan N-sulfatase) - cau...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009656",
+   "target": "HGNC:7632",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27100513",
+   "date": "2026-10-03",
+   "note": "NAGLU (coding for alpha-N-acetylglucosaminidase) - causing MPS IIIB",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "HGNC:26527",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27100513",
+   "date": "2026-10-03",
+   "note": "HGSNAT (coding for acetyl CoA alpha-glucosaminide acetyltransferase) - causing MPS IIIC)",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009658",
+   "target": "HGNC:4422",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:27100513",
+   "date": "2026-10-03",
+   "note": "GNS (coding for N-acetylglucosamine-6-sulfatase) - causing MPS IIID.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "HP:0002180",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:19479962",
+   "date": "2026-10-03",
+   "note": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and ...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "HP:0001387",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:19479962",
+   "date": "2026-10-03",
+   "note": "Lysosomal storage of undegraded heparan sulfate in the cells of affected patients leads to neuronal death, causing neurodegeneration and severely impaired development accompanied by mild visceral and ...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0001257",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:18392742",
+   "date": "2026-10-03",
+   "note": "In the third and final stage, behavioural problems slowly disappear, but motor retardation with swallowing difficulties and spasticity emerge.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "MONDO:0019200",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:41883052",
+   "date": "2026-10-03",
+   "note": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0009657",
+   "target": "HP:0001249",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:41883052",
+   "date": "2026-10-03",
+   "note": "Both presented with bilateral sensorineural hearing loss, retinitis pigmentosa, intellectual disability, mildly coarse facial features, and hypertrichosis.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HGNC:5389",
+   "relation": "caused_by_variant_in",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:39617925",
+   "date": "2026-10-03",
+   "note": "Mucopolysaccharidosis type II (MPS II) is a rare X-linked lysosomal storage disorder caused by genetic alterations in the iduronate 2-sulfatase (IDS) gene.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0000726",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:26710524",
+   "date": "2026-10-03",
+   "note": "Progressive cognitive decline resulting in dementia and behavioural abnormalities are the main clinical characteristics of Sanfilippo syndrome.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0002505",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:32944950",
+   "date": "2026-10-03",
+   "note": "The classical presentation is an infantile-onset neurodegenerative disease characterised by intellectual regression, behavioural and sleep disturbances, loss of ambulation, and early death.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0001249",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40032500",
+   "date": "2026-10-03",
+   "note": "Clinical symptoms were reported in 30 articles and predominantly pertained to the nervous system (25/30, 83.3%), including intellectual disability (19/30, 63.3%), movement incoordination (17/30, 56.6%...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0002650",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:21654471",
+   "date": "2026-10-03",
+   "note": "Three had significant scoliosis (21 to 99 degrees) and 2 others had L1 hypoplasia.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0001653",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:31196149",
+   "date": "2026-10-03",
+   "note": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0001659",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:31196149",
+   "date": "2026-10-03",
+   "note": "The most prevalent cardiac valve abnormality was mitral regurgitation (31%), followed by aortic regurgitation (19%).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0002180",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:41108524",
+   "date": "2026-10-03",
+   "note": "This dysfunction leads to the accumulation of undegraded substrates, such as heparan sulfate, ultimately leading to progressive neuroinflammation and neurodegeneration.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0000752",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:26648750",
+   "date": "2026-10-03",
+   "note": "The primary characteristic of MPS III is the degeneration of the central nervous system, resulting in mental retardation and hyperactivity, typically commencing during childhood.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0018937",
+   "target": "HP:0100785",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:37357981",
+   "date": "2026-10-03",
+   "note": "First symptoms typically include delayed language development, hyperactivity and/or insomnia from 2\u2009years of age, followed by unremitting and overt loss of previously acquired skills.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0001638",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:24399699",
+   "date": "2026-10-03",
+   "note": "The clinical manifestations include neurologic involvement, severe airways obstruction, skeletal deformities and cardiomyopathy.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0001387",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25345092",
+   "date": "2026-10-03",
+   "note": "Children with severe form, diagnosed at 12-36 months, have coarse facial feature, short stature, joint stiffness, short neck, broad chest, large head circumference, watery diarrhea, skeletal changes, ...",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0010535",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:25345092",
+   "date": "2026-10-03",
+   "note": "Recurrent and prolonged rhinitis with persistent nasal discharge are the first symptoms of airway disease that manifests itself as noisy breathing and later sleep apnea.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:5389",
+   "target": "MONDO:0010674",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:21235446",
+   "date": "2026-10-03",
+   "note": "Mucopolysaccharidosis (MPS) type II (Hunter syndrome, OMIM 309900) is an X-linked lysosomal storage disorder caused by a deficiency of the lysosomal enzyme iduronate-2-sulfatase (IDS).",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0002240",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:34070997",
+   "date": "2026-10-03",
+   "note": "Currently, the primary treatment is enzyme replacement therapy, which improves the course of the disease by reducing somatic symptoms, including hepatomegaly and splenomegaly.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0100543",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:39201256",
+   "date": "2026-10-03",
+   "note": "Signs and symptoms typically emerge at 1.5-4 years of age and may include cognitive impairment, depending on whether patients have the neuronopathic or non-neuronopathic form of the disease.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0006536",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40011961",
+   "date": "2026-10-03",
+   "note": "Survival, airway obstruction, and quality of life were outcomes identified as important to always measure in all MPS II clinical trials and/or in clinical practice.",
+   "contradicts": false
+  },
+  {
+   "source": "MONDO:0010674",
+   "target": "HP:0000389",
+   "relation": "presents_with",
+   "evidence": "observed",
+   "confidence": "medium",
+   "source_db": "PubMed",
+   "source_ref": "PMID:40011961",
+   "date": "2026-10-03",
+   "note": "The adolescent group included safety of chewing and swallowing, complications of anaesthesia, sleep quality and apnoea, nasal problems, and chronic otitis media.",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:14537",
+   "target": "MONDO:0011873",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:PPR:PPR1322574",
+   "date": "2026-10-03",
+   "note": "Ganglioside profiling by ion mobility and mass spectrometry imaging identifies distinct biomolecular isomers in Niemann-Pick Disease Gangliosides are glycosphingolipids implicated in the neurodegenera...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:7632",
+   "target": "MONDO:0009656",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:PPR:PPR1249019",
+   "date": "2026-10-03",
+   "note": "Three-Month Observational Data for the MPS IIIB Sentinel Subject Following AAV9 Mediated Gene Therapy Background Mucopolysaccharidosis type IIIB (MPS IIIB) is a devastating neurodegenerative lysosomal...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:26527",
+   "target": "MONDO:0009657",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:PPR:PPR1284231",
+   "date": "2026-10-03",
+   "note": "Extracellular vesicles derived from cells overexpressing HGSNAT rescue defects in Mucopolysaccharidosis IIIC neurons Summary Mucopolysaccharidosis III type C (MPS IIIC) is a rare neurological lysosoma...",
+   "contradicts": false
+  },
+  {
+   "source": "HGNC:4177",
+   "target": "MONDO:0009265",
+   "relation": "associated_with",
+   "evidence": "observed",
+   "confidence": "high",
+   "source_db": "PubMed",
+   "source_ref": "PMID:PPR:PPR1330793",
+   "date": "2026-10-03",
+   "note": "Isogenic forebrain organoids uncover early neurodevelopmental alterations and imbalances in neuronal function leading to hyperexcitation in Gaucher disease ABSTRACT Gaucher disease is a rare lysosomal...",
+   "contradicts": false
   }
  ],
  "clusters": [
   {
    "id": 0,
-   "label": "Sphingolipid catabolism (GBA, GLA, SMPD1)",
+   "label": "Sphingolipid catabolism (GBA, GLA, NPC1, NPC2, SMPD1)",
    "summary": "10 disease(s) - Fabry disease, Gaucher disease perinatal lethal, Gaucher disease type I, Gaucher disease type II, Gaucher disease type III, Gaucher disease-ophthalmoplegia-cardiovascular calcification syndrome, Lewy body dementia, Niemann-Pick disease type A... - connected through sphingolipid catabolism and overlapping phenotypes; 110 trials and 4 reusable asset(s).",
    "members": [
     "ClinVar:2947702",
@@ -68044,16 +69316,18 @@
     "HP:0000211",
     "HP:0000218",
     "HP:0000225",
-    "HP:0000232",
     "HP:0000248",
     "HP:0000252",
+    "HP:0000256",
     "HP:0000278",
     "HP:0000298",
     "HP:0000325",
+    "HP:0000347",
     "HP:0000358",
     "HP:0000360",
     "HP:0000369",
     "HP:0000421",
+    "HP:0000463",
     "HP:0000478",
     "HP:0000486",
     "HP:0000524",
@@ -68067,7 +69341,6 @@
     "HP:0000666",
     "HP:0000674",
     "HP:0000707",
-    "HP:0000716",
     "HP:0000726",
     "HP:0000741",
     "HP:0000744",
@@ -68118,7 +69391,7 @@
     "HP:0001621",
     "HP:0001622",
     "HP:0001637",
-    "HP:0001654",
+    "HP:0001653",
     "HP:0001658",
     "HP:0001677",
     "HP:0001695",
@@ -68242,6 +69515,7 @@
     "HP:0007401",
     "HP:0007479",
     "HP:0007549",
+    "HP:0007759",
     "HP:0007817",
     "HP:0007885",
     "HP:0007975",
@@ -68265,8 +69539,6 @@
     "HP:0012415",
     "HP:0012450",
     "HP:0012702",
-    "HP:0012735",
-    "HP:0025160",
     "HP:0025425",
     "HP:0030353",
     "HP:0031364",
@@ -68536,6 +69808,7 @@
     "atlas:asset:ut-southwestern-medical-center",
     "atlas:asset:washington-university",
     "atlas:asset:yale-university",
+    "atlas:mech-lysosomal-enzyme-deficiency",
     "atlas:mech-lysosomal-neurodegeneration",
     "atlas:mech-sphingolipid-catabolism",
     "atlas:org-fabry-support-information-group-fsig",
@@ -68922,6 +70195,7 @@
     "HGNC:4878",
     "HGNC:4879",
     "HP:0000496",
+    "HP:0000716",
     "HP:0000729",
     "HP:0000739",
     "HP:0000802",
@@ -68930,7 +70204,6 @@
     "HP:0001257",
     "HP:0001260",
     "HP:0001262",
-    "HP:0001272",
     "HP:0001278",
     "HP:0001310",
     "HP:0001315",
@@ -68942,7 +70215,6 @@
     "HP:0001634",
     "HP:0002069",
     "HP:0002071",
-    "HP:0002119",
     "HP:0002171",
     "HP:0002172",
     "HP:0002191",
@@ -69028,7 +70300,7 @@
   {
    "id": 5,
    "label": "Glycosaminoglycan catabolism (GNS, HGSNAT, IDS, IDUA, NAGLU, SGSH)",
-   "summary": "15 disease(s) - Charcot-Marie-Tooth disease axonal type 2V, Hurler syndrome, Hurler-Scheie syndrome, Scheie syndrome, mucopolysaccharidosis type 1, mucopolysaccharidosis type 2, mucopolysaccharidosis type 2, attenuated form, mucopolysaccharidosis type 2, severe form... - connected through glycosaminoglycan catabolism and overlapping phenotypes; 33 trials and 2 reusable asset(s).",
+   "summary": "14 disease(s) - Charcot-Marie-Tooth disease axonal type 2V, Hurler syndrome, Hurler-Scheie syndrome, Scheie syndrome, mucopolysaccharidosis type 1, mucopolysaccharidosis type 2, mucopolysaccharidosis type 2, attenuated form, mucopolysaccharidosis type 2, severe form... - connected through glycosaminoglycan catabolism and overlapping phenotypes; 33 trials and 2 reusable asset(s).",
    "members": [
     "ClinVar:1075873",
     "ClinVar:1299282",
@@ -69102,9 +70374,9 @@
     "HP:0000179",
     "HP:0000187",
     "HP:0000212",
+    "HP:0000232",
     "HP:0000246",
     "HP:0000250",
-    "HP:0000256",
     "HP:0000268",
     "HP:0000271",
     "HP:0000280",
@@ -69114,34 +70386,25 @@
     "HP:0000303",
     "HP:0000316",
     "HP:0000336",
-    "HP:0000347",
     "HP:0000362",
     "HP:0000365",
-    "HP:0000388",
-    "HP:0000389",
-    "HP:0000391",
     "HP:0000403",
     "HP:0000405",
     "HP:0000407",
-    "HP:0000410",
     "HP:0000431",
     "HP:0000445",
     "HP:0000455",
-    "HP:0000463",
     "HP:0000470",
     "HP:0000488",
     "HP:0000490",
     "HP:0000501",
     "HP:0000510",
     "HP:0000512",
-    "HP:0000518",
     "HP:0000543",
-    "HP:0000545",
     "HP:0000546",
     "HP:0000551",
     "HP:0000563",
     "HP:0000574",
-    "HP:0000580",
     "HP:0000602",
     "HP:0000603",
     "HP:0000613",
@@ -69152,15 +70415,10 @@
     "HP:0000684",
     "HP:0000687",
     "HP:0000691",
-    "HP:0000710",
     "HP:0000711",
     "HP:0000713",
-    "HP:0000718",
-    "HP:0000734",
     "HP:0000752",
-    "HP:0000772",
     "HP:0000842",
-    "HP:0000889",
     "HP:0000894",
     "HP:0000900",
     "HP:0000924",
@@ -69180,37 +70438,32 @@
     "HP:0001171",
     "HP:0001249",
     "HP:0001250",
+    "HP:0001272",
     "HP:0001334",
     "HP:0001344",
     "HP:0001348",
     "HP:0001373",
     "HP:0001376",
-    "HP:0001385",
     "HP:0001387",
     "HP:0001419",
     "HP:0001488",
     "HP:0001507",
     "HP:0001537",
-    "HP:0001604",
     "HP:0001608",
     "HP:0001609",
     "HP:0001627",
-    "HP:0001633",
     "HP:0001635",
     "HP:0001641",
-    "HP:0001646",
     "HP:0001650",
-    "HP:0001653",
+    "HP:0001654",
     "HP:0001659",
     "HP:0001670",
-    "HP:0001678",
     "HP:0001679",
     "HP:0001681",
     "HP:0001702",
     "HP:0001706",
     "HP:0001744",
     "HP:0001771",
-    "HP:0001999",
     "HP:0002007",
     "HP:0002014",
     "HP:0002024",
@@ -69222,24 +70475,20 @@
     "HP:0002208",
     "HP:0002230",
     "HP:0002240",
-    "HP:0002254",
     "HP:0002307",
     "HP:0002341",
     "HP:0002360",
     "HP:0002495",
-    "HP:0002505",
     "HP:0002652",
     "HP:0002656",
     "HP:0002673",
     "HP:0002680",
     "HP:0002751",
     "HP:0002777",
-    "HP:0002781",
     "HP:0002786",
     "HP:0002788",
     "HP:0002808",
     "HP:0002829",
-    "HP:0002857",
     "HP:0002869",
     "HP:0002870",
     "HP:0002936",
@@ -69251,7 +70500,6 @@
     "HP:0003302",
     "HP:0003309",
     "HP:0003311",
-    "HP:0003312",
     "HP:0003320",
     "HP:0003393",
     "HP:0003401",
@@ -69259,7 +70507,6 @@
     "HP:0003468",
     "HP:0003502",
     "HP:0003510",
-    "HP:0003541",
     "HP:0003552",
     "HP:0003584",
     "HP:0003596",
@@ -69267,31 +70514,24 @@
     "HP:0003653",
     "HP:0003676",
     "HP:0004322",
-    "HP:0004349",
     "HP:0004374",
     "HP:0004389",
     "HP:0004437",
-    "HP:0004452",
     "HP:0004490",
-    "HP:0004493",
     "HP:0004568",
     "HP:0004582",
     "HP:0004586",
     "HP:0005019",
     "HP:0005105",
     "HP:0005280",
-    "HP:0005425",
-    "HP:0005743",
     "HP:0005781",
     "HP:0005930",
     "HP:0006532",
     "HP:0006979",
-    "HP:0007009",
     "HP:0007256",
     "HP:0007675",
     "HP:0007703",
     "HP:0007737",
-    "HP:0007759",
     "HP:0007787",
     "HP:0007843",
     "HP:0007957",
@@ -69304,27 +70544,22 @@
     "HP:0008843",
     "HP:0009697",
     "HP:0009811",
-    "HP:0009928",
     "HP:0009937",
     "HP:0010656",
     "HP:0010769",
-    "HP:0010864",
     "HP:0010865",
     "HP:0010871",
-    "HP:0011110",
     "HP:0011220",
     "HP:0011369",
     "HP:0011463",
     "HP:0011505",
-    "HP:0011842",
-    "HP:0011951",
     "HP:0012185",
     "HP:0012384",
     "HP:0012426",
     "HP:0012471",
     "HP:0012478",
     "HP:0012514",
-    "HP:0012664",
+    "HP:0012735",
     "HP:0025708",
     "HP:0030044",
     "HP:0030466",
@@ -69335,10 +70570,8 @@
     "HP:0030786",
     "HP:0030799",
     "HP:0030812",
-    "HP:0030838",
     "HP:0031354",
     "HP:0031416",
-    "HP:0031458",
     "HP:0031605",
     "HP:0031609",
     "HP:0031849",
@@ -69350,18 +70583,14 @@
     "HP:0100021",
     "HP:0100261",
     "HP:0100490",
-    "HP:0100512",
     "HP:0100625",
     "HP:0100729",
     "HP:0100765",
     "HP:0100790",
-    "HP:0100874",
     "HP:0410018",
-    "HP:0410263",
     "HP:0500087",
     "HP:4000193",
     "HP:4000198",
-    "HP:5200321",
     "HP:6000360",
     "HP:6000910",
     "MONDO:0001586",
@@ -69377,7 +70606,6 @@
     "MONDO:0014687",
     "MONDO:0016315",
     "MONDO:0016316",
-    "MONDO:0018937",
     "MONDO:0019200",
     "NCT02716246",
     "NCT03153319",
@@ -69420,25 +70648,20 @@
     "atlas:asset-mps-natural-history-design",
     "atlas:asset-rare-disease-day",
     "atlas:mech-glycosaminoglycan-catabolism",
-    "atlas:mech-lysosomal-enzyme-deficiency",
     "atlas:org-cure-sanfilippo-foundation",
     "atlas:org-eurordis-rare-diseases-europe",
     "atlas:org-national-mps-society",
     "atlas:org-national-organization-for-rare-disorders-nord",
     "atlas:res-andrade-38",
-    "atlas:res-anson-45",
     "atlas:res-bhattoa-18",
-    "atlas:res-coutinho-51",
     "atlas:res-d-avanzo-48",
     "atlas:res-da-silva-16",
     "atlas:res-feldhammer-14",
     "atlas:res-hampe-25",
     "atlas:res-jakobkiewicz-banecka-39",
     "atlas:res-kaczor-kami-ska-26",
-    "atlas:res-kong-50",
     "atlas:res-o-kelly-12",
     "atlas:res-rinella-13",
-    "atlas:res-suarez-guerrero-44",
     "atlas:res-valstar-15",
     "atlas:res-wraith-17",
     "atlas:res-wraith-24",
@@ -69649,6 +70872,70 @@
     "Cross-disease natural-history data still fragmented across single-disease registries."
    ],
    "next_experiment": "Run one shared lysosomal biomarker panel (plasma lyso-sphingolipids incl. glucosylsphingosine, lyso-Gb3, psychosine) across Fabry + Gaucher + Krabbe cohorts drawn from the Fabry Registry and ICGG, to validate a single assay across three diseases."
+  },
+  {
+   "id": 7,
+   "label": "Lysosomal enzyme deficiency (no genes)",
+   "summary": "1 disease(s) - mucopolysaccharidosis type 3 - connected through lysosomal enzyme deficiency and overlapping phenotypes; 0 trials and 1 reusable asset(s).",
+   "members": [
+    "HP:0000388",
+    "HP:0000389",
+    "HP:0000391",
+    "HP:0000410",
+    "HP:0000518",
+    "HP:0000545",
+    "HP:0000580",
+    "HP:0000710",
+    "HP:0000718",
+    "HP:0000734",
+    "HP:0000772",
+    "HP:0000889",
+    "HP:0001385",
+    "HP:0001604",
+    "HP:0001633",
+    "HP:0001646",
+    "HP:0001678",
+    "HP:0001999",
+    "HP:0002119",
+    "HP:0002254",
+    "HP:0002505",
+    "HP:0002781",
+    "HP:0002857",
+    "HP:0003312",
+    "HP:0003541",
+    "HP:0004349",
+    "HP:0004452",
+    "HP:0004493",
+    "HP:0005425",
+    "HP:0005743",
+    "HP:0007009",
+    "HP:0009928",
+    "HP:0010864",
+    "HP:0011110",
+    "HP:0011842",
+    "HP:0011951",
+    "HP:0012664",
+    "HP:0025160",
+    "HP:0030838",
+    "HP:0031458",
+    "HP:0100512",
+    "HP:0100874",
+    "HP:0410263",
+    "HP:5200321",
+    "MONDO:0018937",
+    "atlas:res-anson-45",
+    "atlas:res-coutinho-51",
+    "atlas:res-kong-50",
+    "atlas:res-suarez-guerrero-44"
+   ],
+   "shared_mechanism": "Lysosomal enzyme deficiency",
+   "reusable_assets": [
+    "NORD IAMRARE registry platform"
+   ],
+   "gaps": [
+    "No clinical trials mapped to any disease in this cluster."
+   ],
+   "next_experiment": "Catalog ERT dosing and immunogenicity data across all registry-linked diseases to build a shared safety baseline for first-in-disease enzyme therapies."
   }
  ],
  "journeys": {
