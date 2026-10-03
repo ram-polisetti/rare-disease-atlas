@@ -1,0 +1,82 @@
+{
+ "sampled": 5,
+ "quarantined": 0,
+ "yes": 5,
+ "total": 5,
+ "claude_tokens": {
+  "in": 573,
+  "out": 141
+ },
+ "results": [
+  {
+   "claim": {
+    "subject": "glucocerebrosidase",
+    "relation": "disrupts",
+    "object": "Gaucher disease",
+    "pmid": "17644022",
+    "source_quote": "The common mutations found in the lysosomal enzyme deficient in Gaucher disease, beta-glucocerebrosidase, earmark these proteins for destruction by the endoplasmic reticulum-localised protein folding machinery, resulting in enzyme insufficiency, lysosomal glycolipid storage and subsequent pathology.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote describes how mutations in beta-glucocerebrosidase cause enzyme insufficiency and subsequent pathology in Gaucher disease"
+  },
+  {
+   "claim": {
+    "subject": "CSF HS",
+    "relation": "associated_with",
+    "object": "therapeutic biomarker",
+    "pmid": "PPR:PPR1012712",
+    "source_quote": "We showed that treatment of the brain without treatment of systemic bodily organs resulted in reduction of HS in brain and CSF. These results support the utility of CSF HS as a therapeutic biomarker for Sanfilippo B and other disorders of heparan sulfate catabolism.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote explicitly states CSF HS supports its utility as a therapeutic biomarker for Sanfilippo B"
+  },
+  {
+   "claim": {
+    "subject": "Gaucher disease",
+    "relation": "presents_with",
+    "object": "splenomegaly",
+    "pmid": "28218669",
+    "source_quote": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells.",
+    "confidence": "medium",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote directly states splenomegaly is associated with Gaucher disease due to Gaucher cell infiltration"
+  },
+  {
+   "claim": {
+    "subject": "Gaucher disease",
+    "relation": "treated_by",
+    "object": "eliglustat",
+    "pmid": "29152458",
+    "source_quote": "In addition, substrate reduction therapy has been approved for certain disorders, such as eliglustat for Gaucher disease.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote directly states eliglustat is approved for Gaucher disease"
+  },
+  {
+   "claim": {
+    "subject": "Pompe disease",
+    "relation": "presents_with",
+    "object": "hypertrophic cardiomyopathy",
+    "pmid": "16702883",
+    "source_quote": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progression and death usually occurring by one year of age.",
+    "confidence": "high",
+    "contradicts": false
+   },
+   "quarantined": false,
+   "verdict": "YES",
+   "reason": "quote explicitly states hypertrophic cardiomyopathy characterizes infantile-onset Pompe disease"
+  }
+ ]
+}

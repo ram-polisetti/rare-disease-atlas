@@ -25,16 +25,25 @@ def norm(s):
 
 def load_abstracts():
     """pmid -> title + ' ' + abstract, from the batch input records."""
-    texts = {}
-    for path in sorted(glob.glob(os.path.join(PROC, "extract_batch_*.jsonl"))):
+    texts, bad_lines = {}, 0
+    def ingest(path):
+        nonlocal bad_lines
         with open(path) as f:
             for line in f:
                 line = line.strip()
                 if not line:
                     continue
-                r = json.loads(line)
+                try:
+                    r = json.loads(line)
+                except json.JSONDecodeError:
+                    bad_lines += 1
+                    continue
                 texts[str(r.get("pmid", "")).strip()] = (
                     r.get("title") or "") + " " + (r.get("abstract") or "")
+    for path in sorted(glob.glob(os.path.join(PROC, "extract_batch_*.jsonl"))):
+        if "checkpoint" in os.path.basename(path):
+            continue  # worker scratch files: no title/abstract, would poison the index
+        ingest(path)
     # fallback: raw full dump
     raw = os.path.join(BASE, "data", "raw", "pubmed_abstracts.jsonl")
     if os.path.exists(raw):
@@ -43,9 +52,15 @@ def load_abstracts():
                 line = line.strip()
                 if not line:
                     continue
-                r = json.loads(line)
+                try:
+                    r = json.loads(line)
+                except json.JSONDecodeError:
+                    bad_lines += 1
+                    continue
                 texts.setdefault(str(r.get("pmid", "")).strip(),
                                  (r.get("title") or "") + " " + (r.get("abstract") or ""))
+    if bad_lines:
+        print(f"[verify] skipped {bad_lines} malformed JSON lines in abstract records")
     return texts
 
 
@@ -70,11 +85,15 @@ def main():
             subj, obj = (it.get("subject") or ""), (it.get("object") or "")
             reasons = []
             text = abstracts.get(pmid)
-            if not text:
+            if not subj or not obj:
+                reasons.append("missing subject or object label")
+            if not quote:
+                reasons.append("empty source_quote (v2 brief: no verbatim span, no claim)")
+            elif not text:
                 reasons.append("pmid not found in abstract records")
             else:
                 t = norm(text)
-                if not quote or norm(quote) not in t:
+                if norm(quote) not in t:
                     reasons.append("source_quote does not string-match the cited abstract")
                 for label, name in ((subj, "subject"), (obj, "object")):
                     if label and norm(label) not in t:

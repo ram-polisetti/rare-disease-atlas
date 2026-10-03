@@ -59,7 +59,8 @@ def main():
         total_nodes += n_added
         total_edges += e_added
 
-    json.dump({"nodes": nodes, "edges": edges}, open(INTER, "w"))
+    with open(INTER, "w") as f:
+        json.dump({"nodes": nodes, "edges": edges}, f)
     print(f"[additions] intermediate now {len(nodes)} nodes / {len(edges)} edges")
 
     env = dict(os.environ, GRAPH_USE_INTERMEDIATE="1")

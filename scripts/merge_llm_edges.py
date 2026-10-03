@@ -115,14 +115,14 @@ def main():
         })
         added += 1
 
-    json.dump({"nodes": nodes, "edges": edges}, open(INTER, "w"))
+    with open(INTER, "w") as f:
+        json.dump({"nodes": nodes, "edges": edges}, f)
     print(f"[merge] added {added} LLM edges, skipped {len(skipped)} unresolvable")
     for subj, obj in skipped[:10]:
         print(f"  skipped: {subj!r} -> {obj!r}")
 
     env = dict(os.environ, GRAPH_USE_INTERMEDIATE="1", GRAPH_LLM_MERGED="1")
-    r = subprocess.run([os.path.expanduser("~/.venv/bin/python") if False else
-                        os.path.expanduser("~/workspace/.venv/bin/python"),
+    r = subprocess.run([os.path.expanduser("~/workspace/.venv/bin/python"),
                         os.path.join(BASE, "scripts", "build_graph.py")],
                        env=env, capture_output=True, text=True)
     print(r.stdout[-1500:])
