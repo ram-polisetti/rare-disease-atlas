@@ -1,7 +1,7 @@
 {
  "source": "HPO phenotype.hpoa + hp.json (obo releases)",
  "retrieved": "2026-10-03",
- "n_diseases_with_phenotypes": 31,
+ "n_diseases_with_phenotypes": 40,
  "matched_dbids": [
   "OMIM:127750",
   "OMIM:168600",
@@ -12,17 +12,25 @@
   "OMIM:232300",
   "OMIM:245200",
   "OMIM:250100",
+  "OMIM:252900",
+  "OMIM:252920",
+  "OMIM:252930",
+  "OMIM:252940",
   "OMIM:257200",
   "OMIM:257220",
+  "OMIM:268000",
   "OMIM:268800",
   "OMIM:272800",
   "OMIM:301500",
+  "OMIM:309900",
   "OMIM:607014",
   "OMIM:607015",
   "OMIM:607016",
   "OMIM:607616",
   "OMIM:607625",
   "OMIM:608013",
+  "OMIM:616491",
+  "OMIM:616544",
   "OMIM:621314",
   "ORPHA:206436",
   "ORPHA:206443",
@@ -40,11 +48,14 @@
   "ORPHA:411602",
   "ORPHA:487",
   "ORPHA:579",
+  "ORPHA:580",
+  "ORPHA:581",
   "ORPHA:77259",
   "ORPHA:77260",
   "ORPHA:77261",
   "ORPHA:77292",
   "ORPHA:77293",
+  "ORPHA:791",
   "ORPHA:796",
   "ORPHA:845",
   "ORPHA:85212",
@@ -4520,6 +4531,1189 @@
    ]
   },
   {
+   "mondo_id": "MONDO:0009655",
+   "disease_label": "mucopolysaccharidosis type 3A",
+   "n_phenotypes": 28,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": "27/73",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0000023",
+     "hp_label": "Inguinal hernia",
+     "frequency": "26/53",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": "53/80",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0001670",
+     "hp_label": "Asymmetric septal hypertrophy",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "76/79",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "10/110",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:4000193",
+     "hp_label": "Reduced leukocyte N-sulfoglucosamine sulfohydrolase activity",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0001507",
+     "hp_label": "Growth abnormality",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0003309",
+     "hp_label": "Ovoid thoracolumbar vertebrae",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0001007",
+     "hp_label": "Hirsutism",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "2/110",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0002014",
+     "hp_label": "Diarrhea",
+     "frequency": "59/72",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0002650",
+     "hp_label": "Scoliosis",
+     "frequency": "10/110",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0001387",
+     "hp_label": "Joint stiffness",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0001263",
+     "hp_label": "Global developmental delay",
+     "frequency": "72/76",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0000250",
+     "hp_label": "Dense calvaria",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0001537",
+     "hp_label": "Umbilical hernia",
+     "frequency": "15/45",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0002208",
+     "hp_label": "Coarse hair",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0000900",
+     "hp_label": "Thickened ribs",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    },
+    {
+     "hp_id": "HP:0002788",
+     "hp_label": "Recurrent upper respiratory tract infections",
+     "frequency": "61/70",
+     "evidence": "PCS",
+     "reference": "PMID:21061399"
+    },
+    {
+     "hp_id": "HP:0000664",
+     "hp_label": "Synophrys",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252900"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0009656",
+   "disease_label": "mucopolysaccharidosis type 3B",
+   "n_phenotypes": 27,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0002344",
+     "hp_label": "Progressive neurologic deterioration",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0001670",
+     "hp_label": "Asymmetric septal hypertrophy",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": "8/16",
+     "evidence": "PCS",
+     "reference": "PMID:11153910"
+    },
+    {
+     "hp_id": "HP:0000718",
+     "hp_label": "Aggressive behavior",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0003309",
+     "hp_label": "Ovoid thoracolumbar vertebrae",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0001007",
+     "hp_label": "Hirsutism",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": "16/16",
+     "evidence": "PCS",
+     "reference": "PMID:11153910"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0002014",
+     "hp_label": "Diarrhea",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0003621",
+     "hp_label": "Juvenile onset",
+     "frequency": "8/16",
+     "evidence": "PCS",
+     "reference": "PMID:11153910"
+    },
+    {
+     "hp_id": "HP:6000360",
+     "hp_label": "Reduced tissue alpha-N-acetylglucosaminidase activity",
+     "frequency": "7/7",
+     "evidence": "PCS",
+     "reference": "PMID:12202988"
+    },
+    {
+     "hp_id": "HP:0001640",
+     "hp_label": "Cardiomegaly",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0001387",
+     "hp_label": "Joint stiffness",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000250",
+     "hp_label": "Dense calvaria",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": "16/16",
+     "evidence": "PCS",
+     "reference": "PMID:11153910"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:11153910"
+    },
+    {
+     "hp_id": "HP:0002208",
+     "hp_label": "Coarse hair",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000900",
+     "hp_label": "Thickened ribs",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0002788",
+     "hp_label": "Recurrent upper respiratory tract infections",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    },
+    {
+     "hp_id": "HP:0000664",
+     "hp_label": "Synophrys",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252920"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0009657",
+   "disease_label": "mucopolysaccharidosis type 3C",
+   "n_phenotypes": 37,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0003653",
+     "hp_label": "Cellular metachromasia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": "5/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": "2/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001670",
+     "hp_label": "Asymmetric septal hypertrophy",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "2/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "1/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0100790",
+     "hp_label": "Hernia",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": "10/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001270",
+     "hp_label": "Motor delay",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": "6/8",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001507",
+     "hp_label": "Growth abnormality",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0003309",
+     "hp_label": "Ovoid thoracolumbar vertebrae",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000998",
+     "hp_label": "Hypertrichosis",
+     "frequency": "2/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000510",
+     "hp_label": "Rod-cone dystrophy",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0001007",
+     "hp_label": "Hirsutism",
+     "frequency": "1/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": "7/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "1/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002014",
+     "hp_label": "Diarrhea",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0002751",
+     "hp_label": "Kyphoscoliosis",
+     "frequency": "2/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002333",
+     "hp_label": "Motor deterioration",
+     "frequency": "12/21",
+     "evidence": "PCS",
+     "reference": "OMIM:252930;PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002015",
+     "hp_label": "Dysphagia",
+     "frequency": "4/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0003621",
+     "hp_label": "Juvenile onset",
+     "frequency": "2/8",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0000232",
+     "hp_label": "Everted lower lip vermilion",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0001387",
+     "hp_label": "Joint stiffness",
+     "frequency": "2/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002371",
+     "hp_label": "Loss of speech",
+     "frequency": "4/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0001263",
+     "hp_label": "Global developmental delay",
+     "frequency": "3/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0000250",
+     "hp_label": "Dense calvaria",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0002208",
+     "hp_label": "Coarse hair",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000900",
+     "hp_label": "Thickened ribs",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000268",
+     "hp_label": "Dolichocephaly",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0002788",
+     "hp_label": "Recurrent upper respiratory tract infections",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252930"
+    },
+    {
+     "hp_id": "HP:0000664",
+     "hp_label": "Synophrys",
+     "frequency": "1/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    },
+    {
+     "hp_id": "HP:0004568",
+     "hp_label": "Beaking of vertebral bodies",
+     "frequency": "1/11",
+     "evidence": "PCS",
+     "reference": "PMID:20825431"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0009658",
+   "disease_label": "mucopolysaccharidosis type 3D",
+   "n_phenotypes": 73,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0001771",
+     "hp_label": "Achilles tendon contracture",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0009937",
+     "hp_label": "Facial hirsutism",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0003676",
+     "hp_label": "Progressive",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0010769",
+     "hp_label": "Pilonidal sinus",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0004322",
+     "hp_label": "Short stature",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0003593",
+     "hp_label": "Infantile onset",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": "3/4",
+     "evidence": "PCS",
+     "reference": "PMID:17998446;PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": "3/4",
+     "evidence": "PCS",
+     "reference": "PMID:17998446;PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0000718",
+     "hp_label": "Aggressive behavior",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0011220",
+     "hp_label": "Prominent forehead",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0012471",
+     "hp_label": "Thick vermilion border",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000316",
+     "hp_label": "Hypertelorism",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0003309",
+     "hp_label": "Ovoid thoracolumbar vertebrae",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000711",
+     "hp_label": "Restlessness",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000713",
+     "hp_label": "Agitation",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002656",
+     "hp_label": "Epiphyseal dysplasia",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000158",
+     "hp_label": "Macroglossia",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0001169",
+     "hp_label": "Broad palm",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001007",
+     "hp_label": "Hirsutism",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001385",
+     "hp_label": "Hip dysplasia",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001344",
+     "hp_label": "Absent speech",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000574",
+     "hp_label": "Thick eyebrow",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001387",
+     "hp_label": "Joint stiffness",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000490",
+     "hp_label": "Deeply set eye",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001260",
+     "hp_label": "Dysarthria",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001263",
+     "hp_label": "Global developmental delay",
+     "frequency": "3/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0031354",
+     "hp_label": "Sleep onset insomnia",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0033454",
+     "hp_label": "Tube feeding",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:4000198",
+     "hp_label": "Reduced acetylglucosamine-6-sulfatase activity in cultured fibroblasts",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:12573255"
+    },
+    {
+     "hp_id": "HP:0000403",
+     "hp_label": "Recurrent otitis media",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002307",
+     "hp_label": "Drooling",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002788",
+     "hp_label": "Recurrent upper respiratory tract infections",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002987",
+     "hp_label": "Elbow flexion contracture",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001653",
+     "hp_label": "Mitral regurgitation",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002943",
+     "hp_label": "Thoracic scoliosis",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000369",
+     "hp_label": "Low-set ears",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000187",
+     "hp_label": "Broad alveolar ridges",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0003653",
+     "hp_label": "Cellular metachromasia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000662",
+     "hp_label": "Nyctalopia",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000463",
+     "hp_label": "Anteverted nares",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000023",
+     "hp_label": "Inguinal hernia",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001272",
+     "hp_label": "Cerebellar atrophy",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0031849",
+     "hp_label": "Sleep-wake inversion",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001670",
+     "hp_label": "Asymmetric septal hypertrophy",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "3/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0010865",
+     "hp_label": "Age-inappropriate oppositional behavior",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001507",
+     "hp_label": "Growth abnormality",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0008479",
+     "hp_label": "Hypoplastic vertebral bodies",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000256",
+     "hp_label": "Macrocephaly",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0000179",
+     "hp_label": "Thick lower lip vermilion",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0001348",
+     "hp_label": "Brisk reflexes",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": "4/4",
+     "evidence": "PCS",
+     "reference": "PMID:17998446;PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002014",
+     "hp_label": "Diarrhea",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000154",
+     "hp_label": "Wide mouth",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002015",
+     "hp_label": "Dysphagia",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000750",
+     "hp_label": "Delayed speech and language development",
+     "frequency": "3/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001288",
+     "hp_label": "Gait disturbance",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0001761",
+     "hp_label": "Pes cavus",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0000470",
+     "hp_label": "Short neck",
+     "frequency": "2/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0005280",
+     "hp_label": "Depressed nasal bridge",
+     "frequency": "3/4",
+     "evidence": "PCS",
+     "reference": "PMID:17998446;PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000505",
+     "hp_label": "Visual impairment",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    },
+    {
+     "hp_id": "HP:0002208",
+     "hp_label": "Coarse hair",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0000900",
+     "hp_label": "Thickened ribs",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:252940"
+    },
+    {
+     "hp_id": "HP:0002007",
+     "hp_label": "Frontal bossing",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:12624138"
+    },
+    {
+     "hp_id": "HP:0000664",
+     "hp_label": "Synophrys",
+     "frequency": "1/3",
+     "evidence": "PCS",
+     "reference": "PMID:17998446"
+    }
+   ]
+  },
+  {
    "mondo_id": "MONDO:0009756",
    "disease_label": "Niemann-Pick disease type A",
    "n_phenotypes": 66,
@@ -7036,6 +8230,902 @@
      "frequency": "HP:0040284",
      "evidence": "TAS",
      "reference": "ORPHA:324"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0010674",
+   "disease_label": "mucopolysaccharidosis type 2",
+   "n_phenotypes": 127,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0003510",
+     "hp_label": "Severe short stature",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000684",
+     "hp_label": "Delayed eruption of teeth",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": "22/84",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0004322",
+     "hp_label": "Short stature",
+     "frequency": "82/210",
+     "evidence": "PCS",
+     "reference": "PMID:35144014;OMIM:309900;PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001371",
+     "hp_label": "Flexion contracture",
+     "frequency": "74/109",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0002341",
+     "hp_label": "Cervical cord compression",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0002187",
+     "hp_label": "Profound intellectual disability",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0003593",
+     "hp_label": "Infantile onset",
+     "frequency": "13/79",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0002180",
+     "hp_label": "Neurodegeneration",
+     "frequency": "44/136",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0001171",
+     "hp_label": "Split hand",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": "137/142",
+     "evidence": "PCS",
+     "reference": "PMID:35144014;PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": "63/79",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0001609",
+     "hp_label": "Hoarse voice",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0011462",
+     "hp_label": "Young adult onset",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0000998",
+     "hp_label": "Hypertrichosis",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000238",
+     "hp_label": "Hydrocephalus",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000158",
+     "hp_label": "Macroglossia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0003502",
+     "hp_label": "Mild short stature",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0007703",
+     "hp_label": "Abnormal retinal pigmentation",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0002870",
+     "hp_label": "Obstructive sleep apnea",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001419",
+     "hp_label": "X-linked recessive inheritance",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001537",
+     "hp_label": "Umbilical hernia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000403",
+     "hp_label": "Recurrent otitis media",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001654",
+     "hp_label": "Abnormal heart valve morphology",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0002786",
+     "hp_label": "Tracheobronchomalacia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000687",
+     "hp_label": "Widely spaced teeth",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0030799",
+     "hp_label": "Scaphocephaly",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0004389",
+     "hp_label": "Intestinal pseudo-obstruction",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000023",
+     "hp_label": "Inguinal hernia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0006532",
+     "hp_label": "Recurrent pneumonia",
+     "frequency": "7/142",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0000256",
+     "hp_label": "Macrocephaly",
+     "frequency": "115/131",
+     "evidence": "PCS",
+     "reference": "OMIM:309900;PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0000179",
+     "hp_label": "Thick lower lip vermilion",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0006536",
+     "hp_label": "Airway obstruction",
+     "frequency": "10/142",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0002014",
+     "hp_label": "Diarrhea",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0003621",
+     "hp_label": "Juvenile onset",
+     "frequency": "3/79",
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0003541",
+     "hp_label": "Urinary glycosaminoglycan excretion",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0001761",
+     "hp_label": "Pes cavus",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001085",
+     "hp_label": "Papilledema",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0002099",
+     "hp_label": "Asthma",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000470",
+     "hp_label": "Short neck",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0034203",
+     "hp_label": "Decreased iduronate sulfatase level",
+     "frequency": "1/1",
+     "evidence": "PCS",
+     "reference": "PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0010535",
+     "hp_label": "Sleep apnea",
+     "frequency": "13/142",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0002808",
+     "hp_label": "Kyphosis",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000508",
+     "hp_label": "Ptosis",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0008301",
+     "hp_label": "Dermatan sulfate excretion in urine",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": "99/126",
+     "evidence": "PCS",
+     "reference": "PMID:35144014;PMID:35282545"
+    },
+    {
+     "hp_id": "HP:0001635",
+     "hp_label": "Congestive heart failure",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0000268",
+     "hp_label": "Dolichocephaly",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:309900"
+    },
+    {
+     "hp_id": "HP:0001433",
+     "hp_label": "Hepatosplenomegaly",
+     "frequency": "101/116",
+     "evidence": "PCS",
+     "reference": "PMID:35144014"
+    },
+    {
+     "hp_id": "HP:0000256",
+     "hp_label": "Macrocephaly",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001376",
+     "hp_label": "Limitation of joint mobility",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001627",
+     "hp_label": "Abnormal heart morphology",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0004322",
+     "hp_label": "Short stature",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000023",
+     "hp_label": "Inguinal hernia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000158",
+     "hp_label": "Macroglossia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000212",
+     "hp_label": "Gingival overgrowth",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000293",
+     "hp_label": "Full cheeks",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000405",
+     "hp_label": "Conductive hearing impairment",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000407",
+     "hp_label": "Sensorineural hearing impairment",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000488",
+     "hp_label": "Retinopathy",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000546",
+     "hp_label": "Retinal degeneration",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000708",
+     "hp_label": "Atypical behavior",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000762",
+     "hp_label": "Decreased nerve conduction velocity",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001268",
+     "hp_label": "Mental deterioration",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001510",
+     "hp_label": "Growth delay",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001537",
+     "hp_label": "Umbilical hernia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001609",
+     "hp_label": "Hoarse voice",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001654",
+     "hp_label": "Abnormal heart valve morphology",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002028",
+     "hp_label": "Chronic diarrhea",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002344",
+     "hp_label": "Progressive neurologic deterioration",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002376",
+     "hp_label": "Developmental regression",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002788",
+     "hp_label": "Recurrent upper respiratory tract infections",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0004582",
+     "hp_label": "Irregularity of vertebral bodies",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0005781",
+     "hp_label": "Contractures of the large joints",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0006979",
+     "hp_label": "Sleep-wake cycle disturbance",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0007994",
+     "hp_label": "Peripheral visual field loss",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0008301",
+     "hp_label": "Dermatan sulfate excretion in urine",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0010535",
+     "hp_label": "Sleep apnea",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0011369",
+     "hp_label": "Mongolian blue spot",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0012471",
+     "hp_label": "Thick vermilion border",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0030044",
+     "hp_label": "Flexion contracture of digit",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0030812",
+     "hp_label": "Enlarged tonsils",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0100543",
+     "hp_label": "Cognitive impairment",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0410018",
+     "hp_label": "Recurrent ear infections",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000336",
+     "hp_label": "Prominent supraorbital ridges",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000362",
+     "hp_label": "Otosclerosis",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000431",
+     "hp_label": "Wide nasal bridge",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000445",
+     "hp_label": "Wide nose",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000648",
+     "hp_label": "Optic atrophy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001085",
+     "hp_label": "Papilledema",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001263",
+     "hp_label": "Global developmental delay",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001334",
+     "hp_label": "Communicating hydrocephalus",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001385",
+     "hp_label": "Hip dysplasia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001633",
+     "hp_label": "Abnormal mitral valve morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001638",
+     "hp_label": "Cardiomyopathy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001641",
+     "hp_label": "Abnormal pulmonary valve morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001679",
+     "hp_label": "Abnormal aortic morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001702",
+     "hp_label": "Abnormal tricuspid valve morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002176",
+     "hp_label": "Spinal cord compression",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0002781",
+     "hp_label": "Upper airway obstruction",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0003552",
+     "hp_label": "Muscle stiffness",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0007703",
+     "hp_label": "Abnormal retinal pigmentation",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0007957",
+     "hp_label": "Corneal opacity",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0008843",
+     "hp_label": "Hip osteoarthritis",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0010656",
+     "hp_label": "Abnormal epiphyseal ossification",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0012185",
+     "hp_label": "Constrictive median neuropathy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0012478",
+     "hp_label": "Temporomandibular joint ankylosis",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0030466",
+     "hp_label": "Abnormal full-field electroretinogram",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0031416",
+     "hp_label": "Abnormal nasal mucus secretion",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000718",
+     "hp_label": "Aggressive behavior",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0000822",
+     "hp_label": "Hypertension",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001129",
+     "hp_label": "Large central visual field defect",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0011675",
+     "hp_label": "Arrhythmia",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0025160",
+     "hp_label": "Abnormal temper tantrums",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
+    },
+    {
+     "hp_id": "HP:0100710",
+     "hp_label": "Impulsivity",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:580"
     }
    ]
   },
@@ -9913,6 +12003,272 @@
      "frequency": "HP:0040282",
      "evidence": "TAS",
      "reference": "ORPHA:85212"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0014665",
+   "disease_label": "Charcot-Marie-Tooth disease axonal type 2V",
+   "n_phenotypes": 15,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0001265",
+     "hp_label": "Hyporeflexia",
+     "frequency": "10/21",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0003401",
+     "hp_label": "Paresthesia",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0003676",
+     "hp_label": "Progressive",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0003596",
+     "hp_label": "Middle age onset",
+     "frequency": "6/18",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0002495",
+     "hp_label": "Impaired vibratory sensation",
+     "frequency": "12/21",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0003584",
+     "hp_label": "Late onset",
+     "frequency": "8/18",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "16/19",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0012514",
+     "hp_label": "Lower limb pain",
+     "frequency": "20/20",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0010871",
+     "hp_label": "Sensory ataxia",
+     "frequency": "9/21",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0000639",
+     "hp_label": "Nystagmus",
+     "frequency": "0/17",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0011462",
+     "hp_label": "Young adult onset",
+     "frequency": "4/18",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0009830",
+     "hp_label": "Peripheral neuropathy",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0002936",
+     "hp_label": "Distal sensory impairment",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0001324",
+     "hp_label": "Muscle weakness",
+     "frequency": "0/21",
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    },
+    {
+     "hp_id": "HP:0000006",
+     "hp_label": "Autosomal dominant inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25818867"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0014687",
+   "disease_label": "retinitis pigmentosa 73",
+   "n_phenotypes": 21,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0001133",
+     "hp_label": "Constriction of peripheral visual field",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0007737",
+     "hp_label": "Spicular pigmentation of the retina",
+     "frequency": "2/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0030501",
+     "hp_label": "Macular crystals",
+     "frequency": "2/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0003596",
+     "hp_label": "Middle age onset",
+     "frequency": "3/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000662",
+     "hp_label": "Nyctalopia",
+     "frequency": "5/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0030786",
+     "hp_label": "Photopsia",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000551",
+     "hp_label": "Color vision defect",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0001123",
+     "hp_label": "Visual field defect",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0031609",
+     "hp_label": "Macular geographic atrophy",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0030529",
+     "hp_label": "Ring scotoma",
+     "frequency": "4/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0100014",
+     "hp_label": "Epiretinal membrane",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0025708",
+     "hp_label": "Early young adult onset",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0500087",
+     "hp_label": "Peripapillary atrophy",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0011463",
+     "hp_label": "Childhood onset",
+     "frequency": "2/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0007663",
+     "hp_label": "Reduced visual acuity",
+     "frequency": "2/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000603",
+     "hp_label": "Central scotoma",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000543",
+     "hp_label": "Optic disc pallor",
+     "frequency": "2/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000510",
+     "hp_label": "Rod-cone dystrophy",
+     "frequency": "6/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0000622",
+     "hp_label": "Blurred vision",
+     "frequency": "1/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
+    },
+    {
+     "hp_id": "HP:0001105",
+     "hp_label": "Retinal atrophy",
+     "frequency": "6/6",
+     "evidence": "PCS",
+     "reference": "PMID:25859010"
     }
    ]
   },
@@ -12811,6 +15167,1028 @@
      "frequency": "0/1",
      "evidence": "PCS",
      "reference": "PMID:7668832"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0018937",
+   "disease_label": "mucopolysaccharidosis type 3",
+   "n_phenotypes": 106,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0003312",
+     "hp_label": "Abnormal vertebral body morphology",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0004493",
+     "hp_label": "Craniofacial hyperostosis",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0005425",
+     "hp_label": "Recurrent sinopulmonary infections",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0011110",
+     "hp_label": "Recurrent tonsillitis",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0011842",
+     "hp_label": "Abnormal skeletal morphology",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0011947",
+     "hp_label": "Respiratory tract infection",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0031458",
+     "hp_label": "Adenoiditis",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0100874",
+     "hp_label": "Thick hair",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0410263",
+     "hp_label": "Brain imaging abnormality",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000023",
+     "hp_label": "Inguinal hernia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000158",
+     "hp_label": "Macroglossia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000164",
+     "hp_label": "Abnormality of the dentition",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000238",
+     "hp_label": "Hydrocephalus",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000256",
+     "hp_label": "Macrocephaly",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000268",
+     "hp_label": "Dolichocephaly",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000391",
+     "hp_label": "Thickened helices",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000405",
+     "hp_label": "Conductive hearing impairment",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000407",
+     "hp_label": "Sensorineural hearing impairment",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000410",
+     "hp_label": "Mixed hearing impairment",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000510",
+     "hp_label": "Rod-cone dystrophy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000580",
+     "hp_label": "Pigmentary retinopathy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000718",
+     "hp_label": "Aggressive behavior",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000726",
+     "hp_label": "Dementia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000943",
+     "hp_label": "Dysostosis multiplex",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001250",
+     "hp_label": "Seizure",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001257",
+     "hp_label": "Spasticity",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001260",
+     "hp_label": "Dysarthria",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001270",
+     "hp_label": "Motor delay",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001371",
+     "hp_label": "Flexion contracture",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001385",
+     "hp_label": "Hip dysplasia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001387",
+     "hp_label": "Joint stiffness",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001537",
+     "hp_label": "Umbilical hernia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001538",
+     "hp_label": "Protuberant abdomen",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001633",
+     "hp_label": "Abnormal mitral valve morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001637",
+     "hp_label": "Abnormal myocardium morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001640",
+     "hp_label": "Cardiomegaly",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000752",
+     "hp_label": "Hyperactivity",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000772",
+     "hp_label": "Abnormal rib morphology",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000889",
+     "hp_label": "Abnormal clavicle morphology",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001007",
+     "hp_label": "Hirsutism",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001251",
+     "hp_label": "Ataxia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001276",
+     "hp_label": "Hypertonia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001288",
+     "hp_label": "Gait disturbance",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001328",
+     "hp_label": "Specific learning disability",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001604",
+     "hp_label": "Vocal cord paresis",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001744",
+     "hp_label": "Splenomegaly",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001999",
+     "hp_label": "Abnormal facial shape",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002159",
+     "hp_label": "Heparan sulfate excretion in urine",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002240",
+     "hp_label": "Hepatomegaly",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002254",
+     "hp_label": "Intermittent diarrhea",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002376",
+     "hp_label": "Developmental regression",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002857",
+     "hp_label": "Genu valgum",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001646",
+     "hp_label": "Abnormal aortic valve morphology",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001678",
+     "hp_label": "Atrioventricular block",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002015",
+     "hp_label": "Dysphagia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002019",
+     "hp_label": "Constipation",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002119",
+     "hp_label": "Ventriculomegaly",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002505",
+     "hp_label": "Loss of ambulation",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002650",
+     "hp_label": "Scoliosis",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002659",
+     "hp_label": "Increased susceptibility to fractures",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002781",
+     "hp_label": "Upper airway obstruction",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002870",
+     "hp_label": "Obstructive sleep apnea",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0004349",
+     "hp_label": "Reduced bone mineral density",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0004452",
+     "hp_label": "Abnormality of the middle ear ossicles",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0005743",
+     "hp_label": "Avascular necrosis of the capital femoral epiphysis",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0006801",
+     "hp_label": "Hyperactive deep tendon reflexes",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000518",
+     "hp_label": "Cataract",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000545",
+     "hp_label": "Myopia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000664",
+     "hp_label": "Synophrys",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000708",
+     "hp_label": "Atypical behavior",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000389",
+     "hp_label": "Chronic otitis media",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000750",
+     "hp_label": "Delayed speech and language development",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002024",
+     "hp_label": "Malabsorption",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002208",
+     "hp_label": "Coarse hair",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002230",
+     "hp_label": "Generalized hirsutism",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002344",
+     "hp_label": "Progressive neurologic deterioration",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0002360",
+     "hp_label": "Sleep disturbance",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0003541",
+     "hp_label": "Urinary glycosaminoglycan excretion",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001249",
+     "hp_label": "Intellectual disability",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0007009",
+     "hp_label": "Central nervous system degeneration",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0008155",
+     "hp_label": "Mucopolysacchariduria",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0010864",
+     "hp_label": "Severe intellectual disability",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000280",
+     "hp_label": "Coarse facial features",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000365",
+     "hp_label": "Hearing impairment",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000388",
+     "hp_label": "Otitis media",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0007256",
+     "hp_label": "Abnormal pyramidal sign",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0009928",
+     "hp_label": "Thick nasal alae",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0011951",
+     "hp_label": "Aspiration pneumonia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0012185",
+     "hp_label": "Constrictive median neuropathy",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0012471",
+     "hp_label": "Thick vermilion border",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0012664",
+     "hp_label": "Reduced left ventricular ejection fraction",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0025160",
+     "hp_label": "Abnormal temper tantrums",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0030195",
+     "hp_label": "Fatigable weakness of swallowing muscles",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0030838",
+     "hp_label": "Hip pain",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0100512",
+     "hp_label": "Decreased circulating vitamin D concentration",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000546",
+     "hp_label": "Retinal degeneration",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000618",
+     "hp_label": "Blindness",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000648",
+     "hp_label": "Optic atrophy",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000662",
+     "hp_label": "Nyctalopia",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000710",
+     "hp_label": "Hyperorality",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0000734",
+     "hp_label": "Disinhibition",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0001133",
+     "hp_label": "Constriction of peripheral visual field",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0007759",
+     "hp_label": "Opacification of the corneal stroma",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:0007957",
+     "hp_label": "Corneal opacity",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    },
+    {
+     "hp_id": "HP:5200321",
+     "hp_label": "Amplification of sexual behavior",
+     "frequency": "HP:0040284",
+     "evidence": "TAS",
+     "reference": "ORPHA:581"
+    }
+   ]
+  },
+  {
+   "mondo_id": "MONDO:0019200",
+   "disease_label": "retinitis pigmentosa",
+   "n_phenotypes": 38,
+   "phenotypes": [
+    {
+     "hp_id": "HP:0001133",
+     "hp_label": "Constriction of peripheral visual field",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0000662",
+     "hp_label": "Nyctalopia",
+     "frequency": null,
+     "evidence": "IEA",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0031605",
+     "hp_label": "Abnormal fundus pigmentation",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0001419",
+     "hp_label": "X-linked recessive inheritance",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0000007",
+     "hp_label": "Autosomal recessive inheritance",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0000510",
+     "hp_label": "Rod-cone dystrophy",
+     "frequency": "20/20",
+     "evidence": "TAS",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0000006",
+     "hp_label": "Autosomal dominant inheritance",
+     "frequency": null,
+     "evidence": "TAS",
+     "reference": "OMIM:268000"
+    },
+    {
+     "hp_id": "HP:0000405",
+     "hp_label": "Conductive hearing impairment",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000407",
+     "hp_label": "Sensorineural hearing impairment",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000505",
+     "hp_label": "Visual impairment",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000512",
+     "hp_label": "Abnormal electroretinogram",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000546",
+     "hp_label": "Retinal degeneration",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000613",
+     "hp_label": "Photophobia",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000618",
+     "hp_label": "Blindness",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000639",
+     "hp_label": "Nystagmus",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000648",
+     "hp_label": "Optic atrophy",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007675",
+     "hp_label": "Progressive night blindness",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007703",
+     "hp_label": "Abnormal retinal pigmentation",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007737",
+     "hp_label": "Spicular pigmentation of the retina",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0008046",
+     "hp_label": "Abnormal retinal vascular morphology",
+     "frequency": "HP:0040281",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000501",
+     "hp_label": "Glaucoma",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000543",
+     "hp_label": "Optic disc pallor",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000563",
+     "hp_label": "Keratoconus",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000602",
+     "hp_label": "Ophthalmoplegia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000662",
+     "hp_label": "Nyctalopia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000842",
+     "hp_label": "Hyperinsulinemia",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0001105",
+     "hp_label": "Retinal atrophy",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007787",
+     "hp_label": "Posterior subcapsular cataract",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007843",
+     "hp_label": "Attenuation of retinal blood vessels",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007994",
+     "hp_label": "Peripheral visual field loss",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0011505",
+     "hp_label": "Cystoid macular edema",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0012426",
+     "hp_label": "Optic disc drusen",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0030466",
+     "hp_label": "Abnormal full-field electroretinogram",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0030488",
+     "hp_label": "Abnormal central response of multifocal electroretinogram",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0030610",
+     "hp_label": "Photoreceptor outer segment loss on macular OCT",
+     "frequency": "HP:0040282",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0000551",
+     "hp_label": "Color vision defect",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0007663",
+     "hp_label": "Reduced visual acuity",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
+    },
+    {
+     "hp_id": "HP:0030786",
+     "hp_label": "Photopsia",
+     "frequency": "HP:0040283",
+     "evidence": "TAS",
+     "reference": "ORPHA:791"
     }
    ]
   }

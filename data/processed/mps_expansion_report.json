@@ -385,5 +385,23 @@
    },
    "source": "Hand-curated (agent), URL verified 2026-10-03"
   }
- ]
+ ],
+ "after": {
+  "nodes": 1353,
+  "edges": 3532,
+  "louvain": {
+   "communities": 7,
+   "modularity": 0.5415,
+   "resolution": 1.0,
+   "random_state": 42,
+   "note": "Louvain on disease-gene-phenotype subgraph; disease-disease edges weighted by shared primary mechanism (4.0), disease-gene 6.0, disease-phenotype 1.0."
+  }
+ },
+ "validation": "Passed graph contract, MPS semantic checks and original raw preservation checks.",
+ "medical_claims": {
+  "no_approved_mps_iiia_therapy": "Contradicted; omitted. FDA approved Fayuvi on 2026-09-17 for specified pediatric patients.",
+  "source_ref": "https://www.fda.gov/media/194921/download",
+  "cost_and_timeline": "Unverified study-specific values; explicitly labelled estimates.",
+  "miglustat": "Verified US Gaucher and EU Gaucher/NPC Zavesca indications; translation precedent only."
+ }
 }

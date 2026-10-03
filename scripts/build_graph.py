@@ -6,6 +6,7 @@ Phase 2 merge (LLM edges) lives in merge_llm_edges.py which re-runs analyze().
 import json, re, sys, os
 from datetime import datetime, timezone
 from collections import Counter, defaultdict
+import mps_slice
 
 BASE = os.path.expanduser("~/workspace/hack-nation-rare-disease-atlas")
 DATA = os.path.join(BASE, "data")
@@ -61,7 +62,7 @@ MECHS = {
     "atlas:mech-glycogen-metabolism": ("Glycogen metabolism",
         "Lysosomal breakdown of glycogen by acid alpha-glucosidase; failure drives Pompe disease."),
     "atlas:mech-glycosaminoglycan-catabolism": ("Glycosaminoglycan catabolism",
-        "Breakdown of glycosaminoglycans (dermatan/heparan sulfate) by lysosomal enzymes; failure drives MPS I."),
+        "Lysosomal breakdown of glycosaminoglycans (GAGs), including dermatan and heparan sulfate. IDUA/IDS defects cause MPS I/II; SGSH, NAGLU, HGSNAT and GNS defects impair heparan-sulfate degradation in MPS III A–D."),
     "atlas:mech-lysosomal-lipid-trafficking": ("Lysosomal lipid and cholesterol trafficking",
         "Export of cholesterol and lipids out of the lysosome via NPC1/NPC2; failure drives Niemann-Pick type C."),
     "atlas:mech-lysosomal-neurodegeneration": ("Lysosomal dysfunction in neurodegeneration",
@@ -89,6 +90,11 @@ GENE_MECH = {
     "IDUA":  ["atlas:mech-glycosaminoglycan-catabolism"],
     "GALC":  ["atlas:mech-sphingolipid-catabolism"],
     "ARSA":  ["atlas:mech-sphingolipid-catabolism"],
+    "IDS":   ["atlas:mech-glycosaminoglycan-catabolism"],
+    "SGSH":  ["atlas:mech-glycosaminoglycan-catabolism"],
+    "NAGLU": ["atlas:mech-glycosaminoglycan-catabolism"],
+    "HGSNAT": ["atlas:mech-glycosaminoglycan-catabolism"],
+    "GNS":   ["atlas:mech-glycosaminoglycan-catabolism"],
 }
 
 def build_curated():
@@ -128,6 +134,12 @@ def build_curated():
                       enzyme="arylsulfatase A",
                       desc="Encodes arylsulfatase A, the lysosomal enzyme that breaks down sulfatides. Deficiency causes metachromatic leukodystrophy."),
     }
+    # IDs resolved by the expansion pipeline; full names from the local Orphanet release.
+    for sym in ("IDS", "SGSH", "NAGLU", "HGSNAT", "GNS"):
+        gene_name = next(link["gene_name"] for link in orphanet["links"] if link["gene_symbol"] == sym)
+        GENES[sym] = dict(hgnc=monarch["genes"][sym]["id"], gene_name=gene_name,
+                         enzyme=gene_name,
+                         desc=f"Encodes {gene_name}, an enzyme involved in lysosomal glycosaminoglycan/heparan-sulfate degradation. Deficiency causes MPS II (IDS) or the corresponding Sanfilippo subtype (SGSH/NAGLU/HGSNAT/GNS).")
     HGNC_OF = {sym: g["hgnc"] for sym, g in GENES.items()}
 
     for sym, g in GENES.items():
@@ -208,8 +220,10 @@ def build_curated():
     for d in mondo["diseases"]:
         mid = d["mondo_id"]
         genes = disease_genes.get(mid, [])
-        add_node(mid, "disease", d["label"], synonyms=d.get("synonyms", [])[:12],
-                 description=disease_description(d["label"], genes))
+        add_node(mid, "disease", d["label"], synonyms=d.get("synonyms", []),
+                 description=d.get("definition") or disease_description(d["label"], genes),
+                 extra={"xrefs": d.get("xrefs", []), "source": d.get("source"),
+                        "retrieved": d.get("retrieved")})
 
     add_node("ORPHA:411602", "disease", "Hereditary late-onset Parkinson disease",
              synonyms=["hereditary late-onset Parkinson disease"],
@@ -294,8 +308,9 @@ def build_curated():
     for sym, mlist in GENE_MECH.items():
         hgnc = HGNC_OF[sym]
         for m2 in mlist:
-            conf = "medium" if m2 == "atlas:mech-lysosomal-neurodegeneration" else "high"
-            add_edge(hgnc, m2, "disrupts_pathway", "observed", conf, "manual",
+            inferred = sym in ("IDS", "SGSH", "NAGLU", "HGSNAT", "GNS")
+            conf = "medium" if inferred or m2 == "atlas:mech-lysosomal-neurodegeneration" else "high"
+            add_edge(hgnc, m2, "disrupts_pathway", "inferred" if inferred else "observed", conf, "manual",
                      "Orphanet/Monarch gene annotations",
                      f"Loss of {sym} function disrupts {MECHS[m2][0].lower()}.")
 
@@ -351,6 +366,7 @@ def build_curated():
         "Sandhoff disease": ["MONDO:0010006", "MONDO:0017722", "MONDO:0017723", "MONDO:0017721"],
     }
     trial_disease = defaultdict(list)
+    QD_MAP.update(mps_slice.disease_map(mondo))
     for t in trials["trials"]:
         nid = t["nct_id"]
         phases = ", ".join(t.get("phase", []) or ["N/A"])
@@ -412,6 +428,7 @@ def build_curated():
             "diseases, reusing ICGG registry infrastructure and shared ERT trial-design endpoints.",
             []),
     }
+    ORG_DISEASE_MAP.update(mps_slice.disease_map(mondo))
     for aid, (label, desc, mids) in ASSETS.items():
         add_node(aid, "asset", label, synonyms=[], description=desc, extra={"stage": "proposal" if "proposal" in aid else "operational"})
         for mid in mids:
@@ -427,6 +444,9 @@ def build_curated():
                 mids += mondo_ids
             else:
                 mids += ORG_DISEASE_MAP.get(dn, [])
+        if o["name"] == "National MPS Society":
+            mids += [d["mondo_id"] for d in mondo["diseases"]
+                     if d["label"].startswith(("mucopolysaccharidosis type 2", "mucopolysaccharidosis type 3"))]
         add_node(oid, "patient_org", o["name"], synonyms=[],
                  description="; ".join(o.get("assets", [])) or "Patient advocacy organization.",
                  extra={"url": o["url"], "assets": o.get("assets", [])})
@@ -442,12 +462,7 @@ def build_curated():
                              f"{o['name']} is associated with '{alabel}'.")
 
     # proposal links for Maria's journey
-    add_edge("atlas:asset-cross-disease-proposal", "atlas:asset-icgg", "reuses_asset",
-             "inferred", "medium", "manual", "https://www.gaucherdisease.org",
-             "The proposal reuses the ICGG registry's infrastructure, data model, and endpoints.")
-    add_edge("atlas:asset-cross-disease-proposal", "atlas:asset-ert-trial-designs", "reuses_asset",
-             "inferred", "medium", "manual", "https://clinicaltrials.gov",
-             "The proposal reuses ERT trial-design endpoints proven in Gaucher, Fabry, and Pompe trials.")
+    mps_slice.add_assets(add_node, add_edge, nodes, DATA)
 
     # ---------- researchers (from PubMed authors of slice papers) ----------
     ENTITY_NODE = {
@@ -460,6 +475,10 @@ def build_curated():
         "Mucopolysaccharidosis type I": "MONDO:0001586",
     }
     by_entity = defaultdict(list)
+    ENTITY_NODE.update({g: monarch["genes"][g]["id"] for g in ("IDS", "SGSH", "NAGLU", "HGSNAT", "GNS")})
+    ENTITY_NODE.update({"mucopolysaccharidosis type III": "MONDO:0018937",
+                        "Sanfilippo syndrome": "MONDO:0018937", "Hunter syndrome": "MONDO:0010674",
+                        "mucopolysaccharidosis type II": "MONDO:0010674"})
     for line in open(os.path.join(DATA, "raw/pubmed_abstracts.jsonl")):
         a = json.loads(line)
         by_entity[a["query_entity"]].append(a)
@@ -565,7 +584,7 @@ def analyze(nodes, edges, disease_mech, llm_merged=False):
     # the shared root mechanism and the cross-disease proposal have no single disease home:
     mode_cid = Counter(part.values()).most_common(1)[0][0]
     nodes["atlas:mech-lysosomal-enzyme-deficiency"]["cluster_id"] = mode_cid  # umbrella, follows the majority cluster
-    nodes["atlas:asset-cross-disease-proposal"]["cluster_id"] = nodes["atlas:asset-icgg"]["cluster_id"]  # anchored on ICGG
+    nodes["atlas:asset-cross-disease-proposal"]["cluster_id"] = nodes[mps_slice.ASSET]["cluster_id"]
 
     # ---------- cluster summaries ----------
     NEXT_EXPERIMENT = {
@@ -644,55 +663,8 @@ def analyze(nodes, edges, disease_mech, llm_merged=False):
         })
 
     # ---------- Maria's journey ----------
-    maria_steps = [
-        {"node": "MONDO:0009265",
-         "why": "Maria starts where her diagnosis is: Gaucher disease type I, the non-neuronopathic form and the best-understood lysosomal disease.",
-         "edge_note": "Curated MONDO disease node; 5 Gaucher subtype nodes anchor the atlas."},
-        {"node": "atlas:mech-lysosomal-enzyme-deficiency",
-         "why": "She follows the broken biology, not the disease name: deficient glucocerebrosidase disrupts the lysosomal pathway shared by many rare diseases.",
-         "edge_note": "Edge MONDO:0009265 -> HGNC:4177 (caused_by_variant_in, Monarch/OMIM) -> disrupts_pathway -> sphingolipid catabolism, part_of the lysosomal root."},
-        {"node": "MONDO:0010526",
-         "why": "First mechanistic neighbor: Fabry disease. Same pathway (sphingolipid catabolism), different enzyme - and it already has an approved ERT and a registry.",
-         "edge_note": "shares_pathway edge MONDO:0009265 <-> MONDO:0010526 (inferred, same mechanism)."},
-        {"node": "MONDO:0009290",
-         "why": "Second neighbor: Pompe (glycogen storage disease II). Different branch of the same lysosomal root, and the poster child for ERT trial design that transfers.",
-         "edge_note": "Both under atlas:mech-lysosomal-enzyme-deficiency; Pompe has 41 mapped trials to borrow endpoints from."},
-        {"node": "atlas:org-national-gaucher-foundation",
-         "why": "She finds her people: the National Gaucher Foundation, the patient community that runs support programs and feeds the registry.",
-         "edge_note": "MONDO:0009265 advocated_by National Gaucher Foundation (manual, URL verified)."},
-        {"node": "atlas:org-fabry-support-information-group-fsig",
-         "why": "Through the mechanistic link she meets the Fabry community too - cross-disease patient groups that face the same ERT, registry, and newborn-screening fights.",
-         "edge_note": "MONDO:0010526 advocated_by FSIG; both orgs listed under the same lysosomal umbrella."},
-        {"node": "atlas:asset-icgg",
-         "why": "The reusable asset: the ICGG Gaucher Registry - decades of patient-years that proved registries can replace years of natural-history waiting.",
-         "edge_note": "National Gaucher Foundation maintains_asset ICGG Gaucher Registry; diseases reuse it via reuses_asset edges."},
-        {"node": "atlas:asset-ert-trial-designs",
-         "why": "The second reusable asset: ERT trial designs proven across Gaucher, Fabry, and Pompe - endpoints, dosing, and safety monitoring a new disease can copy instead of inventing.",
-         "edge_note": "9 disease nodes reuses_asset this design package (inferred from trial precedent)."},
-        {"node": "atlas:asset-cross-disease-proposal",
-         "why": "The payoff: a sourced proposal for one cross-disease natural-history study - ICGG infrastructure plus shared ERT endpoints - so the next ultra-rare lysosomal disease starts with data, not from zero.",
-         "edge_note": "Proposal reuses_asset ICGG and the ERT design package."},
-    ]
-    journeys = {"maria": {
-        "start": "MONDO:0009265",
-        "steps": maria_steps,
-        "ten_x_case": (
-            "Siloed route: each ultra-rare subtype (e.g. perinatal-lethal Gaucher, severe NPC forms) "
-            "builds its own registry, recruits its own natural-history cohort, and designs its own "
-            "trial endpoints from scratch - historically ~10+ years before a registrational trial can "
-            "start, because cohorts accrue one patient at a time. Shared-registry route: launch on "
-            "ICGG/NORD-IAMRARE infrastructure, borrow ERT trial endpoints already proven in "
-            "Gaucher/Fabry/Pompe, and pool placebo-arm data from 179 mapped trials - a credible "
-            "natural-history baseline in ~2 years, roughly 5-10x faster. The 10x is time-to-first-trial, "
-            "not a guarantee of approval."),
-        "assumptions": [
-            "ICGG-style registry data models and governance transfer to other lysosomal diseases.",
-            "ERT trial endpoints (e.g. organ-volume, biomarker) from Gaucher/Fabry/Pompe are acceptable to regulators for a mechanistically related new disease.",
-            "Patient orgs will share de-identified registry data across disease lines.",
-            "~2-year baseline assumes existing registry cohorts can be re-consented; ~10-year siloed figure is an estimate from historical registry ramp-up, not a measured value.",
-            "Maria is a composite persona for a newly diagnosed patient/family advocate, not a real person.",
-        ],
-    }}
+    journeys = mps_slice.journey()
+    maria_steps = journeys["maria"]["steps"]
 
     # ---------- synonyms ----------
     synonyms = {}
@@ -722,6 +694,37 @@ def analyze(nodes, edges, disease_mech, llm_merged=False):
         "sandhoff": "MONDO:0010006", "niemann-pick": "MONDO:0009756",
         "krabbe": "MONDO:0009499", "mld": "MONDO:0017729", "hurler": "MONDO:0011758",
         "parkinson": "MONDO:0008199", "gba": "HGNC:4177", "gba1": "HGNC:4177",
+        "ids": "HGNC:5389",
+        "hunter": "MONDO:0010674",
+        "hunter syndrome": "MONDO:0010674",
+        "mps ii": "MONDO:0010674",
+        "mucopolysaccharidosis type ii": "MONDO:0010674",
+        "sgsh": "HGNC:10818",
+        "mps iiia": "MONDO:0009655",
+        "sanfilippo a": "MONDO:0009655",
+        "sanfilippo syndrome a": "MONDO:0009655",
+        "sanfilippo syndrome type a": "MONDO:0009655",
+        "mucopolysaccharidosis type iiia": "MONDO:0009655",
+        "naglu": "HGNC:7632",
+        "mps iiib": "MONDO:0009656",
+        "sanfilippo b": "MONDO:0009656",
+        "sanfilippo syndrome b": "MONDO:0009656",
+        "sanfilippo syndrome type b": "MONDO:0009656",
+        "mucopolysaccharidosis type iiib": "MONDO:0009656",
+        "hgsnat": "HGNC:26527",
+        "mps iiic": "MONDO:0009657",
+        "sanfilippo c": "MONDO:0009657",
+        "sanfilippo syndrome c": "MONDO:0009657",
+        "sanfilippo syndrome type c": "MONDO:0009657",
+        "mucopolysaccharidosis type iiic": "MONDO:0009657",
+        "gns": "HGNC:4422",
+        "mps iiid": "MONDO:0009658",
+        "sanfilippo d": "MONDO:0009658",
+        "sanfilippo syndrome d": "MONDO:0009658",
+        "sanfilippo syndrome type d": "MONDO:0009658",
+        "mucopolysaccharidosis type iiid": "MONDO:0009658",
+        "sanfilippo syndrome": "MONDO:0018937",
+        "mps iii": "MONDO:0018937",
     }.items():
         syn(alias, target)
 
@@ -740,7 +743,7 @@ def analyze(nodes, edges, disease_mech, llm_merged=False):
             {"name": "ClinVar (NCBI E-utilities)", "url": "https://www.ncbi.nlm.nih.gov/clinvar/", "retrieved": "2026-10-03"},
             {"name": "Orphanet orphadata en_product6 (CC-BY 4.0, 2026-06-23)", "url": "https://www.orphadata.com/", "retrieved": "2026-10-03"},
             {"name": "ClinicalTrials.gov API v2", "url": "https://clinicaltrials.gov/", "retrieved": "2026-10-03"},
-            {"name": "PubMed abstracts (478 slice papers)", "url": "https://pubmed.ncbi.nlm.nih.gov/", "retrieved": "2026-10-03"},
+            {"name": "PubMed abstracts (expanded lysosomal slice papers)", "url": "https://pubmed.ncbi.nlm.nih.gov/", "retrieved": "2026-10-03"},
             {"name": "Patient orgs (hand-curated, URLs verified 2026-10-03)", "url": "", "retrieved": "2026-10-03"},
         ],
     }

@@ -18,6 +18,7 @@ import pull_monarch as monarch
 import pull_pubmed as pubmed
 import pull_clinvar as clinvar
 import pull_clinicaltrials as trials
+import filter_hpo
 
 ROOT = Path(__file__).resolve().parents[1]
 DATE = '2026-10-03'
@@ -100,7 +101,9 @@ def main():
     baseline = {p.name: (json.loads(p.read_text()) if p.suffix == '.json' and
                 p.name not in ['mondo.json', 'hp.json'] else hashlib.sha256(p.read_bytes()).hexdigest())
                 for p in (ROOT / 'data/raw').iterdir() if p.is_file()}
-    Path('/tmp/mps_raw_baseline.json').write_text(json.dumps(baseline))
+    baseline_path = Path('/tmp/mps_raw_baseline.json')
+    if not baseline_path.exists():
+        baseline_path.write_text(json.dumps(baseline))
     before = read('data/graph.json')
     report['before'] = {'nodes': len(before['nodes']), 'edges': len(before['edges'])}
     pubmed.eutils = eutils
@@ -241,11 +244,28 @@ def main():
             designs[nct] = {'source': trials.BASE + '/' + nct, 'retrieved': DATE, 'study': data}
     if designs:
         sidecar = ROOT / 'data/raw/mps_registry_protocols.json'
-        if sidecar.exists():
-            raise RuntimeError('Refusing to overwrite existing registry sidecar')
-        sidecar.write_text(json.dumps(designs, indent=1) + '\n')
+        if not sidecar.exists():
+            sidecar.write_text(json.dumps(designs, indent=1) + '\n')
     # Product 6 is a gene/disease association product, not a foundation directory.
     xml = ET.parse(ROOT / 'data/raw/orphanet_en_product6.xml')
+    orphanet = read('data/processed/orphanet_slice_gene_disease.json')
+    known_links = {(l['orphanet_id'], l['gene_symbol']) for l in orphanet['links']}
+    for disorder in xml.findall('.//Disorder'):
+        oid = 'ORPHA:' + disorder.findtext('OrphaCode')
+        for association in disorder.findall('.//DisorderGeneAssociation'):
+            gene = association.find('Gene')
+            symbol = gene.findtext('Symbol')
+            if symbol in GENES and (oid, symbol) not in known_links:
+                orphanet['links'].append({'orphanet_id': oid, 'disease': disorder.findtext('Name'),
+                    'gene_symbol': symbol, 'gene_name': gene.findtext('Name'),
+                    'association_type': association.findtext('DisorderGeneAssociationType/Name'),
+                    'status': association.findtext('DisorderGeneAssociationStatus/Name'),
+                    'source': 'Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)',
+                    'retrieved': DATE})
+                known_links.add((oid, symbol))
+    orphanet['n_links'] = len(orphanet['links'])
+    write_processed('data/processed/orphanet_slice_gene_disease.json', orphanet)
+    filter_hpo.main()
     org_matches = [e.text for e in xml.iter() if e.text and any(s in e.text.lower()
         for s in ['sanfilippo foundation', 'mps society', 'cure sanfilippo', 'mps foundation'])]
     report['orphanet_org_matches'] = org_matches

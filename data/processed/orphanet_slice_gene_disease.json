@@ -1,7 +1,7 @@
 {
  "source": "Orphanet orphadata en_product6.xml (https://www.orphadata.com/)",
  "retrieved": "2026-10-03",
- "n_links": 37,
+ "n_links": 45,
  "links": [
   {
    "orphanet_id": "ORPHA:324",
@@ -369,6 +369,86 @@
    "gene_symbol": "SMPD1",
    "gene_name": "sphingomyelin phosphodiesterase 1",
    "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:791",
+   "disease": "Retinitis pigmentosa",
+   "gene_symbol": "HGSNAT",
+   "gene_name": "heparan-alpha-glucosaminide N-acetyltransferase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:217093",
+   "disease": "Mucopolysaccharidosis type 2, attenuated form",
+   "gene_symbol": "IDS",
+   "gene_name": "iduronate 2-sulfatase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:217085",
+   "disease": "Mucopolysaccharidosis type 2, severe form",
+   "gene_symbol": "IDS",
+   "gene_name": "iduronate 2-sulfatase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:447964",
+   "disease": "Autosomal dominant Charcot-Marie-Tooth disease type 2V",
+   "gene_symbol": "NAGLU",
+   "gene_name": "N-acetyl-alpha-glucosaminidase",
+   "association_type": "Disease-causing germline mutation(s) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:79269",
+   "disease": "Sanfilippo syndrome type A",
+   "gene_symbol": "SGSH",
+   "gene_name": "N-sulfoglucosamine sulfohydrolase",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:79270",
+   "disease": "Sanfilippo syndrome type B",
+   "gene_symbol": "NAGLU",
+   "gene_name": "N-acetyl-alpha-glucosaminidase",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:79271",
+   "disease": "Sanfilippo syndrome type C",
+   "gene_symbol": "HGSNAT",
+   "gene_name": "heparan-alpha-glucosaminide N-acetyltransferase",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
+   "status": "Assessed",
+   "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
+   "retrieved": "2026-10-03"
+  },
+  {
+   "orphanet_id": "ORPHA:79272",
+   "disease": "Sanfilippo syndrome type D",
+   "gene_symbol": "GNS",
+   "gene_name": "glucosamine (N-acetyl)-6-sulfatase",
+   "association_type": "Disease-causing germline mutation(s) (loss of function) in",
    "status": "Assessed",
    "source": "Orphanet orphadata en_product6.xml (CC-BY 4.0, data release 2026-06-23)",
    "retrieved": "2026-10-03"
