@@ -268,3 +268,31 @@ footer {
   padding-left: 10px;
   color: var(--ink-soft);
 }
+
+/* plain-language confidence + limitation callouts (fix track, 2026-10-03) */
+.conf-plain { font-size: 13px; color: var(--ink-soft); }
+.limit-callout {
+  margin: 10px 0; padding: 10px 12px;
+  border-left: 3px solid #d97777; background: #fef2f2;
+  font-size: 13px; color: #7f1d1d; border-radius: 0 6px 6px 0;
+}
+.limit-callout strong { color: #991b1b; }
+
+/* 10x impact tab */
+.impact-wrap { max-width: 900px; }
+.gantt { margin: 18px 0; }
+.gantt-row { display: flex; align-items: center; margin: 8px 0; gap: 10px; }
+.gantt-label { width: 220px; font-size: 13.5px; text-align: right; color: var(--ink-soft); }
+.gantt-track { flex: 1; height: 26px; background: #f1f1f1; border-radius: 6px; position: relative; }
+.gantt-bar { position: absolute; top: 0; height: 26px; border-radius: 6px; }
+.gantt-bar.baseline { background: #94a3b8; }
+.gantt-bar.proposed { background: var(--accent); }
+.gantt-years { width: 90px; font-size: 13px; font-weight: 600; }
+.assume-list { font-size: 13.5px; color: var(--ink-soft); }
+.assume-list li { margin: 6px 0; }
+.fayuvi-alert {
+  margin: 12px 0; padding: 12px 14px; border-radius: 8px;
+  background: #eff6ff; border: 1px solid #bfdbfe; font-size: 14px;
+}
+.fayuvi-alert strong { color: #1e40af; }
+.excluded-list li { margin: 5px 0; }

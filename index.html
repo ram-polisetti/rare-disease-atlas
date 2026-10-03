@@ -19,6 +19,7 @@
     <button role="tab" id="tab-clusters" data-tab="clusters" aria-selected="false">Clusters</button>
     <button role="tab" id="tab-action" data-tab="action" aria-selected="false">Patient Action</button>
     <button role="tab" id="tab-journey" data-tab="journey" aria-selected="false">Maria&rsquo;s Journey</button>
+    <button role="tab" id="tab-impact" data-tab="impact" aria-selected="false">10&times; Impact</button>
   </nav>
 </header>
 
@@ -37,6 +38,8 @@
         <button id="hops2" class="seg-btn" role="radio" aria-checked="false">2 hops</button>
       </div>
       <label class="check"><input type="checkbox" id="clusterOnly"> Cluster only</label>
+      <label class="check" title="Show only literature edges published in the last 5 years"><input type="checkbox" id="recentOnly"> Last 5 years</label>
+      <label class="check" title="Show only literature edges from randomized trials or meta-analyses"><input type="checkbox" id="strongOnly"> RCT or stronger</label>
       <span id="viewStats" class="view-stats" aria-live="polite"></span>
     </div>
     <div class="explore-grid">
@@ -78,6 +81,13 @@
         <div id="journeyNetwork" aria-label="Journey path canvas"></div>
       </div>
       <aside id="stepPanel" class="panel journey-panel"></aside>
+    </div>
+  </section>
+
+  <!-- ============ 10x IMPACT ============ -->
+  <section id="view-impact" class="view" role="tabpanel" aria-labelledby="tab-impact" hidden>
+    <div class="impact-wrap" id="impactBody">
+      <p class="section-lede">Computing the 10&times; case&hellip;</p>
     </div>
   </section>
 </main>

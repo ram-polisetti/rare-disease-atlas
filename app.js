@@ -12,6 +12,37 @@ const synToId = {};    // lowercased synonym -> nodeId
 const synOrig = {};    // lowercased synonym -> original-cased synonym
 const CONF_WIDTH = { high: 2, medium: 1.5, low: 1 };
 
+// Plain-language confidence: what the badge actually means for a non-scientist.
+function plainConfidence(e) {
+  const src = (e.source_db || '').toLowerCase();
+  const curated = /mondo|hpo|clinvar|orphanet|monarch/.test(src);
+  if (e.evidence === 'inferred') {
+    return e.confidence === 'low'
+      ? 'Weak or indirect evidence — treat as a lead, not a fact.'
+      : 'Our analysis suggests this link — not yet proven in a study.';
+  }
+  if (e.confidence === 'high') {
+    return curated
+      ? 'Stated directly by a curated medical database.'
+      : 'Directly stated in a published paper.';
+  }
+  if (/clinicaltrials/.test(src)) {
+    return 'A trial is registered, but results are not shown here.';
+  }
+  return 'Recorded in a database, with limited supporting detail.';
+}
+
+const EVIDENCE_RANK = {
+  meta_analysis: 6, RCT: 5, observational: 4,
+  case_series: 3, case_report: 2, review: 1, preprint: 0, other: 0
+};
+function evidenceLabel(t) {
+  return { meta_analysis: 'meta-analysis', RCT: 'randomized trial',
+    observational: 'observational study', case_series: 'case series',
+    case_report: 'case report', review: 'review', preprint: 'preprint',
+    other: 'other' }[t] || t;
+}
+
 // Restrained palette: low-saturation categorical colors, one accent for selection.
 const TYPE_COLORS = {
   disease:     '#2563eb',
@@ -35,6 +66,8 @@ const state = {
   center: null,
   hops: 1,
   clusterOnly: false,
+  recentOnly: false,
+  strongOnly: false,
   journeyStep: 0
 };
 
@@ -162,6 +195,7 @@ function init() {
   initClusters();
   initPatientAction();
   initJourney();
+  initImpact();
 
   // Default: Maria's disease (journey start), 1-hop neighborhood — the demo entry point.
   const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
@@ -268,6 +302,27 @@ function initExploreControls() {
     state.clusterOnly = ev.target.checked;
     renderExplore();
   });
+  el('recentOnly').addEventListener('change', function (ev) {
+    state.recentOnly = ev.target.checked;
+    renderExplore();
+  });
+  el('strongOnly').addEventListener('change', function (ev) {
+    state.strongOnly = ev.target.checked;
+    renderExplore();
+  });
+}
+
+/* Evidence filters apply only to literature-sourced edges (those carrying
+ * publication_year/evidence_type). Curated ontology edges always pass. */
+function passesEvidenceFilter(e) {
+  if (state.recentOnly && e.publication_year) {
+    const y = parseInt(e.publication_year, 10);
+    if (y && y < new Date().getFullYear() - 5) return false;
+  }
+  if (state.strongOnly && e.evidence_type) {
+    if ((EVIDENCE_RANK[e.evidence_type] || 0) < 5) return false;
+  }
+  return true;
 }
 
 function setHops(h) {
@@ -339,7 +394,9 @@ function renderExplore(explicitIds, note) {
     if (center) ids.add(center);
   }
 
-  const edgeList = GRAPH.edges.filter(function (e) { return ids.has(e.source) && ids.has(e.target); });
+  const edgeList = GRAPH.edges.filter(function (e) {
+    return ids.has(e.source) && ids.has(e.target) && passesEvidenceFilter(e);
+  });
 
   const visNodes = new vis.DataSet(Array.from(ids).map(function (id) {
     const n = nodesById[id];
@@ -500,8 +557,10 @@ function showEdge(e) {
            : esc(e.source_ref)) + '</dd>';
   }
   html += '<dt>Confidence</dt><dd><span class="badge conf-' + esc(e.confidence) + '">' +
-    esc(e.confidence) + '</span></dd>';
+    esc(e.confidence) + '</span> <span class="conf-plain">' + esc(plainConfidence(e)) + '</span></dd>';
   if (e.evidence) html += '<dt>Evidence</dt><dd>' + esc(e.evidence) + '</dd>';
+  if (e.evidence_type) html += '<dt>Study type</dt><dd>' + esc(evidenceLabel(e.evidence_type)) + '</dd>';
+  if (e.publication_year) html += '<dt>Published</dt><dd>' + esc(e.publication_year) + '</dd>';
   if (e.date) html += '<dt>Date</dt><dd>' + esc(e.date) + '</dd>';
   html += '</dl>';
   html += '<p><button class="btn" id="backToNode">&larr; Back to node</button></p>';
@@ -524,6 +583,11 @@ function initClusters() {
       (assets ? '<div class="kv-line"><strong>Reusable assets:</strong> ' + esc(assets) + '</div>' : '') +
       (gaps ? '<div class="kv-line"><strong>Gaps:</strong> ' + esc(gaps) + '</div>' : '') +
       (c.next_experiment ? '<div class="kv-line"><strong>Next experiment:</strong> ' + esc(c.next_experiment) + '</div>' : '') +
+      '<div class="limit-callout"><strong>Limitation:</strong> these diseases share biological ' +
+      'mechanisms. That does <em>not</em> mean treatments transfer between them — therapeutic ' +
+      'applicability needs separate validation. Example: MPS II&rsquo;s Elaprase does not cross the ' +
+      'blood&ndash;brain barrier, so it cannot treat Sanfilippo&rsquo;s brain disease despite their ' +
+      'shared heparan-sulfate buildup.</div>' +
       '<button class="btn" data-cluster="' + c.id + '">Load members in Explore</button>' +
       '</article>';
   }).join('');
@@ -593,6 +657,16 @@ function renderPatientAction(diseaseId) {
       '</div>';
   }
 
+  // Fayuvi eligibility: who is outside the label, and their path.
+  if (ts && ts.fayuvi) {
+    html += '<div class="fayuvi-alert"><strong>Who can&rsquo;t access Fayuvi — and their path</strong>' +
+      '<ul class="excluded-list">' +
+      '<li><strong>Who qualifies:</strong> ' + esc(ts.who_qualifies || '') + '</li>' +
+      '<li><strong>Who may fall outside the label:</strong> ' + esc(ts.who_may_not || '') + '</li>' +
+      '<li><strong>Their path:</strong> ' + esc(ts.their_path || '') + '</li>' +
+      '</ul></div>';
+  }
+
   html += '<p class="section-lede">For <strong>' + esc(displayName(d)) + '</strong> — what a family can do this week.</p>';
   html += '<div class="action-grid">';
 
@@ -655,7 +729,56 @@ function renderPatientAction(diseaseId) {
   body.innerHTML = html;
 }
 
-/* ---------------- Maria's journey ---------------- */
+/* ---------------- 10x impact ---------------- */
+
+function initImpact() {
+  const body = el('impactBody');
+  const tx = GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.ten_x;
+  if (!tx) {
+    body.innerHTML = '<p class="section-lede">The 10&times; case is being computed.</p>';
+    return;
+  }
+  const maxY = Math.max(tx.baseline_years, tx.proposed_years, 0.1);
+  function bar(years, cls) {
+    return '<div class="gantt-track"><div class="gantt-bar ' + cls + '" style="width:' +
+      Math.round(100 * years / maxY) + '%"></div></div>';
+  }
+  let html = '<p class="section-lede">' + esc(tx.title || 'The 10x case') + '</p>';
+  html += '<div class="gantt">';
+  html += '<div class="gantt-row"><div class="gantt-label">Baseline: ' + esc(tx.baseline_label || 'siloed study') + '</div>' +
+    bar(tx.baseline_years, 'baseline') + '<div class="gantt-years">' + tx.baseline_years + ' yrs</div></div>';
+  html += '<div class="gantt-row"><div class="gantt-label">Proposed: ' + esc(tx.proposed_label || 'shared study') + '</div>' +
+    bar(tx.proposed_years, 'proposed') + '<div class="gantt-years">' + tx.proposed_years + ' yrs</div></div>';
+  html += '</div>';
+  const saved = (tx.baseline_years - tx.proposed_years).toFixed(1);
+  html += '<p><strong>Time saved: ~' + saved + ' years</strong> (' +
+    Math.round(100 * (tx.baseline_years - tx.proposed_years) / tx.baseline_years) +
+    '% of the baseline timeline).</p>';
+
+  if (tx.phases && tx.phases.length) {
+    html += '<h3>Where the time goes</h3><ul class="assume-list">';
+    tx.phases.forEach(function (p) {
+      html += '<li><strong>' + esc(p.name) + ':</strong> baseline ' + p.baseline +
+        ' yrs &rarr; proposed ' + p.proposed + ' yrs — ' + esc(p.why) + '</li>';
+    });
+    html += '</ul>';
+  }
+  if (tx.assumptions && tx.assumptions.length) {
+    html += '<h3>Assumptions (stated, not hidden)</h3><ol class="assume-list">';
+    tx.assumptions.forEach(function (a) { html += '<li>' + esc(a) + '</li>'; });
+    html += '</ol>';
+  }
+  if (tx.sources && tx.sources.length) {
+    html += '<h3>Sources</h3><ul class="assume-list">';
+    tx.sources.forEach(function (s) {
+      const link = linkifyRef(s.url || '');
+      html += '<li>' + esc(s.label || s.url || '') +
+        (link ? ' <a href="' + esc(link.url) + '" target="_blank" rel="noopener">link &rarr;</a>' : '') + '</li>';
+    });
+    html += '</ul>';
+  }
+  body.innerHTML = html;
+}
 
 function journeySteps() {
   return (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.steps) || [];
@@ -781,7 +904,8 @@ function renderJourneyStep(i) {
   if (e) {
     const ref = linkifyRef(e.source_ref);
     html += '<h3>Graph edge</h3><p class="desc">' + esc(humanize(e.relation)) +
-      ' · confidence <span class="badge conf-' + esc(e.confidence) + '">' + esc(e.confidence) + '</span></p>' +
+      ' · <span class="badge conf-' + esc(e.confidence) + '">' + esc(e.confidence) + '</span> ' +
+      '<span class="conf-plain">' + esc(plainConfidence(e)) + '</span></p>' +
       '<p class="desc">' + esc(e.note || '') + '</p>' +
       (ref ? '<p><a href="' + esc(ref.url) + '" target="_blank" rel="noopener">' + esc(ref.label) + ' &rarr;</a></p>' : '');
   }
