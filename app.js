@@ -62,7 +62,7 @@ const EDGE_COLOR = '#c4c9d1';
 const CONTRADICT_COLOR = '#d97777';
 
 const state = {
-  tab: 'explore',
+  tab: 'guide',
   center: null,
   hops: 1,
   clusterOnly: false,
