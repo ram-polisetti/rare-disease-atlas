@@ -38,6 +38,7 @@
     <button role="tab" id="tab-recent" data-tab="recent" aria-selected="false">Recent</button>
     <button role="tab" id="tab-gaps" data-tab="gaps" aria-selected="false">Gaps</button>
     <button role="tab" id="tab-whatif" data-tab="whatif" aria-selected="false">What If</button>
+    <button role="tab" id="tab-endpoints" data-tab="endpoints" aria-selected="false">Endpoints</button>
   </nav>
 </header>
 
@@ -179,6 +180,9 @@
   <section id="view-whatif" class="view" role="tabpanel" aria-labelledby="tab-whatif" hidden>
     <div id="whatifBody"></div>
   </section>
+  <section id="view-endpoints" class="view" role="tabpanel" aria-labelledby="tab-endpoints" hidden>
+    <div id="endpointsBody"></div>
+  </section>
 </main>
 
 <footer>
@@ -191,5 +195,6 @@
 <script src="views.js"></script>
 <script src="whatif.js"></script>
 <script src="guide.js"></script>
+<script src="endpoints.js"></script>
 </body>
 </html>
