@@ -188,7 +188,7 @@ function bridgeHTML() {
     '<p>Want the full picture? The complete atlas is behind this guide:</p>' +
     '<div class="guide-bridge-btns">' +
     '<button class="btn" data-go-tab="explore">Explore the graph</button>' +
-    '<button class="btn" data-go-tab="journey">Maria&rsquo;s Journey</button>' +
+    '<button class="btn" data-go-tab="journey">Family Journey</button>' +
     '<button class="btn" data-go-tab="whatif">What-if planner</button>' +
     '<button class="btn" data-go-tab="action">Patient Action</button>' +
     '</div></div>';
