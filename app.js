@@ -75,7 +75,10 @@ function displayName(n) {
   });
   if (!cands.length) return label;
   const words = cands.filter(function (s) { return /[a-z]/.test(s) && /\s/.test(s); });
-  const codes = cands.filter(function (s) { return /\d/.test(s) && /^[A-Z0-9().\-\s]+$/.test(s); });
+  const codes = cands.filter(function (s) {
+    // All-caps short tokens: acronyms with digits (MPS3A) or Roman numerals (MPS IIIA).
+    return !/[a-z]/.test(s) && /^[A-Z0-9][A-Z0-9().\-\s]{1,19}$/.test(s);
+  });
   const name = words.length ? words[0] : (codes.length ? codes[0] : label);
   const spaced = codes.filter(function (s) { return /\s/.test(s); });
   const code = spaced.length ? spaced[spaced.length - 1] : (codes.length ? codes[codes.length - 1] : null);
