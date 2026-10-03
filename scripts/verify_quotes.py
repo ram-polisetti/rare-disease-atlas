@@ -24,7 +24,13 @@ def norm(s):
 
 
 def load_abstracts():
-    """pmid -> title + ' ' + abstract, from the batch input records."""
+    """pmid -> title + ' ' + abstract, from the batch input records.
+
+    NOTE (audit 2026-10-03): the quote search space is deliberately the
+    title+abstract concatenation, matched case-insensitively (norm()). Quotes
+    sourced from the title — or spanning the title/abstract boundary — are
+    grounded in the record and accepted.
+    """
     texts, bad_lines = {}, 0
     def ingest(path):
         nonlocal bad_lines
