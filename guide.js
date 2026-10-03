@@ -529,7 +529,18 @@ function wireGuide(scope) {
   var goBtn = scope.querySelector('#guideGo');
   function submit() {
     var val = q ? q.value : '';
-    if (!val.trim()) { if (q) q.focus(); return; }
+    if (!val.trim()) {
+      var hint = scope.querySelector('#guideHint');
+      if (!hint && q && q.parentNode) {
+        hint = document.createElement('p');
+        hint.id = 'guideHint';
+        hint.className = 'guide-hint';
+        hint.textContent = 'Tell us what brings you here first — a diagnosis name, a gene, or even symptoms like "he has seizures".';
+        q.parentNode.appendChild(hint);
+      }
+      if (q) q.focus();
+      return;
+    }
     G.query = val;
     var r = interpret(val);
     if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; go('confirm'); }
