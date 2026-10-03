@@ -1,0 +1,1091 @@
+[
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "neuropsychiatric symptoms",
+  "pmid": "25145892",
+  "source_quote": "six treatable metabolic diseases that are associated with neuropsychiatric symptoms: Wilson's disease, cerebrotendinous xanthomatosis, porphyrias, homocysteinemia, urea cycle disorders, and Niemann-Pick disease type C (NP-C).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "psychotic or schizophrenia-like symptoms",
+  "pmid": "25145892",
+  "source_quote": "an increasing number of patients are being detected who have the adolescent- or adult-onset form, which is frequently associated with neuropsychiatric signs. A notable proportion of adult-onset cases have been reported where NP-C has mistakenly been diagnosed and treated as a psychiatric condition, usually based on patients' initial presentation with psychotic or schizophrenia-like symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "acid sphingomyelinase",
+  "pmid": "27923544",
+  "source_quote": "Following Brady's discovery of the defect in acid sphingomyelinase in Niemann-Pick disease, types A and B",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "lysosomal storage diseases",
+  "relation": "presents_with",
+  "object": "progressive neurodegeneration",
+  "pmid": "28477283",
+  "source_quote": "Central nervous system involvement, often with progressive neurodegeneration, accounts for a large portion of the morbidity and mortality seen in many LSD.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "12069540",
+  "source_quote": "New developments in therapy including enzyme replacement therapy and substrate deprivation may improve prognosis in some disorders.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "21779792",
+  "source_quote": "Miglustat (Zavesca®) is approved for the oral treatment of adult patients with mild to moderate type 1 Gaucher disease (GD1) for whom enzyme replacement therapy is unsuitable",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "21779792",
+  "source_quote": "and for the treatment of progressive neurological manifestations in adult and paediatric patients with Niemann-Pick disease type C (NP-C).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "33892845",
+  "source_quote": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "ataxia",
+  "pmid": "33892845",
+  "source_quote": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "NPC1",
+  "pmid": "19660552",
+  "source_quote": "we discuss the different lines of evidence supporting different models of anomalous intracellular cholesterol trafficking with emphasis on cholesterol interactions with alpha-synuclein, NPC1 and NPC2 in AD, PD and NPC.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "neuronal death",
+  "pmid": "19619927",
+  "source_quote": "In neurodegenerative diseases such as Alzheimer's disease, Parkinson's disease, amyotrophic lateral sclerosis and Niemann-Pick disease type C, however, some populations of neurons complete DNA synthesis but the cell cycle is arrested at the G2/M transition.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "early-onset dementia",
+  "pmid": "22573281",
+  "source_quote": "important potentially inherited causes of early-onset dementia include early-onset Alzheimer's disease, frontotemporal dementia, Kufs' disease, and Niemann-Pick disease type C.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "progressive neurological manifestations",
+  "pmid": "30111334",
+  "source_quote": "Niemann-Pick disease type C (NP-C) is a rare, autosomal recessive, neurodegenerative disease associated with a wide variety of progressive neurological manifestations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "inborn errors of metabolism",
+  "relation": "presents_with",
+  "object": "neurological and psychiatric symptoms",
+  "pmid": "23452774",
+  "source_quote": "Although IEM have usually been considered pediatric diseases, they can present at any age, mostly with neurological and psychiatric symptoms, and therefore constitute an integral subspeciality of neurology.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "cataplexy",
+  "pmid": "25434476",
+  "source_quote": "Although cataplexy is one of its characteristic symptoms, particularly in the late infantile and juvenile form, sleep disturbances are described only exceptionally.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "splenomegaly",
+  "pmid": "25434476",
+  "source_quote": "A combination of splenomegaly, vertical supranuclear gaze palsy, and cataplexy creates a most useful suspicion index tool for the disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "25946402",
+  "source_quote": "The lysosomal storage diseases Niemann-Pick disease type C (NPC) is caused by mutations predominantly in the lysosomal integral membrane protein NPC1",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "cholesterol",
+  "relation": "accumulates_in",
+  "object": "lysosomal accumulation",
+  "pmid": "25946402",
+  "source_quote": "Niemann-Pick disease type C is a rare, devastating, inherited lysosomal storage disease with a unique cellular phenotype characterized by lysosomal accumulation of sphingosine, various glycosphingolipids and cholesterol and a reduction in lysosomal calcium.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "autism spectrum disorder",
+  "pmid": "34121999",
+  "source_quote": "lysosomal storage disorders [Sanfilippo syndrome, neuronal ceroid lipofuscinoses (NCL), Niemann-Pick disease type C]",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick's disease",
+  "relation": "associated_with",
+  "object": "cholesterol",
+  "pmid": "14708341",
+  "source_quote": "The dynamics of the lipid rafts, in relation to cholesterol, can be altered in Niemann-Pick's disease type C and in Alzheimer's disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "deterioration in executive functions",
+  "pmid": "34021815",
+  "source_quote": "The neuropsychological profile of Niemann-Pick type C (NP-C) patients is characterized by an early deterioration in executive functions and attention.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "ABCA1 deficiency",
+  "pmid": "18425439",
+  "source_quote": "the underlying defects in lipid-associated rare genetic diseases such as ABCA1 deficiency, Niemann-Pick disease type C, as well as the more frequent complex disorders associated with atherosclerosis and phospholipidosis are related to disturbances in membrane homeostasis, signal transduction, and cellular lipid metabolism.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "caused_by_variant_in",
+  "object": "Hex A",
+  "pmid": "9090523",
+  "source_quote": "Seventy-eight mutations in the Hex A gene have been described and include 65 single base substitutions, one large and 10 small deletions, and two small insertions.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "caused_by_variant_in",
+  "object": "beta-hexosaminidase A",
+  "pmid": "9090523",
+  "source_quote": "The disorder results from mutations in the gene encoding the alpha-subunit of beta-hexosaminidase A, a lysosomal enzyme composed of alpha and beta polypeptides.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "clinical heterogeneity",
+  "pmid": "9090523",
+  "source_quote": "Because these mutations cripple the catalytic activity of beta-hexosaminidase to varying degrees, Tay-Sachs disease displays clinical heterogeneity.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "studied_in",
+  "object": "enzyme replacement therapy",
+  "pmid": "35865957",
+  "source_quote": "This review summarizes multiple drug development strategies for TSD, including enzyme replacement therapy, pharmaceutical chaperone therapy, substrate reduction therapy, gene therapy, and hematopoietic stem cell replacement therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "studied_in",
+  "object": "gene therapy",
+  "pmid": "35865957",
+  "source_quote": "This review summarizes multiple drug development strategies for TSD, including enzyme replacement therapy, pharmaceutical chaperone therapy, substrate reduction therapy, gene therapy, and hematopoietic stem cell replacement therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "disrupts",
+  "object": "β-hexosaminidase",
+  "pmid": "23622392",
+  "source_quote": "GM1 and GM2 gangliosidosis are associated with deficiency of β-galactosidase and β-hexosaminidase respectively.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "cherry-red macular spots",
+  "pmid": "23622392",
+  "source_quote": "Cherry-red macular spots occur in the early onset forms of the gangliosidoses, but are less frequently seen in the less severe, later onset phenotypes.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "progressive neurodegeneration",
+  "pmid": "23622392",
+  "source_quote": "All gangliosidoses are characterized by progressive neurodegeneration, the severity of which is proportional to the residual enzyme activity.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "caused_by_variant_in",
+  "object": "HEXA",
+  "pmid": "40710901",
+  "source_quote": "Mechanistically, TSD is caused by mutations in the HEXA gene, which encodes the alpha subunit of hexosaminidase A.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "HEXA",
+  "relation": "encodes",
+  "object": "hexosaminidase A",
+  "pmid": "40710901",
+  "source_quote": "mutations in the HEXA gene, which encodes the alpha subunit of hexosaminidase A.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "disrupts",
+  "object": "hexosaminidase A",
+  "pmid": "40710901",
+  "source_quote": "It is caused by a deficiency of the enzyme hexosaminidase A, which is responsible for the degradation of GM2 gangliosides-lipids that accumulate in the nerve cells of the central nervous system.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosides",
+  "relation": "accumulates_in",
+  "object": "nerve cells",
+  "pmid": "40710901",
+  "source_quote": "which is responsible for the degradation of GM2 gangliosides-lipids that accumulate in the nerve cells of the central nervous system.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gangliosides",
+  "relation": "accumulates_in",
+  "object": "brain",
+  "pmid": "170187",
+  "source_quote": "caused by a genetically induced enzymatic block, which results in the accumulation of gangliosides in various tissues of the body, mainly in the brain.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "Pompe disease",
+  "pmid": "29152458",
+  "source_quote": "Examples include glycogen in the case of Pompe disease, glycosaminoglycans in the case of the mucopolysaccharidoses, glycoproteins in the cases of the oligosaccharidoses, and sphingolipids in the cases of Niemann-Pick disease types A and B, Gaucher disease, Tay-Sachs disease, Krabbe disease, and metachromatic leukodystrophy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "imiglucerase",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Hunter disease",
+  "relation": "treated_by",
+  "object": "idursulfase",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "treated_by",
+  "object": "alglucosidase alfa",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "eliglustat",
+  "pmid": "29152458",
+  "source_quote": "In addition, substrate reduction therapy has been approved for certain disorders, such as eliglustat for Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "disrupts",
+  "object": "beta-hexosaminidase alpha",
+  "pmid": "8411703",
+  "source_quote": "the B variant (Tay-Sachs disease), the O variant (Sandhoff disease), and the AB variant, caused by genetic abnormalities in the genes coding for the beta-hexosaminidase alpha- or beta-subunit, or the GM2-activator protein, respectively.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "associated_with",
+  "object": "Ashkenazi Jewish",
+  "pmid": "24923490",
+  "source_quote": "Internationally, Tay-Sachs disease (TSD) preconception screening of Ashkenazi Jewish (AJ) individuals and couples has led to effective primary prevention of TSD.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher's disease",
+  "relation": "treated_by",
+  "object": "beta-glucosidase",
+  "pmid": "15686451",
+  "source_quote": "culminating in the successful treatment of Gaucher's disease with beta-glucosidase in the early 1990s.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ganglioside",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "1834320",
+  "source_quote": "producing a destructive ganglioside accumulation in lysosomes, principally in neurons.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "preimplantation diagnosis",
+  "relation": "studied_in",
+  "object": "Tay Sachs disease",
+  "pmid": "7617568",
+  "source_quote": "Preimplantation diagnosis has been successful so far for cystic fibrosis, Tay Sachs disease, and Lesch-Nyhan syndrome.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 ganglioside",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "30524313",
+  "source_quote": "resulting in GM2 ganglioside accumulation predominantly in lysosomes of nerve cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "muscle weakness",
+  "pmid": "30524313",
+  "source_quote": "The typical features of Tay-Sachs disease are muscle weakness, ataxia, speech, and mental disorders.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "30524313",
+  "source_quote": "There are also clinical reports of substrate reduction therapy using miglustat",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "cardiac manifestation",
+  "pmid": "11298185",
+  "source_quote": "A completely different pathogenetic model comprises cardiac manifestation of systemic metabolic diseases caused by deficiencies of various enzymes in a variety of metabolic pathways. Examples of these disorders are glycogen storage diseases (e.g. glycogenosis type II and III), lysosomal storage diseases (e.g. Niemann-Pick disease, Gaucher disease, I-cell disease, various types of mucopolysaccharidoses, GM1 gangliosidosis, galactosialidosis, carbohydrate-deficient glycoprotein syndromes and Sandhoff's disease).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "caused_by_variant_in",
+  "object": "HEXB",
+  "pmid": "8411702",
+  "source_quote": "The alpha subunit is encoded by the HEXA gene and the subunit by HEXB gene. Defects in the beta subunit lead to Sandhoff disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "disrupts",
+  "object": "hexosaminidase A",
+  "pmid": "8411702",
+  "source_quote": "Patients with the defect lack the activity or formation of both hexosaminidase A and B.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Tay-Sachs disease",
+  "pmid": "36835039",
+  "source_quote": "in this review, we discuss gene therapy approaches for sphingolipidoses that are currently being investigated in clinical trials",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "36835039",
+  "source_quote": "in this review, we discuss gene therapy approaches for sphingolipidoses that are currently being investigated in clinical trials",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "ataxia",
+  "pmid": "15159655",
+  "source_quote": "Ataxia and speech abnormalities were the commonest presentation.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "disrupts",
+  "object": "hexosaminidase",
+  "pmid": "15159655",
+  "source_quote": "Diagnosis was on the basis of hexosaminidase deficiency.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "presents_with",
+  "object": "developmental arrest",
+  "pmid": "29618308",
+  "source_quote": "this global disease of the nervous system induces developmental arrest with regression of attained milestones; neurodegeneration progresses rapidly to cause premature death in young children.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "studied_in",
+  "object": "gene transfer",
+  "pmid": "29618308",
+  "source_quote": "Authentic animal models of GM2 gangliodidosis have facilitated in-depth evaluation of innovative applications such as gene transfer, which in contrast to other interventions, shows great promise.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "studied_in",
+  "object": "substrate reduction therapy",
+  "pmid": "29618308",
+  "source_quote": "Several therapeutic approaches have been attempted in patients, including enzymatic augmentation, bone marrow transplantation, enzyme enhancement, and substrate reduction therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "dystonia",
+  "pmid": "39057926",
+  "source_quote": "with disorders including Wilson's disease, pantothenate kinase-associated neurodegeneration (PKAN), Niemann-Pick disease type C (NPC), glutaric aciduria type 1, Sanfilippo syndrome (Mucopolysaccharidosis Type IIIb), and GM2 gangliosidosis (Sandhoff disease) are presented.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "botulinum toxin",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "39057926",
+  "source_quote": "We present a series of patients with secondary dystonia who were managed with botulinum toxin therapy. Patients included in this series had a confirmed neurometabolic cause of dystonia.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "developmental regression",
+  "pmid": "11056783",
+  "source_quote": "Sandhoff disease is a GM2 gangliosidosis that may present within the first 6 months of life with developmental regression.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "disrupts",
+  "object": "beta-hexosaminidase A",
+  "pmid": "11056783",
+  "source_quote": "The diagnosis was confirmed by an enzymatic deficiency in both beta-hexosaminidase A and B.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidosis",
+  "relation": "disrupts",
+  "object": "β-N-acetylhexosaminidase",
+  "pmid": "27499644",
+  "source_quote": "GM2 gangliosidosis, a subset of lysosomal storage disorders, is caused by a deficiency of the glycohydrolase, β-N-acetylhexosaminidase",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "ganglioside",
+  "relation": "accumulates_in",
+  "object": "lysosome",
+  "pmid": "27499644",
+  "source_quote": "The enzyme deficiency prevents the normal, stepwise degradation of ganglioside, which accumulates unchecked within the cellular lysosome, particularly in neurons.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidosis",
+  "relation": "presents_with",
+  "object": "seizures",
+  "pmid": "27499644",
+  "source_quote": "individuals with GM2 gangliosidosis experience progressive neurological diseases including motor deficits, progressive weakness and hypotonia, decreased responsiveness, vision deterioration, and seizures.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "cherry red spots",
+  "pmid": "31919734",
+  "source_quote": "Infantile Sandhoff disease is an autosomal recessive inherited disease primarily characterized by cherry red spots in the retina, muscle weakness, seizure, truncal hypotonia, hyperacusis, developmental delay and regression.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 ganglion glycerides",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "31919734",
+  "source_quote": "resulting in the deposition of GM2 ganglion glycerides in the lysosomes of the central nervous system and somatic cells.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "late-onset Tay-Sachs",
+  "relation": "presents_with",
+  "object": "psychosis",
+  "pmid": "38009419",
+  "source_quote": "LOTS more commonly had psychosis/bipolar symptoms (35.0% vs. 9.30%, p = 0.011) but less frequent swallowing problems (4.10% vs. 18.60%, p = 0.041).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "late-onset Tay-Sachs",
+  "relation": "presents_with",
+  "object": "cerebellar atrophy",
+  "pmid": "38009419",
+  "source_quote": "Cerebellar atrophy was more common in LOTS (89.0%) versus LOSD (60.5%), p < 0.0001",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "disrupts",
+  "object": "beta-hexosaminidase A",
+  "pmid": "9562524",
+  "source_quote": "Tay-Sachs disease and Sandhoff disease are severe neurodegenerative disorders caused by a deficiency of beta-hexosaminidase A and resultant accumulation of its substrate, GM2 ganglioside, in neuronal lysosomes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 ganglioside",
+  "relation": "accumulates_in",
+  "object": "neuronal lysosomes",
+  "pmid": "9562524",
+  "source_quote": "caused by a deficiency of beta-hexosaminidase A and resultant accumulation of its substrate, GM2 ganglioside, in neuronal lysosomes.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "32098196",
+  "source_quote": "Parkinson's disease, the most common neurodegenerative movement disorder, is characterized by the accumulation and aggregation of misfolded α-synuclein that seem associated to some lysosomal disorders, in particular Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "central nervous system pathology",
+  "pmid": "32098196",
+  "source_quote": "In sphingolipidosis, lysosomal lipid storage occurs in both the central nervous system and visceral tissues, and central nervous system pathology is a common hallmark for all of them.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidoses",
+  "relation": "caused_by_variant_in",
+  "object": "β-hexosaminidases",
+  "pmid": "32867370",
+  "source_quote": "GM2 gangliosidoses are a group of pathologies characterized by GM2 ganglioside accumulation into the lysosome due to mutations on the genes encoding for the β-hexosaminidases subunits or the GM2 activator protein.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 ganglioside",
+  "relation": "accumulates_in",
+  "object": "lysosome",
+  "pmid": "32867370",
+  "source_quote": "characterized by GM2 ganglioside accumulation into the lysosome due to mutations on the genes encoding for the β-hexosaminidases subunits or the GM2 activator protein.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidoses",
+  "relation": "studied_in",
+  "object": "gene therapy",
+  "pmid": "32867370",
+  "source_quote": "different therapeutic strategies have been studied including hematopoietic stem cell transplantation, enzyme replacement therapy, substrate reduction therapy, pharmacological chaperones, and gene therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 gangliosidosis",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "37209042",
+  "source_quote": "Although miglustat should not be considered a definite treatment for GM2g, it appears that patients, particularly those with infantile or late-infantile GM2g, could benefit from miglustat therapy to some extent.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GM2 ganglioside",
+  "relation": "accumulates_in",
+  "object": "central nervous system",
+  "pmid": "23370522",
+  "source_quote": "In Tay-Sachs disease, excessive accumulation of GM2 ganglioside (GM2), mainly in the central nervous system, is caused by a deficiency of the HexA isozyme",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Sandhoff disease",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "23370522",
+  "source_quote": "resulting in systemic manifestations including hepatosplenomegaly as well as neurologic symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Glycosphingolipids",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "32961778",
+  "source_quote": "Each LSD is characterized by the accumulation of GSLs in the lysosomes of neurons, which negatively interact with other intracellular molecules to culminate in cell death.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Tay-Sachs disease",
+  "relation": "disrupts",
+  "object": "alpha-chain",
+  "pmid": "9728335",
+  "source_quote": "Mouse models of Tay-Sachs disease (alpha-chain deficiency), Sandhoff disease (beta-chain deficiency) and GM2 activator deficiency have been described.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "gangliosidoses",
+  "pmid": "34456684",
+  "source_quote": "The gangliosidoses are a family of neurodegenerative lysosomal storage diseases that have recently seen promising advances in gene therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "disrupts",
+  "object": "α-l-iduronidase",
+  "pmid": "32188113",
+  "source_quote": "Mucopolysaccharidosis type I (MPS I) is caused by the deficiency of α-l-iduronidase, leading to the storage of dermatan and heparan sulfate.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "dermatan",
+  "relation": "accumulates_in",
+  "object": "Mucopolysaccharidosis type I",
+  "pmid": "32188113",
+  "source_quote": "Mucopolysaccharidosis type I (MPS I) is caused by the deficiency of α-l-iduronidase, leading to the storage of dermatan and heparan sulfate.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "coarse facial features",
+  "pmid": "32188113",
+  "source_quote": "Patients usually develop several somatic symptoms such as abdominal hernias, extensive dermal melanocytosis, thoracolumbar kyphosis odontoid dysplasia, arthropathy, coxa valga and genu valgum, coarse facial features, respiratory and cardiac impairment.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "enzyme replacement",
+  "pmid": "32188113",
+  "source_quote": "Intravenous enzyme replacement is approved and is the standard of care for attenuated-Hurler-Scheie and Scheie-forms",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "disrupts",
+  "object": "a-L-Iduronidase",
+  "pmid": "25345091",
+  "source_quote": "Mucopolysaccharidosis type I (MPS I) is caused by a deficiency of the lysosomal hydrolase a-L-Iduronidase leading to accumulation of the GAGs, dermatan sulfate, and heparan sulphate",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "dermatan sulfate",
+  "relation": "accumulates_in",
+  "object": "Mucopolysaccharidosis type I",
+  "pmid": "25345091",
+  "source_quote": "leading to accumulation of the GAGs, dermatan sulfate, and heparan sulphate",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "laronidase",
+  "pmid": "25345091",
+  "source_quote": "The standard treatment of MPS IHIS and MIPS IS is ERT a-L-Iduronidase, laronidase, a life-long therapy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "corneal clouding",
+  "pmid": "25345091",
+  "source_quote": "Corneal clouding and cognitive impairment appears, growth ceases.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "heparan sulfate",
+  "relation": "accumulates_in",
+  "object": "Mucopolysaccharidosis type I",
+  "pmid": "32764324",
+  "source_quote": "resulting in accumulation of the glycosaminoglycans (GAGs) dermatan and heparan sulfate in organs and tissues.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "cognitive decline",
+  "pmid": "32764324",
+  "source_quote": "Finally, late manifestations including lower airway obstructions and cognitive decline emerge.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "33572941",
+  "source_quote": "Currently approved treatments consist of enzyme replacement therapy (ERT) and/or hematopoietic stem cell transplantation (HSCT).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "Hurler syndrome",
+  "pmid": "33572941",
+  "source_quote": "The disease can be divided into severe (Hurler syndrome) and attenuated (Hurler-Scheie, Scheie) forms.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "studied_in",
+  "object": "gene therapy",
+  "pmid": "35563175",
+  "source_quote": "Applying gene therapy might benefit the MPS I patients because it overcomes the typical limitations of standard treatments.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Mucopolysaccharidoses type I",
+  "pmid": "34189746",
+  "source_quote": "This disease has longtime been studied as a therapeutic target for those studying gene therapy",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "caused_by_variant_in",
+  "object": "IDUA",
+  "pmid": "8680403",
+  "source_quote": "Mucopolysaccharidosis type I (MPS-I) is an autosomal recessive disease caused by mutations in the alpha-L-iduronidase (IDUA) gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "laronidase",
+  "relation": "studied_in",
+  "object": "Mucopolysaccharidosis type I",
+  "pmid": "28859139",
+  "source_quote": "To evaluate the efficacy and safety of IV laronidase for MPS I.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "28619065",
+  "source_quote": "Allogeneic hematopoietic stem cell transplantation (HSCT) is currently the gold standard for the treatment of MPS I-H",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "corneal opacities",
+  "pmid": "40427026",
+  "source_quote": "The three phenotypes share common symptoms, including musculoskeletal abnormalities, facial dysmorphisms, hernias, short stature, finger stiffness, carpal tunnel syndrome, and corneal opacities.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "disrupts",
+  "object": "α-L-hyduronidase",
+  "pmid": "40427026",
+  "source_quote": "due to the deficiency of the enzyme α-L-hyduronidase.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "cardiomyopathy",
+  "pmid": "11405343",
+  "source_quote": "ranges from a disorder that is fatal in the early months of life, due to cardiomyopathy, to a condition compatible with a normal life-span.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "studied_in",
+  "object": "enzyme replacement therapy",
+  "pmid": "11405343",
+  "source_quote": "Enzyme replacement therapy has been developed as a potential therapy for some patients with MPS I.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "enzyme therapy",
+  "pmid": "15604908",
+  "source_quote": "Enzyme therapy for lysosomal storage disorders directed at correcting the underlying cause of disease represents the most significant recent advance in patient management.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "musculoskeletal complications",
+  "pmid": "15604908",
+  "source_quote": "Musculoskeletal complications are encountered in several of the lysosomal storage disorders and often represent a major source of extraneurologic morbidity, particularly in the subacute or chronic variants.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "central nervous system involvement",
+  "pmid": "12865757",
+  "source_quote": "results in a wide range of clinical symptoms from mild somatic complications and a normal lifespan to severe central nervous system involvement and a significantly shortened lifespan.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "carpal tunnel syndrome",
+  "pmid": "24365320",
+  "source_quote": "carpal tunnel syndrome in mucopolysaccharidosis type I, II, and VI.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Mucopolysaccharidosis type I",
+  "relation": "presents_with",
+  "object": "spinal cord compression",
+  "pmid": "24365320",
+  "source_quote": "spinal cord compression in osteogenesis imperfecta, and mucopolysaccharidosis type I and VI",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "dissynchrony",
+  "pmid": "31277868",
+  "source_quote": "In neurological disorders, those that cause dissynchrony, such as auditory neuropathy and vestibular schwannoma, Gaucher disease, and Krabbe disease",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "caused_by_variant_in",
+  "object": "GALC",
+  "pmid": "35087711",
+  "source_quote": "It is caused by mutations on the galactocerebrosidase (GALC) gene.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "35087711",
+  "source_quote": "Hematopoietic stem cell transplantation (HSCT) has been partially successful in treating patients with KD when accomplished prior to the onset of symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "metachromatic leukodystrophy",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "39322389",
+  "source_quote": "For these leukodystrophies, HSCT may modify notably the natural history and improve CNS-related deficits, provided that the procedure is performed early into the disease course.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "newborn screening",
+  "pmid": "21312327",
+  "source_quote": "Gaucher disease, Fabry disease, Pompe disease, mucopolysaccharidosis I and II, Niemann-Pick disease, and Krabbe disease are candidates for newborn screening.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "caused_by_variant_in",
+  "object": "galactocerebrosidase",
+  "pmid": "27638597",
+  "source_quote": "Krabbe disease (KD) is a rare neurodegenerative disorder caused by mutations in the gene encoding the galactocerebrosidase enzyme.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "presents_with",
+  "object": "neuroinflammation",
+  "pmid": "27638616",
+  "source_quote": "Neuroinflammation, activation of innate immune components of the nervous system followed by an adaptive immune response, is observed in most leukodystrophies",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "treated_by",
+  "object": "hematopoietic stem cell transplantation",
+  "pmid": "27638616",
+  "source_quote": "the therapeutic effect underlying hematopoietic stem cell transplantation, the only treatment for Krabbe's disease, has been demonstrated to occur via immunomodulation.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe's disease",
+  "relation": "associated_with",
+  "object": "newborn screening",
+  "pmid": "27638592",
+  "source_quote": "Live newborn screening for Krabbe's disease (KD) was initiated in New York on August 7, 2006, and started in Missouri in August, 2012.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "disrupts",
+  "object": "galactocerebrosidase",
+  "pmid": "27491217",
+  "source_quote": "Krabbe disease (globoid cell leukodystrophy, GLD) is an inherited disease caused by a deficiency in the lysosomal enzyme galactocerebrosidase (GALC).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "psychosine",
+  "relation": "accumulates_in",
+  "object": "Krabbe disease",
+  "pmid": "27491217",
+  "source_quote": "It has been hypothesized that GALC-deficiency leads to psychosine accumulation that preferentially kills oligodendrocytes in the central nervous system and Schwann cells in the peripheral nervous system.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "presents_with",
+  "object": "seizures",
+  "pmid": "27491217",
+  "source_quote": "Children affected with infantile Krabbe disease present with motor dysfunction, cognitive decline, intractable seizures, and premature death between two to five years of age.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Krabbe disease",
+  "relation": "associated_with",
+  "object": "β-galactocerebrosidase",
+  "pmid": "25260228",
+  "source_quote": "gene encoding for β-galactocerebrosidase and encoded protein were described.",
+  "confidence": "medium",
+  "contradicts": false
+ }
+]

@@ -1,0 +1,1208 @@
+[
+ {
+  "subject": "Gaucher disease",
+  "relation": "caused_by_variant_in",
+  "object": "GBA1",
+  "pmid": "28218669",
+  "source_quote": "Mutations in the GBA1 gene should be identified as they may be of prognostic value in some cases.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glucosylceramide",
+  "relation": "accumulates_in",
+  "object": "macrophages",
+  "pmid": "28218669",
+  "source_quote": "It is caused by a deficiency of the lysosomal enzyme, glucocerebrosidase, which leads to an accumulation of its substrate, glucosylceramide, in macrophages.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "splenomegaly",
+  "pmid": "28218669",
+  "source_quote": "The main cause of the cytopenia, splenomegaly, hepatomegaly, and bone lesions associated with the disease is considered to be the infiltration of the bone marrow, spleen, and liver by Gaucher cells.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "28218669",
+  "source_quote": "Disease-specific treatment consists of intravenous enzyme replacement therapy (ERT) using one of the currently available molecules (imiglucerase, velaglucerase, or taliglucerase).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "bone disease",
+  "pmid": "40611398",
+  "source_quote": "However, the pathophysiological mechanisms underlying some major lesions, such as bone disease, predisposition to Parkinson's disease in Type 1 GD, or neurological involvement in Type 2 and Type 3 GD, remain poorly understood.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "Parkinson's disease",
+  "pmid": "40611398",
+  "source_quote": "such as bone disease, predisposition to Parkinson's disease in Type 1 GD, or neurological involvement in Type 2 and Type 3 GD, remain poorly understood.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "disrupts",
+  "object": "glucocerebrosidase",
+  "pmid": "35439918",
+  "source_quote": "Gaucher disease (GD) is a rare hereditary lysosomal storage disease that arises due to deficiency of glucocerebrosidase.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "anemia",
+  "pmid": "35439918",
+  "source_quote": "Splenomegaly, anemia, and thrombocytopenia are the most common findings in GD and so most patients are initially referred to hematologists.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glucocerebrosides",
+  "relation": "accumulates_in",
+  "object": "macrophages",
+  "pmid": "39767201",
+  "source_quote": "This deficiency results in the accumulation of glucocerebrosides in macrophages, primarily affecting the liver, spleen, and bone marrow.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "cytopenia",
+  "pmid": "32877100",
+  "source_quote": "The most frequent symptoms are cytopenia, splenomegaly, hepatomegaly, and potentially severe bone involvement (bone infarcts, avascular osteonecrosis, and pathological fractures).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "hepatomegaly",
+  "pmid": "32877100",
+  "source_quote": "The most frequent symptoms are cytopenia, splenomegaly, hepatomegaly, and potentially severe bone involvement (bone infarcts, avascular osteonecrosis, and pathological fractures).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "Parkinson disease",
+  "pmid": "32877100",
+  "source_quote": "Patients with type 1 Gaucher disease have an increased risk of Parkinson disease, some solid cancers, and some hematologic malignancies including multiple myeloma.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "splenohepatomegaly",
+  "pmid": "25755533",
+  "source_quote": "It should be considered in any child or adult with an unexplained splenohepatomegaly and cytopenia which are seen in the three types of Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "neurological symptoms",
+  "pmid": "25755533",
+  "source_quote": "Neurological symptoms in type 3 disease need supportive care.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glucocerebrosidase",
+  "relation": "disrupts",
+  "object": "Gaucher disease",
+  "pmid": "17644022",
+  "source_quote": "The common mutations found in the lysosomal enzyme deficient in Gaucher disease, beta-glucocerebrosidase, earmark these proteins for destruction by the endoplasmic reticulum-localised protein folding machinery, resulting in enzyme insufficiency, lysosomal glycolipid storage and subsequent pathology.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glucocerebroside",
+  "relation": "accumulates_in",
+  "object": "liver",
+  "pmid": "3289655",
+  "source_quote": "characterized by accumulation of glucocerebroside in the liver, spleen, and bones, and caused by a deficiency of glucocerebrosidase.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene transfer",
+  "relation": "studied_in",
+  "object": "Gaucher disease",
+  "pmid": "3289655",
+  "source_quote": "Bone marrow transplantation has been attended with limited success, enzyme therapy has not yet been successful, and studies utilizing gene transfer are underway.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "thrombocytopenia",
+  "pmid": "30638965",
+  "source_quote": "The most frequent symptoms are anemia, thrombocytopenia, splenomegaly, and/or hepatomegaly, and a potentially severe bone involvement.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "substrate reduction therapy",
+  "pmid": "30638965",
+  "source_quote": "Specific treatment, such as enzyme replacement therapy or substrate reduction therapy is indicated in symptomatic type 1 Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "peripheral neuropathy",
+  "pmid": "21221912",
+  "source_quote": "recent studies have revealed that affected individuals have an increased risk of developing peripheral neuropathy and parkinsonian features.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement",
+  "pmid": "21221912",
+  "source_quote": "Significant advances in therapy have been achieved, primarily through enzyme replacement, for the systemic, extra-neurologic features among patients with types 1 and 3 GD.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher's disease",
+  "relation": "treated_by",
+  "object": "glucocerebrosidase",
+  "pmid": "7764212",
+  "source_quote": "exemplified by the approval of glycosylation-engineered glucocerebrosidase for clinical use in replacement therapy of Gaucher's disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "Pompe disease",
+  "pmid": "29152458",
+  "source_quote": "Examples include glycogen in the case of Pompe disease, glycosaminoglycans in the case of the mucopolysaccharidoses, glycoproteins in the cases of the oligosaccharidoses, and sphingolipids in the cases of Niemann-Pick disease types A and B, Gaucher disease, Tay-Sachs disease, Krabbe disease, and metachromatic leukodystrophy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "imiglucerase",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Hunter disease",
+  "relation": "treated_by",
+  "object": "idursulfase",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "treated_by",
+  "object": "alglucosidase alfa",
+  "pmid": "29152458",
+  "source_quote": "Examples include imiglucerase, taliglucerase and velaglucerase for Gaucher disease, laronidase for Hurler disease, idursulfase for Hunter disease, elosulfase for Morquio disease, galsulfase for Maroteaux-Lamy disease, alglucosidase alfa for Pompe disease, and agalsidase alfa and beta for Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "treated_by",
+  "object": "eliglustat",
+  "pmid": "29152458",
+  "source_quote": "In addition, substrate reduction therapy has been approved for certain disorders, such as eliglustat for Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "liver cirrhosis",
+  "pmid": "27842801",
+  "source_quote": "While hepatic involvement is common in Gaucher disease, its severity, and clinical significance span a wide spectrum, ranging from sub-clinical involvement to liver cirrhosis with its associated complications including portal hypertension.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "associated_with",
+  "object": "multiple myeloma",
+  "pmid": "23510067",
+  "source_quote": "Several reports describe an increased risk of cancer in GD; in particular multiple myeloma.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "hepato-splenomegaly",
+  "pmid": "23510067",
+  "source_quote": "Skeletal disease, peripheral blood cytopenias and hepato-splenomegaly are common at presentation.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "bone involvement",
+  "pmid": "25377906",
+  "source_quote": "Bone involvement occurs frequently in Gaucher disease, and is one of its most debilitating features, reducing the quality of life of patients.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glucocerebrosidase",
+  "relation": "associated_with",
+  "object": "Gaucher disease",
+  "pmid": "9050375",
+  "source_quote": "Many mutations affecting the glucocerebrosidase gene have been defined as causes of the glycolipid storage disorder, Gaucher disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gaucher disease",
+  "relation": "presents_with",
+  "object": "pulmonary involvement",
+  "pmid": "9050375",
+  "source_quote": "Pulmonary involvement, usually regarded as a very rare manifestation, has received more attention recently, and minor abnormalities have been documented in many patients.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "globotriasylceramide",
+  "relation": "accumulates_in",
+  "object": "heart",
+  "pmid": "33602475",
+  "source_quote": "Fabry disease (FD) is a rare X-linked inherited lysosomal storage disorder caused by deficient α-galactosidase A activity that leads to an accumulation of globotriasylceramide (Gb3) in affected tissues, including the heart.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "heart failure",
+  "pmid": "33602475",
+  "source_quote": "Cardiovascular involvement usually manifests as left ventricular hypertrophy, myocardial fibrosis, heart failure, and arrhythmias, which limit quality of life and represent the most common causes of death.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "33602475",
+  "source_quote": "Following the introduction of enzyme replacement therapy, early diagnosis and treatment have become essential to slow disease progression and prevent major cardiac complications.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "disrupts",
+  "object": "alpha-galactosidase A",
+  "pmid": "33172708",
+  "source_quote": "It is a X-linked genetic disease secondary to alpha-galactosidase A enzyme deficiency.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "cornea verticillata",
+  "pmid": "33172708",
+  "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "acral pain crisis",
+  "pmid": "33172708",
+  "source_quote": "Classical symptoms and organ involvements are acral pain crisis, cornea verticillata, hypertrophic cardiomyopathy, stroke and chronic kidney disease with proteinuria.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "caused_by_variant_in",
+  "object": "GLA",
+  "pmid": "29530533",
+  "source_quote": "Fabry disease is an X-linked lysosomal storage disorder caused by mutations in the GLA gene leading to deficient α-galactosidase A activity, glycosphingolipid accumulation, and life-threatening complications.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "globotriaosylceramide",
+  "relation": "accumulates_in",
+  "object": "cells",
+  "pmid": "29562089",
+  "source_quote": "A lack of alpha-galactosidase activity results in the accumulation of globotriaosylceramide in cells of various systems, leading to multi-systemic effects.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "angiokeratoma",
+  "pmid": "29562089",
+  "source_quote": "The cutaneous hallmark of FD is a specific distribution of angiokeratoma.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "left ventricular hypertrophy",
+  "pmid": "40840785",
+  "source_quote": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Gb3",
+  "relation": "accumulates_in",
+  "object": "cardiac tissue",
+  "pmid": "40840785",
+  "source_quote": "Cardiomyopathy in Fabry disease arises from Gb3 accumulation in cardiac tissue, resulting in fibrosis, left ventricular hypertrophy (LVH), diastolic dysfunction, and heart failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "progressive organ damage",
+  "pmid": "35926321",
+  "source_quote": "Fabry disease is an X-linked inherited lysosomal disorder that causes accumulation of glycosphingolipids in body fluids and tissues, leading to progressive organ damage and reduced life expectancy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Anderson-Fabry disease",
+  "relation": "presents_with",
+  "object": "hypertrophic cardiomyopathy",
+  "pmid": "38486361",
+  "source_quote": "Anderson-Fabry disease (AFD) is a lysosomal storage disorder characterized by glycolipid accumulation in cardiac cells, associated with a peculiar form of hypertrophic cardiomyopathy (HCM).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycolipid",
+  "relation": "accumulates_in",
+  "object": "cardiac cells",
+  "pmid": "38486361",
+  "source_quote": "Anderson-Fabry disease (AFD) is a lysosomal storage disorder characterized by glycolipid accumulation in cardiac cells, associated with a peculiar form of hypertrophic cardiomyopathy (HCM).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "treated_by",
+  "object": "agalsidase alfa",
+  "pmid": "40725823",
+  "source_quote": "Enzyme replacement therapy (ERT) with agalsidase alfa or agalsidase beta stabilized renal function and cardiac structure in patients with Fabry disease.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "treated_by",
+  "object": "migalastat",
+  "pmid": "40725823",
+  "source_quote": "Patients treated with migalastat and pegunigalsidase alfa also maintained stable renal function and cardiac structure.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "globotriaosylceramide",
+  "relation": "accumulates_in",
+  "object": "various organs",
+  "pmid": "28674962",
+  "source_quote": "Fabry disease resulting from a deficiency of α-galactosidase A leads to the accumulation of globotriaosylceramide in various organs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "angiokeratomas",
+  "pmid": "28104284",
+  "source_quote": "Angiokeratomas are the most common cutaneous sign of this disease, although they are not specific to it and must be distinguished from angiokeratomas either occurring in isolation or associated with systemic diseases.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "studied_in",
+  "object": "gene therapy",
+  "pmid": "28104284",
+  "source_quote": "Gene therapy is now also used extensively.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "renal failure",
+  "pmid": "16511611",
+  "source_quote": "It can present variably and may represent an important cause of occult neurological and cardiac syndromes and renal failure.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme infusion",
+  "relation": "studied_in",
+  "object": "Fabry disease",
+  "pmid": "16511611",
+  "source_quote": "Preclinical and clinical studies demonstrate effectiveness of enzyme infusion in controlling and preventing these manifestations of the disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "painful neuropathy",
+  "pmid": "23931807",
+  "source_quote": "The main neurological presentations of Fabry disease patients are painful neuropathy, hypohidrosis, and stroke.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry's disease",
+  "relation": "caused_by_variant_in",
+  "object": "GLA",
+  "pmid": "18940466",
+  "source_quote": "Fabry's disease is an X-linked lysosomal storage disorder caused by abnormalities in the GLA gene, which leads to a deficiency in alpha-galactosidase A.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry's disease",
+  "relation": "presents_with",
+  "object": "neuropathic pain",
+  "pmid": "18940466",
+  "source_quote": "early initiation of treatment is key for improvement in major affected organs with decreased cardiac mass and stabilisation of kidney function, and improvement in neuropathic pain, sweating, gastrointestinal symptoms, hearing loss, and pulmonary symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "globotriaosylceramide",
+  "relation": "accumulates_in",
+  "object": "vascular endothelium",
+  "pmid": "26835405",
+  "source_quote": "Mutations of the GLA gene result in deficiency of the lysosomal enzyme, α-galactosidase A (α-Gal A) with accumulation of glycosphingolipids, particularly globotriaosylceramide (GL3) in the vascular endothelium of various tissues.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "neuropathic pain",
+  "pmid": "26835405",
+  "source_quote": "The symptoms most commonly experienced in childhood include neuropathic pain, gastrointestinal dysfunction, hyperhidrosis and heat intolerance.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "treated_by",
+  "object": "agalsidase beta",
+  "pmid": "39636569",
+  "source_quote": "Agalsidase beta is associated with renal, neurological, and cardiovascular benefits, and may prevent renal disease progression.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "ventricular hypertrophy",
+  "pmid": "33922740",
+  "source_quote": "GB3 accumulation occurs in virtually all cardiac cells (cardiomyocytes, conduction system cells, fibroblasts, and endothelial and smooth muscle vascular cells), ultimately leading to ventricular hypertrophy and fibrosis, heart failure, valve disease, angina, dysrhythmias, cardiac conduction abnormalities, and sudden death.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "cerebrovascular disease",
+  "pmid": "33489501",
+  "source_quote": "The natural history of the affected patients (both males and females) includes neurovascular complications, such as cerebrovascular disease at a relatively young age.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry's disease",
+  "relation": "presents_with",
+  "object": "angiokeratomas",
+  "pmid": "1324036",
+  "source_quote": "Other clinical features included severe pain of the extremities and cutaneous angiokeratomas.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry's disease",
+  "relation": "presents_with",
+  "object": "anhidrosis",
+  "pmid": "1324036",
+  "source_quote": "A 20-year-old man presented with generalized acquired anhidrosis and heat intolerance which was confirmed by a sweat test.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "globotriaosylceramide",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "25987173",
+  "source_quote": "The enzyme defect leads to progressive intracellular accumulation of globotriaosylceramide in lysosomes of various tissues and organs, including heart, kidney and nerve system.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Fabry disease",
+  "relation": "presents_with",
+  "object": "dyspnoea",
+  "pmid": "26557248",
+  "source_quote": "The current literature concerning lung manifestations describes various respiratory symptoms such as dyspnoea or shortness of breath, wheezing, and dry cough.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glycosphingolipids",
+  "relation": "accumulates_in",
+  "object": "multiple organs",
+  "pmid": "26557248",
+  "source_quote": "Fabry disease is an X-linked disorder caused by a deficiency of the lysosomal enzyme α-galactosidase A, resulting in accumulation of glycosphingolipids in multiple organs, primarily heart, kidneys, skin, CNS, and lungs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Fabry disease",
+  "pmid": "36386210",
+  "source_quote": "we then systemically summarize and discuss advances in research on therapeutic approaches, including enzyme replacement therapy (ERT), gene therapy, and chaperone therapy, as well as strategies targeting subcellular compartments, such as lysosomes, the endoplasmic reticulum, and the nucleus.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Fabry disease",
+  "pmid": "36386210",
+  "source_quote": "we then systemically summarize and discuss advances in research on therapeutic approaches, including enzyme replacement therapy (ERT), gene therapy, and chaperone therapy, as well as strategies targeting subcellular compartments, such as lysosomes, the endoplasmic reticulum, and the nucleus.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "generalized hypotonia",
+  "pmid": "16898258",
+  "source_quote": "The classic infantile form of the disease occurs in infants (shortly after birth) and is characterized by generalized hypotonia, failure to thrive, and cardiorespiratory failure.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "skeletal muscle",
+  "pmid": "16898258",
+  "source_quote": "This leads to an accumulation of glycogen in various tissues of the body, most notably in skeletal muscle.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "16898258",
+  "source_quote": "Enzyme replacement therapy (ERT) is under study as treatment for the disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "respiratory failure",
+  "pmid": "23632029",
+  "source_quote": "In later-onset Pompe disease, symptoms are slower to appear, and patients often progress to wheelchair confinement and eventual respiratory failure.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "hypertrophic cardiomyopathy",
+  "pmid": "16702883",
+  "source_quote": "The natural history of infantile-onset Pompe disease is characterized by hypertrophic cardiomyopathy and profound generalized weakness presenting in the first few months of life, with rapid progression and death usually occurring by one year of age.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "treated_by",
+  "object": "alglucosidase alpha",
+  "pmid": "22252989",
+  "source_quote": "Enzyme replacement therapy (ERT) with alglucosidase alpha, approved by the FDA in 2006, has expanded possibilities for individuals with Pompe disease (glycogen storage disease type II, GSDII, or acid maltase deficiency).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "caused_by_variant_in",
+  "object": "GAA",
+  "pmid": "31796685",
+  "source_quote": "Pompe disease (glycogen storage disease type II) is caused by mutations in acid α-glucosidase (GAA) resulting in lysosomal pathology and impairment of the muscular and cardio-pulmonary systems.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "treated_by",
+  "object": "enzyme replacement therapy",
+  "pmid": "31796685",
+  "source_quote": "Enzyme replacement therapy (ERT), the only approved therapy for Pompe disease, improves muscle function by reducing glycogen accumulation but this approach entails several limitations including a short drug half-life and an antibody response that results in reduced efficacy.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "gene therapy",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "31796685",
+  "source_quote": "To address these limitations, new treatments such as gene therapy are under development to increase the intrinsic ability of the affected cells to produce GAA.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "hypertrophic CM",
+  "pmid": "28258649",
+  "source_quote": "Storage disorders such as Pompe disease (glycogen storage disease type II) typically cause hypertrophic CM, whereas the accumulation of toxic metabolites, as seen in the organic acidurias, is associated with dilated cardiomyopathy (DCM).",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Barth syndrome",
+  "relation": "presents_with",
+  "object": "DCM",
+  "pmid": "28258649",
+  "source_quote": "IEM such as Barth syndrome, a disorder of cardiolipin stability usually associated with DCM, have been associated with rarer types of CM such as endocardial fibroelastosis and left ventricular non-compaction.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "progressive proximal myopathy",
+  "pmid": "24119230",
+  "source_quote": "Pompe disease/glycogen storage disease type II, is a rare, lysosomal storage disorder associated with progressive proximal myopathy, causing a gradual loss of muscular function and respiratory insufficiency.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "treated_by",
+  "object": "Myozyme",
+  "pmid": "36503146",
+  "source_quote": "Enzyme replacement therapy for Pompe disease with Myozyme was approved by FDA in 2006.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "hepatomegaly",
+  "pmid": "36503146",
+  "source_quote": "Infantile Pompe disease presents cardiomyopathy and hepatomegaly.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "myofiber",
+  "pmid": "35351934",
+  "source_quote": "This disease is marked by dramatic accumulation of intracellular myofiber glycogen.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "respiratory insufficiency",
+  "pmid": "19138339",
+  "source_quote": "patients with pre-existing respiratory insufficiency seemed to profit most.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "disrupts",
+  "object": "acid α-glucosidase",
+  "pmid": "42596035",
+  "source_quote": "Pompe disease (glycogen storage disease type 2, acid maltase deficiency) is an uncommon, progressive, autosomal recessive lysosomal storage disorder caused by a lack of the enzyme acid α-glucosidase.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "42596035",
+  "source_quote": "The enzyme deficiency results in the abnormal buildup of glycogen in lysosomes, especially in skeletal, cardiac, and smooth muscle.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "proximal muscle weakness",
+  "pmid": "25047669",
+  "source_quote": "We screened for late-onset Pompe disease in a cohort of undetermined myopathy patients with proximal muscle weakness and/or elevated serum creatine kinase values.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "disrupts",
+  "object": "acid alpha-glucosidase",
+  "pmid": "19003770",
+  "source_quote": "Pompe disease (glycogen-storage disease type II) is an autosomal recessive disorder caused by a deficiency of lysosomal acid alpha-glucosidase (GAA), leading to the accumulation of glycogen in the lysosomes primarily in muscle cells.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "muscle weakness",
+  "pmid": "24726296",
+  "source_quote": "Muscle weakness worsened in 3 women, and first presented in 3 others during the first pregnancy (4.5% each).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "cardiomyopathy",
+  "pmid": "33972680",
+  "source_quote": "The following data were collected: clinical details including presence or absence of cardiomyopathy, enzyme activity levels, and features of GAA variants including exon versus intron location and splice site versus non-splice site.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "autophagic buildup",
+  "pmid": "29804932",
+  "source_quote": "The resistance to therapy is linked to massive autophagic buildup in the diseased muscle.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GAA",
+  "relation": "associated_with",
+  "object": "Pompe disease",
+  "pmid": "37907381",
+  "source_quote": "With the goal of classifying the clinical significance of GAA variants in Pompe disease (Glycogen storage disease, type II)",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "AAV9",
+  "relation": "studied_in",
+  "object": "Pompe disease",
+  "pmid": "40679403",
+  "source_quote": "AAV9 vectors containing CREs and encoding α-glucosidase (GAA) were administered to GAA-/- knockout mice that mimic Pompe disease (glycogen storage disease type II) in human subjects.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "fracture",
+  "pmid": "17342521",
+  "source_quote": "we present four cases of fracture in patients with classic infantile Pompe disease treated with ERT at our institution",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "presents_with",
+  "object": "progressively debilitating",
+  "pmid": "37153672",
+  "source_quote": "Pompe disease, while rare, is a progressively debilitating but treatable neuromuscular disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Pompe disease",
+  "relation": "caused_by_variant_in",
+  "object": "acid alpha-glucosidase",
+  "pmid": "18648322",
+  "source_quote": "Pompe disease (glycogen storage disease II) is caused by mutations in the acid alpha-glucosidase gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "glycogen",
+  "relation": "accumulates_in",
+  "object": "CNS",
+  "pmid": "18648322",
+  "source_quote": "Although usually considered a muscle disease, glycogen storage also occurs in the CNS.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "38397448",
+  "source_quote": "NPD type A and B are caused by mutations in the gene SMPD1 coding for sphingomyelin phosphodiesterase 1, with a consequent lack of acid sphingomyelinase activity.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "38397448",
+  "source_quote": "NPD type C is a neurologic disorder due to mutations in the genes NPC1 or NPC2, causing a defect of cholesterol trafficking and esterification.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "interstitial lung disease",
+  "pmid": "38397448",
+  "source_quote": "Although all three types of NPD can manifest with pulmonary involvement, lung disease occurs more frequently in NPD type B, typically with interstitial lung disease, recurrent pulmonary infections, and respiratory failure.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "38397448",
+  "source_quote": "The only approved disease-modifying therapy in NPD type C is miglustat, a substrate-reduction treatment.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "caused_by_variant_in",
+  "object": "NPC1",
+  "pmid": "20525256",
+  "source_quote": "NP-C is transmitted in an autosomal recessive manner and is caused by mutations of either the NPC1 (95% of families) or the NPC2 genes.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "20525256",
+  "source_quote": "The most characteristic sign is vertical supranuclear gaze palsy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick C disease",
+  "relation": "treated_by",
+  "object": "miglustat",
+  "pmid": "20525256",
+  "source_quote": "A first product, miglustat, has been granted marketing authorization in Europe and several other countries for specific treatment of the neurological manifestations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "cholesterol",
+  "relation": "accumulates_in",
+  "object": "lysosomes",
+  "pmid": "20525256",
+  "source_quote": "to demonstrate accumulation of unesterified cholesterol in perinuclear vesicles (lysosomes) after staining with filipin.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "acid sphingomyelinase deficiency",
+  "relation": "caused_by_variant_in",
+  "object": "SMPD1",
+  "pmid": "37069638",
+  "source_quote": "Acid Sphingomyelinase Deficiency (ASMD) is a rare autosomal recessive disorder caused by mutations in the SMPD1 gene.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "acid sphingomyelinase deficiency",
+  "relation": "presents_with",
+  "object": "neurovisceral disorder",
+  "pmid": "37069638",
+  "source_quote": "subtypes ranging from a fatal infantile neurovisceral disorder to an adult-onset chronic visceral disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "associated_with",
+  "object": "acid sphingomyelinase",
+  "pmid": "10608504",
+  "source_quote": "the discovery of the genes for acid sphingomyelinase, deficient in types A and B",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "gene transfection",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "10608504",
+  "source_quote": "These models have been utilized in therapeutic trials of bone marrow transplantation and gene transfection of stem cells and in studies of disease pathogenesis.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "vertical supranuclear gaze palsy",
+  "pmid": "23622394",
+  "source_quote": "Most common neurological signs are vertical supranuclear gaze palsy, cerebellar ataxia, dysarthria, dysphagia, and progressive dementia.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type A/B",
+  "relation": "disrupts",
+  "object": "acid sphingomyelinase",
+  "pmid": "29249985",
+  "source_quote": "Niemann-Pick type A/B (NPA/B) and type C diseases Niemann-Pick type C (NPC) are progressive LSD caused by loss of function of distinct lysosomal-residing proteins, acid sphingomyelinase and NPC1, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick type C",
+  "relation": "disrupts",
+  "object": "NPC1",
+  "pmid": "29249985",
+  "source_quote": "Niemann-Pick type A/B (NPA/B) and type C diseases Niemann-Pick type C (NPC) are progressive LSD caused by loss of function of distinct lysosomal-residing proteins, acid sphingomyelinase and NPC1, respectively.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "cholesterol",
+  "relation": "accumulates_in",
+  "object": "mitochondria",
+  "pmid": "29249985",
+  "source_quote": "alterations in the lysosomal-mitochondrial liaisons underlie the secondary accumulation of specific lipids, such as cholesterol in mitochondria, resulting in mitochondrial dysfunction and defective antioxidant defense",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "sphingomyelin",
+  "relation": "accumulates_in",
+  "object": "organs",
+  "pmid": "23579450",
+  "source_quote": "the genetic disorders with a massive accumulation of sphingomyelin in many organs.",
+  "confidence": "high",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "cardiac manifestation",
+  "pmid": "11298185",
+  "source_quote": "A completely different pathogenetic model comprises cardiac manifestation of systemic metabolic diseases caused by deficiencies of various enzymes in a variety of metabolic pathways. Examples of these disorders are glycogen storage diseases (e.g. glycogenosis type II and III), lysosomal storage diseases (e.g. Niemann-Pick disease, Gaucher disease, I-cell disease, various types of mucopolysaccharidoses, GM1 gangliosidosis, galactosialidosis, carbohydrate-deficient glycoprotein syndromes and Sandhoff's disease).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "disrupts",
+  "object": "acid sphingomyelinase",
+  "pmid": "27491215",
+  "source_quote": "The first is due to the deficient activity of the enzyme acid sphingomyelinase (ASM).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "hepatosplenomegaly",
+  "pmid": "27491215",
+  "source_quote": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "pulmonary infections",
+  "pmid": "27491215",
+  "source_quote": "Type A NPD patients exhibit hepatosplenomegaly, frequent pulmonary infections, and profound central nervous system involvement in infancy.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "enzyme replacement therapy",
+  "relation": "studied_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "26807415",
+  "source_quote": "ongoing trials using enzyme replacement therapy might hopefully show promising results in the foreseeable future.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "visceral symptomatology",
+  "pmid": "2682573",
+  "source_quote": "may also manifest considerably prolonged course or an atypical course with predominantly visceral symptomatology.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "progressive neurological symptoms",
+  "pmid": "24338084",
+  "source_quote": "NP-C is a rare, autosomal-recessive lipid storage disorder characterized by impaired intracellular lipid trafficking and progressive neurological symptoms leading to premature death.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "cholesterol",
+  "relation": "accumulates_in",
+  "object": "Niemann-Pick disease",
+  "pmid": "31220974",
+  "source_quote": "the pathological accumulation of primary storage compounds can trigger an accumulation of secondary storage compounds (e.g., small glycosphingolipids and cholesterol in Niemann-Pick disease).",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "cataplexy",
+  "pmid": "25434476",
+  "source_quote": "Although cataplexy is one of its characteristic symptoms, particularly in the late infantile and juvenile form, sleep disturbances are described only exceptionally.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "splenomegaly",
+  "pmid": "25434476",
+  "source_quote": "A combination of splenomegaly, vertical supranuclear gaze palsy, and cataplexy creates a most useful suspicion index tool for the disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "progressive neurological manifestations",
+  "pmid": "30111334",
+  "source_quote": "Niemann-Pick disease type C (NP-C) is a rare, autosomal recessive, neurodegenerative disease associated with a wide variety of progressive neurological manifestations.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "respiratory failure",
+  "pmid": "27164983",
+  "source_quote": "Respiratory manifestations range from a lack of symptoms to respiratory failure.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "ataxia",
+  "pmid": "33892845",
+  "source_quote": "Vertical supranuclear gaze palsy is a hallmark symptom, and ataxia, dysarthria, dysphagia, dystonia, cognitive decline, seizures, cataplexy, hearing loss and visceromegaly are also characteristic.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "cholesterol",
+  "relation": "accumulates_in",
+  "object": "trans Golgi cisternae",
+  "pmid": "10227680",
+  "source_quote": "Niemann-Pick disease type C (NPC) is a neurovisceral disorder characterized by lysosomal sequestration of endocytosed LDL-cholesterol, premature and abnormal enrichment of cholesterol in trans Golgi cisternae and accompanying anomalies in intracellular sterol trafficking.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "gangliosides",
+  "pmid": "10227680",
+  "source_quote": "In cerebral cortex, gangliosides GM3 and GM2 showed a significant increase, 10-15 fold and 3-5-fold the normal level, respectively",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "sphingomyelinase",
+  "relation": "associated_with",
+  "object": "Niemann-Pick disease",
+  "pmid": "3009683",
+  "source_quote": "Sphingomyelinases and Niemann-Pick disease.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "Niemann-Pick disease",
+  "relation": "presents_with",
+  "object": "psychiatric disorders",
+  "pmid": "30286847",
+  "source_quote": "Some diseases secondary to inborn errors of metabolism are associated with psychiatric disorders or minor neurological symptoms.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "GGTI",
+  "relation": "associated_with",
+  "object": "Niemann-Pick disease",
+  "pmid": "26666664",
+  "source_quote": "we discussed the involvement of GGTI and its substrate GGPP in neurodegenerative disorders, such as aging, Alzheimer's disease, multiple sclerosis, and Niemann-Pick disease type C.",
+  "confidence": "medium",
+  "contradicts": false
+ },
+ {
+  "subject": "NPC2",
+  "relation": "encodes",
+  "object": "lysosomal protein",
+  "pmid": "12974729",
+  "source_quote": "The remainder have mutations in the NPC2 gene (mapped at 14q24.3) which encodes a small soluble lysosomal protein with cholesterol-binding properties.",
+  "confidence": "high",
+  "contradicts": false
+ }
+]
