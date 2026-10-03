@@ -535,3 +535,18 @@ body.dark .explainer-one { color: var(--ink); }
   .guide-hero { padding: 28px 8px 20px; }
   .guide-h { font-size: 1.45rem; }
 }
+
+/* ---- Endpoints lens ---- */
+.ep-caveat-banner { background: #fff7e6; border: 1px solid #f0d48a; border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0 0 1rem; font-size: 0.95rem; }
+.ep-deriv { font-size: 0.82rem; color: #5b6472; font-style: italic; }
+.ep-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.ep-chip { background: #eef4ff; border: 1px solid #c9dcff; border-radius: 20px; padding: 2px 10px; font-size: 0.82rem; cursor: default; }
+.ep-caveat { background: #fff7e6; border-left: 3px solid #e0a82e; padding: 0.4rem 0.7rem; border-radius: 0 6px 6px 0; }
+.ep-card h2 { font-size: 15px; }
+.ep-pick { font-size: 1rem; padding: 0.5rem; border-radius: 6px; border: 1px solid #c9cfd8; max-width: 100%; }
+.ep-matrix-wrap { overflow-x: auto; margin: 0.6rem 0 1.2rem; }
+table.ep-matrix { border-collapse: collapse; font-size: 0.8rem; }
+table.ep-matrix th, table.ep-matrix td { border: 1px solid #e2e5ea; padding: 4px 7px; text-align: center; white-space: nowrap; }
+table.ep-matrix th:first-child, table.ep-matrix td:first-child { text-align: left; position: sticky; left: 0; background: #fff; max-width: 260px; white-space: normal; }
+table.ep-matrix td.on { background: #e6f7f3; font-weight: 700; color: #0d6e5f; }
+table.ep-matrix thead th { background: #f4f6fa; font-size: 0.72rem; }
