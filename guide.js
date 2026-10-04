@@ -989,6 +989,18 @@ function vAmbiguous() {
     ? 'Based on the symptoms you described, these are the closest matches in our data.'
     : 'A few conditions match what you typed.';
   var compare = (G.candidates.length > 1) ? compareHTML(G.candidates) : '';
+  var filter = ambFilterHTML();
+  var main = '<div class="guide-cands">' + ambResultsHTML() + '</div>' +
+    '<button type="button" class="btn" data-nav="nomatch">None of these seem right</button>';
+  /* Two-column layout on desktop: diseases on the left (75%), symptom picks
+   * in a fixed right column (25%). DOM keeps the filter first so it stacks
+   * above the disease list on narrow screens. */
+  var body = filter
+    ? '<div class="guide-amb-layout">' +
+        '<aside class="guide-amb-side">' + filter + '</aside>' +
+        '<div class="guide-amb-main">' + main + '</div>' +
+      '</div>'
+    : main;
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="search">&larr; Start over</button>' +
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
@@ -996,9 +1008,7 @@ function vAmbiguous() {
     roleLine() +
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
     compare +
-    ambFilterHTML() +
-    '<div class="guide-cands">' + ambResultsHTML() + '</div>' +
-    '<button type="button" class="btn" data-nav="nomatch">None of these seem right</button>' +
+    body +
     '</div>';
 }
 /* ---- No match: honest, never a dead end ---- */
