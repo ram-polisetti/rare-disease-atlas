@@ -415,7 +415,26 @@ function allConfirmPhenos() {
   var all = phenosFor(d.id);
   var obs = all.filter(isObservablePheno);
   var pool = obs.length ? obs : all;
+  /* Already picked on the previous screen: counted, not asked again. */
+  var picked = {};
+  (G.confirmedPhenos || []).forEach(function (k) { picked[String(k).toLowerCase()] = 1; });
+  pool = pool.filter(function (p) { return !picked[String(p.id || p.label).toLowerCase()]; });
   return pool.slice().sort(function (a, b) { return phenoDegree(b) - phenoDegree(a); });
+}
+/* Symptoms the parent already picked on the ambiguous screen carry forward
+ * into the confirmation, so nothing gets ticked twice. */
+function seedConfirmedFromFilter(did) {
+  var f = G.ambFilter || {}, out = [];
+  phenosFor(did).forEach(function (p) {
+    var key = p.id || p.label;
+    if (f[String(key).toLowerCase()] && out.indexOf(key) === -1) out.push(key);
+  });
+  return out;
+}
+function phenoLabel(key) {
+  var n = nodesById[key];
+  if (n && n.label) return n.label;
+  return String(key || '');
 }
 function confirmPhenos() {
   var all = allConfirmPhenos();
@@ -768,6 +787,13 @@ function phenoCheckHTML(p, flatIndex) {
   return '<label class="guide-check"><input type="checkbox" data-ph="' + flatIndex + '"' + chk + '> ' + esc2(plainSymptom(p.label)) + '</label>';
 }
 
+function alreadyPickedHTML() {
+  var picked = (G.confirmedPhenos || []).map(function (k) { return plainSymptom(phenoLabel(k)); }).filter(Boolean);
+  if (!picked.length) return '';
+  return '<p class="guide-sub">You already picked these on the last screen, so they&rsquo;re counted &mdash; no need to tick them again: <strong>' +
+    esc2(picked.join('; ')) + '</strong>.</p>';
+}
+
 function vConfirm() {
   var d = nodesById[G.diseaseId];
   if (!d) return vSearch();
@@ -804,7 +830,8 @@ function vConfirm() {
     '<p class="guide-fine">Only a clinician can make a diagnosis. What follows is what our data says about this condition &mdash; not medical advice.</p>' +
     '</div>' +
     '<h3 class="guide-h3">Quick check &mdash; does this sound like your situation?</h3>' +
-    '<p class="guide-sub">Tick the ones you recognize. This helps us point you right.</p>' +
+    alreadyPickedHTML() +
+    '<p class="guide-sub">Tick any others you recognize. This helps us point you right.</p>' +
     '<div class="guide-checks">' + (checks || '<p class="guide-fine">We don&rsquo;t have symptom details recorded for this condition yet.</p>') + '</div>' +
     (moreBtn ? '<div class="guide-btnrow">' + moreBtn + '</div>' : '') +
     '<div class="guide-btnrow">' +
@@ -1272,6 +1299,19 @@ function vConnections() {
 }
 /* ---- Dossier (printable; kept whole, back returns to the action screen) ---- */
 
+function journeyHTML(d) {
+  var bits = [];
+  if (G.query) bits.push('You searched for &ldquo;' + esc2(G.query) + '&rdquo;.');
+  var nCand = (G.candidates || []).length;
+  if (nCand > 1) bits.push(nCand + ' conditions matched.');
+  var picked = (G.confirmedPhenos || []).map(function (k) { return plainSymptom(phenoLabel(k)); }).filter(Boolean);
+  if (picked.length) bits.push('You recognized these symptoms: <strong>' + esc2(picked.join('; ')) + '</strong>.');
+  else bits.push('You skipped the symptom check.');
+  bits.push('You chose to explore <strong>' + esc2(guideName(d)) + '</strong>. Only a clinician can diagnose.');
+  return '<h3 class="guide-h3">How you got here</h3><p>' + bits.join(' ') + '</p>' +
+    '<p class="guide-fine">This is the path you took through the guide, so a clinician can see what you already considered.</p>';
+}
+
 function vExport() {
   var d = nodesById[G.diseaseId];
   if (!d) return vSearch();
@@ -1292,6 +1332,7 @@ function vExport() {
     '<p class="guide-sub">Everything our atlas holds on this condition, in one place. Take it to your doctor, your family, or your patient group. ' +
     'You&rsquo;re doing the right thing by looking. Generated ' + new Date().toLocaleDateString() + '.</p>' +
     therapyBannerHTML(d) +
+    journeyHTML(d) +
     '<div class="guide-nextstep"><strong>What to do next:</strong> ' + nextStepFor(d.id) + '</div>';
 
   h += '<h3 class="guide-h3">What this condition is</h3>' +
@@ -1403,7 +1444,7 @@ function wireGuide(scope) {
     });
   });
   scope.querySelectorAll('[data-pick]').forEach(function (b) {
-    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); });
+    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = seedConfirmedFromFilter(G.diseaseId); G.phenoExpanded = false; go('confirm'); });
   });
   scope.querySelectorAll('[data-certain]').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -1442,7 +1483,7 @@ function wireGuide(scope) {
       if (cands) {
         cands.innerHTML = ambCardsHTML();
         cands.querySelectorAll('[data-pick]').forEach(function (b) {
-          b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); });
+          b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = seedConfirmedFromFilter(G.diseaseId); G.phenoExpanded = false; go('confirm'); });
         });
       }
     });
