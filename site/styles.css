@@ -524,6 +524,25 @@ body.dark .guide-cand strong, body.dark .guide-card strong { color: var(--ink); 
 body.dark .guide-sub, body.dark .guide-cand-ph, body.dark .guide-compare-diff { color: var(--ink-soft); }
 body.dark .guide-fine, body.dark .guide-alt, body.dark .guide-examples,
 body.dark .guide-card span:last-child { color: var(--ink-faint); }
+/* Full dark-mode audit fixes: every remaining light-background component. */
+body.dark .fayuvi-alert { background: #1e2a4a; border-color: #33406b; }
+body.dark .fayuvi-alert strong { color: #9db9f7; }
+body.dark .fayuvi-alert, body.dark .excluded-list li { color: var(--ink); }
+body.dark .syn-list li { background: #2e323c; color: var(--ink); }
+body.dark .ep-caveat-banner { background: #3a2f16; border-color: #6b5a2e; color: var(--ink); }
+body.dark .ep-caveat-banner strong { color: #f2c94c; }
+body.dark .ep-deriv { color: var(--ink-faint); }
+body.dark .ep-chip { background: #232b45; border-color: #33406b; color: var(--ink); }
+body.dark table.ep-matrix th, body.dark table.ep-matrix td { border-color: #2e323c; background: var(--surface); color: var(--ink); }
+body.dark table.ep-matrix th:first-child, body.dark table.ep-matrix td:first-child { background: #1a1e26; }
+body.dark table.ep-matrix td.on { background: #123a33; color: #7fe0c3; }
+body.dark table.ep-matrix thead th { background: #1a1e26; color: var(--ink-soft); }
+body.dark .wi-item { background: var(--surface); border-color: var(--line); }
+body.dark .wi-item strong { color: var(--ink); }
+body.dark .wi-item { color: var(--ink-soft); }
+body.dark .limit-callout { background: #2a1d1d; color: #e8a0a0; border-left-color: #d97777; }
+body.dark .limit-callout strong { color: #f0b0b0; }
+body.dark .wi-note { background: var(--surface); border: 1px solid var(--line); color: var(--ink-soft); }
 
 /* ---------- mobile pass (2am phone) ---------- */
 @media (max-width: 700px) {
