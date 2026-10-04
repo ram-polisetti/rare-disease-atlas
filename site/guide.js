@@ -647,13 +647,14 @@ function interpret(q) {
       if (negated) absentConcepts[pr[1]] = 1; else foundConcepts[pr[1]] = 1;
     });
   }
-  var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
-  toks.forEach(function (t, i) {
+  var rawToks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 0; });
+  rawToks.forEach(function (t, ri) {
+    if (t.length <= 2 || STOP[t]) return;
     if (typeof LAY_TO_CONCEPT === 'undefined') return;
     var cid = LAY_TO_CONCEPT[t] || LAY_TO_CONCEPT[stem(t)];
     if (!cid) return;
-    var prev = toks.slice(Math.max(0, i - 2), i).join(' ');
-    var negated = /^(no|without|denies)\b/.test(prev) || /(doesnt have|does not have|never had)$/.test(prev);
+    var prev = rawToks.slice(Math.max(0, ri - 3), ri).join(' ');
+    var negated = /(^|\s)(no|without|denies)(\s|$)/.test(' ' + prev + ' ') || /(doesnt have|does not have|never had)$/.test(prev);
     if (negated) absentConcepts[cid] = 1; else foundConcepts[cid] = 1;
   });
   Object.keys(absentConcepts).forEach(function (c) { delete foundConcepts[c]; });
