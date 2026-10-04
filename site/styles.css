@@ -903,3 +903,33 @@ table.ep-matrix thead th { background: #f4f6fa; font-size: 0.72rem; }
 }
 .action-details summary { cursor: pointer; font-weight: 600; padding: 4px 0; }
 .action-head .btn.primary { margin-left: auto; white-space: nowrap; }
+
+/* Full-width comparison and complete family session report. */
+body.amb-rail .guide-compare, .guide-amb-main { max-width: none; width: 100%; }
+.guide-compare-why { color: var(--ink-soft); }
+.guide-compare-rowhead td { background: var(--accent-soft); }
+#guidePrintReport { display: none; }
+@media print {
+  @page { margin: 14mm; }
+  body.printing-guide > :not(#guidePrintReport) { display: none !important; }
+  body.printing-guide #guidePrintReport { display: block !important; }
+  #guidePrintReport, #guideSessionReport, #guidePrintReport .guide-pane,
+  #guidePrintReport .guide-compare, #guidePrintReport .guide-amb-main,
+  body.amb-rail .guide-body, body.amb-rail .guide-pane {
+    width: 100% !important; max-width: none !important; margin: 0 !important;
+    padding: 0 !important; overflow: visible !important;
+  }
+  #guidePrintReport * { color: #18181b !important; background: transparent !important; box-shadow: none !important; }
+  #guidePrintReport button, #guidePrintReport .guide-back, #guidePrintReport .guide-bridge,
+  #guidePrintReport .guide-btnrow, #guidePrintReport input, #guidePrintReport select { display: none !important; }
+  #guidePrintReport .guide-compare { margin: 12pt 0 !important; }
+  #guidePrintReport .guide-compare-table-wrap { overflow: visible; }
+  #guidePrintReport table { width: 100%; min-width: 0; table-layout: fixed; font-size: 9pt; }
+  #guidePrintReport th, #guidePrintReport td { overflow-wrap: anywhere; padding: 5pt; }
+  #guidePrintReport thead { display: table-header-group; }
+  #guidePrintReport tr { break-inside: avoid; }
+  #guidePrintReport article, #guidePrintReport .guide-pane, #guidePrintReport .guide-compare { break-inside: auto; }
+  #guidePrintReport h1, #guidePrintReport h2, #guidePrintReport h3 { break-after: avoid; }
+  #guidePrintReport a { overflow-wrap: anywhere; }
+  #guidePrintReport a[href]::after { content: ' (' attr(href) ')'; font-size: 8pt; }
+}
