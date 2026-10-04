@@ -57,7 +57,7 @@ const TYPE_COLORS = {
   funding:     '#b45309',
   paper:       '#525252'
 };
-const ACCENT = '#0f766e';
+const ACCENT = '#1a56db';
 const EDGE_COLOR = '#c4c9d1';
 const CONTRADICT_COLOR = '#d97777';
 
