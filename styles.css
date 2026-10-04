@@ -598,3 +598,26 @@ table.ep-matrix th, table.ep-matrix td { border: 1px solid #e2e5ea; padding: 4px
 table.ep-matrix th:first-child, table.ep-matrix td:first-child { text-align: left; position: sticky; left: 0; background: #fff; max-width: 260px; white-space: normal; }
 table.ep-matrix td.on { background: #e6f7f3; font-weight: 700; color: #0d6e5f; }
 table.ep-matrix thead th { background: #f4f6fa; font-size: 0.72rem; }
+
+/* Guide redesign (Build 2, 2026-10-03): guided conversation styles. */
+.guide-step { color: #1a56db; font-weight: 700; font-size: .92rem; letter-spacing: .02em; margin: 18px 0 8px; }
+.guide-hero .guide-step { text-align: center; }
+.guide-roles { display: grid; gap: 10px; margin: 16px auto 18px; max-width: 520px; text-align: left; }
+.guide-role { text-align: left; background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; cursor: pointer; display: grid; gap: 4px; font-size: 1rem; }
+.guide-role:hover { border-color: #1a56db; }
+.guide-role[aria-checked="true"] { border-color: #1a56db; background: #f0f6ff; }
+.guide-role strong { font-size: 1.05rem; }
+.guide-role span { color: #6b7280; font-size: .9rem; }
+.guide-roleline { color: #6b7280; font-size: .9rem; margin: 4px 0 14px; }
+.guide-link { background: none; border: none; color: #1a56db; cursor: pointer; font-size: inherit; padding: 0; text-decoration: underline; }
+.guide-hint { color: #b45309; font-size: .92rem; margin: 8px 0 0; }
+.guide-action-card { background: #fefce8; border: 2px solid #f59e0b; border-radius: 14px; padding: 18px 20px; margin: 18px 0; line-height: 1.6; }
+.guide-action-card .guide-sub { margin: 8px 0; }
+.guide-action-card .guide-btnrow { margin: 12px 0 4px; }
+.guide-otherpaths { margin: 22px 0; border: 1px solid #e5e7eb; border-radius: 12px; padding: 4px 16px; background: #fff; }
+.guide-otherpaths summary { cursor: pointer; font-weight: 700; padding: 12px 0; font-size: 1.03rem; }
+.guide-otherpaths summary:focus { outline: 2px solid #1a56db; outline-offset: 2px; border-radius: 6px; }
+.guide-otherpaths-btns { display: grid; gap: 10px; margin: 4px 0 16px; }
+.guide-op-sub { color: #6b7280; font-size: .88rem; }
+.guide-otherpaths-btns .btn { justify-self: start; }
+.guide-op-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
