@@ -27,18 +27,17 @@
   </div>
   <nav class="tabs" role="tablist" aria-label="Atlas views">
     <button type="button" role="tab" id="tab-guide" data-tab="guide" aria-controls="view-guide" class="active" aria-selected="true">Guide</button>
-    <button type="button" role="tab" id="tab-start" data-tab="start" aria-controls="view-start" aria-selected="false">Start</button>
-    <button type="button" role="tab" id="tab-explore" data-tab="explore" aria-controls="view-explore" aria-selected="false">Explore</button>
-    <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false">Clusters</button>
-    <button type="button" role="tab" id="tab-subway" data-tab="subway" aria-controls="view-subway" aria-selected="false">Subway map</button>
-    <button type="button" role="tab" id="tab-action" data-tab="action" aria-controls="view-action" aria-selected="false">Patient Action</button>
-    <button type="button" role="tab" id="tab-journey" data-tab="journey" aria-controls="view-journey" aria-selected="false">Family Journey</button>
-    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false">10&times; Impact</button>
+    <button type="button" role="tab" id="tab-action" data-tab="action" aria-controls="view-action" aria-selected="false">Your Disease</button>
+    <button type="button" role="tab" id="tab-journey" data-tab="journey" aria-controls="view-journey" aria-selected="false">Journey</button>
+    <button type="button" role="tab" id="tab-recent" data-tab="recent" aria-controls="view-recent" aria-selected="false">What&rsquo;s New</button>
+    <button type="button" role="tab" id="tab-gaps" data-tab="gaps" aria-controls="view-gaps" aria-selected="false">Gaps &amp; Limits</button>
     <button type="button" role="tab" id="tab-contradictions" data-tab="contradictions" aria-controls="view-contradictions" aria-selected="false">Contradictions</button>
-    <button type="button" role="tab" id="tab-recent" data-tab="recent" aria-controls="view-recent" aria-selected="false">Recent</button>
-    <button type="button" role="tab" id="tab-gaps" data-tab="gaps" aria-controls="view-gaps" aria-selected="false">Gaps</button>
-    <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false">What If</button>
-    <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false">Endpoints</button>
+    <button type="button" role="tab" id="tab-explore" data-tab="explore" aria-controls="view-explore" aria-selected="false" hidden>Explore</button>
+    <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false" hidden>Clusters</button>
+    <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false" hidden>Endpoints</button>
+    <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false" hidden>What If</button>
+    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false" hidden>Path to the Next Milestone</button>
+    <button type="button" role="tab" id="tab-settings" data-tab="settings" aria-controls="view-settings" aria-selected="false">Settings</button>
   </nav>
 </header>
 
@@ -46,13 +45,6 @@
   <!-- ============ GUIDE (zero-knowledge front door) ============ -->
   <section id="view-guide" class="view active" role="tabpanel" tabindex="0" aria-labelledby="tab-guide">
     <div id="guideBody" class="guide-body" aria-live="polite"></div>
-  </section>
-
-  <!-- ============ START (persona landing) ============ -->
-  <section id="view-start" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-start" hidden>
-    <h2 class="start-q">I&rsquo;m here because&hellip;</h2>
-    <div class="persona-grid" id="personaGrid"></div>
-    <div id="guidedBox" class="guided-box" hidden></div>
   </section>
 
   <!-- ============ EXPLORE ============ -->
@@ -100,22 +92,31 @@
       <input id="assetSearch" type="text" placeholder="Filter assets&hellip;" aria-label="Filter assets" aria-describedby="assetSearchHint" class="text-input"><span id="assetSearchHint" class="item-sub">Type to filter the asset list below.</span>
     </div>
     <div id="assetsBody" class="cards"></div>
-  </section>
-
-  <!-- ============ SUBWAY MAP ============ -->
-  <section id="view-subway" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-subway" hidden>
-    <p class="section-lede">Each line is a biological pathway. Stations are diseases. <strong>Transfer stations</strong> &mdash; diseases on more than one line &mdash; are where mechanisms overlap and research may be shared.</p>
-    <div class="subway-grid">
-      <div class="canvas-wrap subway-scroll">
-        <div id="subwayMap" aria-label="Mechanism subway map"></div>
+    <hr class="section-div">
+    <h2 class="subhead">Subway view <span class="item-sub">(optional)</span></h2>
+    <p class="section-lede">The mechanism connections drawn as a transit map. Each line is a biological pathway; stations are diseases; <strong>transfer stations</strong> are diseases on more than one line, where mechanisms overlap and research may be shared.</p>
+    <label class="check"><input type="checkbox" id="subwayToggle"> Show subway view</label>
+    <div class="subway-legend" aria-label="Subway map legend: what the map does not mean">
+      <strong>What this map does NOT mean</strong>
+      <ul>
+        <li>Lines are <strong>not</strong> treatment routes &mdash; a line only groups diseases that share a recorded biological mechanism.</li>
+        <li>Intersections do <strong>not</strong> mean the diseases are biologically close or that a treatment for one will work for another.</li>
+        <li>Distance on this map measures <strong>nothing</strong> about biology &mdash; it is only layout spacing.</li>
+      </ul>
+    </div>
+    <div id="subwayInClusters" hidden>
+      <div class="subway-grid">
+        <div class="canvas-wrap subway-scroll">
+          <div id="subwayMap" aria-label="Mechanism subway map"></div>
+        </div>
+        <aside id="subwayPanel" class="panel" aria-live="polite">
+          <p class="panel-hint">Tap any station to see the disease, its lines, and connected researchers and trials.</p>
+        </aside>
       </div>
-      <aside id="subwayPanel" class="panel" aria-live="polite">
-        <p class="panel-hint">Tap any station to see the disease, its lines, and connected researchers and trials.</p>
-      </aside>
     </div>
   </section>
 
-  <!-- ============ PATIENT ACTION ============ -->
+  <!-- ============ PATIENT ACTION (Your Disease) ============ -->
   <section id="view-action" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-action" hidden>
     <div class="action-head">
       <label for="diseaseSelect" class="control-label">Disease</label>
@@ -143,7 +144,7 @@
     </div>
   </section>
 
-  <!-- ============ 10x IMPACT ============ -->
+  <!-- ============ 10x IMPACT (Path to the Next Milestone) ============ -->
   <section id="view-impact" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-impact" hidden>
     <div class="impact-wrap" id="impactBody">
       <p class="section-lede">Computing the 10&times; case&hellip;</p>
@@ -184,6 +185,20 @@
   <section id="view-endpoints" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-endpoints" hidden>
     <div id="endpointsBody"></div>
   </section>
+
+  <!-- ============ SETTINGS ============ -->
+  <section id="view-settings" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-settings" hidden>
+    <h2 class="subhead">Settings</h2>
+    <div class="card settings-card">
+      <label class="switch-row" for="researchToggle">
+        <span><strong>Show research tools</strong><br>
+          <span class="item-sub">Parent mode (default) keeps the calm, plain-language views. Researcher mode adds Explore, Clusters, Endpoints, What If, and Path to the Next Milestone.</span>
+        </span>
+        <input type="checkbox" id="researchToggle" role="switch" aria-label="Show research tools">
+      </label>
+    </div>
+    <p class="section-lede" id="modeNote"></p>
+  </section>
 </main>
 
 <footer>
@@ -191,6 +206,26 @@
 </footer>
 
 <div id="glossTip" class="gloss-tip" role="tooltip" aria-live="polite" hidden></div>
+
+<!-- First-visit mode prompt (non-blocking) -->
+<div id="modePrompt" class="mode-prompt" role="dialog" aria-label="Choose how you use the atlas" hidden>
+  <p class="mode-q">Are you caring for someone, or doing research?</p>
+  <div class="btn-row">
+    <button type="button" class="btn primary" data-mode-choice="parent">Caring for someone</button>
+    <button type="button" class="btn" data-mode-choice="researcher">Doing research</button>
+    <button type="button" class="btn ghost" data-mode-choice="dismiss">Not now</button>
+  </div>
+</div>
+
+<!-- Gentle prompt when a parent-mode visitor requests a research tool -->
+<div id="researchPrompt" class="mode-prompt" role="dialog" aria-label="This is a research tool" hidden>
+  <p class="mode-q" id="researchPromptText">This is a research tool.</p>
+  <p class="item-sub">Researcher mode adds Explore, Clusters, Endpoints, What If, and Path to the Next Milestone.</p>
+  <div class="btn-row">
+    <button type="button" class="btn primary" id="researchPromptEnable">Turn on researcher mode</button>
+    <button type="button" class="btn ghost" id="researchPromptStay">Stay in parent mode</button>
+  </div>
+</div>
 
 <script src="app.js"></script>
 <script src="views.js"></script>
