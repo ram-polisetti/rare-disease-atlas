@@ -321,7 +321,23 @@ var PLAIN_SYMPTOMS = {
   'polyhydramnios': 'Too much fluid around the baby in pregnancy',
   'premature birth': 'Born early',
   'intrauterine growth retardation': 'Poor growth before birth',
-  'macrosomia': 'Larger than expected at birth'
+  'macrosomia': 'Larger than expected at birth',
+  'skeletal muscle atrophy': 'Muscle wasting',
+  'incoordination': 'Poor coordination',
+  'gait ataxia': 'Unsteady walking',
+  'sensory axonal neuropathy': 'Nerve damage affecting feeling',
+  'axonal neuropathy': 'Nerve damage',
+  'peripheral neuropathy': 'Nerve damage in hands and feet',
+  'axial hypotonia': 'Floppy trunk muscles (low tone)',
+  'neurodevelopmental delay': 'Slow development',
+  'cerebral cortical atrophy': 'Shrinkage of the brain\u2019s outer layer',
+  'proximal muscle weakness': 'Weakness in shoulders and hips',
+  'distal muscle weakness': 'Weakness in hands and feet',
+  'impaired temperature sensation': 'Trouble feeling heat and cold',
+  'impaired pain sensation': 'Reduced ability to feel pain',
+  'reduced consciousness': 'Reduced awareness',
+  'cognitive decline': 'Decline in thinking and memory',
+  'cognitive impairment': 'Trouble with thinking and memory'
 };
 function plainSymptom(label) {
   var k = String(label || '').toLowerCase().trim().replace(/\s+/g, ' ');
@@ -799,7 +815,10 @@ function compareHTML(cands) {
   var phenosBy = cands.map(function (d) {
     var seen = {}, out = [];
     phenosFor(d.id).forEach(function (p) {
+      if (phenoGroupIndex(p) === LAB_GI) return;
       var k = (p.label || '').toLowerCase();
+      /* Inheritance and onset timing aren't observable symptoms. */
+      if (k.indexOf('inheritance') !== -1 || / onset$/.test(k)) return;
       if (k && !seen[k]) { seen[k] = 1; out.push({ key: k, label: plainSymptom(p.label) }); }
     });
     return out;
@@ -913,7 +932,7 @@ function vAmbiguous() {
   var via = G.via === 'symptoms'
     ? 'Based on the symptoms you described, these are the closest matches in our data.'
     : 'A few conditions match what you typed.';
-  var compare = (G.via === 'symptoms' && G.candidates.length > 1) ? compareHTML(G.candidates) : '';
+  var compare = (G.candidates.length > 1) ? compareHTML(G.candidates) : '';
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="search">&larr; Start over</button>' +
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
