@@ -357,11 +357,58 @@ function vConfirm() {
 
 /* ---- Ambiguous: candidate cards ---- */
 
+/* Symptom comparison (Build B): side-by-side view of candidate matches.
+ * Shared symptoms (why they're confused), differentiating symptoms per disease,
+ * and a "what makes this one different" line. Never diagnoses. */
+function compareHTML(cands) {
+  var phenosBy = cands.map(function (d) {
+    var seen = {}, out = [];
+    phenosFor(d.id).forEach(function (p) {
+      var k = (p.label || '').toLowerCase();
+      if (k && !seen[k]) { seen[k] = 1; out.push({ key: k, label: humanize(p.label) }); }
+    });
+    return out;
+  });
+  var counts = {};
+  phenosBy.forEach(function (ps) { ps.forEach(function (p) { counts[p.key] = (counts[p.key] || 0) + 1; }); });
+  var shared = [];
+  Object.keys(counts).forEach(function (k) {
+    if (counts[k] > 1) {
+      var lbl = null;
+      phenosBy.forEach(function (ps) { ps.forEach(function (p) { if (p.key === k && !lbl) lbl = p.label; }); });
+      if (lbl) shared.push(lbl);
+    }
+  });
+  var cards = cands.map(function (d, i) {
+    var unique = phenosBy[i].filter(function (p) { return counts[p.key] === 1; }).slice(0, 4);
+    var genes = genesFor(d.id);
+    var diffLine = unique.length
+      ? 'In our data, ' + unique.slice(0, 2).map(function (p) { return p.label.toLowerCase(); }).join(' and ') + ' point more toward this one.'
+      : (genes.length ? 'Linked to the ' + genes[0].label + ' gene — a genetic test can tell these apart.'
+        : 'Our data doesn&rsquo;t record a clear differentiator yet — a geneticist can.');
+    return '<div class="guide-compare-card">' +
+      '<strong>' + esc2(guideName(d)) + '</strong>' +
+      (unique.length ? '<span class="guide-compare-diff">Only this one, in our data: ' + esc2(unique.map(function (p) { return p.label; }).join('; ')) + '</span>'
+        : '<span class="guide-compare-diff">No unique symptoms recorded in our data.</span>') +
+      '<span class="guide-compare-why">' + diffLine + '</span>' +
+      '<button class="btn small" data-pick="' + d.id + '">Open ' + esc2(guideName(d)) + ' &rarr;</button>' +
+      '</div>';
+  }).join('');
+  return '<div class="guide-compare">' +
+    '<h3 class="guide-h3">See them side by side</h3>' +
+    '<p class="guide-sub">You&rsquo;re doing the right thing by looking closely. These conditions can look alike &mdash; here&rsquo;s how our data tells them apart. Only a clinician can diagnose.</p>' +
+    (shared.length ? '<div class="guide-compare-shared"><strong>Symptoms they share</strong> (why they can be confused): ' + esc2(shared.slice(0, 8).join('; ')) + '</div>'
+      : '<div class="guide-compare-shared">Our data doesn&rsquo;t record overlapping symptoms for these.</div>') +
+    '<div class="guide-compare-cards">' + cards + '</div>' +
+    '</div>';
+}
+
 function vAmbiguous() {
   if (!G.candidates || !G.candidates.length) return vLanding();
   var via = G.via === 'symptoms'
     ? 'Based on the symptoms you described, these are the closest matches in our data.'
     : 'A few conditions match what you typed.';
+  var compare = (G.via === 'symptoms' && G.candidates.length > 1) ? compareHTML(G.candidates) : '';
   var cards = G.candidates.map(function (d) {
     var phenos = phenosFor(d.id).slice(0, 3).map(function (p) { return esc2(humanize(p.label)); }).join('; ');
     var nOrg = orgsFor(d.id).length;
@@ -376,6 +423,7 @@ function vAmbiguous() {
     '<button class="guide-back" data-nav="landing">&larr; Start over</button>' +
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
+    compare +
     '<div class="guide-cands">' + cards + '</div>' +
     '<button class="btn" data-nav="nomatch">None of these seem right</button>' +
     '</div>';
@@ -568,7 +616,7 @@ function vConnections() {
     '<p class="guide-sub">Conditions that share biology with ' + esc2(guideName(d)) + '. Their communities may have built things yours can reuse &mdash; ' +
     'registries, study designs, hard-won experience.</p>' +
     cards +
-    '<div class="guide-btnrow"><button class="btn primary" data-nav="export">Create a summary to share &rarr;</button></div>' +
+    '<div class="guide-btnrow"><button class="btn primary" data-nav="export">Create your full dossier &rarr;</button></div>' +
     bridgeHTML() +
     '</div>';
 }
