@@ -297,6 +297,7 @@ function epCard(row) {
   html += '<div class="kv-line"><strong>Measured in ' + fams.length + ' disease group' + (fams.length === 1 ? '' : 's') + ':</strong></div>';
   html += '<div class="ep-chips">' + (famChips || '<span class="wi-unknown">No diseases in our graph match this endpoint yet.</span>') + '</div>';
   html += '<p><strong>Why sharing matters:</strong> ' + esc(ep.share) + '</p>';
+  html += '<div class="tech-detail"><strong>Evidence metadata</strong><p>Study type describes how a connection was studied; publication year dates that evidence. These disease links do not establish validation of this measurement.</p><ul>' + GRAPH.edges.filter(function (e) { return [e.source, e.target].some(function (id) { return nodesById[id] && nodesById[id].type === 'disease' && fams.indexOf(epFamilyOf(id)) !== -1; }); }).slice(0, 6).map(function (e) { return '<li>Study type: ' + esc(e.evidence_type || 'not recorded') + '; publication year: ' + esc(e.publication_year || 'not recorded') + '; source: ' + esc(e.source_db || 'not recorded') + ' ' + esc(e.source_ref || '') + '</li>'; }).join('') + '</ul></div>';
   if (ep.caveat) html += '<p class="ep-caveat"><strong>Caution:</strong> ' + esc(ep.caveat) + '</p>';
   if (trials.length) {
     html += '<div class="kv-line"><strong>' + trials.length + ' trial' + (trials.length === 1 ? '' : 's') + ' in these diseases:</strong> ';
@@ -421,6 +422,7 @@ function initEndpoints() {
   }
 
   body.innerHTML = html;
+  if (typeof markTerms === 'function') markTerms(body);
   var pick = document.getElementById('epPick');
   if (pick) pick.addEventListener('change', function (e) {
     epRenderPick(e.target.value, rows);

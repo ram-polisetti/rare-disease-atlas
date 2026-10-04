@@ -686,6 +686,8 @@ function showNode(id) {
       '</ul>';
   }
   const extra = n.extra || {};
+  html += '<div class="tech-detail"><p>Node ID: ' + esc(n.id) + '. An identifier connects this record to its source database.</p><p>Source databases: ' + esc(Array.from(new Set(edges.map(function (e) { return e.source_db || 'not recorded'; }))).join(', ')) + '. These identify where the connections were recorded.</p><p>Connections: ' + edges.length + '. This counts recorded links, not the strength of the evidence.</p>' +
+    '<p>External identifiers: ' + esc(JSON.stringify(extra.xrefs || extra.omim || extra.hpo || 'not recorded')) + '. OMIM catalogs genetic conditions; HPO catalogs symptoms.</p></div>';
   if (extra.url || extra.nct) {
     const link = linkifyRef(extra.url || extra.nct);
     if (link) html += '<p><a href="' + esc(link.url) + '" target="_blank" rel="noopener">Open record &rarr;</a></p>';
@@ -1031,7 +1033,7 @@ function renderPatientAction(diseaseId) {
       '<span class="status ' + cls + '">' + esc(humanize(status).toLowerCase()) + '</span></div>' +
       '<div class="item-sub">' +
       (ex.nct ? '<a href="https://clinicaltrials.gov/study/' + esc(ex.nct) + '" target="_blank" rel="noopener">' + esc(ex.nct) + '</a> · ' : '') +
-      (phases ? esc(phases) + ' · ' : '') + (ex.sponsor ? esc(ex.sponsor) : '') +
+      '<span class="tech-detail">' + (phases ? 'Study phase: ' + esc(phases) + '. Phases are stages of safety and effectiveness testing. ' : '') + (ex.sponsor ? 'Sponsor: ' + esc(ex.sponsor) + '. This organization oversees the study. ' : '') + 'Record date: ' + esc(ex.last_update || ex.last_update_posted || t.edge.date || 'not recorded') + '.</span>' +
       '</div></div>';
   });
   html += '</section>';
@@ -1243,13 +1245,15 @@ function journeyEvidenceHTML(id, types) {
     const n = nodesById[e.source === id ? e.target : e.source];
     return n && (!types || types.indexOf(n.type) !== -1);
   });
-  return '<details><summary>Evidence behind this step</summary>' + (edges.length ?
+  const ts = nodesById[id].extra && nodesById[id].extra.therapy_status;
+  const therapySources = ts && (!types || types.indexOf('therapy') !== -1) ? (ts.source_refs || [ts.source_ref]).filter(Boolean).map(function (url) { return '<p><a href="' + esc(url) + '" target="_blank" rel="noopener">FDA treatment source</a></p>'; }).join('') : '';
+  return '<details><summary>Evidence behind this step</summary>' + therapySources + (edges.length ?
     '<ul class="jlist">' + edges.map(function (e) {
       const n = nodesById[e.source === id ? e.target : e.source];
       const ref = linkifyRef(e.source_ref);
       return '<li>' + esc(displayName(n)) + ': ' + esc(e.source_db || 'Source not recorded') + ' ' +
         (ref ? '<a href="' + esc(ref.url) + '" target="_blank" rel="noopener">' + esc(e.source_ref) + '</a>' : esc(e.source_ref || 'Reference not recorded')) +
-        ' (' + esc(e.evidence || 'Evidence type not recorded') + ')</li>';
+        '<span class="tech-detail">. Evidence type: ' + esc(e.evidence_type || 'not recorded') + '. This describes how the connection was studied. Publication year: ' + esc(e.publication_year || 'not recorded') + '. Date: ' + esc(e.date || 'not recorded') + '.</span></li>';
     }).join('') + '</ul>' : '<p>Our data does not record evidence for this step.</p>') + '</details>';
 }
 
