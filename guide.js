@@ -571,7 +571,7 @@ function interpret(q) {
     }
   }
   if (hits.length === 1) return { kind: 'disease', id: hits[0].id };
-  if (hits.length > 1) return { kind: 'ambiguous', candidates: hits.slice(0, 6), via: 'name' };
+  if (hits.length > 1) return { kind: 'ambiguous', candidates: hits, via: 'name' };
 
   // 4. symptom -> phenotype token match -> candidate diseases
   var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
@@ -590,7 +590,7 @@ function interpret(q) {
       if (m > 0) inEdges(n.id, 'has_phenotype').forEach(function (e) { scores[e.source] = (scores[e.source] || 0) + m; });
     });
     var ranked = Object.keys(scores).sort(function (a, b) { return scores[b] - scores[a]; })
-      .slice(0, 4).map(function (id) { return nodesById[id]; })
+      .map(function (id) { return nodesById[id]; })
       .filter(function (n) { return n && n.type === 'disease'; });
     if (ranked.length) return { kind: 'ambiguous', candidates: ranked, via: 'symptoms' };
   }
@@ -929,7 +929,7 @@ function ambMatchCount(d) {
   return n;
 }
 function ambFilterHTML() {
-  if (!G.candidates || G.candidates.length < 2 || G.via === 'symptoms') return '';
+  if (!G.candidates || G.candidates.length < 2) return '';
   var syms = ambFilterSymptoms();
   if (!syms.length) return '';
   var f = G.ambFilter || {};
