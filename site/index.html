@@ -32,11 +32,11 @@
     <button type="button" role="tab" id="tab-recent" data-tab="recent" aria-controls="view-recent" aria-selected="false">What&rsquo;s New</button>
     <button type="button" role="tab" id="tab-gaps" data-tab="gaps" aria-controls="view-gaps" aria-selected="false">Gaps &amp; Limits</button>
     <button type="button" role="tab" id="tab-contradictions" data-tab="contradictions" aria-controls="view-contradictions" aria-selected="false">Contradictions</button>
-    <button type="button" role="tab" id="tab-explore" data-tab="explore" aria-controls="view-explore" aria-selected="false" hidden>Explore</button>
-    <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false" hidden>Clusters</button>
-    <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false" hidden>Endpoints</button>
-    <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false" hidden>What If</button>
-    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false" hidden>Path to the Next Milestone</button>
+    <button type="button" role="tab" id="tab-explore" data-tab="explore" aria-controls="view-explore" aria-selected="false">Explore</button>
+    <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false">Clusters</button>
+    <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false">Endpoints</button>
+    <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false">What If</button>
+    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false">Path to the Next Milestone</button>
     <button type="button" role="tab" id="tab-settings" data-tab="settings" aria-controls="view-settings" aria-selected="false">Settings</button>
   </nav>
 </header>
@@ -190,14 +190,8 @@
   <section id="view-settings" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-settings" hidden>
     <h2 class="subhead">Settings</h2>
     <div class="card settings-card">
-      <label class="switch-row" for="researchToggle">
-        <span><strong>Show research tools</strong><br>
-          <span class="item-sub">Parent mode (default) keeps the calm, plain-language views. Researcher mode adds Explore, Clusters, Endpoints, What If, and Path to the Next Milestone.</span>
-        </span>
-        <input type="checkbox" id="researchToggle" role="switch" aria-label="Show research tools">
-      </label>
+      <p class="section-lede">All twelve tabs are visible to everyone — Guide, Your Disease, Journey, What&rsquo;s New, Gaps &amp; Limits, Contradictions, Explore, Clusters, Endpoints, What If, Path to the Next Milestone, and these Settings. Night mode, reading level, and accessibility live in the header above.</p>
     </div>
-    <p class="section-lede" id="modeNote"></p>
   </section>
 </main>
 
@@ -206,26 +200,6 @@
 </footer>
 
 <div id="glossTip" class="gloss-tip" role="tooltip" aria-live="polite" hidden></div>
-
-<!-- First-visit mode prompt (non-blocking) -->
-<div id="modePrompt" class="mode-prompt" role="dialog" aria-label="Choose how you use the atlas" hidden>
-  <p class="mode-q">Are you caring for someone, or doing research?</p>
-  <div class="btn-row">
-    <button type="button" class="btn primary" data-mode-choice="parent">Caring for someone</button>
-    <button type="button" class="btn" data-mode-choice="researcher">Doing research</button>
-    <button type="button" class="btn ghost" data-mode-choice="dismiss">Not now</button>
-  </div>
-</div>
-
-<!-- Gentle prompt when a parent-mode visitor requests a research tool -->
-<div id="researchPrompt" class="mode-prompt" role="dialog" aria-label="This is a research tool" hidden>
-  <p class="mode-q" id="researchPromptText">This is a research tool.</p>
-  <p class="item-sub">Researcher mode adds Explore, Clusters, Endpoints, What If, and Path to the Next Milestone.</p>
-  <div class="btn-row">
-    <button type="button" class="btn primary" id="researchPromptEnable">Turn on researcher mode</button>
-    <button type="button" class="btn ghost" id="researchPromptStay">Stay in parent mode</button>
-  </div>
-</div>
 
 <script src="app.js"></script>
 <script src="views.js"></script>

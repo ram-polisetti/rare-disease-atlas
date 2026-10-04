@@ -223,7 +223,7 @@ function init() {
     getNet: function () { return net; },
     showNode: showNode, showEdge: showEdge,
     selectJourneyState: selectJourneyState, renderExplore: renderExplore, switchTab: switchTab,
-    getMode: getMode, setMode: setMode, applyMode: applyMode
+    getDisease: getDisease, setDisease: setDisease
   };
   window.__atlasReady = true;
 }
@@ -233,126 +233,36 @@ function init() {
 /* Parent / researcher mode. Persisted in localStorage under key rda_mode.
  * Parent mode (default) shows the calm parent-facing views; researcher mode
  * additionally reveals the research tools. */
-const MODE_KEY = 'rda_mode';
-const MODE_ASKED_KEY = 'rda_mode_asked';
-const RESEARCHER_TABS = ['explore', 'clusters', 'endpoints', 'whatif', 'impact'];
-const RESEARCHER_TAB_LABELS = {
-  explore: 'Explore', clusters: 'Clusters', endpoints: 'Endpoints',
-  whatif: 'What If', impact: 'Path to the Next Milestone'
-};
+/* Disease follows the visitor: one shared selection across every tab,
+ * persisted so it survives reloads. */
+const DISEASE_KEY = 'rda_disease';
 
-function getMode() {
-  try { return localStorage.getItem(MODE_KEY) === 'researcher' ? 'researcher' : 'parent'; }
-  catch (err) { return 'parent'; }
+function getDisease() {
+  if (state.selectedDisease && nodesById[state.selectedDisease]) return state.selectedDisease;
+  try {
+    const saved = localStorage.getItem(DISEASE_KEY);
+    if (saved && nodesById[saved]) { state.selectedDisease = saved; return saved; }
+  } catch (err) {}
+  return null;
 }
 
-function setMode(mode) {
-  if (mode !== 'researcher') mode = 'parent';
-  try { localStorage.setItem(MODE_KEY, mode); } catch (err) {}
-  applyMode();
+function setDisease(id) {
+  if (!id || !nodesById[id]) return;
+  state.selectedDisease = id;
+  try { localStorage.setItem(DISEASE_KEY, id); } catch (err) {}
 }
 
-function isResearcherTab(name) { return RESEARCHER_TABS.indexOf(name) !== -1; }
-
-function applyMode() {
-  const researcher = getMode() === 'researcher';
-  document.querySelectorAll('.tabs button').forEach(function (btn) {
-    if (isResearcherTab(btn.dataset.tab)) {
-      if (researcher) btn.removeAttribute('hidden');
-      else btn.setAttribute('hidden', '');
-    }
-  });
-  const tg = el('researchToggle');
-  if (tg) tg.checked = researcher;
-  const note = el('modeNote');
-  if (note) {
-    note.textContent = researcher
-      ? 'You are in researcher mode. All research tools are visible in the tab bar above.'
-      : 'You are in parent mode. The research tools (Explore, Clusters, Endpoints, What If, Path to the Next Milestone) are hidden. Turn on "Show research tools" to reveal them.';
-  }
-  // If the current tab just became unavailable, land somewhere sensible.
-  if (isResearcherTab(state.tab) && !researcher && window.__atlasReady) switchTab('guide');
-}
-
+/* All twelve tabs are visible to everyone — no mode gate. */
 function initTabs() {
   document.querySelectorAll('.tabs button').forEach(function (btn) {
+    btn.removeAttribute('hidden');
     btn.addEventListener('click', function () { switchTab(btn.dataset.tab); });
   });
-  applyMode();
-}
-
-/* Pending researcher-tab request: set when a parent-mode visitor clicks a
- * link/button to a research tool. The gentle prompt offers the mode switch. */
-let pendingResearchTab = null;
-
-function offerResearcherMode(name) {
-  pendingResearchTab = name;
-  const label = RESEARCHER_TAB_LABELS[name] || name;
-  const txt = el('researchPromptText');
-  if (txt) txt.textContent = label + ' is a research tool. Turn on researcher mode to see it?';
-  const p = el('researchPrompt');
-  if (p) { p.hidden = false; const b = el('researchPromptEnable'); if (b) b.focus(); }
-}
-
-function hideResearchPrompt() {
-  const p = el('researchPrompt');
-  if (p) p.hidden = true;
-  pendingResearchTab = null;
-}
-
-function initResearchPrompt() {
-  const en = el('researchPromptEnable');
-  if (en) en.addEventListener('click', function () {
-    setMode('researcher');
-    const t = pendingResearchTab;
-    hideResearchPrompt();
-    if (t) switchTab(t);
-  });
-  const stay = el('researchPromptStay');
-  if (stay) stay.addEventListener('click', hideResearchPrompt);
-  document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape') hideResearchPrompt();
-  });
-}
-
-/* First-visit prompt: small, non-blocking, never shown again once answered
- * or dismissed. The guide's first step already asks the role question, so the
- * prompt stays hidden while the guide is unanswered — it appears when the
- * user goes elsewhere without picking a role. */
-function initModePrompt() {
-  const box = el('modePrompt');
-  if (!box) return;
-  function done(choice) {
-    if (choice === 'parent' || choice === 'researcher') setMode(choice);
-    try { localStorage.setItem(MODE_ASKED_KEY, '1'); } catch (err) {}
-    box.hidden = true;
-  }
-  box.querySelectorAll('[data-mode-choice]').forEach(function (b) {
-    b.addEventListener('click', function () { done(b.dataset.modeChoice); });
-  });
-  window.__maybeModePrompt = function () {
-    let asked = false, rolePicked = false;
-    try {
-      asked = localStorage.getItem(MODE_ASKED_KEY) === '1';
-      rolePicked = !!localStorage.getItem('rda_role');
-    } catch (err) {}
-    if (!asked && rolePicked && box.hidden) box.hidden = false;
-  };
-  // Show on load only if they already picked a role elsewhere but never
-  // answered the prompt (e.g. returning visitor) — never over the guide's
-  // own role question.
-  window.__maybeModePrompt();
 }
 
 function initSettings() {
-  const tg = el('researchToggle');
-  if (tg) {
-    tg.addEventListener('change', function () {
-      setMode(tg.checked ? 'researcher' : 'parent');
-    });
-  }
-  initResearchPrompt();
-  initModePrompt();
+  /* The research-tools toggle was removed with the mode gate; settings now
+   * only hosts night mode, reading level, and accessibility (wired elsewhere). */
 }
 
 function switchTab(name) {
@@ -365,11 +275,7 @@ function switchTab(name) {
     var wrap = el('subwayInClusters');
     if (wrap) wrap.hidden = false;
   }
-  // Research tools are gated in parent mode: never land silently on a hidden tab.
-  if (isResearcherTab(name) && getMode() !== 'researcher') {
-    offerResearcherMode(name);
-    return;
-  }
+  // No mode gate: every tab is reachable by everyone.
   var view = el('view-' + name);
   if (!view) name = 'guide'; // unknown tab ids fall back to the front door
   state.tab = name;
@@ -380,28 +286,40 @@ function switchTab(name) {
   });
   document.querySelectorAll('.view').forEach(function (v) { v.hidden = true; });
   el('view-' + name).hidden = false;
-  /* If they leave the guide without picking a role, the mode prompt gets its
-   * turn — the guide's own question takes precedence while they're in it. */
-  if (name !== 'guide' && window.__maybeModePrompt) {
-    try {
-      var asked = localStorage.getItem(MODE_ASKED_KEY) === '1';
-      var rolePicked = !!localStorage.getItem('rda_role');
-      if (!asked && !rolePicked) {
-        var box = el('modePrompt');
-        if (box && box.hidden) box.hidden = false;
-      }
-    } catch (err) {}
-  }
   if (name === 'action') {
     const dsel = el('diseaseSelect');
-    if (dsel && state.selectedDisease && nodesById[state.selectedDisease]) dsel.value = state.selectedDisease;
+    const cur = getDisease();
+    if (dsel && cur) dsel.value = cur;
   }
   if (name === 'journey') {
     // Keep the navigator's disease select in sync with the shared selection
     // (e.g. set on the Your Disease page); re-render steps if a state is picked.
     const jsel = el('journeyDisease');
-    if (jsel && state.selectedDisease && nodesById[state.selectedDisease]) jsel.value = state.selectedDisease;
+    const cur = getDisease();
+    if (jsel && cur) jsel.value = cur;
     if (state.journeyState) renderJourneySteps();
+  }
+  if (name === 'explore') {
+    // The graph follows the disease the visitor is already looking at.
+    const cur = getDisease();
+    if (cur && state.center !== cur) {
+      state.center = cur; state.hops = 1; state.clusterOnly = false;
+      setHopsButtonsOnly(1);
+      const co = el('clusterOnly'); if (co) co.checked = false;
+      renderExplore();
+    }
+  }
+  if (name === 'endpoints') {
+    // Preselect the disease group matching the shared disease.
+    const cur = getDisease();
+    const pk = el('epPick');
+    if (pk && cur && typeof epFamilyOf === 'function') {
+      const fid = epFamilyOf(cur);
+      if (fid && pk.value !== fid) {
+        pk.value = fid;
+        pk.dispatchEvent(new Event('change'));
+      }
+    }
   }
 }
 
@@ -452,6 +370,7 @@ function initSearch() {
     box.hidden = true;
     input.value = '';
     state.center = id;
+    setDisease(id);
     state.hops = 1; state.clusterOnly = false;
     setHopsButtonsOnly(1);
     el('clusterOnly').checked = false;
@@ -820,12 +739,12 @@ function initPatientAction() {
   }).join('');
   const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
   if (start && nodesById[start]) sel.value = start;
-  sel.addEventListener('change', function () { state.selectedDisease = sel.value; renderPatientAction(sel.value); });
+  sel.addEventListener('change', function () { setDisease(sel.value); renderPatientAction(sel.value); });
   var printBtn = el('actionPrint');
   if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
-  var initial = (state.selectedDisease && nodesById[state.selectedDisease]) ? state.selectedDisease : sel.value;
+  var initial = getDisease() || sel.value;
   sel.value = initial;
-  state.selectedDisease = sel.value;
+  setDisease(sel.value);
   renderPatientAction(sel.value);
 }
 
@@ -1177,7 +1096,8 @@ state.journeyState = null;
 
 /* Disease this tab talks about: the shared selection, else Maria's default. */
 function journeyDiseaseId() {
-  if (state.selectedDisease && nodesById[state.selectedDisease]) return state.selectedDisease;
+  const shared = getDisease();
+  if (shared) return shared;
   const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
   if (start && nodesById[start]) return start;
   return null;
@@ -1186,7 +1106,7 @@ function journeyDiseaseId() {
 /* Cross-link from a step: optionally retarget the shared disease, then switch. */
 function journeyGoto(tab, diseaseId) {
   if (tab === 'action' && diseaseId) {
-    state.selectedDisease = diseaseId;
+    setDisease(diseaseId);
     const dsel = el('diseaseSelect');
     if (dsel && dsel.querySelector('option[value="' + diseaseId + '"]')) {
       dsel.value = diseaseId;
@@ -1397,7 +1317,7 @@ function renderJourneySteps() {
     box.innerHTML = '<p class="section-lede">Choose a situation above \u2014 the next steps will appear here.</p>';
     return;
   }
-  const id = state.selectedDisease && nodesById[state.selectedDisease] ? state.selectedDisease : null;
+  const id = getDisease();
   if (!id) {
     box.innerHTML = '<p class="section-lede">Choose a disease above first (or pick one on the Your Disease page) so the steps can draw on real atlas data.</p>' +
       '<p><button type="button" class="btn" data-jtab="action">Open the Your Disease page</button></p>';
@@ -1412,7 +1332,7 @@ function renderJourneySteps() {
 
 function wireJourneyLinks(box) {
   box.querySelectorAll('[data-jtab]').forEach(function (b) {
-    b.addEventListener('click', function () { journeyGoto(b.dataset.jtab, state.selectedDisease); });
+    b.addEventListener('click', function () { journeyGoto(b.dataset.jtab, getDisease()); });
   });
   box.querySelectorAll('[data-jmaria]').forEach(function (b) {
     b.addEventListener('click', function () {
@@ -1452,9 +1372,9 @@ function initJourney() {
       return '<option value="' + esc(d.id) + '">' + esc(displayName(d)) + '</option>';
     }).join('');
     const cur = journeyDiseaseId();
-    if (cur) { sel.value = cur; state.selectedDisease = cur; }
+    if (cur) { sel.value = cur; setDisease(cur); }
     sel.addEventListener('change', function () {
-      state.selectedDisease = sel.value;
+      setDisease(sel.value);
       if (state.journeyState) renderJourneySteps();
     });
   }
