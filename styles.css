@@ -953,3 +953,17 @@ body:not(.reading-plain) .plain-definition { display: none; }
 body.reading-plain .has-plain-definition { display: none; }
 body.reading-plain .defexp { display: none; }
 @media print { #guidePrintReport .tech-detail { display: block !important; } }
+
+/* ---------- print: endpoints sharing matrix ---------- */
+@media print {
+  body.printing-matrix header, body.printing-matrix nav.tabs, body.printing-matrix footer { display: none !important; }
+  body.printing-matrix main .view { display: none !important; }
+  body.printing-matrix main #view-endpoints { display: block !important; }
+  body.printing-matrix #view-endpoints > :not(h2):not(.ep-howto):not(.ep-matrix-wrap) { display: none !important; }
+  body.printing-matrix #epPrintMatrix { display: none !important; }
+  body.printing-matrix .ep-matrix-wrap { overflow: visible !important; }
+  body.printing-matrix .ep-matrix { width: 100%; table-layout: fixed; font-size: 9pt; }
+  body.printing-matrix .ep-matrix th, body.printing-matrix .ep-matrix td { overflow-wrap: anywhere; padding: 4pt; }
+  body.printing-matrix thead { display: table-header-group; }
+  body.printing-matrix tr { break-inside: avoid; }
+}
