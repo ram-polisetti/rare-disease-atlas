@@ -622,6 +622,24 @@ function setRole(r) {
 }
 function roleShort() { return G.role ? ROLES[G.role].short : null; }
 
+/* Search examples speak to who you are: a parent, a patient, an advocate,
+ * a therapy scout, or a researcher should each see their own way in. */
+var ROLE_EXAMPLES = {
+  care: [
+    'My son was diagnosed with Sanfilippo',
+    'The doctor said something about MPS III',
+    'He can\u2019t walk anymore and they don\u2019t know why'
+  ],
+  patient: [
+    'I was diagnosed with Fabry',
+    'The doctor said something about MPS II',
+    'I can\u2019t walk anymore and they don\u2019t know why'
+  ],
+  org: ['Tay-Sachs', 'Niemann-Pick type C', 'HEXB'],
+  scout: ['Pompe disease', 'GAA', 'Fabry disease'],
+  researcher: ['HEXB', 'NAGLU', 'lysosomal storage']
+};
+
 /* ---------------- guide state + rendering ---------------- */
 
 var G = { screen: 'landing', diseaseId: null, candidates: [], via: null, query: '', role: getRole(), certain: null, confirmedPhenos: [] };
