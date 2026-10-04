@@ -691,28 +691,31 @@ body.dark .guide-cand-m.hit { color: #6ee7b7; }
  * just sticky in the list — so it stays visible while the parent scrolls
  * through every disease. Its top edge is pinned below the site header via
  * JS (syncRailTop), since the header height varies with viewport width. */
-body.amb-rail .guide-body { margin-left: 0; margin-right: 0; max-width: none; }
-/* Keep every row of the step clear of the fixed rail, not just the list. */
-body.amb-rail .guide-pane { padding-right: calc(25% + 16px); }
 .guide-amb-layout { display: block; }
 .guide-amb-main { max-width: 920px; padding-right: 16px; }
-.guide-amb-side {
-  position: fixed; top: 0; right: 0; bottom: 0; width: 25%;
-  z-index: 30; overflow-y: auto;
-  background: var(--surface); border-left: 1px solid var(--line);
-  padding: 20px 18px 28px;
+/* Comparison prose stays narrow for readability even when cards go wide. */
+body.amb-rail .guide-compare { max-width: 680px; }
+@media (min-width: 641px) {
+  /* Two-column card grid: easier scanning for stressed parents, half the
+   * scroll depth. Single column on phones. */
+  body.amb-rail .guide-cands { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 }
-.guide-amb-side .guide-amfilter { margin: 0; }
-@media (max-width: 760px) {
-  /* Narrow screens: rail becomes a normal stacked block above the list. */
-  body.amb-rail .guide-body { margin: 0 auto; }
-  body.amb-rail .guide-pane { padding-right: 4px; }
+@media (min-width: 1025px) {
+  body.amb-rail .guide-body { margin-left: 0; margin-right: 0; max-width: none; }
+  /* Keep every row of the step clear of the fixed rail, not just the list. */
+  body.amb-rail .guide-pane { padding-right: calc(25% + 16px); }
   .guide-amb-side {
-    position: static; width: auto; border-left: 0; z-index: auto;
-    background: none; padding: 0; overflow: visible;
+    position: fixed; top: 0; right: 0; bottom: 0; width: 25%;
+    z-index: 30; overflow-y: auto;
+    background: var(--surface); border-left: 1px solid var(--line);
+    padding: 20px 18px 28px;
   }
-  .guide-amb-side .guide-amfilter { margin: 18px 0 4px; }
+  .guide-amb-side .guide-amfilter { margin: 0; }
 }
+/* Below 1025px (small laptops, 200% zoom, tablets, phones) the rail is a
+ * normal static block stacked above the disease list — a clipped fixed
+ * checklist is worse than a scrolled one. No media query needed: static is
+ * the default. */
 @media print {
   .guide-amb-side { position: static; width: auto; border-left: 0; overflow: visible; }
   body.amb-rail .guide-body { margin: 0 auto; max-width: 760px; }

@@ -1002,7 +1002,7 @@ function vAmbiguous() {
    * above the disease list on narrow screens. */
   var body = filter
     ? '<div class="guide-amb-layout">' +
-        '<aside class="guide-amb-side">' + filter + '</aside>' +
+        '<aside class="guide-amb-side" aria-label="Symptom filter">' + filter + '</aside>' +
         '<div class="guide-amb-main">' + main + '</div>' +
       '</div>'
     : main;
