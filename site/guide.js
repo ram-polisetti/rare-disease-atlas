@@ -242,6 +242,15 @@ function setRole(r) {
   if (!ROLES[r]) r = null;
   try { localStorage.setItem(ROLE_KEY, r || ''); } catch (e) {}
   G.role = r;
+  /* The guide's role question answers the first-visit mode prompt too —
+   * never ask twice. Researchers get researcher mode; everyone else parent. */
+  try {
+    var box = document.getElementById('modePrompt');
+    if (box) box.hidden = true;
+    localStorage.setItem('rda_mode_asked', '1');
+    var atlas = window.__atlas;
+    if (atlas && atlas.setMode) atlas.setMode(r === 'researcher' ? 'researcher' : 'parent');
+  } catch (e) {}
 }
 function roleShort() { return G.role ? ROLES[G.role].short : null; }
 
@@ -497,7 +506,7 @@ function vAmbiguous() {
     return '<button type="button" class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
-      (nOrg ? '<span class="guide-cand-n">' + nOrg + (nOrg === 1 ? ' family' : ' families') + ' connected through patient groups</span>'
+      (nOrg ? '<span class="guide-cand-n">' + nOrg + ' patient group' + (nOrg === 1 ? '' : 's') + ' connected</span>'
             : '<span class="guide-cand-n">Patient-group data not yet recorded</span>') +
       '</button>';
   }).join('');
