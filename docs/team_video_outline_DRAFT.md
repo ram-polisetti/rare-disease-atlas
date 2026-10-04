@@ -1,42 +1,36 @@
-# DRAFT — Team video outline (3 minutes)
-**Status: DRAFT — awaiting Charan's review. Nothing is recorded, narrated, or
-treated as final without his explicit go-ahead.**
+# DRAFT: Team video outline (about 3 minutes, solo entry)
 
-## 0:00–0:30 — Who built it
-Charan Polisetti — DBA candidate in Applied AI, ex-Amazon transportation
-analytics, applied-AI operator building RAG/LLM systems — plus an AI agent team
-(Chetan for data, Claude for code review and copy, Idris for orchestration)
-working overnight to submission. [On screen: team intro cards.]
+**Status: DRAFT, awaiting Charan's review. Charan records and narrates this himself. Nothing here is final without his go-ahead.**
 
-## 0:30–1:05 — Why rare diseases
-Rare diseases look like a data desert from any one disease's perspective. From
-the mechanism's perspective, they're a data surplus: hundreds of papers,
-registries, and trial designs already exist for *related* conditions — they
-just aren't linked. An AI governance researcher sees the same failure mode he
-studies in operational decision systems: good evidence, fragmented, unusable.
-The atlas makes it linkable, traceable, and actionable.
+Updated 2026-10-04 to match the deployed site.
 
-## 1:05–1:45 — The Fayuvi pivot
-Mid-build, the pipeline made a claim we had to kill: "no FDA-approved therapy
-for Sanfilippo A." Verification found the FDA had approved Fayuvi on September
-17, 2026 — seventeen days before submission. The journey was rewritten around
-the verified approval, and the correction became the proof point: **a knowledge
-graph that can't be corrected by its own verification loop isn't worth building.**
-[On screen: the correction log entry.]
+## 0:00 to 0:30, who built it
 
-## 1:45–2:30 — Patient impact: Maria and Devon
-Two brief personas, one design. **Maria** is a composite Sanfilippo family
-advocate — her 8-step journey in the atlas runs from SGSH through the MPS I and
-MPS II treatment precedents to the National MPS Society and a sourced
-natural-history study proposal, every assumption stated. **Devon** is newly
-diagnosed — for him the Patient Action tab answers "what can we do this week":
-viable leads in green, thin links in amber, every link clickable to its source.
-The same graph serves the researcher designing the next study and the family
-reading it tonight.
+Charan Polisetti, a solo entrant: DBA candidate in Applied AI, former Amazon transportation analytics, and an applied-AI builder who works on how AI decision systems are governed. He built this with a set of AI agents doing scoped work under his direction (data pulls, code, copy review), and he made the calls on scope, sources, and what the site is allowed to claim.
 
-## 2:30–3:00 — What's next
-The LSD slice is the template: the pipeline is source-agnostic, so the next
-disease family is a pull-script run, not a rewrite. Planned: more disease
-families, living updates as trials recruit, and patient-org review of the
-journeys. Submission links: live demo, GitHub repo, this video's script is a
-draft — nothing final without the team's go-ahead.
+[On screen: Charan on camera, then the live site.]
+
+## 0:30 to 1:00, why rare diseases
+
+From inside one rare disease, the evidence looks thin. From the level of shared biology, there is a lot of it: papers, registries, and trial designs for related conditions that nobody has linked. The failure mode is the same one Charan studies in other decision systems: good evidence, fragmented and hard to use. The atlas links it and keeps every link traceable.
+
+## 1:00 to 1:40, the Fayuvi correction
+
+Mid-build, the pipeline produced a claim that had to be thrown out: "no FDA-approved therapy for Sanfilippo A." Verification found that the FDA approved Fayuvi on September 17, 2026, for young children whose development is still on track. The journey was rewritten around the verified approval, and the site now shows who qualifies and who may fall outside the label. The rule since then: the site never says a disease has no treatment unless that is verified.
+
+[On screen: Your Disease for MPS IIIA, treatment status section.]
+
+## 1:40 to 2:25, who it is for
+
+- **A parent** starts on the Guide: types what they see, checks the "You asked / We understood" trail, narrows by symptoms, and leaves with one next step and a printable summary for a clinician. Plain-language reading and accessibility options are one click away.
+- **An advocate** like Maria, a composite Sanfilippo A family advocate (not a real person), uses Journey and What If to see what a natural-history study would take, and The 10x Case for one modeled estimate of the time sharing could save (about 5.5 years down to about 2.2, modeled, not measured).
+- **A researcher** uses Explore, Clusters, and Endpoints to find diseases that could share measurements, with the reminder that sharing a measurement is not sharing biology.
+
+## 2:25 to 3:00, what is next
+
+The lysosomal slice is a template. The pipeline is source-driven, so a new disease family starts with new pull scripts, not a rewrite. Next steps: add the approved treatments not yet in the graph, review endpoint candidates with clinicians, and ask patient organizations to review the journeys. Live demo: https://ram-polisetti.github.io/rare-disease-atlas/
+
+## Notes for recording
+
+- Keep the agent mention short and accurate: they did scoped tasks, Charan directed and decided.
+- Do not describe Maria as a real patient, and do not imply the National MPS Society endorsed anything.

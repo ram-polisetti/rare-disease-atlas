@@ -1,53 +1,49 @@
-# DRAFT — Technical video outline (3 minutes)
-**Status: DRAFT — awaiting Charan's review. Nothing is recorded, narrated, or
-treated as final without his explicit go-ahead.**
+# DRAFT: Technical video outline (about 3 minutes)
 
-## 0:00–0:30 — The problem
-Rare diseases are rare individually and common together: thousands of diseases,
-each too small for its own registry or trial infrastructure. Lysosomal storage
-diseases share biology (lysosomal catabolism pathways), so evidence built for
-one should be reusable for another — but today it sits siloed in databases,
-papers, and trial registries. We built a knowledge graph that pools it.
+**Status: DRAFT, awaiting Charan's review. Charan records and narrates this himself. Nothing here is final without his go-ahead.**
 
-## 0:30–1:15 — Data pipeline
-Three stages, all scripted and reproducible in `scripts/`:
-1. **Pull** — public APIs only: MONDO/Monarch gene–disease associations, HPO
-   disease–phenotype annotations, ClinVar pathogenic variants, Orphanet
-   gene–disease links, ClinicalTrials.gov active trials, NIH RePORTER funding,
-   hand-curated patient orgs with verified URLs, and FDA records for regulatory
-   verification. Raw downloads are gitignored and re-pullable (`data/SOURCES.md`).
-2. **Extract** — LLM extraction (7 batches over 598 PubMed abstracts plus
-   bioRxiv/medRxiv preprint records) into subject–relation–object claims.
-3. **Merge + build** — `build_graph.py` assembles the curated graph, merges
-   verified LLM edges, runs Louvain clustering, writes cluster summaries, and
-   traces a patient journey. [On screen: the pipeline diagram.]
+Updated 2026-10-04 to match the deployed site and the current graph build.
 
-## 1:15–2:00 — Grounded-extraction verification
-Every extracted claim must carry a verbatim source quote — a case-insensitive
-substring of the cited abstract. Paraphrases are rejected. Numbers from the run:
-we extracted **949 claims**; **944 passed machine verification**
-(`scripts/verify_quotes.py`, 100% coverage). Three were quarantined for
-non-verbatim labels and **2 more removed** after Claude's semantic spot-check
-(29 of 31 judged correct). A cross-model diff against Claude's independent
-10-claim sample found no contradictions, only recall differences. Of the
-verified claims, **106 resolved to graph entities and merged**; 808 were skipped
-because their entities were not in the graph. We created no invented nodes.
-Disagreements are preserved as `contradicts: true` edges, never suppressed.
-[On screen: verification funnel graphic.]
+## 0:00 to 0:25, the problem
 
-## 2:00–2:35 — Graph stats
-**1,546 nodes, 4,060 edges, 8 Louvain communities** (modularity 0.54). The mix:
-850 phenotypes, 199 active trials, 160 variants, 103 researchers, 100 funding
-records, 51 diseases, 48 reusable assets, 16 genes, 12 patient organizations,
-7 mechanisms. Each edge carries 10 metadata fields — evidence type, confidence,
-source database, reference, date — per `docs/GRAPH_SCHEMA.md`. Clusters are
-interpreted as reuse units: shared mechanism, reusable assets, explicit gaps,
-and one concrete next experiment each.
+Rare diseases are rare one at a time and common together. Lysosomal storage diseases share cellular machinery, so evidence built for one could be reused for another, but it sits in separate databases, papers, and trial registries. The atlas links it into one graph that a family or a researcher can read.
 
-## 2:35–3:00 — Demo and close
-[Screen-record the Sanfilippo click path: search → MPS IIIA → SGSH → GAG
-catabolism neighbor → Maria's Journey stepper → Patient Action.] For families,
-leads split into green "viable" (observed, high/medium confidence) and amber
-"thin" (inferred or low). Close: every claim traceable to a quote, every
-assumption stated. Live at ramcharan.co.network/rare-disease-atlas, source on
-GitHub.
+## 0:25 to 1:00, data pipeline
+
+All scripted in `scripts/`, public sources only, retrieved 2026-10-03.
+
+1. **Pull:** Mondo and gene-disease links from the Monarch API, HPO symptom annotations, ClinVar variants, Orphanet gene-disease links, ClinicalTrials.gov active trials, NIH RePORTER funding, PubMed and preprint abstracts, hand-curated patient organizations, and FDA records for treatment status.
+2. **Extract:** an LLM turns abstracts into subject, relation, object claims. Each claim must carry a verbatim quote.
+3. **Verify and merge:** `verify_quotes.py` string-matches every quote against its source; failures are quarantined. `build_graph.py` merges only claims whose entities already exist in the graph, so nothing is invented.
+
+[On screen: pipeline diagram from the README.]
+
+## 1:00 to 1:35, grounding and confidence
+
+From the run: 949 claims extracted, 944 passed quote matching, 2 more removed after a semantic spot check, 106 merged. Every edge carries evidence type (observed or inferred), confidence, source database, reference, and date. The UI turns those into plain confidence badges in the Explore evidence panel. Disagreements are kept as contradiction edges and shown on the Contradictions tab.
+
+[On screen: Explore, click an edge, show the evidence panel with quote and badge.]
+
+## 1:35 to 2:05, graph and clusters
+
+About 1,550 nodes and 4,150 edges across 51 diseases and 16 genes. Clusters use Louvain on a mechanism-only projection: funding, trial, and literature edges are excluded because an earlier run showed they lumped unrelated diseases together. Each cluster card says that shared mechanism does not mean a treatment transfers.
+
+[On screen: Clusters tab.]
+
+## 2:05 to 2:35, the analysis tabs
+
+- **Endpoints:** curated endpoint definitions; disease membership computed at runtime from the graph (by gene for lab markers, by HPO symptom match for functional endpoints), shown as a sharing matrix. HPO-based rows are candidates, and the page says so.
+- **What If:** a 51-disease picker over two scenarios, natural-history study and newborn-screening advocacy, built from graph queries with general knowledge labeled separately.
+- **The 10x Case:** one modeled Sanfilippo A timeline, 5.5 years siloed against 2.2 years shared, with each phase and assumption listed. Modeled estimates, not measured results.
+
+## 2:35 to 3:00, stack and close
+
+Static site, plain JavaScript, vis-network vendored, one JSON file, no backend, no database, hosted on GitHub Pages. Reading levels (plain, standard, detailed), night mode, an accessibility panel, and print reports all run in the browser. Close: every claim traces to a source, every assumption is stated, and the pipeline can be pointed at the next disease family.
+
+Live demo: https://ram-polisetti.github.io/rare-disease-atlas/
+
+## Notes for recording
+
+- Use "about" with node and edge counts; the build changes as fixes land.
+- Say "modeled" with the 10x numbers every time.
+- Mention that `docs/SCIENTIFIC_QA.md` lists the open copy corrections if asked about validation.
