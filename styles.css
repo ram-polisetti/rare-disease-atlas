@@ -666,6 +666,9 @@ body.dark .guide-cand-n { color: #9db9f7; }
 .guide-ground p { margin: 6px 0; line-height: 1.55; }
 .guide-h3 { font-size: 1.15rem; margin: 24px 0 10px; }
 .guide-checks { display: grid; gap: 10px; margin: 12px 0 18px; }
+.guide-phgroup { font-size: .95rem; margin: 14px 0 2px; color: var(--ink); }
+.guide-phgroup:first-child { margin-top: 4px; }
+.guide-phcount { color: var(--ink-faint); font-weight: 400; font-size: .85rem; }
 .guide-check { display: flex; gap: 10px; align-items: flex-start; background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; cursor: pointer; font-size: 1rem; }
 .guide-check input { width: 20px; height: 20px; margin-top: 2px; }
 .guide-btnrow { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
