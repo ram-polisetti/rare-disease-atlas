@@ -881,6 +881,30 @@ function alreadyPickedHTML() {
     esc2(picked.join('; ')) + '</strong>.</p>';
 }
 
+/* Compact data snapshot on the confirm screen: the visitor should see real
+ * data about the disease here, not just a name and a checklist. */
+function confirmSnapshotHTML(d) {
+  var did = d.id;
+  var genes = genesFor(did).map(function (g) { return g.label; });
+  var trials = trialsFor(did);
+  var rec = trials.filter(function (t) { return t.extra && t.extra.status === 'RECRUITING'; }).length;
+  var orgs = orgsFor(did);
+  var nPhenos = phenosFor(did).length;
+  var desc = (d.description || '').trim();
+  if (desc.length > 220) desc = desc.slice(0, 220) + '\u2026';
+  var bits = [];
+  if (genes.length) bits.push('<span><strong>Gene:</strong> ' + esc2(genes.join(', ')) + '</span>');
+  if (trials.length) bits.push('<span><strong>' + trials.length + '</strong> trial' + (trials.length === 1 ? '' : 's') + ' recorded' + (rec ? ' (' + rec + ' recruiting)' : '') + '</span>');
+  if (orgs.length) bits.push('<span><strong>' + orgs.length + '</strong> patient group' + (orgs.length === 1 ? '' : 's') + '</span>');
+  if (nPhenos) bits.push('<span><strong>' + nPhenos + '</strong> symptoms recorded</span>');
+  var html = '<div class="guide-snapshot" aria-label="At a glance">';
+  html += '<div class="guide-snapshot-head">At a glance &mdash; from our data</div>';
+  if (desc) html += '<p>' + esc2(desc) + '</p>';
+  if (bits.length) html += '<div class="guide-snapshot-bits">' + bits.join('') + '</div>';
+  else html += '<p class="guide-fine">We don\u2019t have detail recorded for this condition yet.</p>';
+  html += '</div>';
+  return html;
+}
 function vConfirm() {
   var d = nodesById[G.diseaseId];
   if (!d) return vSearch();
@@ -913,6 +937,7 @@ function vConfirm() {
     roleLine() +
     queryTrailHTML() +
     (ak ? '<p class="guide-sub">Also called: ' + esc2(ak) + '</p>' : '') +
+    confirmSnapshotHTML(d) +
     '<div class="guide-ground">' +
     '<p><strong>You are not alone.</strong> This is a rare genetic condition. There is active research and a community of families on the same path.</p>' +
     '<p class="guide-fine">Only a clinician can make a diagnosis. What follows is what our data says about this condition &mdash; not medical advice.</p>' +

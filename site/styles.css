@@ -78,6 +78,10 @@ body {
 .guide-trail-row { margin: 4px 0; }
 .guide-trail-k { font-weight: 600; color: var(--ink-soft); margin-right: 6px; }
 .guide-trail-q { font-style: italic; }
+.guide-snapshot { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 16px; margin: 12px 0; }
+.guide-snapshot-head { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); margin-bottom: 6px; }
+.guide-snapshot p { margin: 6px 0; }
+.guide-snapshot-bits { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 8px; font-size: 14px; }
 
 /* ---------- mode: settings, prompts, subway legend ---------- */
 
