@@ -512,6 +512,18 @@ body.dark .quote { color: var(--ink-soft); }
 body.dark .limit-callout { background: #2a1d1d; }
 body.dark .explainer { background: #232b45; border-color: #33406b; }
 body.dark .explainer-one { color: var(--ink); }
+/* Dark-mode contrast fixes: cards and callouts that used hardcoded light
+ * backgrounds/text became unreadable (pale on pale). */
+body.dark .guide-ground { background: #232b45; border-left-color: var(--accent); }
+body.dark .guide-ground p, body.dark .guide-ground strong { color: var(--ink); }
+body.dark .guide-check, body.dark .guide-cand, body.dark .guide-card,
+body.dark .guide-org, body.dark .guide-compare-shared, body.dark .guide-compare-card,
+body.dark .chip { background: var(--surface); border-color: var(--line); color: var(--ink); }
+body.dark .guide-compare { background: #1a1e26; border-color: var(--line); }
+body.dark .guide-cand strong, body.dark .guide-card strong { color: var(--ink); }
+body.dark .guide-sub, body.dark .guide-cand-ph, body.dark .guide-compare-diff { color: var(--ink-soft); }
+body.dark .guide-fine, body.dark .guide-alt, body.dark .guide-examples,
+body.dark .guide-card span:last-child { color: var(--ink-faint); }
 
 /* ---------- mobile pass (2am phone) ---------- */
 @media (max-width: 700px) {
