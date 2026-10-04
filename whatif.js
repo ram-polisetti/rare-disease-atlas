@@ -202,7 +202,7 @@ function wiScenarioA() {
     html += '<p>Based on the modeled 10&times; case in this atlas: <strong>' + tx.baseline_years +
       ' years siloed &rarr; ' + tx.proposed_years + ' years shared</strong>. ' +
       'Biology cannot be compressed &mdash; follow-up still takes ~1 year &mdash; but design, recruitment, and analysis reuse the MPS I/II template. ' +
-      'See the 10&times; Impact tab for the full phase breakdown and stated assumptions.</p>';
+      'See The 10x Case tab for the modeled phase breakdown and stated assumptions.</p>';
   } else {
     html += '<p class="wi-unknown">Not modeled for ' + esc(dname) + ' &mdash; the 10&times; timeline model in this atlas covers Sanfilippo A only.</p>';
   }
@@ -314,7 +314,7 @@ function wiBoth() {
   html += '<h4>Side-by-side comparison</h4>';
   html += '<table class="compare-table"><caption class="sr-only">Scenario comparison for ' + esc(dname) + '</caption><thead><tr><th scope="col"></th><th scope="col">Scenario A: Natural-history study</th><th scope="col">Scenario B: Screening advocacy</th></tr></thead><tbody>';
   html += '<tr><td><strong>Core question</strong></td><td>What does untreated ' + esc(dname) + ' look like, precisely?</td><td>Should every newborn be tested for ' + esc(dname) + '?</td></tr>';
-  html += '<tr><td><strong>Modeled timeline</strong></td><td>' + (wiIsSanfilippoA() ? '~2.2 yrs shared (see 10&times; Impact tab)' : '<span class="wi-unknown">not modeled for this disease</span>') + '</td><td class="wi-unknown">unknown &mdash; not in our sources</td></tr>';
+  html += '<tr><td><strong>Modeled timeline</strong></td><td>' + (wiIsSanfilippoA() ? '~2.2 yrs shared, modeled (see The 10x Case tab)' : '<span class="wi-unknown">not modeled for this disease</span>') + '</td><td class="wi-unknown">unknown &mdash; not in our sources</td></tr>';
   html += '<tr><td><strong>Key reusable asset</strong></td><td>Shared natural-history study designs and registries above</td><td>Screening-advocacy precedent from other disease communities</td></tr>';
   html += '<tr><td><strong>Biggest gap</strong></td><td>Validated disease-specific endpoints</td><td>Proof that early detection changes outcomes</td></tr>';
   html += '<tr><td><strong>Who it convinces</strong></td><td>Trial sponsors, regulators (external controls)</td><td>State screening panels, payers</td></tr>';

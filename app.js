@@ -74,7 +74,7 @@ const TAB_DESCS = {
   clusters: 'Diseases that break the same machinery in the body \u2014 so progress on one can help the others.',
   endpoints: 'What clinical trials measure \u2014 and which diseases measure the same things.',
   whatif: 'Ask \u201cwhat would change if\u2026\u201d and see what the data supports.',
-  impact: 'One worked example: how sharing could cut a study from 5.5 years to 2.2.',
+  impact: 'One modeled example: how sharing might shorten a Sanfilippo A study from an estimated 5.5 years to about 2.2.',
 };
 function renderTabDesc() {
   const d = el('tabDesc');
@@ -1109,6 +1109,7 @@ function initImpact() {
     '&ldquo;sharing&rdquo; is worth, in years. A Sanfilippo A natural-history study built from scratch takes about ' +
     '5.5 years in this model; reusing the MPS I/II registry design and pooling across subtypes cuts it to about 2.2 years. ' +
     '<strong>These are modeled estimates, not measured results</strong> &mdash; every assumption is listed below. ' +
+    '&ldquo;10x&rdquo; is the challenge\u2019s goal for how much faster rare-disease research should move. This one example models about a 2.5-fold speedup (60% less time); it is a modeled estimate, not a measured result. ' +
     '<strong>Why only one disease?</strong> Modeling takes careful assumptions, and Sanfilippo A is the one fully worked through so far. ' +
     'The method is the point: any disease with reusable designs and registries can run the same math.</div>';
   html += '<p class="section-lede">' + esc(tx.title || 'The 10x case') + '</p>';

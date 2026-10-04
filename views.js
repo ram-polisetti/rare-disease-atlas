@@ -1145,7 +1145,7 @@ function familyStoryHTML(n) {
   if (n.type !== 'disease' && n.type !== 'phenotype') return '';
   return '<div class="story-box"><span class="story-heart" aria-hidden="true">&#9825;</span> ' +
     '<strong>Family stories</strong><p class="item-sub">No families have shared stories linked here yet. ' +
-    'Stories are contributed through partner patient organizations, with consent, and are always kept separate from scientific evidence.</p></div>';
+    'If this feature is built, stories would come through patient organizations, with consent, and would always be kept separate from scientific evidence.</p></div>';
 }
 
 /* ---------------- 8. Researcher outreach composer ---------------- */
