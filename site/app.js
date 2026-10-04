@@ -235,7 +235,6 @@ function init() {
   initSearch();
   initExploreControls();
   initTabs();
-  initReadingLevel();
   initClusters();
   initPatientAction();
   initJourney();
@@ -259,37 +258,6 @@ function init() {
 }
 
 /* ---------------- tabs ---------------- */
-
-/* Reading level: Plain language / Standard / Detailed. Global and persisted
- * in localStorage under key rda_reading. Standard is the site as designed.
- * Detailed reveals extra technical metadata (study types, publication years,
- * dates) marked with class tech-detail. Plain language keeps the plain
- * wording and hides technical metadata and jargon badges. */
-const READING_KEY = 'rda_reading';
-
-function setReading(level) {
-  if (['plain', 'standard', 'detailed'].indexOf(level) < 0) level = 'standard';
-  document.body.classList.remove('reading-plain', 'reading-standard', 'reading-detailed');
-  document.body.classList.add('reading-' + level);
-  try { localStorage.setItem(READING_KEY, level); } catch (err) {}
-  document.querySelectorAll('.reading-seg .seg-btn').forEach(function (btn) {
-    const on = btn.dataset.reading === level;
-    btn.classList.toggle('active', on);
-    btn.setAttribute('aria-checked', on ? 'true' : 'false');
-  });
-}
-
-function initReadingLevel() {
-  let level = 'standard';
-  try {
-    const saved = localStorage.getItem(READING_KEY);
-    if (saved) level = saved;
-  } catch (err) {}
-  document.querySelectorAll('.reading-seg .seg-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () { setReading(btn.dataset.reading); });
-  });
-  setReading(level);
-}
 
 /* Parent / researcher mode. Persisted in localStorage under key rda_mode.
  * Parent mode (default) shows the calm parent-facing views; researcher mode
