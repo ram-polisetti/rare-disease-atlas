@@ -69,6 +69,45 @@ function phenosFor(did) {
   return outEdges(did, 'has_phenotype').map(function (e) { return nodesById[e.target]; })
     .filter(function (n) { return n && n.type === 'phenotype'; });
 }
+/* Body-system grouping for the symptom checklist: parents recognize symptoms
+ * faster when they are organized by body part. First matching group wins;
+ * anything unmatched lands in "Other". Matching is on whole words of the
+ * (humanized) label, so "heart" never misfires on "hearing". */
+var PHENO_GROUPS = [
+  { name: 'Brain, nerves, and development', words: ['brain','cerebral','cerebellar','cortex','cortical','hydrocephalus','nerve','nerves','neural','neuropathy','neuropathic','neuralgia','paresthesia','seizure','seizures','epilepsy','epileptic','ataxia','ataxic','hypotonia','hypertonia','spastic','spasticity','dystonia','dystonic','chorea','choreic','myoclonus','tremor','paralysis','paresis','plegia','hemiplegia','hemiparesis','parkinsonism','bradykinesia','rigidity','motor','gait','walking','coordination','postural','reflex','reflexes','areflexia','hyporeflexia','hyperreflexia','clonus','speech','language','dysarthria','aphasia','dysphasia','cognitive','intellectual','developmental','development','regression','behavior','behavioral','autism','autistic','hyperactivity','attention','memory','dementia','delusion','hallucination','hallucinations','psychosis','psychotic','depression','depressive','anxiety','anxious','apathy','agitation','personality','consciousness','lewy','micrographia','sleep','stroke','migraine','headache','vertigo','dizziness','syncope','coma','lethargy','irritability','encephalopathy','myelopathy','neurodegeneration','tic','tics','stereotypy','catatonia','mania','manic','neurologic','neurological','mental','psychomotor','emotional','lability','falls','clumsiness','clumsy','vegetative','startle','acroparesthesia','opisthotonus','ventriculomegaly','ischemic','fasciculations'] },
+  { name: 'Eyes and vision', words: ['eye','eyes','visual','vision','retina','retinal','retinopathy','optic','macula','macular','cornea','corneal','lens','cataract','glaucoma','nystagmus','strabismus','myopia','hyperopia','astigmatism','blindness','blind','photophobia','squint','ptosis','coloboma','microphthalmia','anophthalmia','ocular','ophthalmic','iris','pupil','sclera','choroid','vitreous','fundus','diplopia','ophthalmoplegia','nyctalopia'] },
+  { name: 'Ears and hearing', words: ['ear','ears','hearing','deafness','deaf','auditory','audition','otitis','otosclerosis','tinnitus','auricle','pinna','cochlear','vestibular'] },
+  { name: 'Heart and circulation', words: ['heart','cardiac','cardio','cardiomyopathy','myocardial','aortic','aorta','valve','valvular','ventricular','ventricle','atrial','atrium','septal','arrhythmia','tachycardia','bradycardia','palpitation','hypertension','hypotension','pericardial','pericarditis','endocarditis','coarctation','stenosis','regurgitation','prolapse','cardiomegaly','circulation','circulatory','vascular','vasculitis','artery','arterial','vein','venous','edema','cyanosis'] },
+  { name: 'Lungs and breathing', words: ['lung','lungs','pulmonary','respiratory','respiration','breathing','breath','apnea','apneic','dyspnea','tachypnea','bradypnea','pneumonia','bronchial','bronchitis','bronchiectasis','pleural','pneumothorax','cough','wheezing','wheeze','stridor','asthma','hypoxia','larynx','laryngeal','tracheal','trachea','pharynx','pharyngeal','voice','thorax','thoracic','chest','diaphragm','diaphragmatic'] },
+  { name: 'Bones, joints, and muscles', words: ['bone','bones','skeletal','skeleton','joint','joints','articular','muscle','muscles','muscular','myopathy','myopathic','dystrophy','dystrophic','necrosis','scoliosis','kyphosis','lordosis','contracture','fracture','fractures','osteoporosis','osteopenia','arthritis','arthralgia','spine','spinal','vertebra','vertebral','rib','ribs','skull','cranial','cranium','limb','limbs','hand','hands','foot','feet','finger','fingers','toe','toes','arm','arms','leg','legs','femur','femoral','tibia','tibial','fibula','humerus','radius','ulna','pelvis','pelvic','patella','clavicle','scapula','sternum','sacrum','coccyx','carpal','tarsal','metacarpal','metatarsal','phalanx','epiphysis','diaphysis','metaphysis','dysplasia','dysplastic','hypoplasia','hyperplasia','aplasia','brachydactyly','syndactyly','polydactyly','clinodactyly','camptodactyly','tendon','ligament','bursa','myalgia','cramps','fasciculation','atrophy','hypertrophy','tone','dysostosis','pes','neck','thoracolumbar','stairs'] },
+  { name: 'Skin, hair, and nails', words: ['skin','cutaneous','cutis','dermal','epidermal','hair','alopecia','hirsutism','hypertrichosis','hypotrichosis','nail','nails','angiokeratoma','angioma','telangiectasia','rash','eczema','dermatitis','pigmentation','hyperpigmentation','hypopigmentation','blister','blistering','ulcer','ulcers','ulceration','keratosis','ichthyosis','xerosis','sweat','sweating','anhidrosis','nevus','hemangioma','petechiae','purpura','ecchymosis','cellulitis','folliculitis','acne','warts','papilloma','xanthoma','lipoma'] },
+  { name: 'Face, mouth, and head', words: ['face','facial','facies','forehead','frontal','nose','nasal','nostril','mouth','oral','lip','lips','palate','palatal','cleft','tooth','teeth','dental','dentition','microdontia','macrodontia','hypodontia','oligodontia','jaw','mandible','mandibular','maxilla','maxillary','chin','cheek','cheeks','tongue','lingual','gum','gingival','head','cephaly','dolichocephaly','turricephaly','oxycephaly','microcephaly','macrocephaly','plagiocephaly','brachycephaly','scaphocephaly','trigonocephaly','craniosynostosis','suture','fontanelle','hypertelorism','hypotelorism','epicanthus','glabella','philtrum','columella','alae','hairline','tonsil','tonsils','sinus','sinusitis','rhinitis','adenoid','vermilion','macroglossia','synophrys','nares'] },
+  { name: 'Tummy, liver, and digestion', words: ['abdominal','abdomen','belly','stomach','gastric','intestinal','intestine','bowel','bowels','colonic','colon','rectal','rectum','duodenal','jejunal','ileal','diarrhea','constipation','vomiting','nausea','feeding','dysphagia','reflux','gerd','hernia','hernias','liver','hepatic','hepatomegaly','hepatitis','spleen','splenic','splenomegaly','pancreas','pancreatic','pancreatitis','gallbladder','biliary','cholelithiasis','appendix','peritoneal','ascites','flatulence','bloating','colic','dysentery','malabsorption','steatorrhea','icterus','jaundice','hepatosplenomegaly','hypersplenism','cholecystitis'] },
+  { name: 'Kidneys, bladder, and urinary tract', words: ['kidney','kidneys','renal','nephro','nephritis','nephrosis','nephrotic','bladder','urinary','urine','ureter','urethra','urethral','proteinuria','hematuria','glycosuria','polyuria','oliguria','anuria','nocturia','enuresis','incontinence','dysuria','hydronephrosis','cystitis','pyelonephritis','genital','genitalia','cryptorchidism','hypospadias','epispadias','phimosis','micropenis','nephrocalcinosis','dialysis'] },
+  { name: 'Blood and immune system', words: ['blood','anemia','anemic','thrombocytopenia','leukopenia','leukocytosis','neutropenia','neutrophilia','lymphopenia','pancytopenia','bleeding','bleed','bruising','bruise','hemorrhage','hemorrhagic','coagulation','platelet','platelets','hemoglobin','erythrocyte','leukocyte','lymphocyte','neutrophil','immune','immunity','immunodeficiency','infection','infections','infectious','sepsis','lymph','lymphadenopathy','lymphoma','thymus','complement','antibody','autoimmune','splenectomy','histiocytosis'] },
+  { name: 'Growth and weight', words: ['growth','stature','height','weight','obesity','obese','overweight','underweight','cachexia','wasting','thrive','failure','puberty','precocious','delayed'] },
+  { name: 'Lab and test results', words: ['circulating','concentration','level','levels','activity','elevated','decreased','increased','reduced','elevation','reduction','abnormal','finding','marker','enzyme','creatine','kinase','cholesterol','triglyceride','glucose','protein','albumin','bilirubin','creatinine','urea','electrolyte','calcium','phosphate','magnesium','potassium','sodium','acidosis','alkalosis','lactic','ammonia','amino','organic','lysosomal','metabolism','homeostasis','metabolic'] },
+  { name: 'Other', words: [] }
+];
+PHENO_GROUPS.forEach(function (gr) {
+  gr._set = {};
+  gr.words.forEach(function (w) { gr._set[w] = 1; });
+});
+var KIDNEY_GI = -1;
+PHENO_GROUPS.forEach(function (gr, gi) { if (gr.name.indexOf('Kidneys') === 0) KIDNEY_GI = gi; });
+function phenoGroupIndex(p) {
+  var toks = ((p.label || '').toLowerCase().match(/[a-z]+/g)) || [];
+  for (var gi = 0; gi < PHENO_GROUPS.length - 1; gi++) {
+    var set = PHENO_GROUPS[gi]._set;
+    for (var t = 0; t < toks.length; t++) {
+      if (set[toks[t]]) return gi;
+      /* -uria words (proteinuria, glycosuria, mucopolysacchariduria, …)
+       * are urine/kidney findings even when not listed by name. */
+      if (KIDNEY_GI !== -1 && /uria$/.test(toks[t]) && toks[t].length > 4) return KIDNEY_GI;
+    }
+  }
+  return PHENO_GROUPS.length - 1;
+}
 /* Most-shared phenotypes first: symptoms recorded for the most diseases tend
  * to be the classic, recognizable ones — better for a quick "does this sound
  * like your situation" check than raw data order. Cached per phenotype. */
@@ -429,18 +468,35 @@ function vSearch() {
 
 /* ---- Step 3 of 4: confirmed vs possible match ---- */
 
+function phenoCheckHTML(p, flatIndex) {
+  var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
+  return '<label class="guide-check"><input type="checkbox" data-ph="' + flatIndex + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
+}
+
 function vConfirm() {
   var d = nodesById[G.diseaseId];
   if (!d) return vSearch();
-  var phenos = confirmPhenos();
+  var flat = confirmPhenos(); /* sorted by recognizability; top 4 unless expanded */
   var total = allConfirmPhenos().length;
   var ak = alsoCalled(d);
-  var checks = phenos.map(function (p, i) {
-    var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
-    return '<label class="guide-check"><input type="checkbox" data-ph="' + i + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
-  }).join('');
+  var checks;
+  if (!G.phenoExpanded) {
+    checks = flat.map(function (p, i) { return phenoCheckHTML(p, i); }).join('');
+  } else {
+    /* Expanded: every recorded symptom, organized by body part so a parent
+     * can scan for what they recognize. data-ph keeps the flat index so the
+     * change handler stays correct. */
+    var buckets = PHENO_GROUPS.map(function () { return []; });
+    flat.forEach(function (p, i) { buckets[phenoGroupIndex(p)].push({ p: p, i: i }); });
+    checks = buckets.map(function (b, gi) {
+      if (!b.length) return '';
+      return '<h4 class="guide-phgroup">' + esc2(PHENO_GROUPS[gi].name) +
+        ' <span class="guide-phcount">(' + b.length + ')</span></h4>' +
+        b.map(function (e) { return phenoCheckHTML(e.p, e.i); }).join('');
+    }).join('');
+  }
   var moreBtn = (!G.phenoExpanded && total > 4)
-    ? '<button type="button" class="btn ghost" id="phenoMore">Show all ' + total + ' recorded symptoms</button>' : '';
+    ? '<button type="button" class="btn ghost" id="phenoMore">Show all ' + total + ' recorded symptoms, grouped by body part</button>' : '';
   var backTarget = (G.candidates && G.candidates.length > 1) ? 'ambiguous' : 'search';
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="' + backTarget + '">&larr; Back</button>' +
