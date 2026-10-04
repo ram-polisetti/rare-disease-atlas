@@ -686,6 +686,18 @@ body.dark .guide-cand-n { color: #9db9f7; }
 body.dark .guide-amfilter { background: #16233f; border-color: #2c4a7c; }
 body.dark .guide-cand-m { color: #9ca3af; }
 body.dark .guide-cand-m.hit { color: #6ee7b7; }
+/* Narrow-it-down two-column layout: disease list left (75%), symptom picks
+ * in a sticky right column (25%). The right column stays put while the
+ * disease list scrolls, so parents can tick while comparing. */
+.guide-amb-layout { display: flex; gap: 24px; align-items: flex-start; }
+.guide-amb-main { flex: 3 1 0; min-width: 0; order: 1; }
+.guide-amb-side { flex: 1 1 0; min-width: 0; order: 2; position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; }
+.guide-amb-side .guide-amfilter { margin-top: 16px; }
+@media (max-width: 760px) {
+  /* Narrow screens: filter stacks above the disease list (DOM order). */
+  .guide-amb-layout { display: block; }
+  .guide-amb-side { position: static; max-height: none; overflow: visible; }
+}
 /* Text-button link inside guide fine print (e.g. "skip this check"). */
 .guide-linklike { background: none; border: none; padding: 0; color: #1a56db; text-decoration: underline; cursor: pointer; font: inherit; }
 body.dark .guide-linklike { color: #9db9f7; }
