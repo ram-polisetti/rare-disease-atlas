@@ -101,6 +101,50 @@ function alsoCalled(d) {
   var syns = (d.synonyms || []).filter(function (s) { return s.toLowerCase() !== d.label.toLowerCase(); });
   return syns.slice(0, 3).join('; ');
 }
+/* Dossier helpers (Build A — full printable dossier). Additive; never invent. */
+function assetsFor(did) {
+  var seen = {}, out = [];
+  function add(e, other) {
+    var n = nodesById[other];
+    if (n && n.type === 'asset' && !seen[n.id]) { seen[n.id] = 1; out.push(n); }
+  }
+  outEdges(did).forEach(function (e) { add(e, e.target); });
+  inEdges(did).forEach(function (e) { add(e, e.source); });
+  return out;
+}
+function quotesFor(did, n) {
+  var seen = {}, out = [];
+  function add(e) {
+    if (seen[e.source + '|' + e.target] || !e.source_quote) return;
+    seen[e.source + '|' + e.target] = 1;
+    out.push(e);
+  }
+  outEdges(did).forEach(add);
+  inEdges(did).forEach(add);
+  out.sort(function (a, b) {
+    var ao = a.evidence === 'observed' ? 0 : 1, bo = b.evidence === 'observed' ? 0 : 1;
+    return ao - bo;
+  });
+  return out.slice(0, n || 3);
+}
+function nextStepFor(did) {
+  var orgs = orgsFor(did);
+  var rec = recruitingTrials(did).length;
+  if (orgs.length) return 'Call or message <strong>' + esc2(orgs[0].label) + '</strong> &mdash; they talk to families like yours every day.';
+  if (rec) return 'Look at the studies below and ask your doctor whether any could be a fit.';
+  return 'Ask your doctor for a referral to a genetic counselor who knows this condition.';
+}
+function endpointsForDossier(did) {
+  if (typeof epFamilyOf !== 'function' || typeof epCompute !== 'function') return null;
+  var fid = epFamilyOf(did);
+  if (!fid) return [];
+  return epCompute().filter(function (r) { return r.fams.indexOf(fid) !== -1; });
+}
+function therapyBannerHTML(d) {
+  var ts = d.extra && d.extra.therapy_status;
+  if (!ts || !ts.note) return '';
+  return '<div class="guide-nextstep"><strong>Latest treatment news:</strong> ' + esc2(ts.note) + '</div>';
+}
 
 /* ---------------- interpretation ---------------- */
 
@@ -533,29 +577,89 @@ function vConnections() {
 
 function vExport() {
   var d = nodesById[G.diseaseId];
-  var orgs = orgsFor(d.id), trials = trialsFor(d.id).slice(0, 8), rel = relatedFor(d.id).slice(0, 6);
-  return '<div class="guide-pane" id="guideExportDoc">' +
+  if (!d) return vLanding();
+  var orgs = orgsFor(d.id), trials = trialsFor(d.id), rel = relatedFor(d.id).slice(0, 6);
+  var genes = genesFor(d.id), phenos = phenosFor(d.id), assets = assetsFor(d.id);
+  var quotes = quotesFor(d.id, 3);
+  var eps = endpointsForDossier(d.id);
+  var aka = alsoCalled(d);
+  var what = (d.description || '').split('. ').slice(0, 2).join('. ') + ((d.description || '').indexOf('.') !== -1 ? '.' : '');
+  var cluster = GRAPH.clusters ? GRAPH.clusters.filter(function (c) { return c.id === d.cluster_id; })[0] : null;
+  var gaps = (cluster && cluster.gaps) || [];
+  var rec = trials.filter(function (t) { return ((t.extra && t.extra.status) || '').toUpperCase().indexOf('RECRUIT') === 0; });
+  var others = trials.filter(function (t) { return ((t.extra && t.extra.status) || '').toUpperCase().indexOf('RECRUIT') !== 0; });
+
+  var h = '<div class="guide-pane" id="guideExportDoc">' +
     '<button class="guide-back" data-nav="connections">&larr; Back</button>' +
-    '<h2 class="guide-h">Your summary: ' + esc2(guideName(d)) + '</h2>' +
-    '<p class="guide-sub">Take this to your doctor, your family, or your patient group. Generated from the atlas data on ' +
-    new Date().toLocaleDateString() + '.</p>' +
-    '<h3 class="guide-h3">Community</h3>' +
+    '<h2 class="guide-h">Your dossier: ' + esc2(guideName(d)) + '</h2>' +
+    '<p class="guide-sub">Everything our atlas holds on this condition, in one place. Take it to your doctor, your family, or your patient group. ' +
+    'You&rsquo;re doing the right thing by looking. Generated ' + new Date().toLocaleDateString() + '.</p>' +
+    therapyBannerHTML(d) +
+    '<div class="guide-nextstep"><strong>What to do next:</strong> ' + nextStepFor(d.id) + '</div>';
+
+  h += '<h3 class="guide-h3">What this condition is</h3>' +
+    (what ? '<p>' + esc2(what) + '</p>' : '<p class="guide-fine">A plain-language description isn&rsquo;t recorded yet.</p>') +
+    (aka ? '<p class="guide-fine">Also called: ' + esc2(aka) + '</p>' : '');
+
+  h += '<h3 class="guide-h3">Genes involved</h3>' +
+    (genes.length ? '<ul class="guide-list">' + genes.map(function (g) { return '<li><strong>' + esc2(g.label) + '</strong></li>'; }).join('') + '</ul>'
+      : '<p class="guide-fine">We don&rsquo;t have the gene recorded yet.</p>');
+
+  h += '<h3 class="guide-h3">Symptoms families often notice</h3>' +
+    (phenos.length ? '<ul class="guide-list">' + phenos.slice(0, 10).map(function (p) { return '<li>' + esc2(humanize(p.label)) + '</li>'; }).join('') + '</ul>'
+      : '<p class="guide-fine">We don&rsquo;t have symptoms recorded yet.</p>') +
+    '<p class="guide-fine">Every child is different &mdash; this list can&rsquo;t predict your child&rsquo;s path. Only a clinician can diagnose.</p>';
+
+  h += '<h3 class="guide-h3">Measurements researchers share</h3>';
+  if (eps === null) h += '<p class="guide-fine">Endpoint data isn&rsquo;t loaded in this view.</p>';
+  else if (!eps.length) h += '<p class="guide-fine">No shared measurements recorded for this condition yet.</p>';
+  else h += '<ul class="guide-list">' + eps.slice(0, 8).map(function (r) {
+    return '<li><strong>' + esc2(r.ep.term) + '</strong> &mdash; ' + esc2(r.ep.plain || '') + '</li>';
+  }).join('') + '</ul>' +
+    '<p class="guide-fine">Sharing a measurement is not sharing biology &mdash; a common test lets studies compare results, it doesn&rsquo;t mean a treatment transfers.</p>';
+
+  h += '<h3 class="guide-h3">Studies (' + trials.length + ' recorded)</h3>';
+  if (rec.length) h += '<p><strong>Recruiting now:</strong></p><ul class="guide-list">' + rec.map(function (t) {
+    var p = trialPlain(t); return '<li>' + esc2(humanize(p.title)) + ' &mdash; ' + esc2(p.meta) + '</li>';
+  }).join('') + '</ul>';
+  if (others.length) h += (rec.length ? '<p><strong>Other studies:</strong></p>' : '') + '<ul class="guide-list">' + others.slice(0, 6).map(function (t) {
+    var p = trialPlain(t); return '<li>' + esc2(humanize(p.title)) + ' &mdash; ' + esc2(p.meta) + '</li>';
+  }).join('') + '</ul>';
+  if (!trials.length) h += '<p class="guide-fine">No studies recorded yet.</p>';
+
+  h += '<h3 class="guide-h3">Support groups</h3>' +
     (orgs.length ? '<ul class="guide-list">' + orgs.map(function (o) {
       var url = (o.extra && o.extra.url) || '';
       return '<li><strong>' + esc2(o.label) + '</strong>' + (url ? ' &mdash; ' + esc2(url) : '') + '</li>';
-    }).join('') + '</ul>' : '<p class="guide-fine">No patient group recorded yet.</p>') +
-    '<h3 class="guide-h3">Research studies (' + trials.length + ' recorded)</h3>' +
-    (trials.length ? '<ul class="guide-list">' + trials.map(function (t) {
-      var p = trialPlain(t);
-      return '<li>' + esc2(humanize(p.title)) + ' &mdash; ' + esc2(p.meta) + '</li>';
-    }).join('') + '</ul>' : '<p class="guide-fine">None recorded.</p>') +
-    '<h3 class="guide-h3">Related conditions</h3>' +
-    (rel.length ? '<ul class="guide-list">' + rel.map(function (r) { return '<li>' + esc2(guideName(r.node)) + '</li>'; }).join('') + '</ul>' : '<p class="guide-fine">None recorded.</p>') +
-    '<p class="guide-fine">Sources: every connection in the atlas carries its evidence &mdash; open the Explore tab and click any edge to see the source quote and paper. ' +
-    'This summary is not medical advice.</p>' +
+    }).join('') + '</ul>' : '<p class="guide-fine">No patient group recorded yet &mdash; <a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD</a> can help you find or start one.</p>');
+
+  h += '<h3 class="guide-h3">Things research can reuse</h3>' +
+    (assets.length ? '<ul class="guide-list">' + assets.map(function (a) {
+      return '<li><strong>' + esc2(displayName(a)) + '</strong>' + (a.description ? ' &mdash; ' + esc2(a.description.slice(0, 160)) : '') + '</li>';
+    }).join('') + '</ul>' : '<p class="guide-fine">No reusable research assets recorded yet.</p>');
+
+  h += '<h3 class="guide-h3">What science has shown</h3>';
+  if (quotes.length) h += '<ul class="guide-list">' + quotes.map(function (e) {
+    var q = e.source_quote.length > 220 ? e.source_quote.slice(0, 220) + '&hellip;' : e.source_quote;
+    return '<li>&ldquo;' + esc2(q) + '&rdquo;<br><span class="guide-fine">Source: ' + esc2(e.source_db || 'atlas') +
+      (e.source_ref ? ' ' + esc2(e.source_ref) : '') + ' &mdash; ' + (e.evidence === 'observed' ? 'directly observed' : 'inferred by analysis') + '</span></li>';
+  }).join('') + '</ul>';
+  else h += '<p class="guide-fine">No quoted evidence recorded yet.</p>';
+
+  h += '<h3 class="guide-h3">Related conditions</h3>' +
+    (rel.length ? '<ul class="guide-list">' + rel.map(function (r) { return '<li>' + esc2(guideName(r.node)) + '</li>'; }).join('') + '</ul>'
+      : '<p class="guide-fine">None recorded.</p>');
+
+  h += '<h3 class="guide-h3">What we still don&rsquo;t know</h3>' +
+    (gaps.length ? '<ul class="guide-list">' + gaps.map(function (g) { return '<li>' + esc2(g) + '</li>'; }).join('') + '</ul>'
+      : '<p class="guide-fine">No open gaps recorded for this condition&rsquo;s group.</p>');
+
+  h += '<p class="guide-fine">Sources: every connection in the atlas carries its evidence &mdash; open the Explore tab and click any edge to see the source quote and paper. ' +
+    'This dossier is information to discuss with your care team, not medical advice.</p>' +
     '<div class="guide-btnrow"><button class="btn primary" id="guidePrint">Print / save as PDF</button></div>' +
     bridgeHTML() +
     '</div>';
+  return h;
 }
 
 /* ---------------- wiring ---------------- */
