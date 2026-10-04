@@ -69,6 +69,24 @@ function phenosFor(did) {
   return outEdges(did, 'has_phenotype').map(function (e) { return nodesById[e.target]; })
     .filter(function (n) { return n && n.type === 'phenotype'; });
 }
+/* Most-shared phenotypes first: symptoms recorded for the most diseases tend
+ * to be the classic, recognizable ones — better for a quick "does this sound
+ * like your situation" check than raw data order. Cached per phenotype. */
+var PHENO_DEG = {};
+function phenoDegree(p) {
+  var key = p.id || p.label;
+  if (!(key in PHENO_DEG)) PHENO_DEG[key] = p.id ? inEdges(p.id, 'has_phenotype').length : 0;
+  return PHENO_DEG[key];
+}
+function allConfirmPhenos() {
+  var d = nodesById[G.diseaseId];
+  if (!d) return [];
+  return phenosFor(d.id).slice().sort(function (a, b) { return phenoDegree(b) - phenoDegree(a); });
+}
+function confirmPhenos() {
+  var all = allConfirmPhenos();
+  return G.phenoExpanded ? all : all.slice(0, 4);
+}
 function genesFor(did) {
   var gs = outEdges(did, 'associated_with_gene').concat(outEdges(did, 'caused_by_variant_in'));
   var seen = {}, out = [];
@@ -414,12 +432,15 @@ function vSearch() {
 function vConfirm() {
   var d = nodesById[G.diseaseId];
   if (!d) return vSearch();
-  var phenos = phenosFor(d.id).slice(0, 4);
+  var phenos = confirmPhenos();
+  var total = allConfirmPhenos().length;
   var ak = alsoCalled(d);
   var checks = phenos.map(function (p, i) {
     var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
     return '<label class="guide-check"><input type="checkbox" data-ph="' + i + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
   }).join('');
+  var moreBtn = (!G.phenoExpanded && total > 4)
+    ? '<button type="button" class="btn ghost" id="phenoMore">Show all ' + total + ' recorded symptoms</button>' : '';
   var backTarget = (G.candidates && G.candidates.length > 1) ? 'ambiguous' : 'search';
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="' + backTarget + '">&larr; Back</button>' +
@@ -434,6 +455,7 @@ function vConfirm() {
     '<h3 class="guide-h3">Quick check &mdash; does this sound like your situation?</h3>' +
     '<p class="guide-sub">Tick the ones you recognize. This helps us point you right.</p>' +
     '<div class="guide-checks">' + (checks || '<p class="guide-fine">We don&rsquo;t have symptom details recorded for this condition yet.</p>') + '</div>' +
+    (moreBtn ? '<div class="guide-btnrow">' + moreBtn + '</div>' : '') +
     '<div class="guide-btnrow">' +
     '<button type="button" class="btn primary" data-certain="yes">Yes, this is our diagnosis &rarr;</button>' +
     '<button type="button" class="btn" data-certain="maybe">I think so, but I&rsquo;m not sure</button>' +
@@ -977,8 +999,7 @@ function wireGuide(scope) {
   });
   scope.querySelectorAll('input[data-ph]').forEach(function (box) {
     box.addEventListener('change', function () {
-      var d = nodesById[G.diseaseId];
-      var phenos = d ? phenosFor(d.id).slice(0, 4) : [];
+      var phenos = confirmPhenos();
       var p = phenos[parseInt(box.getAttribute('data-ph'), 10)];
       if (!p) return;
       var key = p.id || p.label;
@@ -988,6 +1009,8 @@ function wireGuide(scope) {
       if (!box.checked && i !== -1) G.confirmedPhenos.splice(i, 1);
     });
   });
+  var more = scope.querySelector('#phenoMore');
+  if (more) more.addEventListener('click', function () { G.phenoExpanded = true; go('confirm'); });
   var pr = scope.querySelector('#guidePrint');
   if (pr) pr.addEventListener('click', function () { window.print(); });
 }
