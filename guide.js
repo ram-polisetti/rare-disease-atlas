@@ -402,10 +402,20 @@ function phenoDegree(p) {
   if (!(key in PHENO_DEG)) PHENO_DEG[key] = p.id ? inEdges(p.id, 'has_phenotype').length : 0;
   return PHENO_DEG[key];
 }
+/* Observable symptoms only for the quick check: a parent can't "recognize"
+ * an inheritance pattern, an onset label, or a lab value. */
+function isObservablePheno(p) {
+  if (phenoGroupIndex(p) === LAB_GI) return false;
+  var lbl = String(p.label || '').toLowerCase();
+  return lbl.indexOf('inheritance') === -1 && !/ onset$/.test(lbl);
+}
 function allConfirmPhenos() {
   var d = nodesById[G.diseaseId];
   if (!d) return [];
-  return phenosFor(d.id).slice().sort(function (a, b) { return phenoDegree(b) - phenoDegree(a); });
+  var all = phenosFor(d.id);
+  var obs = all.filter(isObservablePheno);
+  var pool = obs.length ? obs : all;
+  return pool.slice().sort(function (a, b) { return phenoDegree(b) - phenoDegree(a); });
 }
 function confirmPhenos() {
   var all = allConfirmPhenos();
@@ -801,6 +811,7 @@ function vConfirm() {
     '<button type="button" class="btn primary" data-certain="yes">Yes, this is our diagnosis &rarr;</button>' +
     '<button type="button" class="btn" data-certain="maybe">I think so, but I&rsquo;m not sure</button>' +
     '</div>' +
+    '<p class="guide-fine"><button type="button" class="guide-linklike" data-skip-check>Skip this check &mdash; take me straight to the next step &rarr;</button></p>' +
     '<p class="guide-fine">Not sure? That&rsquo;s okay &mdash; keep going and we&rsquo;ll keep things general, ' +
     'or talk to a <a href="https://www.acmg.net/" target="_blank" rel="noopener">genetic counselor</a> who can help clarify.</p>' +
     '</div>';
@@ -1397,6 +1408,13 @@ function wireGuide(scope) {
   scope.querySelectorAll('[data-certain]').forEach(function (b) {
     b.addEventListener('click', function () {
       G.certain = b.getAttribute('data-certain') === 'yes';
+      var atlas = window.__atlas;
+      if (atlas && atlas.setDisease && G.diseaseId) atlas.setDisease(G.diseaseId);
+      go('action');
+    });
+  });
+  scope.querySelectorAll('[data-skip-check]').forEach(function (b) {
+    b.addEventListener('click', function () {
       var atlas = window.__atlas;
       if (atlas && atlas.setDisease && G.diseaseId) atlas.setDisease(G.diseaseId);
       go('action');
