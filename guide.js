@@ -873,7 +873,12 @@ function wirePicks(container) {
  * table would be unreadable. Re-renders on every tick so it always reflects
  * the current ranking. */
 function compareTableInnerHTML() {
-  var top = ambRanked().slice(0, 3);
+  var n = G.candidates.length;
+  /* Few matches: show every one — hiding contenders the parent already saw
+   * would break the "nothing is missed" promise. Many matches: cap at 3 so
+   * the table stays readable. */
+  var showN = n <= 6 ? n : 3;
+  var top = ambRanked().slice(0, showN);
   if (top.length < 2) return '';
   var phenosBy = top.map(function (d) {
     var seen = {}, out = [];
@@ -909,11 +914,12 @@ function compareTableInnerHTML() {
     shared.map(row).join('');
   if (unique.length) body += '<tr class="guide-compare-rowhead"><td colspan="' + (top.length + 1) + '">Only one of them has, in our data</td></tr>' +
     unique.map(row).join('');
-  var n = G.candidates.length;
   var picked = Object.keys(G.ambFilter || {}).filter(function (k) { return G.ambFilter[k]; }).length;
+  var scopeNote = showN < n
+    ? 'Side by side: the top ' + showN + ' of ' + n + ' matches' + (picked ? ', ordered by the symptoms you picked.' : '.')
+    : 'Side by side: all ' + n + ' matches' + (picked ? ', ordered by the symptoms you picked.' : '.');
   return '<table class="guide-compare-table">' +
-    '<caption>Side by side: the top ' + top.length + ' of ' + n + ' matches' +
-    (picked ? ', ordered by the symptoms you picked.' : '.') + '</caption>' +
+    '<caption>' + scopeNote + '</caption>' +
     '<thead><tr><th scope="col"><span class="guide-fine">Symptom</span></th>' + head + '</tr></thead>' +
     '<tbody>' + body + '</tbody></table>' +
     '<p class="guide-fine">✓ = recorded in our data &middot; — = not recorded in our data &middot; ' +
@@ -1008,7 +1014,9 @@ function ambFilterHTML() {
     var k = String(p.id || p.label).toLowerCase();
     return '<label class="guide-check"><input type="checkbox" data-ambph="' + esc2(k) + '"' + (f[k] ? ' checked' : '') + '> ' + esc2(plainSymptom(p.label)) + '</label>';
   }).join('');
-  return '<div class="guide-amfilter"><h3 class="guide-h3">Not sure which one? Tick symptoms you\u2019ve noticed.</h3>' +
+  return '<div class="guide-amfilter">' +
+    '<div class="guide-amfilter-head"><h3 class="guide-h3">Not sure which one? Tick symptoms you\u2019ve noticed.</h3>' +
+    '<button type="button" class="guide-link" data-ambclear>Clear all</button></div>' +
     '<p class="guide-fine">The list below re-orders itself around your picks, most matches first. Untick to see everything again \u2014 nothing is hidden for good.</p>' +
     '<div class="guide-checks">' + boxes + '</div></div>';
 }
@@ -1032,7 +1040,7 @@ function ambResultsHTML() {
       'Based on what you picked, <strong>' + esc2(guideName(ranked[0])) + '</strong> matches most closely in our data.' +
       ' <span class="guide-fine">Only a clinician can diagnose.</span></div>';
   }
-  return banner + ranked.map(function (d, i) {
+  function card(d, i) {
     /* Candidate cards speak plain language: skip lab/enzyme findings (not
      * something a parent can recognize) and translate the rest. */
     var cardPhenos = phenosFor(d.id).filter(function (p) { return phenoGroupIndex(p) !== LAB_GI; });
@@ -1051,7 +1059,18 @@ function ambResultsHTML() {
       (nOrg ? '<span class="guide-cand-n">' + nOrg + ' patient group' + (nOrg === 1 ? '' : 's') + ' connected</span>'
             : '<span class="guide-cand-n">Patient-group data not yet recorded</span>') +
       '</button>';
-  }).join('');
+  }
+  if (!picked.length) return banner + ranked.map(card).join('');
+  /* Once the parent starts picking, focus the list on what matches. The rest
+   * collapse into a one-click expander — still listed so nothing is missed,
+   * but no longer competing for attention. */
+  var matching = ranked.filter(function (d) { return ambMatchCount(d) > 0; });
+  var rest = ranked.filter(function (d) { return ambMatchCount(d) === 0; });
+  if (!matching.length || !rest.length) return banner + ranked.map(card).join('');
+  return banner + matching.map(card).join('') +
+    '<details class="guide-rest"><summary>Show ' + rest.length + ' that don&rsquo;t match your picks ' +
+    '<span class="guide-fine">— still listed so nothing is missed</span></summary>' +
+    '<div class="guide-cands guide-cands-sub">' + rest.map(card).join('') + '</div></details>';
 }
 
 function vAmbiguous() {
@@ -1570,23 +1589,33 @@ function wireGuide(scope) {
       if (!box.checked && i !== -1) G.confirmedPhenos.splice(i, 1);
     });
   });
+/* Re-render the ambiguous screen's live regions in place — cards, comparison
+ * table — with no scroll jump. Used by symptom ticks and Clear all. */
+function refreshAmb(scope) {
+  var cands = scope.querySelector('.guide-cands');
+  if (cands) {
+    cands.innerHTML = ambResultsHTML();
+    wirePicks(cands);
+  }
+  var twrap = scope.querySelector('.guide-compare-table-wrap');
+  if (twrap) {
+    twrap.innerHTML = compareTableInnerHTML();
+    wirePicks(twrap);
+  }
+}
   scope.querySelectorAll('input[data-ambph]').forEach(function (box) {
     box.addEventListener('change', function () {
       G.ambFilter = G.ambFilter || {};
       var k = box.getAttribute('data-ambph');
       if (box.checked) G.ambFilter[k] = true; else delete G.ambFilter[k];
-      /* Re-render the cards and the comparison table in place — no scroll jump. */
-      var cands = scope.querySelector('.guide-cands');
-      if (cands) {
-        cands.innerHTML = ambResultsHTML();
-        wirePicks(cands);
-      }
-      var twrap = scope.querySelector('.guide-compare-table-wrap');
-      if (twrap) {
-        twrap.innerHTML = compareTableInnerHTML();
-        wirePicks(twrap);
-      }
+      refreshAmb(scope);
     });
+  });
+  var ambClear = scope.querySelector('[data-ambclear]');
+  if (ambClear) ambClear.addEventListener('click', function () {
+    G.ambFilter = {};
+    scope.querySelectorAll('input[data-ambph]').forEach(function (b) { b.checked = false; });
+    refreshAmb(scope);
   });
   var more = scope.querySelector('#phenoMore');
   if (more) more.addEventListener('click', function () { G.phenoExpanded = true; go('confirm'); });

@@ -691,6 +691,13 @@ body.dark .guide-cand-m.hit { color: #6ee7b7; }
  * just sticky in the list — so it stays visible while the parent scrolls
  * through every disease. Its top edge is pinned below the site header via
  * JS (syncRailTop), since the header height varies with viewport width. */
+.guide-amfilter-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.guide-amfilter-head .guide-h3 { margin: 0; }
+/* Non-matching cards collapse into a one-click expander once picks exist —
+ * still listed so nothing is missed, but out of the way. */
+.guide-cands .guide-rest { grid-column: 1 / -1; border: 1px dashed var(--line); border-radius: 12px; padding: 12px 16px; }
+.guide-rest summary { cursor: pointer; font-weight: 600; color: var(--ink-soft); }
+.guide-cands-sub { margin: 12px 0 4px; }
 .guide-amb-layout { display: block; }
 .guide-amb-main { max-width: 920px; padding-right: 16px; }
 /* Comparison prose stays narrow for readability even when cards go wide. */
