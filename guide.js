@@ -69,6 +69,271 @@ function phenosFor(did) {
   return outEdges(did, 'has_phenotype').map(function (e) { return nodesById[e.target]; })
     .filter(function (n) { return n && n.type === 'phenotype'; });
 }
+/* Plain-language symptom names for parents. HPO labels are clinician jargon
+ * ("Dysarthria", "Splenomegaly"); everywhere the guide addresses a parent —
+ * candidate cards, checklists, "what families notice" — we show the plain
+ * version. The original term stays in the data underneath. Keys are lowercase. */
+var PLAIN_SYMPTOMS = {
+  'seizure': 'Seizures',
+  'seizures': 'Seizures',
+  'bilateral tonic-clonic seizure': 'Convulsive seizures (whole body)',
+  'generalized tonic-clonic seizures': 'Convulsive seizures (whole body)',
+  'febrile seizures': 'Seizures with fever',
+  'splenomegaly': 'Enlarged spleen',
+  'hepatomegaly': 'Enlarged liver',
+  'hepatosplenomegaly': 'Enlarged liver and spleen',
+  'hypersplenism': 'Overactive spleen',
+  'hearing impairment': 'Hearing loss',
+  'sensorineural hearing impairment': 'Nerve-related hearing loss',
+  'conductive hearing impairment': 'Hearing loss (sound not getting through)',
+  'deafness': 'Deafness',
+  'intellectual disability': 'Learning difficulties',
+  'global developmental delay': 'Slow to reach milestones',
+  'developmental regression': 'Losing skills they once had',
+  'psychomotor retardation': 'Slow development of movement and thinking',
+  'dysarthria': 'Slurred or unclear speech',
+  'aphasia': 'Trouble understanding or producing speech',
+  'dysphasia': 'Trouble finding words',
+  'anarthria': 'Unable to speak clearly',
+  'spasticity': 'Stiff, tight muscles',
+  'hypertonia': 'Stiff muscles (high tone)',
+  'hypotonia': 'Floppy muscles (low tone)',
+  'muscle weakness': 'Weak muscles',
+  'muscular hypotonia': 'Floppy muscles (low tone)',
+  'atrophy': 'Wasting away',
+  'muscle atrophy': 'Muscle wasting',
+  'cerebellar atrophy': 'Shrinkage of the brain\u2019s balance center',
+  'cerebral atrophy': 'Shrinkage of brain tissue',
+  'coarse facial features': 'Distinctive facial features',
+  'coarse facies': 'Distinctive facial features',
+  'gait disturbance': 'Unsteady walking',
+  'gait imbalance': 'Unsteady walking',
+  'ataxia': 'Clumsy, unsteady movements',
+  'dysphagia': 'Trouble swallowing',
+  'feeding difficulties': 'Trouble feeding',
+  'optic atrophy': 'Damage to the optic nerve (vision loss)',
+  'visual impairment': 'Vision problems',
+  'blindness': 'Vision loss',
+  'night blindness': 'Trouble seeing in the dark',
+  'nyctalopia': 'Trouble seeing in the dark',
+  'cataract': 'Cloudy lens in the eye',
+  'glaucoma': 'High pressure in the eye',
+  'nystagmus': 'Involuntary eye movements',
+  'strabismus': 'Crossed or misaligned eyes',
+  'ptosis': 'Droopy eyelid',
+  'corneal opacity': 'Cloudy surface of the eye',
+  'cornea verticillata': 'Spiral pattern on the eye surface (seen in eye exams)',
+  'recurrent respiratory infections': 'Frequent lung infections',
+  'respiratory distress': 'Trouble breathing',
+  'respiratory failure': 'Breathing failure',
+  'dyspnea': 'Shortness of breath',
+  'apnea': 'Pauses in breathing',
+  'stridor': 'Noisy breathing',
+  'wheezing': 'Wheezing',
+  'short stature': 'Shorter height than expected',
+  'growth delay': 'Slow growth',
+  'failure to thrive': 'Not gaining weight or growing as expected',
+  'obesity': 'Excess weight',
+  'sleep disturbance': 'Sleep problems',
+  'insomnia': 'Trouble sleeping',
+  'progressive neurologic deterioration': 'Worsening brain and nerve function',
+  'neurodegeneration': 'Gradual loss of brain function',
+  'hyporeflexia': 'Weak reflexes',
+  'hyperreflexia': 'Overactive reflexes',
+  'areflexia': 'Absent reflexes',
+  'joint stiffness': 'Stiff joints',
+  'joint laxity': 'Unusually flexible joints',
+  'flexion contracture': 'Joints stuck in a bent position',
+  'scoliosis': 'Curved spine',
+  'kyphosis': 'Hunched upper back',
+  'lordosis': 'Deeply curved lower back',
+  'dementia': 'Decline in memory and thinking',
+  'memory impairment': 'Memory problems',
+  'dystonia': 'Involuntary muscle twisting',
+  'chorea': 'Involuntary jerky movements',
+  'myoclonus': 'Sudden muscle jerks',
+  'tremor': 'Shaking or trembling',
+  'parkinsonism': 'Parkinson-like stiffness and slowness',
+  'bradykinesia': 'Very slow movement',
+  'rigidity': 'Muscle stiffness',
+  'dysostosis multiplex': 'Bone changes seen on x-ray',
+  'osteoporosis': 'Weak, brittle bones',
+  'fractures': 'Bones that break easily',
+  'hydrocephalus': 'Fluid buildup in the brain',
+  'macrocephaly': 'Large head size',
+  'microcephaly': 'Small head size',
+  'depression': 'Depression',
+  'anxiety': 'Anxiety',
+  'frequent falls': 'Falling often',
+  'clumsiness': 'Clumsiness',
+  'mental deterioration': 'Decline in thinking and memory',
+  'personality changes': 'Changes in personality',
+  'behavioral abnormality': 'Unusual behavior',
+  'aggressive behavior': 'Aggressive behavior',
+  'hyperactivity': 'Hyperactivity',
+  'autism': 'Autism traits',
+  'anemia': 'Low red blood cells',
+  'thrombocytopenia': 'Low platelets (bleeding risk)',
+  'leukopenia': 'Low white blood cells',
+  'neutropenia': 'Low infection-fighting blood cells',
+  'pancytopenia': 'Low counts of all blood cells',
+  'bleeding': 'Easy or excess bleeding',
+  'epistaxis': 'Frequent nosebleeds',
+  'motor delay': 'Slow to sit, crawl, or walk',
+  'fine motor delay': 'Slow to develop hand skills',
+  'cardiomegaly': 'Enlarged heart',
+  'cardiomyopathy': 'Weakened heart muscle',
+  'heart failure': 'Heart not pumping well',
+  'arrhythmia': 'Irregular heartbeat',
+  'mitral regurgitation': 'Leaky heart valve',
+  'aortic stenosis': 'Narrowed main heart valve',
+  'hypertension': 'High blood pressure',
+  'hypotension': 'Low blood pressure',
+  'orthostatic hypotension': 'Dizziness when standing up',
+  'pes cavus': 'High arches in the feet',
+  'pes planus': 'Flat feet',
+  'sandal gap': 'Wide gap between first two toes',
+  'urinary incontinence': 'Trouble controlling urination',
+  'loss of speech': 'Loss of speech',
+  'diarrhea': 'Diarrhea',
+  'constipation': 'Constipation',
+  'vomiting': 'Vomiting',
+  'abdominal pain': 'Belly pain',
+  'inguinal hernia': 'Groin hernia',
+  'umbilical hernia': 'Belly-button hernia',
+  'macroglossia': 'Large tongue',
+  'micrognathia': 'Small jaw',
+  'retrognathia': 'Jaw set back',
+  'cleft palate': 'Opening in the roof of the mouth',
+  'high palate': 'High roof of the mouth',
+  'hirsutism': 'Excess body hair',
+  'hypertrichosis': 'Excess hair growth',
+  'alopecia': 'Hair loss',
+  'angiokeratoma': 'Small dark red skin spots',
+  'angiokeratoma corporis diffusum': 'Widespread dark red skin spots',
+  'telangiectasia': 'Visible small blood vessels on skin',
+  'hypohidrosis': 'Reduced sweating',
+  'anhidrosis': 'Unable to sweat normally',
+  'recurrent infections': 'Frequent infections',
+  'immunodeficiency': 'Weak immune defenses',
+  'lymphadenopathy': 'Swollen glands',
+  'proteinuria': 'Protein in the urine (lab finding)',
+  'hematuria': 'Blood in the urine',
+  'glycosuria': 'Sugar in the urine (lab finding)',
+  'renal insufficiency': 'Kidneys not working fully',
+  'renal failure': 'Kidney failure',
+  'nephrotic syndrome': 'Kidney filter problem (swelling, protein in urine)',
+  'cryptorchidism': 'Undescended testicle',
+  'hydrocele': 'Fluid swelling around the testicle',
+  'tortuosity': 'Twisted blood vessels',
+  'retinal tortuosity': 'Twisted blood vessels in the eye',
+  'livedo reticularis': 'Mottled, net-like skin pattern',
+  'acroparesthesia': 'Tingling or burning in hands and feet',
+  'paresthesia': 'Tingling or numbness',
+  'hypoesthesia': 'Reduced sense of touch',
+  'hyperesthesia': 'Oversensitive skin',
+  'allodynia': 'Pain from light touch',
+  'neuropathic pain': 'Nerve pain (burning or shooting)',
+  'pain': 'Pain',
+  'abdominal distension': 'Swollen belly',
+  'ascites': 'Fluid in the belly',
+  'jaundice': 'Yellow skin and eyes',
+  'icterus': 'Yellow skin and eyes',
+  'edema': 'Swelling from fluid',
+  'lymphedema': 'Swelling from fluid buildup',
+  'pleural effusion': 'Fluid around the lungs',
+  'pericardial effusion': 'Fluid around the heart',
+  'exaggerated startle response': 'Strong startle reaction',
+  'startle response': 'Startle reaction',
+  'stereotypy': 'Repetitive movements',
+  'hand wringing': 'Repetitive hand wringing',
+  'bruxism': 'Teeth grinding',
+  'drooling': 'Drooling',
+  'sialorrhea': 'Excess drooling',
+  'gastroesophageal reflux': 'Acid reflux',
+  'pica': 'Eating non-food items',
+  'anorexia': 'Loss of appetite',
+  'cachexia': 'Severe weight and muscle loss',
+  'fatigue': 'Extreme tiredness',
+  'lethargy': 'Unusual sleepiness',
+  'irritability': 'Irritability',
+  'coma': 'Unresponsive (coma)',
+  'syncope': 'Fainting',
+  'vertigo': 'Spinning dizziness',
+  'headache': 'Headaches',
+  'migraine': 'Migraines',
+  'photophobia': 'Sensitivity to light',
+  'phonophobia': 'Sensitivity to sound',
+  'anosmia': 'Loss of smell',
+  'ageusia': 'Loss of taste',
+  'diplopia': 'Double vision',
+  'oscillopsia': 'Bouncing vision',
+  'visual field defect': 'Blind spots in vision',
+  'retinitis pigmentosa': 'Gradual vision loss starting at the edges',
+  'macular degeneration': 'Loss of central vision',
+  'cherry-red spot': 'Cherry-red spot on the retina (eye exam finding)',
+  'hypopigmentation': 'Lighter patches of skin',
+  'hyperpigmentation': 'Darker patches of skin',
+  'cafe-au-lait spots': 'Light brown birthmark-like spots',
+  'xanthoma': 'Yellowish fatty skin bumps',
+  'short neck': 'Short neck',
+  'webbed neck': 'Webbed neck (extra skin folds)',
+  'low posterior hairline': 'Low hairline at the back of the neck',
+  'pectus excavatum': 'Sunken chest',
+  'pectus carinatum': 'Chest sticking out',
+  'narrow chest': 'Narrow chest',
+  'joint hypermobility': 'Very flexible joints',
+  'dislocated hips': 'Hips out of joint',
+  'hip dysplasia': 'Shallow hip sockets',
+  'genu valgum': 'Knock knees',
+  'genu varum': 'Bow legs',
+  'clubfoot': 'Foot turned inward at birth',
+  'overlapping toes': 'Overlapping toes',
+  'broad thumb': 'Broad thumbs',
+  'long fingers': 'Long, slender fingers',
+  'arachnodactyly': 'Long, slender fingers',
+  'brachydactyly': 'Short fingers or toes',
+  'syndactyly': 'Fused fingers or toes',
+  'polydactyly': 'Extra fingers or toes',
+  'nail dysplasia': 'Abnormal nails',
+  'thin skin': 'Thin skin',
+  'thick skin': 'Thickened skin',
+  'dry skin': 'Very dry skin',
+  'ichthyosis': 'Scaly, dry skin',
+  'eczema': 'Eczema (itchy rash)',
+  'keratosis': 'Rough skin patches',
+  'blistering': 'Skin blistering',
+  'fragile skin': 'Skin that tears easily',
+  'poor wound healing': 'Wounds heal slowly',
+  'delayed dentition': 'Late teething',
+  'dental crowding': 'Crowded teeth',
+  'enamel defect': 'Weak tooth enamel',
+  'gingival hypertrophy': 'Overgrown gums',
+  'tongue fasciculations': 'Tongue twitching',
+  'nasal speech': 'Nasal-sounding speech',
+  'hoarse voice': 'Hoarse voice',
+  'weak cry': 'Weak cry (in babies)',
+  'stridor': 'Noisy breathing',
+  'sleep apnea': 'Breathing pauses during sleep',
+  'snoring': 'Loud snoring',
+  'mouth breathing': 'Breathing through the mouth',
+  'decreased fetal movement': 'Baby moved less than expected in pregnancy',
+  'polyhydramnios': 'Too much fluid around the baby in pregnancy',
+  'premature birth': 'Born early',
+  'intrauterine growth retardation': 'Poor growth before birth',
+  'macrosomia': 'Larger than expected at birth'
+};
+function plainSymptom(label) {
+  var k = String(label || '').toLowerCase().trim().replace(/\s+/g, ' ');
+  if (PLAIN_SYMPTOMS[k]) return PLAIN_SYMPTOMS[k];
+  /* Fragment fallbacks: strip boilerplate HPO phrasing. */
+  var s = k
+    .replace(/^abnormality of (the )?/, '')
+    .replace(/^abnormal /, '')
+    .replace(/ morphology$/, '');
+  if (PLAIN_SYMPTOMS[s]) return PLAIN_SYMPTOMS[s];
+  return humanize(label);
+}
 /* Body-system grouping for the symptom checklist: parents recognize symptoms
  * faster when they are organized by body part. First matching group wins;
  * anything unmatched lands in "Other". Matching is on whole words of the
@@ -94,7 +359,11 @@ PHENO_GROUPS.forEach(function (gr) {
   gr.words.forEach(function (w) { gr._set[w] = 1; });
 });
 var KIDNEY_GI = -1;
-PHENO_GROUPS.forEach(function (gr, gi) { if (gr.name.indexOf('Kidneys') === 0) KIDNEY_GI = gi; });
+var LAB_GI = -1;
+PHENO_GROUPS.forEach(function (gr, gi) {
+  if (gr.name.indexOf('Kidneys') === 0) KIDNEY_GI = gi;
+  if (gr.name.indexOf('Lab and test') === 0) LAB_GI = gi;
+});
 function phenoGroupIndex(p) {
   var toks = ((p.label || '').toLowerCase().match(/[a-z]+/g)) || [];
   for (var gi = 0; gi < PHENO_GROUPS.length - 1; gi++) {
@@ -470,7 +739,7 @@ function vSearch() {
 
 function phenoCheckHTML(p, flatIndex) {
   var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
-  return '<label class="guide-check"><input type="checkbox" data-ph="' + flatIndex + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
+  return '<label class="guide-check"><input type="checkbox" data-ph="' + flatIndex + '"' + chk + '> ' + esc2(plainSymptom(p.label)) + '</label>';
 }
 
 function vConfirm() {
@@ -531,7 +800,7 @@ function compareHTML(cands) {
     var seen = {}, out = [];
     phenosFor(d.id).forEach(function (p) {
       var k = (p.label || '').toLowerCase();
-      if (k && !seen[k]) { seen[k] = 1; out.push({ key: k, label: humanize(p.label) }); }
+      if (k && !seen[k]) { seen[k] = 1; out.push({ key: k, label: plainSymptom(p.label) }); }
     });
     return out;
   });
@@ -576,7 +845,12 @@ function vAmbiguous() {
     : 'A few conditions match what you typed.';
   var compare = (G.via === 'symptoms' && G.candidates.length > 1) ? compareHTML(G.candidates) : '';
   var cards = G.candidates.map(function (d) {
-    var phenos = phenosFor(d.id).slice(0, 3).map(function (p) { return esc2(humanize(p.label)); }).join('; ');
+    /* Candidate cards speak plain language: skip lab/enzyme findings (not
+     * something a parent can recognize) and translate the rest. */
+    var cardPhenos = phenosFor(d.id).filter(function (p) { return phenoGroupIndex(p) !== LAB_GI; });
+    if (cardPhenos.length < 3) cardPhenos = phenosFor(d.id).slice(0, 3);
+    else cardPhenos = cardPhenos.slice(0, 3);
+    var phenos = cardPhenos.map(function (p) { return esc2(plainSymptom(p.label)); }).join('; ');
     var nOrg = orgsFor(d.id).length;
     return '<button type="button" class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' +
@@ -823,7 +1097,7 @@ function vUnderstand() {
   }
   var phenoBit = phenos.length
     ? '<h3 class="guide-h3">What families often notice</h3><ul class="guide-list">' +
-      phenos.map(function (p) { return '<li>' + esc2(humanize(p.label)) + '</li>'; }).join('') + '</ul>' +
+      phenos.map(function (p) { return '<li>' + esc2(plainSymptom(p.label)) + '</li>'; }).join('') + '</ul>' +
       '<p class="guide-fine">Every child is different. Doctors can&rsquo;t predict exactly how things will change for your child &mdash; some progress slowly, some faster.</p>'
     : '';
   return '<div class="guide-pane">' +
@@ -943,7 +1217,7 @@ function vExport() {
       : '<p class="guide-fine">We don&rsquo;t have the gene recorded yet.</p>');
 
   h += '<h3 class="guide-h3">Symptoms families often notice</h3>' +
-    (phenos.length ? '<ul class="guide-list">' + phenos.slice(0, 10).map(function (p) { return '<li>' + esc2(humanize(p.label)) + '</li>'; }).join('') + '</ul>'
+    (phenos.length ? '<ul class="guide-list">' + phenos.slice(0, 10).map(function (p) { return '<li>' + esc2(plainSymptom(p.label)) + '</li>'; }).join('') + '</ul>'
       : '<p class="guide-fine">We don&rsquo;t have symptoms recorded yet.</p>') +
     '<p class="guide-fine">Every child is different &mdash; this list can&rsquo;t predict your child&rsquo;s path. Only a clinician can diagnose.</p>';
 
