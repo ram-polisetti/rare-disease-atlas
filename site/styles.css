@@ -65,6 +65,15 @@ body {
   font-weight: 600;
 }
 .tab-desc { margin: 6px 0 0; color: var(--ink-soft); font-size: 13.5px; min-height: 1.4em; }
+.typefilter { margin: 8px 0 12px; }
+.typefilter summary { cursor: pointer; color: var(--ink-soft); font-size: 13.5px; }
+.type-toggles { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; }
+.type-toggles .check { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--ink-soft); cursor: pointer; }
+.type-toggles .tdot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.ep-intro { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 14px; max-width: 90ch; }
+.wi-disease-row { margin: 12px 0; display: flex; align-items: center; gap: 10px; }
+.wi-node-link { color: var(--accent-strong, var(--accent)); text-decoration: underline; text-underline-offset: 2px; }
+.wi-node-link:hover { text-decoration-thickness: 2px; }
 
 /* ---------- mode: settings, prompts, subway legend ---------- */
 

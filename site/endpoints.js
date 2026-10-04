@@ -137,11 +137,21 @@ var ENDPOINTS = [
 ];
 
 var EP_TIER_NAMES = {
-  1: 'Tier 1 — Substrate & enzyme biomarkers',
-  2: 'Tier 2 — Nerve-damage biomarkers (candidates)',
-  3: 'Tier 3 — Functional endpoints (what patients can do)',
-  4: 'Tier 4 — Imaging endpoints'
+  1: 'Blood and urine markers of the stored material',
+  2: 'Nerve-damage signals in blood (still being validated)',
+  3: 'Things patients can do — walking, hearing, breathing, thinking',
+  4: 'Scans — brain and heart imaging'
 };
+
+var EP_INTRO = 'A clinical trial has to answer one question: <strong>did the treatment work?</strong> ' +
+  'The thing the trial measures to answer it is called an <strong>endpoint</strong>. ' +
+  'An endpoint can be a lab number ("how much stored sugar chain is in the urine"), ' +
+  'something a patient does ("how far a child walks in 6 minutes"), or a scan ("how much the brain has shrunk"). ' +
+  'Proving to regulators that a measurement is trustworthy costs millions and takes years. ' +
+  'But if two different diseases can be measured the <em>same way</em>, their communities can share one protocol, ' +
+  'split that cost, and compare results side by side. ' +
+  'This page lists the measurements in our graph, shows which disease groups can use each one, ' +
+  'and names who else measures the same thing — so no community has to start from zero alone.';
 
 var EP_CAVEAT = 'Sharing a measurement is not sharing biology. A common endpoint lets trials share design, compare results, and split validation costs — it does not mean a treatment transfers between these diseases.';
 
@@ -316,7 +326,11 @@ function epMatrix(rows) {
                 .sort(function (a, b) { return b.fams.length - a.fams.length; })
                 .slice(0, 14);
   if (!use.length) return '';
-  var html = '<h2>Sharing matrix</h2><p>Which disease groups can be measured the same way. Hover a check for the graph evidence behind it.</p>';
+  var html = '<h2>Sharing matrix</h2>' +
+    '<p><strong>How to read this table:</strong> each row is one measurement; each column is a disease group. ' +
+    'A check mark means that disease group has the biology or symptoms in our graph to be measured that way — ' +
+    'hover any check to see the exact graph evidence behind it. ' +
+    'Rows are sorted so the most-shared measurements come first: those are the cheapest wins for running trials together.</p>';
   html += '<div class="ep-matrix-wrap"><table class="ep-matrix"><thead><tr><th>Endpoint</th>';
   EP_FAMILIES.forEach(function (f) { html += '<th title="' + esc(f.name) + '">' + esc(f.name.split(' ')[0]) + '</th>'; });
   html += '</tr></thead><tbody>';
@@ -334,7 +348,10 @@ function epMatrix(rows) {
 }
 
 function epDiseasePicker(rows) {
-  var html = '<h2>Pick a disease</h2><p>Everything measurable about one disease — and who else measures the same things.</p>';
+  var html = '<h2>Pick a disease</h2>' +
+    '<p>Choose one disease group. Each stacked card below is <strong>one thing that can be measured</strong> about it. ' +
+    'Under each measurement, "Also measured in" names the other disease groups that use the same measurement — ' +
+    'those are the groups this disease could share a trial protocol with instead of building its own.</p>';
   html += '<label class="sr-only" for="epPick">Choose a disease group</label><select id="epPick" class="ep-pick" aria-label="Choose a disease group">';
   html += '<option value="">— choose a disease group —</option>';
   EP_FAMILIES.forEach(function (f) { html += '<option value="' + f.id + '">' + esc(f.name) + '</option>'; });
@@ -377,7 +394,8 @@ function initEndpoints() {
     return;
   }
 
-  var html = '<div class="ep-caveat-banner"><strong>Read this first:</strong> ' + esc(EP_CAVEAT) + '</div>';
+  var html = '<div class="ep-intro">' + EP_INTRO + '</div>';
+  html += '<div class="ep-caveat-banner"><strong>Important:</strong> ' + esc(EP_CAVEAT) + '</div>';
   html += '<p class="wi-note">Endpoint <em>definitions</em> below are curated from clinical knowledge (labeled per card). ' +
           'Every <em>disease link</em> is computed live from this atlas\u2019s graph — hover any disease chip or matrix check to see the exact graph evidence. ' +
           'Where our sources don\u2019t assert something, the card says so.</p>';
