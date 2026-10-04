@@ -455,6 +455,14 @@ body.dark .explainer-one { color: var(--ink); }
   body { font-size: 12pt; background: #fff; }
   main { max-width: 100%; }
   .panel, .card { break-inside: avoid; }
+  /* Dossier print: one clean document, nothing interactive, no dark blocks. */
+  .guide-back, .guide-bridge, .guide-btnrow { display: none !important; }
+  #guideExportDoc { color: #000; background: #fff !important; max-width: 100%; }
+  #guideExportDoc .guide-night, #guideExportDoc .guide-nextstep { background: #fff !important; color: #000; border: 1px solid #999; }
+  #guideExportDoc a { color: #000; text-decoration: none; }
+  #guideExportDoc h2.guide-h { break-after: avoid; }
+  #guideExportDoc h3.guide-h3 { break-after: avoid; margin-top: 1.2em; }
+  #guideExportDoc ul.guide-list li { break-inside: avoid; }
 }
 
 /* ---------------- What If scenario planner ---------------- */
@@ -505,6 +513,15 @@ body.dark .explainer-one { color: var(--ink); }
 .guide-cand strong { font-size: 1.1rem; }
 .guide-cand-ph { color: #4b5563; font-size: .93rem; }
 .guide-cand-n { color: #1a56db; font-size: .9rem; }
+/* Symptom comparison (Build B): calm, roomy, one idea per card. */
+.guide-compare { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; margin: 18px 0; }
+.guide-compare-shared { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; margin: 10px 0 14px; font-size: .95rem; line-height: 1.55; }
+.guide-compare-cards { display: grid; gap: 12px; }
+.guide-compare-card { background: #fff; border: 2px solid #e5e7eb; border-radius: 12px; padding: 16px 18px; display: grid; gap: 8px; }
+.guide-compare-card strong { font-size: 1.08rem; }
+.guide-compare-diff { color: #4b5563; font-size: .93rem; line-height: 1.5; }
+.guide-compare-why { color: #1e3a5f; font-size: .93rem; line-height: 1.5; }
+.guide-compare-card .btn { justify-self: start; padding: 12px 20px; font-size: 1rem; }
 .guide-nextstep { background: #fefce8; border: 1px solid #fde68a; border-radius: 10px; padding: 14px 18px; margin: 16px 0; line-height: 1.55; }
 .guide-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 20px; }
 .guide-card { display: grid; gap: 6px; text-align: left; background: #fff; border: 2px solid #e5e7eb; border-radius: 14px; padding: 18px; cursor: pointer; }
