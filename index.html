@@ -127,22 +127,21 @@
   </section>
 
   <!-- ============ JOURNEY ============ -->
+  <!-- Build 4: state-based navigator. Pick where you are; see only the
+       next 2-3 relevant steps, including pauses and dead ends. -->
   <section id="view-journey" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-journey" hidden>
-    <p class="section-lede">One family's path through the atlas: Maria is a mother whose child has Sanfilippo syndrome type A, the patient leader in this challenge. Her journey is the example &mdash; use &ldquo;Build a journey&rdquo; to trace any of the 16 diseases.</p>
-    <div class="stepper-bar">
-      <button id="prevStep" class="btn">&larr; Prev</button>
-      <span id="stepCount" class="step-count">Step 1 of 8</span>
-      <button id="nextStep" class="btn">Next &rarr;</button>
-      <button id="buildJourneyBtn" class="btn" style="margin-left:auto">Build a journey for another disease</button>
+    <p class="section-lede">Every family is at a different place. Choose where you are right now, and you will see only the next two or three things that matter from here &mdash; nothing more, and in no fixed order. Steps link into real atlas data wherever it exists; anything not recorded says so.</p>
+    <div class="action-head journey-disease-row">
+      <label for="journeyDisease" class="control-label">Disease</label>
+      <select id="journeyDisease"></select>
     </div>
-    <div id="journeyBuilder" class="journey-builder" hidden></div>
-    <div id="stepDots" class="step-dots" role="tablist" aria-label="Journey steps"></div>
-    <div class="journey-grid">
-      <div class="canvas-wrap small">
-        <div id="journeyNetwork" aria-label="Journey path canvas"></div>
-      </div>
-      <aside id="stepPanel" class="panel journey-panel"></aside>
-    </div>
+    <details class="card journey-example">
+      <summary><strong>See one family&rsquo;s path</strong> <span class="item-sub">&mdash; Maria and Sanfilippo syndrome type A</span></summary>
+      <div id="mariaPath"></div>
+    </details>
+    <h2 class="subhead journey-q" id="journeyQ" tabindex="-1">Where are you right now?</h2>
+    <div id="journeyStates" class="journey-states" role="radiogroup" aria-label="Your current situation"></div>
+    <div id="journeySteps" class="cards journey-steps" aria-live="polite"></div>
   </section>
 
   <!-- ============ 10x IMPACT (Path to the Next Milestone) ============ -->

@@ -74,7 +74,6 @@ const state = {
 };
 
 let net = null;        // explore vis-network
-let journeyNet = null;  // journey vis-network
 
 /* ---------------- helpers ---------------- */
 
@@ -223,7 +222,7 @@ function init() {
     state: state,
     getNet: function () { return net; },
     showNode: showNode, showEdge: showEdge,
-    stepTo: stepTo, renderExplore: renderExplore, switchTab: switchTab,
+    selectJourneyState: selectJourneyState, renderExplore: renderExplore, switchTab: switchTab,
     getMode: getMode, setMode: setMode, applyMode: applyMode
   };
   window.__atlasReady = true;
@@ -376,8 +375,11 @@ function switchTab(name) {
     if (dsel && state.selectedDisease && nodesById[state.selectedDisease]) dsel.value = state.selectedDisease;
   }
   if (name === 'journey') {
-    // Rebuild the journey canvas after it becomes visible so vis can measure it.
-    renderJourneyStep(state.journeyStep);
+    // Keep the navigator's disease select in sync with the shared selection
+    // (e.g. set on the Your Disease page); re-render steps if a state is picked.
+    const jsel = el('journeyDisease');
+    if (jsel && state.selectedDisease && nodesById[state.selectedDisease]) jsel.value = state.selectedDisease;
+    if (state.journeyState) renderJourneySteps();
   }
 }
 
@@ -1133,144 +1135,306 @@ function initImpact() {
   body.innerHTML = html;
 }
 
-function journeySteps() {
-  return (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.steps) || [];
+/* ---------------- journey: state-based navigator (Build 4) ----------------
+ * Replaces the linear stepper and the "build a journey" generator. The user
+ * picks one of five states; each state shows only the next 2-3 relevant
+ * steps, including explicit permission to pause and honest dead ends.
+ * Steps link into graph data where it exists; anything missing says so.
+ * Never invent data. */
+
+const JOURNEY_STATES = [
+  { id: 'uncertain', label: 'Diagnosis uncertain', sub: 'Something is wrong, but we do not have a name for it yet.' },
+  { id: 'confirmed', label: 'Diagnosis confirmed', sub: 'We have a name for the disease.' },
+  { id: 'care', label: 'Seeking care', sub: 'Looking for doctors, treatments, or support right now.' },
+  { id: 'research', label: 'Considering research', sub: 'Wondering about trials and studies.' },
+  { id: 'group', label: 'Building a patient group', sub: 'Wanting to organize families and researchers.' }
+];
+state.journeyState = null;
+
+/* Disease this tab talks about: the shared selection, else Maria's default. */
+function journeyDiseaseId() {
+  if (state.selectedDisease && nodesById[state.selectedDisease]) return state.selectedDisease;
+  const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
+  if (start && nodesById[start]) return start;
+  return null;
+}
+
+/* Cross-link from a step: optionally retarget the shared disease, then switch. */
+function journeyGoto(tab, diseaseId) {
+  if (tab === 'action' && diseaseId) {
+    state.selectedDisease = diseaseId;
+    const dsel = el('diseaseSelect');
+    if (dsel && dsel.querySelector('option[value="' + diseaseId + '"]')) {
+      dsel.value = diseaseId;
+      dsel.dispatchEvent(new Event('change'));
+    }
+  }
+  switchTab(tab);
+}
+
+/* Graph facts the steps can lean on, for one disease. */
+function journeyProfile(id) {
+  const n = nodesById[id];
+  const orgs = actionNeighbors(id, 'patient_org').map(function (x) { return x.node; });
+  const assets = actionNeighbors(id, 'asset').map(function (x) { return x.node; });
+  const trialLinks = actionNeighbors(id, 'trial');
+  const recruiting = trialLinks
+    .filter(function (t) { return t.node.extra && t.node.extra.status === 'RECRUITING'; })
+    .map(function (t) { return t.node; });
+  const approved = actionApprovedTherapies(id).map(function (x) { return x.node; });
+  return {
+    node: n, name: displayName(n), orgs: orgs, assets: assets,
+    recruiting: recruiting, nTrials: trialLinks.length, approved: approved
+  };
+}
+
+function journeyOrgHtml(orgs, name) {
+  if (!orgs.length) {
+    return '<p class="item-sub">No patient organization is recorded for ' + esc(name) +
+      ' in the graph. Your clinician can usually point to the right community.</p>';
+  }
+  let html = '<ul class="jlist">' + orgs.slice(0, 3).map(function (o) {
+    const url = o.extra && o.extra.url;
+    return '<li>' + esc(displayName(o)) +
+      (url ? ' &mdash; <a href="' + esc(url) + '" target="_blank" rel="noopener">website &rarr;</a>' : '') + '</li>';
+  }).join('') + '</ul>';
+  if (orgs.length > 3) html += '<p class="item-sub">Plus ' + (orgs.length - 3) + ' more recorded in the graph.</p>';
+  return html;
+}
+
+function journeyTrialHtml(recruiting) {
+  let html = '<ul class="jlist">' + recruiting.slice(0, 3).map(function (t) {
+    const url = t.extra && t.extra.url;
+    const label = displayName(t);
+    const short = label.length > 90 ? label.slice(0, 90) + '\u2026' : label;
+    return '<li>' + esc(short) +
+      (url ? ' &mdash; <a href="' + esc(url) + '" target="_blank" rel="noopener">trial listing &rarr;</a>' : '') + '</li>';
+  }).join('') + '</ul>';
+  if (recruiting.length > 3) html += '<p class="item-sub">Plus ' + (recruiting.length - 3) + ' more recruiting trials in the graph.</p>';
+  return html;
+}
+
+function journeyAssetHtml(assets, name) {
+  if (!assets.length) {
+    return '<p class="item-sub">No reusable research assets are recorded for ' + esc(name) + ' in the graph.</p>';
+  }
+  return '<ul class="jlist">' + assets.slice(0, 3).map(function (a) {
+    return '<li>' + esc(displayName(a)) + '</li>';
+  }).join('') + '</ul>' +
+    (assets.length > 3 ? '<p class="item-sub">Plus ' + (assets.length - 3) + ' more recorded in the graph.</p>' : '');
+}
+
+/* Step text, per state. Bodies are calm guidance; data appears only via
+ * the graph-backed extra HTML. kinds: 'step' | 'pause' | 'deadend'. */
+function journeyStateSteps(stateId, id) {
+  const p = journeyProfile(id);
+  const name = p.name;
+  const PAUSE_BODY = 'You do not have to do everything today. It is okay to stop here and just care for your child. Nothing in this atlas expires.';
+  if (stateId === 'uncertain') {
+    return [
+      { kind: 'step', title: 'Get a precise diagnosis first',
+        body: 'A geneticist or metabolic specialist can confirm the exact condition, usually with a gene test. Everything else in this atlas \u2014 care, trials, research \u2014 depends on having the right name. If a test is already scheduled, you are already doing the right thing.' },
+      { kind: 'pause', title: 'You can stop here', body: PAUSE_BODY },
+      { kind: 'step', title: 'When you have a name, come back',
+        body: 'Type the diagnosis into the Your Disease page and you will see what the atlas records: care, treatments, organizations, and research.',
+        links: [{ tab: 'action', label: 'Open the Your Disease page' }] }
+    ];
+  }
+  if (stateId === 'confirmed') {
+    let therapyNote = 'No approved therapy is recorded in the graph.';
+    try {
+      const dp = diseaseProfile(id);
+      if (dp && dp.therapy) therapyNote = dp.therapy.length > 200 ? dp.therapy.slice(0, 200) + '\u2026' : dp.therapy;
+    } catch (err) {}
+    return [
+      { kind: 'step', title: 'Read what is recorded about ' + name,
+        body: 'Start with the treatment status as the atlas records it: ' + therapyNote,
+        links: [{ tab: 'action', label: 'Open your disease page' }] },
+      { kind: 'step', title: 'Find a specialist team and a patient community',
+        body: 'Other families with ' + name + ' are the fastest route to practical knowledge. Recorded in the graph:',
+        extra: journeyOrgHtml(p.orgs, name) },
+      { kind: 'pause', title: 'You can stop here', body: PAUSE_BODY }
+    ];
+  }
+  if (stateId === 'care') {
+    const steps = [];
+    if (p.approved.length) {
+      steps.push({ kind: 'step', title: 'Ask your specialist about what is recorded',
+        body: 'The graph records the following as treating ' + name + '. Only your clinician can say whether any of them fits your child.',
+        extra: '<ul class="jlist">' + p.approved.slice(0, 3).map(function (a) {
+          return '<li>' + esc(displayName(a)) + '</li>';
+        }).join('') + '</ul>',
+        links: [{ tab: 'action', label: 'See the full treatment picture' }] });
+    } else {
+      steps.push({ kind: 'deadend', title: 'No approved treatment is recorded yet',
+        body: 'This is a real dead end, and other families have stood exactly here. What they did next: joined the patient organization so they would hear first when research opened, asked their specialist about clinical trials, and looked at what neighboring diseases had tried. None of that fixes today, and it is okay to grieve that.',
+        extra: journeyOrgHtml(p.orgs, name),
+        links: [{ tab: 'action', label: 'Open your disease page' }] });
+    }
+    steps.push({ kind: 'pause', title: 'You can stop here', body: PAUSE_BODY });
+    return steps;
+  }
+  if (stateId === 'research') {
+    const steps = [];
+    if (p.recruiting.length) {
+      steps.push({ kind: 'step', title: p.recruiting.length + ' trial' + (p.recruiting.length > 1 ? 's are' : ' is') + ' recorded as recruiting',
+        body: 'Trials ask a lot of families. Read each listing carefully, then talk to your specialist before contacting anyone.',
+        extra: journeyTrialHtml(p.recruiting),
+        links: [{ tab: 'action', label: 'See all linked research' }] });
+    } else {
+      steps.push({ kind: 'deadend', title: 'No trial is recruiting for ' + name + ' yet',
+        body: 'That is what the graph records, and it is an honest dead end. Here is what others did at this point: they joined the patient organization to be told first when a trial opened, and they supported or joined a natural-history study or registry \u2014 the step that usually has to come before any trial can exist.',
+        extra: journeyOrgHtml(p.orgs, name),
+        links: [{ tab: 'gaps', label: 'Read the Gaps & Limits page' }] });
+    }
+    steps.push({ kind: 'step', title: 'Read what is still unknown before you decide',
+      body: 'The Gaps & Limits page says plainly what science does not know yet. Knowing the limits first makes every later conversation calmer.',
+      links: [{ tab: 'gaps', label: 'Open Gaps & Limits' }] });
+    steps.push({ kind: 'pause', title: 'Watching and waiting is a valid choice',
+      body: 'Research moves slowly. You are allowed to put this down and come back in a few months.' });
+    return steps;
+  }
+  /* 'group' */
+  return [
+    { kind: 'step', title: 'See who already organizes around ' + name,
+      body: 'You may not need to start from zero. Recorded in the graph:',
+      extra: journeyOrgHtml(p.orgs, name) },
+    { kind: 'step', title: 'Look at research assets that could be reused',
+      body: 'Registries, study designs, and shared tools from this or neighboring diseases are the cheapest way to start.',
+      extra: journeyAssetHtml(p.assets, name) },
+    { kind: 'step', title: 'See how one family thought about it',
+      body: 'Maria\u2019s path below shows how a Sanfilippo A advocate moved from diagnosis to a concrete research proposal, reusing work from neighboring diseases instead of starting from scratch.',
+      links: [{ tab: 'maria', label: 'Read Maria\u2019s path' }] }
+  ];
+}
+
+function journeyStepCard(s, id) {
+  const badge = s.kind === 'pause' ? '<span class="badge j-badge-pause">You can pause here</span>'
+    : s.kind === 'deadend' ? '<span class="badge warn">A place others stopped</span>'
+    : '<span class="badge">Next step</span>';
+  let html = '<article class="card jstep j-' + s.kind + '">' + badge +
+    '<h2>' + esc(s.title) + '</h2><p>' + esc(s.body) + '</p>';
+  if (s.extra) html += s.extra;
+  if (s.links && s.links.length) {
+    html += '<div class="btn-row">' + s.links.map(function (l) {
+      if (l.tab === 'maria') {
+        return '<button type="button" class="btn small" data-jmaria="1">' + esc(l.label) + '</button>';
+      }
+      return '<button type="button" class="btn small" data-jtab="' + esc(l.tab) + '">' + esc(l.label) + '</button>';
+    }).join(' ') + '</div>';
+  }
+  return html + '</article>';
+}
+
+function renderJourneyStates() {
+  const box = el('journeyStates');
+  if (!box) return;
+  box.innerHTML = JOURNEY_STATES.map(function (s) {
+    const on = state.journeyState === s.id;
+    return '<button type="button" class="jstate" role="radio" data-state="' + s.id + '" aria-checked="' + (on ? 'true' : 'false') + '">' +
+      '<span class="js-label">' + esc(s.label) + '</span>' +
+      '<span class="js-sub">' + esc(s.sub) + '</span></button>';
+  }).join('');
+  box.querySelectorAll('.jstate').forEach(function (b) {
+    b.addEventListener('click', function () { selectJourneyState(b.dataset.state, true); });
+  });
+  box.addEventListener('keydown', function (ev) {
+    if (['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp'].indexOf(ev.key) === -1) return;
+    const btns = Array.prototype.slice.call(box.querySelectorAll('.jstate'));
+    let i = btns.indexOf(document.activeElement);
+    if (i === -1) i = 0;
+    const dir = (ev.key === 'ArrowRight' || ev.key === 'ArrowDown') ? 1 : -1;
+    const next = btns[(i + dir + btns.length) % btns.length];
+    ev.preventDefault();
+    next.focus();
+    selectJourneyState(next.dataset.state, false);
+  });
+}
+
+function selectJourneyState(id, focusSteps) {
+  state.journeyState = id;
+  const box = el('journeyStates');
+  if (box) {
+    box.querySelectorAll('.jstate').forEach(function (b) {
+      b.setAttribute('aria-checked', b.dataset.state === id ? 'true' : 'false');
+    });
+  }
+  renderJourneySteps();
+  if (focusSteps) {
+    const q = el('journeyQ');
+    if (q) q.focus({ preventScroll: true });
+  }
+}
+
+function renderJourneySteps() {
+  const box = el('journeySteps');
+  if (!box) return;
+  if (!state.journeyState) {
+    box.innerHTML = '<p class="section-lede">Choose a situation above \u2014 the next steps will appear here.</p>';
+    return;
+  }
+  const id = state.selectedDisease && nodesById[state.selectedDisease] ? state.selectedDisease : null;
+  if (!id) {
+    box.innerHTML = '<p class="section-lede">Choose a disease above first (or pick one on the Your Disease page) so the steps can draw on real atlas data.</p>' +
+      '<p><button type="button" class="btn" data-jtab="action">Open the Your Disease page</button></p>';
+    wireJourneyLinks(box);
+    return;
+  }
+  const steps = journeyStateSteps(state.journeyState, id);
+  box.innerHTML = steps.map(function (s) { return journeyStepCard(s, id); }).join('');
+  wireJourneyLinks(box);
+  if (typeof markTerms === 'function') markTerms(box);
+}
+
+function wireJourneyLinks(box) {
+  box.querySelectorAll('[data-jtab]').forEach(function (b) {
+    b.addEventListener('click', function () { journeyGoto(b.dataset.jtab, state.selectedDisease); });
+  });
+  box.querySelectorAll('[data-jmaria]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      const det = document.querySelector('#view-journey details.journey-example');
+      if (det) { det.open = true; det.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+}
+
+/* Maria's worked example: state-by-state, faithful to her recorded path. */
+function renderMariaPath() {
+  const box = el('mariaPath');
+  if (!box || box.dataset.built) return;
+  box.dataset.built = '1';
+  function ms(title, body) {
+    return '<div class="maria-state"><h3>' + title + '</h3><p>' + body + '</p></div>';
+  }
+  box.innerHTML =
+    '<p class="maria-intro">Maria is a mother whose child has Sanfilippo syndrome type A, the patient leader in this challenge. ' +
+    '<span class="item-sub">Maria is a composite example drawn from Sanfilippo A families\u2019 shared path \u2014 not one real family\u2019s full story.</span></p>' +
+    ms('Diagnosis confirmed',
+      'Her child\u2019s diagnosis was Sanfilippo syndrome type A (mucopolysaccharidosis type 3A). Genetic testing showed variants in the SGSH gene, which carries the instructions for the sulfamidase enzyme: when the gene is broken, waste piles up inside brain cells.') +
+    ms('Seeking care',
+      'In September 2026 the FDA approved Fayuvi for pediatric Sanfilippo A \u2014 but only for children whose neurodevelopmental function is still preserved. The label names no age cutoff and no genotype exclusions. So the urgent question became: who qualifies, and what is the path for everyone else? The National MPS Society supports families affected by MPS I, II and III.') +
+    ms('Considering research',
+      'Because Sanfilippo A breaks the same cellular recycling system as MPS I and MPS II, Maria looked sideways. MPS I has had an approved treatment and a published patient registry since 2003; the Hunter Outcome Survey worked out practical rules for consent and tracking treatment. The plan: reuse the public MPS I/II registry design \u2014 the design is public, but patients\u2019 data is not \u2014 then check diagnosis, concurrent trials, consent, age, and developmental stage.') +
+    ms('Building a patient group',
+      'The concrete proposal: a clinician-led Sanfilippo natural-history study, with eligibility rules adjusted for Sanfilippo and measurements focused on the brain \u2014 keeping treated and untreated patients in separate groups so the results stay honest. The National MPS Society was seen as a natural convenor. It has not agreed to this proposal.') +
+    '<p class="item-sub">Drawn from Maria\u2019s recorded journey in the atlas: diagnosis, the SGSH gene, the shared GAG-catabolism pathway with MPS I and II, the National MPS Society, the reusable registry design, and the clinician-led natural-history proposal.</p>';
+  if (typeof markTerms === 'function') markTerms(box);
 }
 
 function initJourney() {
-  const steps = journeySteps();
-  if (!steps.length) {
-    el('stepPanel').innerHTML = '<p>No journey data available.</p>';
-    el('prevStep').disabled = true;
-    el('nextStep').disabled = true;
-    el('stepCount').textContent = 'No steps';
-    return;
-  }
-  el('prevStep').addEventListener('click', function () { stepTo(state.journeyStep - 1); });
-  el('nextStep').addEventListener('click', function () { stepTo(state.journeyStep + 1); });
-  const dots = el('stepDots');
-  dots.innerHTML = steps.map(function (s, i) {
-    const n = nodesById[s.node];
-    return '<button class="dot" data-i="' + i + '" role="tab" aria-label="Step ' + (i + 1) + ': ' +
-      esc(shortLabel(n, 24)) + '">' + (i + 1) + '</button>';
-  }).join('');
-  dots.querySelectorAll('.dot').forEach(function (d) {
-    d.addEventListener('click', function () { stepTo(Number(d.dataset.i)); });
-  });
-  document.addEventListener('keydown', function (ev) {
-    if (state.tab !== 'journey') return;
-    const tag = (document.activeElement && document.activeElement.tagName) || '';
-    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
-    if (ev.key === 'ArrowRight') stepTo(state.journeyStep + 1);
-    if (ev.key === 'ArrowLeft') stepTo(state.journeyStep - 1);
-  });
-  stepTo(0, true);
-}
-
-function stepTo(i, silent) {
-  const steps = journeySteps();
-  if (i < 0 || i >= steps.length) return;
-  state.journeyStep = i;
-  if (state.tab === 'journey' || silent) renderJourneyStep(i);
-  updateJourneyChrome();
-}
-
-function updateJourneyChrome() {
-  const steps = journeySteps();
-  el('stepCount').textContent = 'Step ' + (state.journeyStep + 1) + ' of ' + steps.length;
-  el('prevStep').disabled = state.journeyStep === 0;
-  el('nextStep').disabled = state.journeyStep === steps.length - 1;
-  el('stepDots').querySelectorAll('.dot').forEach(function (d, i) {
-    d.classList.toggle('current', i === state.journeyStep);
-    d.classList.toggle('done', i < state.journeyStep);
-    d.setAttribute('aria-current', i === state.journeyStep ? 'step' : 'false');
-    d.setAttribute('aria-selected', i === state.journeyStep ? 'true' : 'false');
-  });
-}
-
-/* Find a real graph edge between two journey steps (either direction), for the panel. */
-function edgeBetween(a, b) {
-  const out = (edgesOut[a] || []).map(function (i) { return GRAPH.edges[i]; })
-    .filter(function (e) { return e.target === b; });
-  if (out.length) return out[0];
-  const inn = (edgesIn[a] || []).map(function (i) { return GRAPH.edges[i]; })
-    .filter(function (e) { return e.source === b; });
-  return inn.length ? inn[0] : null;
-}
-
-function renderJourneyStep(i) {
-  const steps = journeySteps();
-  const step = steps[i];
-  const node = nodesById[step.node];
-
-  // Mini-canvas: the journey path as a deterministic left-to-right chain.
-  const visNodes = new vis.DataSet(steps.map(function (s, k) {
-    const n = nodesById[s.node];
-    const isCur = k === i;
-    return {
-      id: 'j' + k,
-      label: shortLabel(n, 24),
-      title: esc(displayName(n)) + ' — ' + esc(humanize(n.type)),
-      shape: 'dot',
-      size: isCur ? 20 : 12,
-      color: {
-        background: isCur ? ACCENT : (k < i ? '#9db4e8' : '#d7dce2'),
-        border: '#ffffff',
-        highlight: { background: ACCENT, border: ACCENT }
-      },
-      borderWidth: isCur ? 4 : 2,
-      font: { size: 11, color: '#333' }
-    };
-  }));
-  const visEdges = new vis.DataSet(steps.slice(0, -1).map(function (s, k) {
-    const e = edgeBetween(s.node, steps[k + 1].node);
-    return {
-      id: 'je' + k,
-      from: 'j' + k,
-      to: 'j' + (k + 1),
-      width: k < i ? 2 : 1,
-      color: { color: k < i ? '#9db4e8' : EDGE_COLOR, highlight: ACCENT },
-      arrows: { to: { enabled: true, scaleFactor: 0.5 } },
-      title: e && e.note ? esc(e.note.slice(0, 120)) : ''
-    };
-  }));
-
-  const options = {
-    layout: { hierarchical: { direction: 'LR', sortMethod: 'directed', nodeSpacing: 110, levelSeparation: 130 } },
-    physics: false,
-    interaction: { hover: true, dragNodes: false, zoomView: false, dragView: true }
-  };
-  if (!journeyNet) {
-    journeyNet = new vis.Network(el('journeyNetwork'), { nodes: visNodes, edges: visEdges }, options);
-    journeyNet.on('click', function (params) {
-      if (params.nodes.length) stepTo(Number(params.nodes[0].slice(1)));
+  const sel = el('journeyDisease');
+  if (sel) {
+    sel.innerHTML = diseaseOptions().map(function (d) {
+      return '<option value="' + esc(d.id) + '">' + esc(displayName(d)) + '</option>';
+    }).join('');
+    const cur = journeyDiseaseId();
+    if (cur) { sel.value = cur; state.selectedDisease = cur; }
+    sel.addEventListener('change', function () {
+      state.selectedDisease = sel.value;
+      if (state.journeyState) renderJourneySteps();
     });
-  } else {
-    journeyNet.setData({ nodes: visNodes, edges: visEdges });
-    journeyNet.setOptions(options);
   }
-  journeyNet.fit({ animation: false });
-
-  // Panel: why + supporting edge note.
-  const panel = el('stepPanel');
-  const why = step.why || '';
-  const edgeNote = step.edge_note || '';
-  let html = '<span class="badge">' + esc(humanize(node.type)) + '</span>';
-  html += '<h2>' + esc(displayName(node)) + '</h2>';
-  if (node.description) html += '<p class="desc">' + esc(node.description) + '</p>';
-  html += '<h3>Why this step matters</h3><p class="why">' + esc(why) + '</p>';
-  if (edgeNote) {
-    html += '<h3>Supporting evidence</h3><div class="edge-note-box">' + esc(edgeNote) + '</div>';
-  }
-  const e = i > 0 ? edgeBetween(steps[i - 1].node, step.node) : null;
-  if (e) {
-    const ref = linkifyRef(e.source_ref);
-    html += '<h3>Graph edge</h3><p class="desc">' + esc(humanize(e.relation)) +
-      ' · <span class="badge conf-' + esc(e.confidence) + '">' + esc(e.confidence) + '</span> ' +
-      '<span class="conf-plain">' + esc(plainConfidence(e)) + '</span></p>' +
-      '<p class="desc">' + esc(e.note || '') + '</p>' +
-      (ref ? '<p><a href="' + esc(ref.url) + '" target="_blank" rel="noopener">' + esc(ref.label) + ' &rarr;</a></p>' : '');
-  }
-  panel.innerHTML = html;
-  updateJourneyChrome();
+  renderJourneyStates();
+  renderMariaPath();
+  renderJourneySteps();
 }

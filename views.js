@@ -32,7 +32,6 @@ function viewsBoot() {
   initOutreach();
   initCompare();
   initAssets();
-  initJourneyBuilder();
   initNightMode();
   initA11y();
   // Mobile: the guided front door is the landing page on narrow screens.
@@ -719,8 +718,12 @@ function initReading() {
     btn.setAttribute('aria-checked', on ? 'true' : 'false');
     btn.addEventListener('click', function () { setReading(btn.dataset.reading); });
   });
-  new MutationObserver(function () { applyReading(); })
-    .observe(vEl('stepPanel'), { childList: true });
+  // stepPanel was removed in Build 4 (state-based journey); observe only if present.
+  const stepPanel0 = vEl('stepPanel');
+  if (stepPanel0) {
+    new MutationObserver(function () { applyReading(); })
+      .observe(stepPanel0, { childList: true });
+  }
   applyReading();
 }
 
@@ -1180,55 +1183,6 @@ function initAssets() {
   }
   input.addEventListener('input', render);
   render();
-}
-
-/* ---------------- 13. Journey builder for other diseases ---------------- */
-
-function initJourneyBuilder() {
-  vEl('buildJourneyBtn').addEventListener('click', function () {
-    const jb = vEl('journeyBuilder');
-    jb.hidden = !jb.hidden;
-    if (!jb.hidden && !jb.dataset.built) {
-      jb.dataset.built = '1';
-      jb.innerHTML = '<h3>Build a journey for another disease</h3>' +
-        '<p class="section-lede">Generates a narrative from graph data \u2014 treatment landscape, natural allies, reusable research, and a suggested next step. Anything the graph does not know is labeled as unknown.</p>' +
-        '<div class="action-head"><select id="jbDisease">' +
-        diseaseOptions().map(function (d) {
-          return '<option value="' + esc(d.id) + '">' + esc(displayName(d)) + '</option>';
-        }).join('') + '</select> <button class="btn" id="jbGo">Build journey</button></div>' +
-        '<div id="jbOut"></div>';
-      vEl('jbGo').addEventListener('click', function () { renderBuiltJourney(vEl('jbDisease').value); });
-    }
-  });
-}
-
-function renderBuiltJourney(id) {
-  const out = vEl('jbOut');
-  const p = diseaseProfile(id);
-  const n = p.node;
-  const allies = [];
-  incidentEdges(id).forEach(function (e) {
-    if (e.relation !== 'shares_pathway') return;
-    const other = nodesById[e.source === id ? e.target : e.source];
-    if (other && other.type === 'disease' && allies.indexOf(other) === -1) allies.push(other);
-  });
-  const cluster = GRAPH.clusters.find(function (c) { return c.id === n.cluster_id; });
-  let html = '<article class="card journey-built"><h2>A journey for ' + esc(displayName(n)) + '</h2>';
-  html += '<h3>1. The disease</h3><p>' + esc(displayName(n)) +
-    (p.genes.length ? ' is linked to the ' + esc(p.genes.map(function (g) { return displayName(g); }).join(', ')) + ' gene' + (p.genes.length > 1 ? 's' : '') + '.' : ' has no gene link recorded in this slice.') +
-    (p.mechs.length ? ' It involves ' + esc(p.mechs.join('; ')) + '.' : '') + '</p>';
-  html += '<h3>2. Treatment landscape</h3><p>' + esc(p.therapy) + '</p>';
-  html += '<h3>3. Natural allies</h3>' +
-    (allies.length ? '<p>Diseases sharing a pathway: ' + allies.slice(0, 5).map(function (a) { return esc(displayName(a)); }).join(', ') + '. Their communities and researchers are the first place to look for shared work.</p>'
-                   : '<p>No pathway-sharing diseases recorded for ' + esc(displayName(n)) + ' in this slice \u2014 an honest gap.</p>');
-  html += '<h3>4. Existing research that could help</h3><p>' + p.trials + ' linked trials (' + p.recruiting + ' recruiting), ' +
-    p.assets + ' reusable assets, ' + p.orgs + ' patient organizations in the graph.</p>';
-  html += '<h3>5. Suggested next step</h3><p>' +
-    (cluster && cluster.next_experiment ? esc(cluster.next_experiment)
-      : 'Map what exists: confirm the gene, find the patient community, and check whether a natural-history study design from a neighboring disease can be adapted.') + '</p>';
-  html += '<p class="item-sub">Generated from graph data on ' + esc(new Date().toISOString().slice(0, 10)) + '. Verify each link before acting.</p></article>';
-  out.innerHTML = html;
-  markTerms(out);
 }
 
 /* ---------------- 11. Night mode ---------------- */
