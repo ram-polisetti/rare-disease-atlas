@@ -1097,7 +1097,8 @@ function vAmbiguous() {
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
     stepLine(2) +
     roleLine() +
-    '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
+    '<p class="guide-sub">' + via + ' Only a clinician can diagnose. Choose the closest fit ' +
+    '&mdash; or &ldquo;None of these seem right&rdquo; if none match.</p>' +
     compare +
     body +
     '</div>';
