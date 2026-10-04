@@ -231,6 +231,7 @@ function interpret(q) {
 var ROLE_KEY = 'rda_role';
 var ROLES = {
   care: { label: "I'm caring for someone", short: 'caring for someone', blurb: 'For a child or family member' },
+  patient: { label: 'I have this condition', short: 'living with this condition', blurb: 'For yourself' },
   org: { label: 'I lead a patient organization', short: 'leading a patient organization', blurb: 'Building community, funding, or advocacy' },
   scout: { label: "I'm scouting therapies", short: 'scouting therapies', blurb: 'Looking for treatments or trials to support' },
   researcher: { label: "I'm a researcher", short: 'doing research', blurb: 'Studying diseases, genes, or mechanisms' }
@@ -622,6 +623,30 @@ function recommendAction(d, role, certain) {
       out.title = 'Help find or start a community';
       out.body = '<p class="guide-sub">We don&rsquo;t have a patient group recorded for <strong>' + dn + '</strong>. ' +
         '<a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD</a> can help you find or start one &mdash; and you&rsquo;re allowed to be the one who starts it.</p>';
+    }
+    return out;
+  }
+
+  // Living with the condition themselves: same honesty, framed for self.
+  if (role === 'patient') {
+    if (orgs.length) {
+      out.title = 'Connect with people who live with this';
+      out.body = '<p class="guide-sub">Our data holds <strong>' + orgs.length + '</strong> patient groups for <strong>' + dn + '</strong>. ' +
+        'They talk to people living with this every day &mdash; about care, doctors who know the condition, and what others have learned:</p><ul class="guide-list">' +
+        orgs.slice(0, 4).map(function (o) { return '<li>' + orgLinkHTML(o) + '</li>'; }).join('') + '</ul>' +
+        '<p class="guide-fine">Reaching out is the single most useful first step. Ask your doctor before acting on anyone&rsquo;s advice.</p>';
+    } else if (rec.length) {
+      out.title = 'Ask your doctor about these recruiting studies';
+      out.body = '<p class="guide-sub">Our data holds <strong>' + rec.length + '</strong> studies recruiting right now for <strong>' + dn + '</strong>:</p><ul class="guide-list">' +
+        rec.slice(0, 4).map(function (t) {
+          var p = trialPlain(t);
+          return '<li>' + esc2(humanize(p.title)) + ' &mdash; ' + esc2(p.meta) + ' &middot; <a href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">view</a></li>';
+        }).join('') + '</ul>' +
+        '<p class="guide-fine">Most experimental treatments never become approved medicines. Bring these to your doctor to weigh eligibility and risks.</p>';
+    } else {
+      out.title = 'Start with a specialist who knows this condition';
+      out.body = '<p class="guide-sub">We don&rsquo;t have patient groups or recruiting studies recorded for <strong>' + dn + '</strong> yet. ' +
+        'That doesn&rsquo;t mean none exist &mdash; it means <em>we</em> don&rsquo;t have them.</p>' + geneticistHTML();
     }
     return out;
   }

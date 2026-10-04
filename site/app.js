@@ -316,14 +316,12 @@ function initResearchPrompt() {
 }
 
 /* First-visit prompt: small, non-blocking, never shown again once answered
- * or dismissed. */
+ * or dismissed. The guide's first step already asks the role question, so the
+ * prompt stays hidden while the guide is unanswered — it appears when the
+ * user goes elsewhere without picking a role. */
 function initModePrompt() {
   const box = el('modePrompt');
   if (!box) return;
-  let asked = false;
-  try { asked = localStorage.getItem(MODE_ASKED_KEY) === '1'; } catch (err) {}
-  if (asked) return;
-  box.hidden = false;
   function done(choice) {
     if (choice === 'parent' || choice === 'researcher') setMode(choice);
     try { localStorage.setItem(MODE_ASKED_KEY, '1'); } catch (err) {}
@@ -332,6 +330,18 @@ function initModePrompt() {
   box.querySelectorAll('[data-mode-choice]').forEach(function (b) {
     b.addEventListener('click', function () { done(b.dataset.modeChoice); });
   });
+  window.__maybeModePrompt = function () {
+    let asked = false, rolePicked = false;
+    try {
+      asked = localStorage.getItem(MODE_ASKED_KEY) === '1';
+      rolePicked = !!localStorage.getItem('rda_role');
+    } catch (err) {}
+    if (!asked && rolePicked && box.hidden) box.hidden = false;
+  };
+  // Show on load only if they already picked a role elsewhere but never
+  // answered the prompt (e.g. returning visitor) — never over the guide's
+  // own role question.
+  window.__maybeModePrompt();
 }
 
 function initSettings() {
@@ -370,6 +380,18 @@ function switchTab(name) {
   });
   document.querySelectorAll('.view').forEach(function (v) { v.hidden = true; });
   el('view-' + name).hidden = false;
+  /* If they leave the guide without picking a role, the mode prompt gets its
+   * turn — the guide's own question takes precedence while they're in it. */
+  if (name !== 'guide' && window.__maybeModePrompt) {
+    try {
+      var asked = localStorage.getItem(MODE_ASKED_KEY) === '1';
+      var rolePicked = !!localStorage.getItem('rda_role');
+      if (!asked && !rolePicked) {
+        var box = el('modePrompt');
+        if (box && box.hidden) box.hidden = false;
+      }
+    } catch (err) {}
+  }
   if (name === 'action') {
     const dsel = el('diseaseSelect');
     if (dsel && state.selectedDisease && nodesById[state.selectedDisease]) dsel.value = state.selectedDisease;
