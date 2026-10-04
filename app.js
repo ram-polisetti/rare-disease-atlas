@@ -235,6 +235,7 @@ function init() {
   initSearch();
   initExploreControls();
   initTabs();
+  initReadingLevel();
   initClusters();
   initPatientAction();
   initJourney();
@@ -258,6 +259,37 @@ function init() {
 }
 
 /* ---------------- tabs ---------------- */
+
+/* Reading level: Plain language / Standard / Detailed. Global and persisted
+ * in localStorage under key rda_reading. Standard is the site as designed.
+ * Detailed reveals extra technical metadata (study types, publication years,
+ * dates) marked with class tech-detail. Plain language keeps the plain
+ * wording and hides technical metadata and jargon badges. */
+const READING_KEY = 'rda_reading';
+
+function setReading(level) {
+  if (['plain', 'standard', 'detailed'].indexOf(level) < 0) level = 'standard';
+  document.body.classList.remove('reading-plain', 'reading-standard', 'reading-detailed');
+  document.body.classList.add('reading-' + level);
+  try { localStorage.setItem(READING_KEY, level); } catch (err) {}
+  document.querySelectorAll('.reading-seg .seg-btn').forEach(function (btn) {
+    const on = btn.dataset.reading === level;
+    btn.classList.toggle('active', on);
+    btn.setAttribute('aria-checked', on ? 'true' : 'false');
+  });
+}
+
+function initReadingLevel() {
+  let level = 'standard';
+  try {
+    const saved = localStorage.getItem(READING_KEY);
+    if (saved) level = saved;
+  } catch (err) {}
+  document.querySelectorAll('.reading-seg .seg-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { setReading(btn.dataset.reading); });
+  });
+  setReading(level);
+}
 
 /* Parent / researcher mode. Persisted in localStorage under key rda_mode.
  * Parent mode (default) shows the calm parent-facing views; researcher mode
@@ -738,12 +770,12 @@ function showEdge(e) {
            : esc(e.source_ref)) + '</dd>';
   }
   var confIcon = e.confidence === 'low' ? '\u25CB ' : e.confidence === 'medium' ? '\u25D0 ' : '\u25CF ';
-  html += '<dt>Confidence</dt><dd><span class="badge conf-' + esc(e.confidence) + '" aria-label="Confidence: ' + esc(e.confidence) + '">' +
+  html += '<dt>Confidence</dt><dd><span class="badge conf-badge conf-' + esc(e.confidence) + '" aria-label="Confidence: ' + esc(e.confidence) + '">' +
     confIcon + esc(e.confidence) + '</span> <span class="conf-plain">' + esc(plainConfidence(e)) + '</span></dd>';
   if (e.evidence) html += '<dt>Evidence</dt><dd>' + esc(e.evidence) + '</dd>';
-  if (e.evidence_type) html += '<dt>Study type</dt><dd>' + esc(evidenceLabel(e.evidence_type)) + '</dd>';
-  if (e.publication_year) html += '<dt>Published</dt><dd>' + esc(e.publication_year) + '</dd>';
-  if (e.date) html += '<dt>Date</dt><dd>' + esc(e.date) + '</dd>';
+  if (e.evidence_type) html += '<dt class="tech-detail">Study type</dt><dd class="tech-detail">' + esc(evidenceLabel(e.evidence_type)) + '</dd>';
+  if (e.publication_year) html += '<dt class="tech-detail">Published</dt><dd class="tech-detail">' + esc(e.publication_year) + '</dd>';
+  if (e.date) html += '<dt class="tech-detail">Date</dt><dd class="tech-detail">' + esc(e.date) + '</dd>';
   html += '</dl>';
   html += '<p><button class="btn" id="backToNode">&larr; Back to node</button></p>';
   panel.innerHTML = html;

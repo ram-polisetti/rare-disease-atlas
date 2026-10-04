@@ -619,6 +619,14 @@ body.dark .ref { color: var(--ink-faint); }
 body.dark .guide-compare-why { color: var(--accent); }
 body.dark .guide-cand-n { color: var(--accent); }
 
+/* ---------- reading level: plain / standard / detailed ---------- */
+/* Technical metadata (study types, publication years, dates) is marked
+ * tech-detail and stays hidden unless the reader picks Detailed. */
+body:not(.reading-detailed) .tech-detail { display: none; }
+/* Plain language: the plain wording carries the meaning, the jargon badge hides. */
+body.reading-plain .conf-badge { display: none; }
+body.reading-plain .conf-plain { font-weight: 600; }
+
 /* ---------- mobile pass (2am phone) ---------- */
 @media (max-width: 700px) {
   .topbar { padding: 10px 14px 0; }
