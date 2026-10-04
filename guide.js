@@ -838,13 +838,56 @@ function compareHTML(cands) {
     '</div>';
 }
 
-function vAmbiguous() {
-  if (!G.candidates || !G.candidates.length) return vSearch();
-  var via = G.via === 'symptoms'
-    ? 'Based on the symptoms you described, these are the closest matches in our data.'
-    : 'A few conditions match what you typed.';
-  var compare = (G.via === 'symptoms' && G.candidates.length > 1) ? compareHTML(G.candidates) : '';
-  var cards = G.candidates.map(function (d) {
+/* Inline symptom filter for the ambiguous screen: parents tick symptoms
+ * they've noticed and the candidate list re-orders live around their picks.
+ * Nothing is ever hidden for good — unticking restores the full list. */
+function ambFilterSymptoms() {
+  var seen = {}, out = [];
+  G.candidates.forEach(function (d) {
+    phenosFor(d.id).forEach(function (p) {
+      if (phenoGroupIndex(p) === LAB_GI) return;
+      var lbl = String(p.label || '').toLowerCase();
+      /* Inheritance patterns and onset timing aren't observable symptoms. */
+      if (lbl.indexOf('inheritance') !== -1 || / onset$/.test(lbl)) return;
+      var k = String(p.id || p.label).toLowerCase();
+      if (!seen[k]) { seen[k] = { p: p, n: 0 }; out.push(seen[k]); }
+      seen[k].n++;
+    });
+  });
+  var total = G.candidates.length;
+  out.sort(function (a, b) {
+    /* Distinguishing symptoms first: present in some but not all candidates. */
+    var da = (a.n > 0 && a.n < total) ? 0 : 1, db = (b.n > 0 && b.n < total) ? 0 : 1;
+    if (da !== db) return da - db;
+    return phenoDegree(b.p) - phenoDegree(a.p);
+  });
+  return out.slice(0, 16).map(function (s) { return s.p; });
+}
+function ambMatchCount(d) {
+  var f = G.ambFilter || {}, n = 0;
+  phenosFor(d.id).forEach(function (p) {
+    if (f[String(p.id || p.label).toLowerCase()]) n++;
+  });
+  return n;
+}
+function ambFilterHTML() {
+  if (!G.candidates || G.candidates.length < 2 || G.via === 'symptoms') return '';
+  var syms = ambFilterSymptoms();
+  if (!syms.length) return '';
+  var f = G.ambFilter || {};
+  var boxes = syms.map(function (p) {
+    var k = String(p.id || p.label).toLowerCase();
+    return '<label class="guide-check"><input type="checkbox" data-ambph="' + esc2(k) + '"' + (f[k] ? ' checked' : '') + '> ' + esc2(plainSymptom(p.label)) + '</label>';
+  }).join('');
+  return '<div class="guide-amfilter"><h3 class="guide-h3">Not sure which one? Tick symptoms you\u2019ve noticed.</h3>' +
+    '<p class="guide-fine">The list below re-orders itself around your picks, most matches first. Untick to see everything again \u2014 nothing is hidden for good.</p>' +
+    '<div class="guide-checks">' + boxes + '</div></div>';
+}
+function ambCardsHTML() {
+  var f = G.ambFilter || {};
+  var picked = Object.keys(f).filter(function (k) { return f[k]; });
+  var ranked = G.candidates.slice().sort(function (a, b) { return ambMatchCount(b) - ambMatchCount(a); });
+  return ranked.map(function (d) {
     /* Candidate cards speak plain language: skip lab/enzyme findings (not
      * something a parent can recognize) and translate the rest. */
     var cardPhenos = phenosFor(d.id).filter(function (p) { return phenoGroupIndex(p) !== LAB_GI; });
@@ -852,13 +895,25 @@ function vAmbiguous() {
     else cardPhenos = cardPhenos.slice(0, 3);
     var phenos = cardPhenos.map(function (p) { return esc2(plainSymptom(p.label)); }).join('; ');
     var nOrg = orgsFor(d.id).length;
+    var badge = picked.length
+      ? '<span class="guide-cand-m' + (ambMatchCount(d) > 0 ? ' hit' : '') + '">' +
+        (ambMatchCount(d) > 0 ? 'Matches ' + ambMatchCount(d) + ' of ' + picked.length + ' you picked' : 'Doesn\u2019t match what you picked \u2014 still listed so nothing is missed') + '</span>'
+      : '';
     return '<button type="button" class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
-      '<strong>' + esc2(guideName(d)) + '</strong>' +
+      '<strong>' + esc2(guideName(d)) + '</strong>' + badge +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
       (nOrg ? '<span class="guide-cand-n">' + nOrg + ' patient group' + (nOrg === 1 ? '' : 's') + ' connected</span>'
             : '<span class="guide-cand-n">Patient-group data not yet recorded</span>') +
       '</button>';
   }).join('');
+}
+
+function vAmbiguous() {
+  if (!G.candidates || !G.candidates.length) return vSearch();
+  var via = G.via === 'symptoms'
+    ? 'Based on the symptoms you described, these are the closest matches in our data.'
+    : 'A few conditions match what you typed.';
+  var compare = (G.via === 'symptoms' && G.candidates.length > 1) ? compareHTML(G.candidates) : '';
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="search">&larr; Start over</button>' +
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
@@ -866,7 +921,8 @@ function vAmbiguous() {
     roleLine() +
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
     compare +
-    '<div class="guide-cands">' + cards + '</div>' +
+    ambFilterHTML() +
+    '<div class="guide-cands">' + ambCardsHTML() + '</div>' +
     '<button type="button" class="btn" data-nav="nomatch">None of these seem right</button>' +
     '</div>';
 }
@@ -1296,7 +1352,7 @@ function wireGuide(scope) {
     G.query = val;
     var r = interpret(val);
     if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); }
-    else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; go('ambiguous'); }
+    else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; G.ambFilter = {}; go('ambiguous'); }
     else go('nomatch');
   }
   if (goBtn) goBtn.addEventListener('click', submit);
@@ -1337,6 +1393,21 @@ function wireGuide(scope) {
       var i = G.confirmedPhenos.indexOf(key);
       if (box.checked && i === -1) G.confirmedPhenos.push(key);
       if (!box.checked && i !== -1) G.confirmedPhenos.splice(i, 1);
+    });
+  });
+  scope.querySelectorAll('input[data-ambph]').forEach(function (box) {
+    box.addEventListener('change', function () {
+      G.ambFilter = G.ambFilter || {};
+      var k = box.getAttribute('data-ambph');
+      if (box.checked) G.ambFilter[k] = true; else delete G.ambFilter[k];
+      /* Re-render only the cards, in place — no scroll jump. */
+      var cands = scope.querySelector('.guide-cands');
+      if (cands) {
+        cands.innerHTML = ambCardsHTML();
+        cands.querySelectorAll('[data-pick]').forEach(function (b) {
+          b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); });
+        });
+      }
     });
   });
   var more = scope.querySelector('#phenoMore');
