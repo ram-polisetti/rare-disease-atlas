@@ -328,7 +328,8 @@ function epMatrix(rows) {
                 .slice(0, 14);
   if (!use.length) return '';
   var html = '<h2>Sharing matrix</h2>' +
-    '<p><strong>How to read this table:</strong> each row is one measurement; each column is a disease group. ' +
+    '<p><button type="button" class="btn small" id="epPrintMatrix">Print sharing matrix</button></p>' +
+    '<p class="ep-howto"><strong>How to read this table:</strong> each row is one measurement; each column is a disease group. ' +
     'A check mark means that disease group has the biology or symptoms in our graph to be measured that way — ' +
     'hover any check to see the exact graph evidence behind it. ' +
     'Rows are sorted so the most-shared measurements come first: those are the cheapest wins for running trials together.</p>';
@@ -423,6 +424,14 @@ function initEndpoints() {
 
   body.innerHTML = html;
   if (typeof markTerms === 'function') markTerms(body);
+  var epPrint = document.getElementById('epPrintMatrix');
+  if (epPrint) epPrint.addEventListener('click', function () {
+    document.body.classList.add('printing-matrix');
+    window.print();
+  });
+  window.addEventListener('afterprint', function () {
+    document.body.classList.remove('printing-matrix');
+  });
   var pick = document.getElementById('epPick');
   if (pick) pick.addEventListener('change', function (e) {
     epRenderPick(e.target.value, rows);
