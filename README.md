@@ -88,6 +88,6 @@ A static site: plain HTML, CSS, and JavaScript, with vis-network vendored in `si
 
 ## License
 
-No license file has been added yet, so the code is all rights reserved by default until one is chosen. Source data keeps its original terms: Orphanet data is CC BY 4.0, and HPO, Mondo, ClinVar, ClinicalTrials.gov, PubMed, and NIH RePORTER data are used under their published terms of use.
+MIT — see the [LICENSE](LICENSE) file. Source data keeps its original terms: Orphanet data is CC BY 4.0, and HPO, Mondo, ClinVar, ClinicalTrials.gov, PubMed, and NIH RePORTER data are used under their published terms of use.
 
 This site is for information and research. It does not give medical advice. Talk to a clinician about any diagnosis or treatment decision.
