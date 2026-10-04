@@ -45,19 +45,19 @@ function evidenceLabel(t) {
 
 // Restrained palette: low-saturation categorical colors, one accent for selection.
 const TYPE_COLORS = {
-  disease:     '#2563eb',
-  gene:        '#0d9488',
-  variant:     '#64748b',
-  phenotype:   '#94a3b8',
+  disease:     '#7c3aed',
+  gene:        '#db2777',
+  variant:     '#a8a29e',
+  phenotype:   '#d6d3d1',
   trial:       '#c2410c',
   patient_org: '#6d5fc0',
   researcher:  '#a16207',
-  mechanism:   '#334155',
-  asset:       '#0f766e',
+  mechanism:   '#44403c',
+  asset:       '#78716c',
   funding:     '#b45309',
   paper:       '#525252'
 };
-const ACCENT = '#1a56db';
+const ACCENT = '#3f3f46';
 const EDGE_COLOR = '#c4c9d1';
 const CONTRADICT_COLOR = '#d97777';
 
