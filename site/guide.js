@@ -531,18 +531,45 @@ function therapyBannerHTML(d) {
 var STOP = {};
 ('a,an,the,my,son,daughter,child,kid,was,were,is,are,with,has,have,had,he,she,they,them,his,her,our,of,to,in,on,at,for,and,or,just,been,got,getting,about,what,when,why,how,do,does,did,can,could,would,should,i,you,we,it,this,that,these,those,from,by,as,not,no,yes,me,him,us,very,more,most,now,today,old,age,doctor,said,says,diagnosed,diagnosis,disease,syndrome,condition,ill,sick,problem,problems,help,please,find,know,think,might,maybe,couldnt,cant,wont,dont').split(',').forEach(function (w) { STOP[w] = 1; });
 
-/* Everyday descriptions expand only in symptom matching, preserving gene lookup. */
-var LAY_SYMPTOMS = {
-  speak: ['speech', 'talking', 'aphasia', 'anarthria', 'dysarthria'],
-  talk: ['speech', 'talking', 'aphasia'],
-  see: ['vision', 'visual', 'sight', 'blindness'],
-  seeing: ['vision', 'visual', 'sight', 'blindness'],
-  walk: ['walking', 'gait', 'ataxia'],
-  hear: ['hearing', 'deafness'],
-  swallow: ['swallowing', 'dysphagia'],
-  breathe: ['breathing', 'respiratory'],
-  balance: ['balance', 'ataxia', 'gait']
-};
+/* Concept-based symptom matching.
+ * PHRASE_RULES (multi-word, e.g. "cant see" -> vision-loss) are tried first.
+ * Single lay words map through LAY_TO_CONCEPT with Porter stemming.
+ * "can't X / cannot X / unable to X" = loss of X, symptom PRESENT.
+ * "no X / without X / doesn't have X" = symptom ABSENT, never scored.
+ * All maps are generated from real phenotype nodes (scripts/build_concept_map.py).
+ * The "We understood" trail shows CONCEPT_LABELS, the mapped clinical concepts. */
+
+/* Compact Porter stemmer, inlined (no dependency). */
+function stem(w) {
+  var step2list = { ational: 'ate', tional: 'tion', enci: 'ence', anci: 'ance', izer: 'ize', bli: 'ble', alli: 'al', entli: 'ent', eli: 'e', ousli: 'ous', ization: 'ize', ation: 'ate', ator: 'ate', alism: 'al', iveness: 'ive', fulness: 'ful', ousness: 'ous', aliti: 'al', iviti: 'ive', biliti: 'ble', logi: 'log' };
+  var step3list = { icate: 'ic', ative: '', alize: 'al', iciti: 'ic', ical: 'ic', ful: '', ness: '' };
+  var c = '[^aeiou]', v = '[aeiouy]', C = c + '[^aeiouy]*', V = v + '[aeiou]*';
+  var mgr0 = '^(' + C + ')?' + V + C, meq1 = '^(' + C + ')?' + V + C + '(' + V + ')?$', mgr1 = '^(' + C + ')?' + V + C + V + C, s_v = '^(' + C + ')?' + v;
+  var s = w.toLowerCase();
+  if (s.length < 3) return s;
+  var re, re2, re3, re4, fp;
+  if (s.substr(0, 2) === 'ss') return s;
+  re = /^(.+?)(ss|i)es$/; re2 = /^(.+?)([^s])s$/;
+  if (re.test(s)) s = s.replace(re, '$1$2');
+  else if (re2.test(s)) s = s.replace(re2, '$1$2');
+  re = /^(.+?)eed$/; re2 = /^(.+?)(ed|ing)$/;
+  if (re.test(s)) { fp = re.exec(s); re = new RegExp(mgr0); if (re.test(fp[1])) { re = /.$/; s = s.replace(re, ''); } }
+  else if (re2.test(s)) { fp = re2.exec(s); var stem2 = fp[1]; re2 = new RegExp(s_v); if (re2.test(stem2)) { s = stem2; re2 = /(at|bl|iz)$/; re3 = new RegExp('([^aeiouylsz])\\1$'); re4 = new RegExp('^' + C + v + '[^aeiouwxy]$'); if (re2.test(s)) s += 'e'; else if (re3.test(s)) { re = /.$/; s = s.replace(re, ''); } else if (re4.test(s)) s += 'e'; } }
+  re = /^(.+?)y$/;
+  if (re.test(s)) { fp = re.exec(s); var stem3 = fp[1]; re = new RegExp(s_v); if (re.test(stem3)) s = stem3 + 'i'; }
+  re = /^(.+?)(ational|tional|enci|anci|izer|bli|alli|entli|eli|ousli|ization|ation|ator|alism|iveness|fulness|ousness|aliti|iviti|biliti|logi)$/;
+  if (re.test(s)) { fp = re.exec(s); var stem4 = fp[1], suffix = fp[2]; re = new RegExp(mgr0); if (re.test(stem4)) s = stem4 + step2list[suffix]; }
+  re = /^(.+?)(icate|ative|alize|iciti|ical|ful|ness)$/;
+  if (re.test(s)) { fp = re.exec(s); var stem5 = fp[1], suffix2 = fp[2]; re = new RegExp(mgr0); if (re.test(stem5)) s = stem5 + step3list[suffix2]; }
+  re = /^(.+?)(al|ance|ence|er|ic|able|ible|ant|ement|ment|ent|ou|ism|ate|iti|ous|ive|ize)$/; re2 = /^(.+?)(s|t)(ion)$/;
+  if (re.test(s)) { fp = re.exec(s); var stem6 = fp[1]; re = new RegExp(mgr1); if (re.test(stem6)) s = stem6; }
+  else if (re2.test(s)) { fp = re2.exec(s); var stem7 = fp[1] + fp[2]; re2 = new RegExp(mgr1); if (re2.test(stem7)) s = stem7; }
+  re = /^(.+?)e$/;
+  if (re.test(s)) { fp = re.exec(s); var stem8 = fp[1]; re = new RegExp(mgr1); re2 = new RegExp(meq1); re3 = new RegExp('^' + C + v + '[^aeiouwxy]$'); if (re.test(stem8) || (re2.test(stem8) && !re3.test(stem8))) s = stem8; }
+  re = /ll$/; re2 = new RegExp(mgr1);
+  if (re.test(s) && re2.test(s)) { re = /.$/; s = s.replace(re, ''); }
+  return s;
+}
 function interpret(q) {
   var low = q.trim().toLowerCase().replace(/[’']/g, '').replace(/\bcannot\b/g, 'cant');
   if (low.length < 2) return { kind: 'nomatch' };
@@ -603,34 +630,51 @@ function interpret(q) {
   if (hits.length === 1) return { kind: 'disease', id: hits[0].id, how: how };
   if (hits.length > 1) return { kind: 'ambiguous', candidates: hits, via: (how && how.t === 'gene') ? 'gene' : 'name', how: how };
 
-  // 4. symptom -> phenotype token match -> candidate diseases
-  var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
-  var concepts = toks.map(function (t) { return [t].concat(LAY_SYMPTOMS[t] || []); });
-  if (toks.length) {
-    var scores = {};
-    var phenoHits = [];
-    GRAPH.nodes.forEach(function (n) {
-      if (n.type !== 'phenotype') return;
-      var words = ([n.label].concat(n.synonyms || [])).join(' ').toLowerCase().split(/[^a-z0-9]+/);
-      var m = 0;
-      concepts.forEach(function (terms) {
-        if (terms.some(function (t) { return words.some(function (w) {
-          return w === t || (w.length > 4 && t.length > 3 && (w.indexOf(t) === 0 || t.indexOf(w) === 0));
-        }); })) m++;
+  // 4. symptom -> CONCEPT match -> candidate diseases.
+  // Phrase rules fire first ("cant see" -> vision-loss); then lay words map
+  // through LAY_TO_CONCEPT with Porter stemming. "can't X" counts as loss of
+  // X (present); "no X / without X / doesn't have X" marks X absent and it is
+  // never scored. Diseases rank by has_phenotype edges from concept phenos.
+  var foundConcepts = {}, absentConcepts = {};
+  if (typeof PHRASE_RULES !== 'undefined') {
+    PHRASE_RULES.forEach(function (pr) {
+      var m = low.match(new RegExp(pr[0], 'i'));
+      if (!m) return;
+      var before = low.slice(0, m.index);
+      var negated = (typeof ABSENT_RES !== 'undefined') && ABSENT_RES.some(function (ar) {
+        return new RegExp(ar + '$', 'i').test(before);
       });
-      if (m > 0) {
-        phenoHits.push({ label: plainSymptom(n.label), m: m });
-        inEdges(n.id, 'has_phenotype').forEach(function (e) { scores[e.source] = (scores[e.source] || 0) + m; });
-      }
+      if (negated) absentConcepts[pr[1]] = 1; else foundConcepts[pr[1]] = 1;
+    });
+  }
+  var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
+  toks.forEach(function (t, i) {
+    if (typeof LAY_TO_CONCEPT === 'undefined') return;
+    var cid = LAY_TO_CONCEPT[t] || LAY_TO_CONCEPT[stem(t)];
+    if (!cid) return;
+    var prev = toks.slice(Math.max(0, i - 2), i).join(' ');
+    var negated = /^(no|without|denies)\b/.test(prev) || /(doesnt have|does not have|never had)$/.test(prev);
+    if (negated) absentConcepts[cid] = 1; else foundConcepts[cid] = 1;
+  });
+  Object.keys(absentConcepts).forEach(function (c) { delete foundConcepts[c]; });
+  var conceptIds = Object.keys(foundConcepts);
+  if (conceptIds.length && typeof CONCEPT_PHENOS !== 'undefined') {
+    var scores = {}, phenoIds = {};
+    conceptIds.forEach(function (cid) {
+      (CONCEPT_PHENOS[cid] || []).forEach(function (pid) { phenoIds[pid] = 1; });
+    });
+    Object.keys(phenoIds).forEach(function (pid) {
+      inEdges(pid, 'has_phenotype').forEach(function (e) { scores[e.source] = (scores[e.source] || 0) + 1; });
     });
     var ranked = Object.keys(scores).sort(function (a, b) { return scores[b] - scores[a]; })
       .map(function (id) { return nodesById[id]; })
       .filter(function (n) { return n && n.type === 'disease'; });
     if (ranked.length) {
-      phenoHits.sort(function (a, b) { return b.m - a.m; });
-      var topPhenos = phenoHits.slice(0, 5).map(function (p) { return p.label; });
+      var trailLabels = conceptIds.map(function (cid) {
+        return (typeof CONCEPT_LABELS !== 'undefined' && CONCEPT_LABELS[cid]) || cid;
+      });
       return { kind: 'ambiguous', candidates: ranked, via: 'symptoms',
-               how: { t: 'symptoms', phenos: topPhenos } };
+               how: { t: 'symptoms', phenos: trailLabels } };
     }
   }
   return { kind: 'nomatch', how: null };
@@ -896,27 +940,41 @@ function vSearch() {
 function understoodHTML() {
   var how = G.how;
   if (!how) return 'We couldn\u2019t match it to anything in our data.';
-  var d = G.diseaseId && nodesById[G.diseaseId] ? guideName(nodesById[G.diseaseId]) : null;
+  var dn = G.diseaseId && nodesById[G.diseaseId] ? nodesById[G.diseaseId] : null;
+  var d = dn ? guideName(dn) : null;
+  function firstSentence(s) {
+    if (!s) return '';
+    var m = String(s).match(/^.*?[.!?](\s|$)/);
+    return m ? m[0].trim() : String(s).slice(0, 160).trim();
+  }
   if (how.t === 'gene') {
+    var gdesc = '';
+    var gn = null;
+    for (var gi = 0; gi < GRAPH.nodes.length; gi++) {
+      if (GRAPH.nodes[gi].type === 'gene' && GRAPH.nodes[gi].label === how.gene) { gn = GRAPH.nodes[gi]; break; }
+    }
+    if (gn && gn.description) gdesc = ' \u2014 ' + esc2(firstSentence(gn.description));
     var n = G.candidates && G.candidates.length ? G.candidates.length : (d ? 1 : 0);
-    return 'You typed the gene symbol <strong>' + esc2(how.gene) + '</strong> &mdash; showing the ' +
+    return 'We matched the gene <strong>' + esc2(how.gene) + '</strong>' + gdesc + '. Showing the ' +
       (n === 1 ? 'disease linked to it' : n + ' diseases linked to it') + ' in our data.';
   }
   if (how.t === 'fuzzy') {
-    return 'Your spelling was close to <strong>' + esc2(how.matched || '') + '</strong> &mdash; showing that match.';
+    return 'You typed &ldquo;' + esc2(G.query) + '&rdquo; &mdash; we matched <strong>' + esc2(how.matched || '') + '</strong>. Showing that match.';
   }
   if (how.t === 'sentence') {
-    if (d) return 'We found the disease name <strong>' + esc2(d) + '</strong> inside your description.';
-    var n = G.candidates && G.candidates.length ? G.candidates.length : 0;
+    var sdesc = dn && dn.description ? ' \u2014 ' + esc2(firstSentence(dn.description)) : '';
+    if (d) return 'We matched the disease name <strong>' + esc2(d) + '</strong> inside what you typed' + sdesc + '.';
+    var n2 = G.candidates && G.candidates.length ? G.candidates.length : 0;
     return 'We found a disease name inside your description &mdash; ' +
-      (n ? n + ' conditions match it' : 'a few conditions match it') + '.';
+      (n2 ? n2 + ' conditions match it' : 'a few conditions match it') + '.';
   }
   if (how.t === 'symptoms') {
     var ph = (how.phenos || []).slice(0, 5).join('; ');
-    return 'We picked out these symptoms: <strong>' + esc2(ph) + '</strong> &mdash; ranking diseases by how many they share.';
+    return 'We picked out these symptom concepts: <strong>' + esc2(ph) + '</strong> &mdash; ranking diseases by how many they share.';
   }
-  /* name */
-  return 'We matched the disease name in what you typed' + (d ? ' &mdash; showing <strong>' + esc2(d) + '</strong>.' : '.');
+  /* name (exact) */
+  var ddesc = dn && dn.description ? ' \u2014 ' + esc2(firstSentence(dn.description)) : '';
+  return 'We matched the disease name <strong>' + esc2(d || '') + '</strong>' + ddesc + '.';
 }
 function queryTrailHTML() {
   if (!G.query) return '';
@@ -1737,6 +1795,9 @@ function wireGuide(scope) {
     G.query = val;
     var r = interpret(val);
     G.how = r.how || null;
+    if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; }
+    else if (r.kind === 'ambiguous') { G.diseaseId = null; G.candidates = r.candidates; G.via = r.via; }
+    else { G.diseaseId = null; G.candidates = []; }
     G.searchHistory = G.searchHistory || [];
     G.searchHistory.push({ trail: queryTrailHTML(), ids: r.kind === 'disease' ? [r.id] : (r.candidates || []).map(function (c) { return c.id || (c.node && c.node.id); }) });
     if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); }
