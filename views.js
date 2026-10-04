@@ -832,12 +832,19 @@ function initReading() {
     new MutationObserver(function () { applyReading(); })
       .observe(stepPanel0, { childList: true });
   }
+  document.body.classList.remove('reading-plain', 'reading-standard', 'reading-detailed');
+  document.body.classList.add('reading-' + (['plain', 'standard', 'detailed'].indexOf(reading) >= 0 ? reading : 'standard'));
   applyReading();
 }
 
 function setReading(r) {
   reading = r;
   try { localStorage.setItem(READING_KEY, r); } catch (err) {}
+  /* Global hook: body class drives reading-level CSS on every tab.
+   * Detailed reveals .tech-detail metadata (study types, dates);
+   * plain hides jargon badges and technical metadata. */
+  document.body.classList.remove('reading-plain', 'reading-standard', 'reading-detailed');
+  document.body.classList.add('reading-' + (['plain', 'standard', 'detailed'].indexOf(r) >= 0 ? r : 'standard'));
   document.querySelectorAll('[data-reading]').forEach(function (btn) {
     const on = btn.dataset.reading === r;
     btn.classList.toggle('active', on);
