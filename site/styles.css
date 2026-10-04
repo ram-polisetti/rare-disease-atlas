@@ -14,8 +14,8 @@
   --ink-soft: #555;
   --ink-faint: #888;
   --line: #e3e3e3;
-  --accent: #0f766e;
-  --accent-soft: #e6f4f2;
+  --accent: #1a56db;
+  --accent-soft: #e8effc;
   --warn: #b45309;
   --contradict: #b91c1c;
   --radius: 6px;
@@ -382,7 +382,7 @@ footer {
 .assume-list li { margin: 6px 0; }
 .fayuvi-alert {
   margin: 12px 0; padding: 12px 14px; border-radius: 8px;
-  background: var(--accent-soft); border: 1px solid #bfe0da; font-size: 14px;
+  background: var(--accent-soft); border: 1px solid #c9d9f7; font-size: 14px;
 }
 .fayuvi-alert strong { color: #1e40af; }
 .excluded-list li { margin: 5px 0; }
@@ -422,7 +422,7 @@ footer {
 .small-quote { font-size: 13px; margin: 8px 0 0; }
 
 /* ---------- explainer cards ---------- */
-.explainer { background: var(--accent-soft); border: 1px solid #bfe0da; border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px; }
+.explainer { background: var(--accent-soft); border: 1px solid #c9d9f7; border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px; }
 .explainer h3 { margin: 0 0 6px !important; }
 .explainer-one { font-size: 15px; font-weight: 600; margin: 0 0 8px; color: var(--ink); }
 .explainer p { font-size: 13.5px; margin: 6px 0; color: var(--ink-soft); }
@@ -537,7 +537,7 @@ body.a11y-focus main { max-width: 760px; }
 /* ---------- night mode ---------- */
 body.dark {
   --bg: #16181d; --surface: #1e2128; --ink: #e8eaf0; --ink-soft: #b9bdc9;
-  --ink-faint: #8a8f9e; --line: #2e323c; --accent: #5eead4; --accent-soft: #143b38;
+  --ink-faint: #8a8f9e; --line: #2e323c; --accent: #7aa2f7; --accent-soft: #232b45;
 }
 body.dark .sug .sug-name { color: var(--ink); }
 body.dark .thermo-track { background: #2e323c; }
@@ -712,7 +712,7 @@ body.dark .guide-cand-n { color: var(--accent); }
 .guide-cand-ph { color: #4b5563; font-size: .93rem; }
 .guide-cand-n { color: var(--accent); font-size: .9rem; }
 /* Ambiguous-screen symptom filter: parents narrow the candidate list live. */
-.guide-amfilter { background: var(--accent-soft); border: 1px solid #bfe0da; border-radius: 14px; padding: 16px 18px; margin: 18px 0 4px; }
+.guide-amfilter { background: var(--accent-soft); border: 1px solid #c9d9f7; border-radius: 14px; padding: 16px 18px; margin: 18px 0 4px; }
 .guide-amfilter .guide-h3 { margin-top: 0; }
 .guide-cand-m { font-size: .85rem; font-weight: 600; color: #6b7280; }
 .guide-cand-m.hit { color: var(--accent); }
@@ -779,7 +779,7 @@ body.dark .guide-compare-rowhead td { background: rgba(157,185,247,.08); }
 .guide-linklike { background: none; border: none; padding: 0; color: var(--accent); text-decoration: underline; cursor: pointer; font: inherit; }
 body.dark .guide-linklike { color: var(--accent); }
 /* Closest-match banner + highlight on the ambiguous screen. */
-.guide-closest { background: var(--accent-soft); border: 1px solid #bfe0da; border-radius: 12px; padding: 12px 16px; margin-bottom: 12px; font-size: 1.02rem; }
+.guide-closest { background: var(--accent-soft); border: 1px solid #c9d9f7; border-radius: 12px; padding: 12px 16px; margin-bottom: 12px; font-size: 1.02rem; }
 .guide-cand.top { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 body.dark .guide-closest { background: var(--accent-soft); border-color: #2a5a55; }
 body.dark .guide-cand.top { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
@@ -827,7 +827,7 @@ body.dark .guide-cand.top { border-color: var(--accent); box-shadow: 0 0 0 1px v
 .ep-caveat-banner { background: #fff7e6; border: 1px solid #f0d48a; border-radius: 8px; padding: 0.7rem 0.9rem; margin: 0 0 1rem; font-size: 0.95rem; }
 .ep-deriv { font-size: 0.82rem; color: #5b6472; font-style: italic; }
 .ep-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
-.ep-chip { background: var(--accent-soft); border: 1px solid #bfe0da; border-radius: 20px; padding: 2px 10px; font-size: 0.82rem; cursor: default; }
+.ep-chip { background: var(--accent-soft); border: 1px solid #c9d9f7; border-radius: 20px; padding: 2px 10px; font-size: 0.82rem; cursor: default; }
 .ep-caveat { background: #fff7e6; border-left: 3px solid #e0a82e; padding: 0.4rem 0.7rem; border-radius: 0 6px 6px 0; }
 .ep-card h2 { font-size: 15px; }
 .ep-pick { font-size: 1rem; padding: 0.5rem; border-radius: 6px; border: 1px solid #c9cfd8; max-width: 100%; }
@@ -864,7 +864,7 @@ table.ep-matrix thead th { background: #f4f6fa; font-size: 0.72rem; }
 /* ============ Build 3: "Your Disease" page (urgency-ordered) ============ */
 .status-banner {
   background: var(--accent-soft);
-  border: 1px solid #bfe0da;
+  border: 1px solid #c9d9f7;
   border-left: 4px solid var(--accent);
   border-radius: var(--radius);
   padding: 12px 16px;
