@@ -892,7 +892,7 @@ function compareHTML(cands) {
       '</div>';
   }).join('');
   return '<div class="guide-compare">' +
-    '<h3 class="guide-h3">See them side by side</h3>' +
+    '<h3 class="guide-h3">How our data tells them apart</h3>' +
     '<p class="guide-sub">You&rsquo;re doing the right thing by looking closely. These conditions can look alike &mdash; here&rsquo;s how our data tells them apart. Only a clinician can diagnose.</p>' +
     (shared.length ? '<div class="guide-compare-shared"><strong>Symptoms they share</strong> (why they can be confused): ' + esc2(shared.slice(0, 8).join('; ')) + '</div>'
       : '<div class="guide-compare-shared">Our data doesn&rsquo;t record overlapping symptoms for these.</div>') +
