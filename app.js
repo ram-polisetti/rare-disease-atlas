@@ -317,6 +317,11 @@ function switchTab(name) {
   document.querySelectorAll('.view').forEach(function (v) { v.hidden = true; });
   el('view-' + name).hidden = false;
   renderTabDesc();
+  /* The graph needs the whole screen when the data gets big. */
+  document.body.classList.toggle('wide-explore', name === 'explore');
+  if (name === 'explore' && typeof requestAnimationFrame === 'function') {
+    requestAnimationFrame(function () { window.dispatchEvent(new Event('resize')); });
+  }
   if (name === 'action') {
     const dsel = el('diseaseSelect');
     const cur = getDisease();
