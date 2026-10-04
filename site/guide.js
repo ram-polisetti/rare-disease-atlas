@@ -354,6 +354,8 @@ function renderGuide() {
   body.innerHTML = h;
   wireGuide(body);
   wireBridge(body);
+  // Tier-1 tap-for-definition across the guide conversation (additive).
+  if (typeof markTerms === 'function') markTerms(body);
 }
 
 /* ---- Step 1 of 4: welcome + role selector ---- */
