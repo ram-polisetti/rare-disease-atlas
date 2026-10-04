@@ -551,14 +551,18 @@ function interpret(q) {
   // 0. exact gene symbol -> its diseases. A bare symbol ("NAGLU") is a gene
   // lookup even when a disease synonym happens to contain it — check first.
   var hits = [];
+  var how = null;
   var geneExact = findGene(true);
-  if (geneExact) hits = diseasesForGene(geneExact);
+  if (geneExact) { hits = diseasesForGene(geneExact); how = { t: 'gene', gene: geneExact.label }; }
 
   // 1. disease: substring match on labels + synonyms
-  if (!hits.length) hits = diseaseNodes().filter(function (d) {
-    var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
-    return names.some(function (n) { return n.indexOf(low) !== -1 || (low.length > 4 && low.indexOf(n) !== -1); });
-  });
+  if (!hits.length) {
+    hits = diseaseNodes().filter(function (d) {
+      var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
+      return names.some(function (n) { return n.indexOf(low) !== -1 || (low.length > 4 && low.indexOf(n) !== -1); });
+    });
+    if (hits.length) how = { t: 'name' };
+  }
   // 1b. natural sentence ("my son was diagnosed with sanfilippo"): strip filler
   // words and retry the substring match, so a parent typing normally still
   // finds the disease name instead of hitting a dead end.
@@ -568,25 +572,30 @@ function interpret(q) {
       var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
       return names.some(function (n) { return n.indexOf(stripped) !== -1 || (stripped.length > 4 && stripped.indexOf(n) !== -1); });
     });
+    if (hits.length) how = { t: 'sentence' };
   }
   // 2. fuzzy (typo-tolerant); also tried on the stripped query so a misspelled
   // name inside a sentence ("my son has sanfilipo") still matches.
   if (!hits.length && typeof fuzzySuggest === 'function') {
     var fz = fuzzySuggest(low) || (stripped && stripped !== low ? fuzzySuggest(stripped) : null);
-    if (fz && nodesById[fz.id] && nodesById[fz.id].type === 'disease') hits = [nodesById[fz.id]];
+    if (fz && nodesById[fz.id] && nodesById[fz.id].type === 'disease') {
+      hits = [nodesById[fz.id]];
+      how = { t: 'fuzzy', matched: guideName(nodesById[fz.id]) };
+    }
   }
   // 3. gene prefix -> its diseases
   if (!hits.length) {
     var genePre = findGene(false);
-    if (genePre) hits = diseasesForGene(genePre);
+    if (genePre) { hits = diseasesForGene(genePre); how = { t: 'gene', gene: genePre.label }; }
   }
-  if (hits.length === 1) return { kind: 'disease', id: hits[0].id };
-  if (hits.length > 1) return { kind: 'ambiguous', candidates: hits, via: 'name' };
+  if (hits.length === 1) return { kind: 'disease', id: hits[0].id, how: how };
+  if (hits.length > 1) return { kind: 'ambiguous', candidates: hits, via: (how && how.t === 'gene') ? 'gene' : 'name', how: how };
 
   // 4. symptom -> phenotype token match -> candidate diseases
   var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
   if (toks.length) {
     var scores = {};
+    var phenoHits = [];
     GRAPH.nodes.forEach(function (n) {
       if (n.type !== 'phenotype') return;
       var words = ([n.label].concat(n.synonyms || [])).join(' ').toLowerCase().split(/[^a-z0-9]+/);
@@ -597,14 +606,22 @@ function interpret(q) {
           if (w === t || (w.length > 4 && t.length > 3 && (w.indexOf(t) === 0 || t.indexOf(w) === 0))) { m++; break; }
         }
       });
-      if (m > 0) inEdges(n.id, 'has_phenotype').forEach(function (e) { scores[e.source] = (scores[e.source] || 0) + m; });
+      if (m > 0) {
+        phenoHits.push({ label: plainSymptom(n.label), m: m });
+        inEdges(n.id, 'has_phenotype').forEach(function (e) { scores[e.source] = (scores[e.source] || 0) + m; });
+      }
     });
     var ranked = Object.keys(scores).sort(function (a, b) { return scores[b] - scores[a]; })
       .map(function (id) { return nodesById[id]; })
       .filter(function (n) { return n && n.type === 'disease'; });
-    if (ranked.length) return { kind: 'ambiguous', candidates: ranked, via: 'symptoms' };
+    if (ranked.length) {
+      phenoHits.sort(function (a, b) { return b.m - a.m; });
+      var topPhenos = phenoHits.slice(0, 5).map(function (p) { return p.label; });
+      return { kind: 'ambiguous', candidates: ranked, via: 'symptoms',
+               how: { t: 'symptoms', phenos: topPhenos } };
+    }
   }
-  return { kind: 'nomatch' };
+  return { kind: 'nomatch', how: null };
 }
 
 /* ---------------- roles (folded-in Start; lightweight, remembered) ---------------- */
@@ -652,7 +669,7 @@ var ROLE_EXAMPLES = {
 
 /* ---------------- guide state + rendering ---------------- */
 
-var G = { screen: 'landing', diseaseId: null, candidates: [], via: null, query: '', role: getRole(), certain: null, confirmedPhenos: [] };
+var G = { screen: 'landing', diseaseId: null, candidates: [], via: null, query: '', how: null, role: getRole(), certain: null, confirmedPhenos: [] };
 
 function isNight() {
   var h = new Date().getHours();
@@ -814,6 +831,42 @@ function vSearch() {
     '</div>';
 }
 
+/* ---- Search trail: what you asked, how we understood it, what we show ----
+ * Every result screen opens with this so the visitor can see the path from
+ * their words to our interpretation to the results below. */
+function understoodHTML() {
+  var how = G.how;
+  if (!how) return 'We couldn\u2019t match it to anything in our data.';
+  var d = G.diseaseId && nodesById[G.diseaseId] ? guideName(nodesById[G.diseaseId]) : null;
+  if (how.t === 'gene') {
+    var n = G.candidates && G.candidates.length ? G.candidates.length : (d ? 1 : 0);
+    return 'You typed the gene symbol <strong>' + esc2(how.gene) + '</strong> &mdash; showing the ' +
+      (n === 1 ? 'disease linked to it' : n + ' diseases linked to it') + ' in our data.';
+  }
+  if (how.t === 'fuzzy') {
+    return 'Your spelling was close to <strong>' + esc2(how.matched || '') + '</strong> &mdash; showing that match.';
+  }
+  if (how.t === 'sentence') {
+    if (d) return 'We found the disease name <strong>' + esc2(d) + '</strong> inside your description.';
+    var n = G.candidates && G.candidates.length ? G.candidates.length : 0;
+    return 'We found a disease name inside your description &mdash; ' +
+      (n ? n + ' conditions match it' : 'a few conditions match it') + '.';
+  }
+  if (how.t === 'symptoms') {
+    var ph = (how.phenos || []).slice(0, 5).join('; ');
+    return 'We picked out these symptoms: <strong>' + esc2(ph) + '</strong> &mdash; ranking diseases by how many they share.';
+  }
+  /* name */
+  return 'We matched the disease name in what you typed' + (d ? ' &mdash; showing <strong>' + esc2(d) + '</strong>.' : '.');
+}
+function queryTrailHTML() {
+  if (!G.query) return '';
+  return '<div class="guide-trail" aria-label="How we understood your search">' +
+    '<div class="guide-trail-row"><span class="guide-trail-k">You asked:</span> <span class="guide-trail-q">&ldquo;' + esc2(G.query) + '&rdquo;</span></div>' +
+    '<div class="guide-trail-row"><span class="guide-trail-k">We understood:</span> <span>' + understoodHTML() + '</span></div>' +
+    '</div>';
+}
+
 /* ---- Step 3 of 4: confirmed vs possible match ---- */
 
 function phenoCheckHTML(p, flatIndex) {
@@ -858,6 +911,7 @@ function vConfirm() {
     '<h2 class="guide-h">It sounds like you&rsquo;re asking about <span class="hl">' + esc2(guideName(d)) + '</span>.</h2>' +
     stepLine(3) +
     roleLine() +
+    queryTrailHTML() +
     (ak ? '<p class="guide-sub">Also called: ' + esc2(ak) + '</p>' : '') +
     '<div class="guide-ground">' +
     '<p><strong>You are not alone.</strong> This is a rare genetic condition. There is active research and a community of families on the same path.</p>' +
@@ -1134,6 +1188,7 @@ function vAmbiguous() {
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
     stepLine(2) +
     roleLine() +
+    queryTrailHTML() +
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose. Choose the closest fit ' +
     '&mdash; or &ldquo;None of these seem right&rdquo; if none match.</p>' +
     compare +
@@ -1148,6 +1203,7 @@ function vNoMatch() {
     '<h2 class="guide-h">Here&rsquo;s what we know &mdash; and what we don&rsquo;t.</h2>' +
     stepLine(4) +
     roleLine() +
+    queryTrailHTML() +
     '<p class="guide-sub">We looked through our data and couldn&rsquo;t match what you described to a condition we cover. ' +
     'That doesn&rsquo;t mean nothing exists &mdash; it means <em>we</em> don&rsquo;t have it. Our atlas currently covers 51 lysosomal storage diseases.</p>' +
     '<div class="guide-action-card"><strong>Your next step:</strong> talk to a <strong>geneticist or genetic counselor</strong> &mdash; they can order the right tests. ' +
@@ -1579,6 +1635,7 @@ function wireGuide(scope) {
     }
     G.query = val;
     var r = interpret(val);
+    G.how = r.how || null;
     if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); }
     else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; G.ambFilter = {}; go('ambiguous'); }
     else go('nomatch');

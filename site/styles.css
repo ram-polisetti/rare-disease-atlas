@@ -74,6 +74,10 @@ body {
 .wi-disease-row { margin: 12px 0; display: flex; align-items: center; gap: 10px; }
 .wi-node-link { color: var(--accent-strong, var(--accent)); text-decoration: underline; text-underline-offset: 2px; }
 .wi-node-link:hover { text-decoration-thickness: 2px; }
+.guide-trail { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 14px; margin: 12px 0; font-size: 14px; }
+.guide-trail-row { margin: 4px 0; }
+.guide-trail-k { font-weight: 600; color: var(--ink-soft); margin-right: 6px; }
+.guide-trail-q { font-style: italic; }
 
 /* ---------- mode: settings, prompts, subway legend ---------- */
 
