@@ -8,6 +8,13 @@ variants, phenotypes, papers, trials, funding, patient organizations, mechanisms
 and a patient journey — browsable as a static single-page site. Every extracted
 biomedical claim carries a verbatim source quote and provenance metadata.
 
+The front door is a **parent guide**: a 4-step flow (role → search → narrow down →
+one clear next step) that takes a worried parent from a typed symptom, gene, or
+disease name to a printable clinician dossier — in plain language, with every
+match shown and nothing hidden. Behind it sit 12 research tabs (Explore graph,
+Clusters, Endpoints, What If, Contradictions, Gaps & Limits, Journey, and more),
+all visible to everyone with no gates.
+
 **Graph as built (2026-10-03):** 1,547 nodes, 4,065 edges, 8 Louvain communities
 (modularity 0.55). Node mix: 850 phenotypes, 199 trials, 160 variants, 103
 researchers, 100 funding records, 51 diseases, 48 reusable assets, 16 genes,
@@ -60,10 +67,37 @@ site/                  →  GitHub Pages         (vanilla JS + vis-network CDN; 
   Louvain (resolution 1.0, seed 42) on the disease–gene–phenotype subgraph, writes
   cluster summaries, and traces Maria's 8-step Sanfilippo A journey. The result is
   the single UI contract in `docs/GRAPH_SCHEMA.md`.
-- **Serve:** `site/` is a static copy — Explore (search + 1/2-hop graph with a click
-  detail panel), Clusters (reusable-mechanism cards), Patient Action (viable vs
-  thin links), and Maria's Journey (stepper). Contradictions render as red
-  "Contradictory evidence — shown, never hidden" cards.
+- **Serve:** `site/` is a static copy — the **Guide** (4-step parent flow:
+  role → search by name/gene/symptom → narrow down → one clear next step with a
+  printable dossier), **Your Disease**, **Journey**, **What's New**, **Gaps & Limits**,
+  **Contradictions** (red "shown, never hidden" cards), **Explore** (search + 1/2-hop
+  graph with click detail panel), **Clusters** (reusable-mechanism cards),
+  **Endpoints**, **What If**, **Path to the Next Milestone**, and **Settings**.
+  Vanilla JS + vis-network CDN; no build step.
+
+## Parent guide (the front door)
+
+Built for stressed parents with no medical background — medically serious, calm,
+and simple:
+
+- **Plain-language symptoms everywhere.** HPO labels are clinician jargon
+  ("Dysarthria", "Splenomegaly"); the guide shows "Slurred or unclear speech",
+  "Enlarged spleen", etc., via a curated dictionary. Lab findings and
+  inheritance patterns never appear as things a parent is asked to recognize.
+- **Every match shown, nothing hidden.** A search lists *all* matching
+  conditions — no top-4/top-6 cap. The 20 most telling symptoms become an inline
+  checklist; ticking re-ranks the list live with "Matches X of Y you picked"
+  badges, and a banner names the closest match in the data. Non-matching
+  candidates stay listed so nothing is missed.
+- **Side-by-side comparison.** "Symptoms they share (why they can be confused)"
+  plus per-condition "Only this one, in our data" differentiators.
+- **One continuous thread.** Symptoms picked while narrowing carry into the
+  confirmation step (never re-ticked) and into the printed dossier's
+  "How you got here" section, so a clinician sees what the parent already
+  considered. The confirmation step is skippable.
+- **Honesty guardrails.** "Only a clinician can diagnose" throughout; observed
+  vs inferred relationships stay separate; shared biology never implies
+  treatment transfer.
 
 Edge metadata (per `docs/GRAPH_SCHEMA.md`): every edge carries source, target,
 relation, evidence (observed/inferred), confidence (high/medium/low), source_db,
