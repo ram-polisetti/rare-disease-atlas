@@ -5,6 +5,14 @@
  * orgs, trials, researchers, and timelines come from the graph or are labeled
  * as unknown / general process knowledge. Never diagnoses — matches are
  * presented as "closest in our data; only a clinician can diagnose."
+ *
+ * Build 2 (2026-10-03): redesigned as a short guided conversation —
+ * welcome + role -> search -> confirmed-vs-possible match -> ONE recommended
+ * action, with alternatives collapsed under an "Other paths" expander.
+ * One question per screen, reassuring tone, no dead ends. Stressed-parent lens:
+ * plain words, "what happens next" stated at every step. Medically serious,
+ * never jokey. Bridge buttons (data-go-tab) go through Build 1's switchTab
+ * gating, so research tools prompt before opening in parent mode.
  */
 
 (function () {
@@ -26,6 +34,7 @@ function el(id) { return (typeof window.el === 'function' ? window.el(id) : __fb
 function esc(s) { return (typeof window.esc === 'function' ? window.esc(s) : __fb.esc(s)); }
 function displayName(n) { return (typeof window.displayName === 'function' ? window.displayName(n) : __fb.displayName(n)); }
 function humanize(s) { return (typeof window.humanize === 'function' ? window.humanize(s) : __fb.humanize(s)); }
+function esc2(s) { return esc(String(s == null ? '' : s)); }
 
 /* ---------------- data helpers ---------------- */
 
@@ -146,7 +155,7 @@ function therapyBannerHTML(d) {
   return '<div class="guide-nextstep"><strong>Latest treatment news:</strong> ' + esc2(ts.note) + '</div>';
 }
 
-/* ---------------- interpretation ---------------- */
+/* ---------------- interpretation (unchanged logic) ---------------- */
 
 var STOP = {};
 ('a,an,the,my,son,daughter,child,kid,was,were,is,are,with,has,have,had,he,she,they,them,his,her,our,of,to,in,on,at,for,and,or,just,been,got,getting,about,what,when,why,how,do,does,did,can,could,would,should,i,you,we,it,this,that,these,those,from,by,as,not,no,yes,me,him,us,very,more,most,now,today,old,age,doctor,said,says,diagnosed,diagnosis,disease,syndrome,condition,ill,sick,problem,problems,help,please,find,know,think,might,maybe,couldnt,cant,wont,dont').split(',').forEach(function (w) { STOP[w] = 1; });
@@ -160,9 +169,20 @@ function interpret(q) {
     var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
     return names.some(function (n) { return n.indexOf(low) !== -1 || (low.length > 4 && low.indexOf(n) !== -1); });
   });
-  // 2. fuzzy (typo-tolerant)
+  // 1b. natural sentence ("my son was diagnosed with sanfilippo"): strip filler
+  // words and retry the substring match, so a parent typing normally still
+  // finds the disease name instead of hitting a dead end.
+  var stripped = low.split(/[^a-z0-9]+/).filter(function (t) { return t && !STOP[t]; }).join(' ');
+  if (!hits.length && stripped && stripped !== low) {
+    hits = diseaseNodes().filter(function (d) {
+      var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
+      return names.some(function (n) { return n.indexOf(stripped) !== -1 || (stripped.length > 4 && stripped.indexOf(n) !== -1); });
+    });
+  }
+  // 2. fuzzy (typo-tolerant); also tried on the stripped query so a misspelled
+  // name inside a sentence ("my son has sanfilipo") still matches.
   if (!hits.length && typeof fuzzySuggest === 'function') {
-    var fz = fuzzySuggest(low);
+    var fz = fuzzySuggest(low) || (stripped && stripped !== low ? fuzzySuggest(stripped) : null);
     if (fz && nodesById[fz.id] && nodesById[fz.id].type === 'disease') hits = [nodesById[fz.id]];
   }
   // 3. gene symbol -> its diseases
@@ -206,9 +226,28 @@ function interpret(q) {
   return { kind: 'nomatch' };
 }
 
+/* ---------------- roles (folded-in Start; lightweight, remembered) ---------------- */
+
+var ROLE_KEY = 'rda_role';
+var ROLES = {
+  care: { label: "I'm caring for someone", short: 'caring for someone', blurb: 'For a child or family member' },
+  org: { label: 'I lead a patient organization', short: 'leading a patient organization', blurb: 'Building community, funding, or advocacy' },
+  scout: { label: "I'm scouting therapies", short: 'scouting therapies', blurb: 'Looking for treatments or trials to support' },
+  researcher: { label: "I'm a researcher", short: 'doing research', blurb: 'Studying diseases, genes, or mechanisms' }
+};
+function getRole() {
+  try { var r = localStorage.getItem(ROLE_KEY); return ROLES[r] ? r : null; } catch (e) { return null; }
+}
+function setRole(r) {
+  if (!ROLES[r]) r = null;
+  try { localStorage.setItem(ROLE_KEY, r || ''); } catch (e) {}
+  G.role = r;
+}
+function roleShort() { return G.role ? ROLES[G.role].short : null; }
+
 /* ---------------- guide state + rendering ---------------- */
 
-var G = { screen: 'landing', diseaseId: null, candidates: [], via: null, query: '' };
+var G = { screen: 'landing', diseaseId: null, candidates: [], via: null, query: '', role: getRole(), certain: null, confirmedPhenos: [] };
 
 function isNight() {
   var h = new Date().getHours();
@@ -227,14 +266,30 @@ function go(screen) {
   window.scrollTo(0, 0);
 }
 
+/* Small orientation line: one question at a time, "what happens next" always stated. */
+function stepLine(n) {
+  var nexts = { 1: 'Then we&rsquo;ll ask what you know.', 2: 'Then we&rsquo;ll check what matches.', 3: 'Then you get one clear next step.', 4: '' };
+  return '<p class="guide-step">Step ' + n + ' of 4' + (nexts[n] ? ' &middot; ' + nexts[n] : '') + '</p>';
+}
+function roleLine() {
+  var rs = roleShort();
+  return '<p class="guide-roleline">' +
+    (rs ? 'You&rsquo;re here as: <strong>' + esc2(rs) + '</strong> &middot; '
+        : 'No role picked yet &middot; ') +
+    '<button type="button" class="guide-link" data-nav="landing">change</button></p>';
+}
+
+/* Bridge buttons to other tabs. These call Build 1's switchTab, which gates
+ * research tools (Explore, What If, ...) with the researcher-mode prompt in
+ * parent mode — never a silent landing on a hidden tab. */
 function bridgeHTML() {
   return '<div class="guide-bridge">' +
     '<p>Want the full picture? The complete atlas is behind this guide:</p>' +
     '<div class="guide-bridge-btns">' +
-    '<button class="btn" data-go-tab="explore">Explore the graph</button>' +
-    '<button class="btn" data-go-tab="journey">Family Journey</button>' +
-    '<button class="btn" data-go-tab="whatif">What-if planner</button>' +
-    '<button class="btn" data-go-tab="action">Patient Action</button>' +
+    '<button type="button" class="btn" data-go-tab="explore">Explore the graph</button>' +
+    '<button type="button" class="btn" data-go-tab="journey">Family Journey</button>' +
+    '<button type="button" class="btn" data-go-tab="whatif">What-if planner</button>' +
+    '<button type="button" class="btn" data-go-tab="action">Your Disease page</button>' +
     '</div></div>';
 }
 
@@ -247,9 +302,6 @@ function wireBridge(scope) {
     });
   });
 }
-
-function esc2(s) { return esc(String(s == null ? '' : s)); }
-
 /* Disease names for zero-knowledge readers: prefer familiar common names
  * (Sanfilippo, Hunter, Fabry...), then names containing disease-words, then
  * the curated label. Never surfaces drug names (e.g. "Aglucosidase alfa")
@@ -279,18 +331,21 @@ function safeUrl(u) {
   if (/^https?:\/\//i.test(u)) return u;
   return 'https://clinicaltrials.gov/';
 }
+
 function renderGuide() {
   var body = el('guideBody');
   if (!body) return;
-  // Screens below 'ambiguous' need a disease; without one, restart at landing.
-  var needsDisease = { confirm: 1, hub: 1, families: 1, understand: 1, research: 1, connections: 1, export: 1 };
-  if (needsDisease[G.screen] && !nodesById[G.diseaseId]) G.screen = 'landing';
+  // Screens below need a disease; without one, restart at search.
+  var needsDisease = { confirm: 1, action: 1, families: 1, understand: 1, research: 1, connections: 1, export: 1 };
+  if (needsDisease[G.screen] && !nodesById[G.diseaseId]) G.screen = 'search';
+  if (G.screen === 'ambiguous' && (!G.candidates || !G.candidates.length)) G.screen = 'search';
   var h = '';
   if (G.screen === 'landing') h = vLanding();
+  else if (G.screen === 'search') h = vSearch();
   else if (G.screen === 'confirm') h = vConfirm();
   else if (G.screen === 'ambiguous') h = vAmbiguous();
   else if (G.screen === 'nomatch') h = vNoMatch();
-  else if (G.screen === 'hub') h = vHub();
+  else if (G.screen === 'action') h = vAction();
   else if (G.screen === 'families') h = vFamilies();
   else if (G.screen === 'understand') h = vUnderstand();
   else if (G.screen === 'research') h = vResearch();
@@ -301,43 +356,68 @@ function renderGuide() {
   wireBridge(body);
 }
 
-/* ---- Screen 1: landing ---- */
+/* ---- Step 1 of 4: welcome + role selector ---- */
 
 function vLanding() {
   var night = isNight();
+  var roles = Object.keys(ROLES).map(function (k) {
+    var sel = G.role === k;
+    return '<button type="button" class="guide-role" role="radio" aria-checked="' + (sel ? 'true' : 'false') + '" data-role="' + k + '">' +
+      '<strong>' + esc2(ROLES[k].label) + '</strong><span>' + esc2(ROLES[k].blurb) + '</span></button>';
+  }).join('');
   return '<div class="guide-hero">' +
     (night ? '<div class="guide-night">It&rsquo;s late. You don&rsquo;t have to figure everything out tonight. ' +
-      'Here&rsquo;s what we can do right now: find a family you can talk to, show you the basics, and save your place for tomorrow.</div>' : '') +
+      'We&rsquo;ll take this one question at a time and end with one clear next step.</div>' : '') +
     '<h2 class="guide-h">You&rsquo;re not alone. Let&rsquo;s find your path together.</h2>' +
-    '<p class="guide-sub">Type what you know &mdash; a diagnosis, a gene, symptoms, or even just what the doctor said. Plain words are fine.</p>' +
+    '<p class="guide-sub">This guide asks one question at a time and ends with <strong>one clear next step</strong>. ' +
+    'You&rsquo;re doing the right thing by looking. Plain words are fine.</p>' +
+    stepLine(1) +
+    '<p class="guide-sub"><strong>First, who are you here as?</strong></p>' +
+    '<div class="guide-roles" role="radiogroup" aria-label="Who are you here as">' + roles + '</div>' +
+    '<p class="guide-fine">We&rsquo;ll remember your choice. You can change it anytime.</p>' +
+    '<p class="guide-alt"><button type="button" class="guide-link" data-nav="search">Skip &mdash; just let me search</button></p>' +
+    '</div>';
+}
+
+/* ---- Step 2 of 4: disease-or-symptom search ---- */
+
+function vSearch() {
+  return '<div class="guide-pane">' +
+    '<button type="button" class="guide-back" data-nav="landing">&larr; Who I&rsquo;m here as</button>' +
+    '<h2 class="guide-h">Tell us what you know.</h2>' +
+    stepLine(2) +
+    roleLine() +
+    '<p class="guide-sub">A diagnosis name, a gene, or symptoms in plain words. One thing at a time is fine.</p>' +
     '<div class="guide-searchrow">' +
     '<input id="guideQ" type="text" autocomplete="off" spellcheck="false" aria-label="Describe your situation" placeholder="What brings you here tonight?">' +
     '<button id="guideGo" class="btn primary">Find my community &rarr;</button>' +
     '</div>' +
     '<div class="guide-examples"><span>Try:</span>' +
-    '<button class="chip" data-ex="My son was diagnosed with Sanfilippo">My son was diagnosed with Sanfilippo</button>' +
-    '<button class="chip" data-ex="The doctor said something about MPS III">The doctor said something about MPS III</button>' +
-    '<button class="chip" data-ex="He can\'t walk anymore and they don\'t know why">He can&rsquo;t walk anymore and they don&rsquo;t know why</button>' +
+    '<button type="button" class="chip" data-ex="My son was diagnosed with Sanfilippo">My son was diagnosed with Sanfilippo</button>' +
+    '<button type="button" class="chip" data-ex="The doctor said something about MPS III">The doctor said something about MPS III</button>' +
+    '<button type="button" class="chip" data-ex="He can\'t walk anymore and they don\'t know why">He can&rsquo;t walk anymore and they don&rsquo;t know why</button>' +
     '</div>' +
     '<p class="guide-fine">We&rsquo;ll never guess a diagnosis. We only show what&rsquo;s actually in our data &mdash; and we say so when we don&rsquo;t have it.</p>' +
-    '<p class="guide-alt">Looking for the researcher view? <a href="#" data-go-tab="explore">Open the full atlas</a></p>' +
     '</div>';
 }
 
-/* ---- Screen 2: confirmation with verification ---- */
+/* ---- Step 3 of 4: confirmed vs possible match ---- */
 
 function vConfirm() {
   var d = nodesById[G.diseaseId];
-  if (!d) return vNoMatch();
+  if (!d) return vSearch();
   var phenos = phenosFor(d.id).slice(0, 4);
   var ak = alsoCalled(d);
   var checks = phenos.map(function (p, i) {
     var chk = (G.confirmedPhenos || []).indexOf(p.id || p.label) !== -1 ? ' checked' : '';
     return '<label class="guide-check"><input type="checkbox" data-ph="' + i + '"' + chk + '> ' + esc2(humanize(p.label)) + '</label>';
   }).join('');
+  var backTarget = (G.candidates && G.candidates.length > 1) ? 'ambiguous' : 'search';
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="landing">&larr; Start over</button>' +
+    '<button type="button" class="guide-back" data-nav="' + backTarget + '">&larr; Back</button>' +
     '<h2 class="guide-h">It sounds like you&rsquo;re asking about <span class="hl">' + esc2(guideName(d)) + '</span>.</h2>' +
+    stepLine(3) +
+    roleLine() +
     (ak ? '<p class="guide-sub">Also called: ' + esc2(ak) + '</p>' : '') +
     '<div class="guide-ground">' +
     '<p><strong>You are not alone.</strong> This is a rare genetic condition. There is active research and a community of families on the same path.</p>' +
@@ -347,15 +427,15 @@ function vConfirm() {
     '<p class="guide-sub">Tick the ones you recognize. This helps us point you right.</p>' +
     '<div class="guide-checks">' + (checks || '<p class="guide-fine">We don&rsquo;t have symptom details recorded for this condition yet.</p>') + '</div>' +
     '<div class="guide-btnrow">' +
-    '<button class="btn primary" data-nav="hub">Yes, this matches &rarr;</button>' +
-    '<button class="btn" data-nav="ambiguous">Not quite right</button>' +
+    '<button type="button" class="btn primary" data-certain="yes">Yes, this is our diagnosis &rarr;</button>' +
+    '<button type="button" class="btn" data-certain="maybe">I think so, but I&rsquo;m not sure</button>' +
     '</div>' +
-    '<p class="guide-fine">Not sure? That&rsquo;s okay &mdash; a <a href="https://www.acmg.net/" target="_blank" rel="noopener">genetic counselor</a> can help clarify. Continue anyway and we&rsquo;ll keep things general.</p>' +
-    bridgeHTML() +
+    '<p class="guide-fine">Not sure? That&rsquo;s okay &mdash; keep going and we&rsquo;ll keep things general, ' +
+    'or talk to a <a href="https://www.acmg.net/" target="_blank" rel="noopener">genetic counselor</a> who can help clarify.</p>' +
     '</div>';
 }
 
-/* ---- Ambiguous: candidate cards ---- */
+/* ---- Ambiguous: candidate cards + side-by-side comparison (kept from Build B) ---- */
 
 /* Symptom comparison (Build B): side-by-side view of candidate matches.
  * Shared symptoms (why they're confused), differentiating symptoms per disease,
@@ -391,7 +471,7 @@ function compareHTML(cands) {
       (unique.length ? '<span class="guide-compare-diff">Only this one, in our data: ' + esc2(unique.map(function (p) { return p.label; }).join('; ')) + '</span>'
         : '<span class="guide-compare-diff">No unique symptoms recorded in our data.</span>') +
       '<span class="guide-compare-why">' + diffLine + '</span>' +
-      '<button class="btn small" data-pick="' + d.id + '">Open ' + esc2(guideName(d)) + ' &rarr;</button>' +
+      '<button type="button" class="btn small" data-pick="' + d.id + '">Open ' + esc2(guideName(d)) + ' &rarr;</button>' +
       '</div>';
   }).join('');
   return '<div class="guide-compare">' +
@@ -404,7 +484,7 @@ function compareHTML(cands) {
 }
 
 function vAmbiguous() {
-  if (!G.candidates || !G.candidates.length) return vLanding();
+  if (!G.candidates || !G.candidates.length) return vSearch();
   var via = G.via === 'symptoms'
     ? 'Based on the symptoms you described, these are the closest matches in our data.'
     : 'A few conditions match what you typed.';
@@ -412,7 +492,7 @@ function vAmbiguous() {
   var cards = G.candidates.map(function (d) {
     var phenos = phenosFor(d.id).slice(0, 3).map(function (p) { return esc2(humanize(p.label)); }).join('; ');
     var nOrg = orgsFor(d.id).length;
-    return '<button class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
+    return '<button type="button" class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
       (nOrg ? '<span class="guide-cand-n">' + nOrg + (nOrg === 1 ? ' family' : ' families') + ' connected through patient groups</span>'
@@ -420,82 +500,188 @@ function vAmbiguous() {
       '</button>';
   }).join('');
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="landing">&larr; Start over</button>' +
+    '<button type="button" class="guide-back" data-nav="search">&larr; Start over</button>' +
     '<h2 class="guide-h">Let&rsquo;s narrow it down.</h2>' +
+    stepLine(2) +
+    roleLine() +
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
     compare +
     '<div class="guide-cands">' + cards + '</div>' +
-    '<button class="btn" data-nav="nomatch">None of these seem right</button>' +
+    '<button type="button" class="btn" data-nav="nomatch">None of these seem right</button>' +
     '</div>';
 }
-
-/* ---- No match: honest dead end ---- */
+/* ---- No match: honest, never a dead end ---- */
 
 function vNoMatch() {
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="landing">&larr; Start over</button>' +
+    '<button type="button" class="guide-back" data-nav="search">&larr; Try different words</button>' +
     '<h2 class="guide-h">Here&rsquo;s what we know &mdash; and what we don&rsquo;t.</h2>' +
+    stepLine(4) +
+    roleLine() +
     '<p class="guide-sub">We looked through our data and couldn&rsquo;t match what you described to a condition we cover. ' +
-    'That doesn&rsquo;t mean nothing exists &mdash; it means <em>we</em> don&rsquo;t have it. Our atlas currently covers 16 lysosomal storage diseases.</p>' +
-    '<h3 class="guide-h3">What you can do</h3>' +
+    'That doesn&rsquo;t mean nothing exists &mdash; it means <em>we</em> don&rsquo;t have it. Our atlas currently covers 51 lysosomal storage diseases.</p>' +
+    '<div class="guide-action-card"><strong>Your next step:</strong> talk to a <strong>geneticist or genetic counselor</strong> &mdash; they can order the right tests. ' +
+    '<a href="https://www.acmg.net/" target="_blank" rel="noopener">Find one near you</a></div>' +
+    '<h3 class="guide-h3">Other paths</h3>' +
     '<ul class="guide-list">' +
-    '<li><strong>Talk to a geneticist or genetic counselor</strong> &mdash; they can order the right tests. ' +
-    '<a href="https://www.acmg.net/" target="_blank" rel="noopener">Find one near you</a></li>' +
     '<li><strong>Join NORD&rsquo;s community</strong> &mdash; the National Organization for Rare Disorders helps undiagnosed families. ' +
     '<a href="https://rarediseases.org/" target="_blank" rel="noopener">rarediseases.org</a></li>' +
-    '<li><strong>Try different words</strong> &mdash; a gene name, a symptom, or part of the diagnosis you remember.</li>' +
+    '<li><strong>Try different words</strong> &mdash; a gene name, a symptom, or part of the diagnosis you remember. ' +
+    '<button type="button" class="guide-link" data-nav="search">Search again</button></li>' +
     '</ul>' +
+    '<p class="guide-fine">You&rsquo;re doing the right thing by looking. An unclear answer today can still lead somewhere tomorrow.</p>' +
     bridgeHTML() +
     '</div>';
 }
 
-/* ---- Screen 3: hub ---- */
+/* ---- Step 4 of 4: ONE recommended action ---- */
 
-function hubCounts(did) {
-  return {
-    orgs: orgsFor(did).length,
-    trials: trialsFor(did).length,
-    rec: recruitingTrials(did).length,
-    res: researchersFor(did).length,
-    rel: relatedFor(did).length
-  };
+/* Concrete, honest, never invented. If no orgs/trials exist in the data, says
+ * so plainly and routes to a specialist or the NORD helpline. */
+function orgLinkHTML(o) {
+  var url = (o.extra && o.extra.url) || null;
+  if (url) return '<a href="' + esc2(safeUrl(url)) + '" target="_blank" rel="noopener">' + esc2(o.label) + '</a>';
+  return esc2(o.label);
+}
+function geneticistHTML() {
+  return '<p class="guide-sub">Ask your doctor for a referral to a <strong>geneticist or genetic counselor</strong> who knows this condition, ' +
+    'or find one near you through <a href="https://www.acmg.net/" target="_blank" rel="noopener">the American College of Medical Genetics</a>. ' +
+    'The <a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD helpline</a> can also point you to resources.</p>';
 }
 
-function vHub() {
+function recommendAction(d, role, certain) {
+  var orgs = orgsFor(d.id), rec = recruitingTrials(d.id), trials = trialsFor(d.id);
+  var dn = esc2(guideName(d));
+  var out = { title: '', body: '', print: false, links: '' };
+
+  if (!certain) {
+    // Possible match: the honest move is a clinician, with a printed summary.
+    out.title = 'Bring this summary to a geneticist';
+    out.body = '<p class="guide-sub">Only a clinician &mdash; and usually a genetic test &mdash; can say whether <strong>' + dn + '</strong> ' +
+      'is what&rsquo;s happening. That&rsquo;s not a failure of your searching; it&rsquo;s how rare conditions work.</p>' +
+      '<p class="guide-sub">Print the one-page summary below and take it to a <strong>geneticist or genetic counselor</strong>. ' +
+      'It gathers everything our atlas holds on this condition, so you don&rsquo;t have to remember it all.</p>';
+    out.print = true;
+    out.links = '<div class="guide-btnrow"><button type="button" class="btn primary" data-nav="export">Print your summary &rarr;</button></div>' +
+      '<p class="guide-fine">Not diagnosed yet? The <a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD undiagnosed-disease resources</a> are built for exactly this situation.</p>';
+    return out;
+  }
+
+  if (role === 'researcher') {
+    out.title = 'Open the research workspace';
+    out.body = '<p class="guide-sub">For <strong>' + dn + '</strong>, our atlas holds: <strong>' + trials.length + '</strong> studies recorded' +
+      (rec.length ? ' (' + rec.length + ' recruiting now)' : '') + ', <strong>' + orgs.length + '</strong> patient organizations, ' +
+      '<strong>' + genesFor(d.id).length + '</strong> genes, and <strong>' + relatedFor(d.id).length + '</strong> connected conditions.</p>' +
+      '<p class="guide-sub">The research workspace opens the full graph around this condition.</p>';
+    out.links = '<div class="guide-btnrow"><button type="button" class="btn primary" data-go-tab="explore">Open the Explore research workspace &rarr;</button></div>';
+    return out;
+  }
+
+  if (role === 'scout') {
+    out.title = 'Ask a clinician about these recruiting studies';
+    if (rec.length) {
+      out.body = '<p class="guide-sub"><strong>' + rec.length + '</strong> of <strong>' + trials.length + '</strong> studies recorded for <strong>' + dn + '</strong> ' +
+        'are recruiting right now:</p><ul class="guide-list">' +
+        rec.slice(0, 4).map(function (t) {
+          var p = trialPlain(t);
+          return '<li>' + esc2(humanize(p.title)) + ' &mdash; ' + esc2(p.meta) + ' &middot; <a href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">view</a></li>';
+        }).join('') + '</ul>' +
+        '<p class="guide-fine">Most experimental treatments never become approved medicines. Bring these to a clinician to weigh eligibility and risks.</p>';
+    } else if (trials.length) {
+      out.title = 'Check ClinicalTrials.gov for the latest';
+      out.body = '<p class="guide-sub">We have <strong>' + trials.length + '</strong> studies recorded for <strong>' + dn + '</strong>, ' +
+        'but none are recruiting in our data right now. Trials open and close often &mdash; ' +
+        '<a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">search ClinicalTrials.gov</a> for the current picture.</p>';
+    } else {
+      out.title = 'No studies recorded — ask a specialist';
+      out.body = '<p class="guide-sub">We don&rsquo;t have any studies recorded for <strong>' + dn + '</strong>. ' +
+        'That doesn&rsquo;t mean none exist &mdash; it means <em>we</em> don&rsquo;t have them.</p>' + geneticistHTML();
+    }
+    return out;
+  }
+
+  if (role === 'org') {
+    if (orgs.length) {
+      out.title = 'Connect with these peer organizations';
+      out.body = '<p class="guide-sub"><strong>' + orgs.length + '</strong> patient organizations are recorded for <strong>' + dn + '</strong>. ' +
+        'They&rsquo;ve already solved problems you&rsquo;re about to face &mdash; registries, study design, hard-won experience:</p><ul class="guide-list">' +
+        orgs.slice(0, 4).map(function (o) { return '<li>' + orgLinkHTML(o) + '</li>'; }).join('') + '</ul>' +
+        '<p class="guide-sub">Next, look at what&rsquo;s still missing: open the <a href="#" data-go-tab="gaps">Gaps &amp; Limits</a> tab for this condition.</p>';
+    } else {
+      out.title = 'Help find or start a community';
+      out.body = '<p class="guide-sub">We don&rsquo;t have a patient group recorded for <strong>' + dn + '</strong>. ' +
+        '<a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD</a> can help you find or start one &mdash; and you&rsquo;re allowed to be the one who starts it.</p>';
+    }
+    return out;
+  }
+
+  // Default: caring for someone (and no role picked).
+  if (orgs.length) {
+    out.title = 'Contact one of these patient organizations';
+    out.body = '<p class="guide-sub">Our data holds <strong>' + orgs.length + '</strong> patient groups for <strong>' + dn + '</strong>. ' +
+      'They talk to families like yours every day &mdash; about care, doctors who know the condition, and what other families have learned:</p><ul class="guide-list">' +
+      orgs.slice(0, 4).map(function (o) { return '<li>' + orgLinkHTML(o) + '</li>'; }).join('') + '</ul>' +
+      '<p class="guide-fine">Reaching out is the single most useful first step. Ask your doctor before acting on anyone&rsquo;s advice.</p>';
+  } else if (rec.length) {
+    out.title = 'Ask your doctor about these recruiting studies';
+    out.body = '<p class="guide-sub">Our data holds <strong>' + rec.length + '</strong> studies recruiting right now for <strong>' + dn + '</strong>:</p><ul class="guide-list">' +
+      rec.slice(0, 4).map(function (t) {
+        var p = trialPlain(t);
+        return '<li>' + esc2(humanize(p.title)) + ' &mdash; <a href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">view</a></li>';
+      }).join('') + '</ul>' +
+      '<p class="guide-fine">Ask your doctor whether any could be a fit. Research studies are early steps, not approved treatments.</p>';
+  } else {
+    out.title = 'Contact a specialist or the NORD helpline';
+    out.body = '<p class="guide-sub">We don&rsquo;t have a patient group or recruiting studies recorded for <strong>' + dn + '</strong>. ' +
+      'We&rsquo;d rather say that plainly than pretend. The most useful next step is a human who knows this condition:</p>' + geneticistHTML();
+  }
+  return out;
+}
+
+function otherPathsHTML(d) {
+  var nOrg = orgsFor(d.id).length, nTrial = trialsFor(d.id).length, nRel = relatedFor(d.id).length;
+  function b(nav, label, sub) {
+    return '<div class="guide-op-row"><button type="button" class="btn" data-nav="' + nav + '">' + label + '</button>' +
+      (sub ? ' <span class="guide-op-sub">&mdash; ' + sub + '</span>' : '') + '</div>';
+  }
+  return '<details class="guide-otherpaths"><summary>Other paths</summary>' +
+    '<div class="guide-otherpaths-btns">' +
+    b('understand', 'Understand what this means', 'plain-language basics') +
+    b('families', 'Talk to another family', nOrg + ' patient group' + (nOrg === 1 ? '' : 's')) +
+    b('research', 'See what research is happening', nTrial + ' studies recorded') +
+    b('connections', 'Related communities', nRel + ' connected condition' + (nRel === 1 ? '' : 's')) +
+    b('export', 'Print your full dossier', 'take it to your doctor') +
+    '</div></details>';
+}
+
+function vAction() {
   var d = nodesById[G.diseaseId];
-  if (!d) return vNoMatch();
-  var c = hubCounts(d.id);
-  var orgs = orgsFor(d.id);
-  var nextStep = orgs.length
-    ? 'Tomorrow: call or message <strong>' + esc2(orgs[0].label) + '</strong> &mdash; they talk to families like yours every day.'
-    : (c.rec ? 'Tomorrow: look at the treatments being tested below and ask your doctor whether any could fit.' : 'Tomorrow: ask your doctor for a referral to a genetic counselor who knows this condition.');
+  if (!d) return vSearch();
+  var rec = recommendAction(d, G.role, G.certain);
+  var ak = alsoCalled(d);
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="confirm">&larr; Back</button>' +
-    '<h2 class="guide-h">' + esc2(guideName(d)) + '</h2>' +
-    '<p class="guide-sub">Here&rsquo;s what our data holds for this condition &mdash; in plain language.</p>' +
-    '<div class="guide-nextstep"><strong>One thing for tomorrow:</strong> ' + nextStep + '</div>' +
-    '<h3 class="guide-h3">What would help you most right now?</h3>' +
-    '<div class="guide-cards">' +
-    '<button class="guide-card" data-nav="families" aria-label="Talk to another family"><span class="gc-emoji">👨‍👩‍👧</span><strong>Talk to another family</strong><span>' + c.orgs + ' patient group' + (c.orgs === 1 ? '' : 's') + ' in our data</span></button>' +
-    '<button class="guide-card" data-nav="understand" aria-label="Understand what this means"><span class="gc-emoji">📋</span><strong>Understand what this means</strong><span>Plain-language guide, no jargon</span></button>' +
-    '<button class="guide-card" data-nav="research" aria-label="See what research is happening"><span class="gc-emoji">🔬</span><strong>See what research is happening</strong><span>' + c.trials + ' studies recorded' + (c.rec ? ', ' + c.rec + ' recruiting now' : '') + '</span></button>' +
-    '<button class="guide-card" data-nav="connections" aria-label="Find related communities"><span class="gc-emoji">🤝</span><strong>Find related communities</strong><span>' + c.rel + ' connected condition' + (c.rel === 1 ? '' : 's') + ' sharing biology</span></button>' +
-    '</div>' +
+    '<button type="button" class="guide-back" data-nav="confirm">&larr; Back</button>' +
+    '<h2 class="guide-h">Your next step: <span class="hl">' + rec.title + '</span></h2>' +
+    stepLine(4) +
+    roleLine() +
+    '<p class="guide-sub">For <strong>' + esc2(guideName(d)) + '</strong>' +
+    (ak ? ' <span class="guide-fine">(also called: ' + esc2(ak) + ')</span>' : '') + '.</p>' +
+    '<div class="guide-action-card">' + rec.body + rec.links + '</div>' +
+    '<p class="guide-fine">Only a clinician can make a diagnosis. Everything here is what our data actually holds &mdash; not medical advice.</p>' +
+    otherPathsHTML(d) +
     bridgeHTML() +
     '</div>';
 }
-
-/* ---- 4a: families ---- */
+/* ---- Other paths (collapsed under the action screen; back returns there) ---- */
 
 function vFamilies() {
   var d = nodesById[G.diseaseId];
   var orgs = orgsFor(d.id);
   var cards = orgs.map(function (o) {
     var url = (o.extra && o.extra.url) || null;
-    var verified = true; // all orgs in graph are curated from NORD/Orphanet/directory sources
     return '<div class="guide-org">' +
       '<strong>' + esc2(o.label) + '</strong>' +
-      (verified ? '<span class="verified">✓ Verified non-profit &mdash; listed in a trusted directory</span>' : '') +
+      '<span class="verified">✓ Verified non-profit &mdash; listed in a trusted directory</span>' +
       (o.description ? '<p>' + esc2(o.description) + '</p>' : '') +
       (url ? '<a class="btn small" href="' + esc2(safeUrl(url)) + '" target="_blank" rel="noopener">Visit their site &rarr;</a>' : '') +
       '</div>';
@@ -503,7 +689,7 @@ function vFamilies() {
   if (!cards) cards = '<p class="guide-sub">We don&rsquo;t have a patient group recorded for this condition yet. ' +
     '<a href="https://rarediseases.org/" target="_blank" rel="noopener">NORD</a> can help you find or start one.</p>';
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="hub">&larr; Back</button>' +
+    '<button type="button" class="guide-back" data-nav="action">&larr; Your next step</button>' +
     '<h2 class="guide-h">Families facing ' + esc2(guideName(d)) + '</h2>' +
     '<p class="guide-sub">These organizations exist to talk to families like yours. Reaching out is the single most useful first step.</p>' +
     cards +
@@ -512,8 +698,6 @@ function vFamilies() {
     bridgeHTML() +
     '</div>';
 }
-
-/* ---- 4b: understand ---- */
 
 function vUnderstand() {
   var d = nodesById[G.diseaseId];
@@ -533,19 +717,17 @@ function vUnderstand() {
       '<p class="guide-fine">Every child is different. Doctors can&rsquo;t predict exactly how things will change for your child &mdash; some progress slowly, some faster.</p>'
     : '';
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="hub">&larr; Back</button>' +
+    '<button type="button" class="guide-back" data-nav="action">&larr; Your next step</button>' +
     '<h2 class="guide-h">Understanding ' + esc2(guideName(d)) + '</h2>' +
     '<p class="guide-fine">Written in plain language. Tap any <span class="gloss">underlined term</span> anywhere in the atlas for its definition.</p>' +
     geneBit + phenoBit +
     '<h3 class="guide-h3">What we don&rsquo;t know yet</h3>' +
     '<p>Research hasn&rsquo;t answered everything about this condition. Where our data has gaps, we show them plainly instead of guessing &mdash; ' +
-    'see the <a href="#" data-go-tab="gaps">Gaps</a> view.</p>' +
-    '<div class="guide-btnrow"><button class="btn primary" data-nav="families">Talk to other parents about what to expect &rarr;</button></div>' +
+    'see the <a href="#" data-go-tab="gaps">Gaps &amp; Limits</a> tab.</p>' +
+    '<div class="guide-btnrow"><button type="button" class="btn primary" data-nav="families">Talk to other parents about what to expect &rarr;</button></div>' +
     bridgeHTML() +
     '</div>';
 }
-
-/* ---- 4c: research ---- */
 
 function trialPlain(t) {
   var ex = t.extra || {};
@@ -572,13 +754,13 @@ function vResearch() {
       '<span class="guide-trial-meta">' + esc2(p.meta) + '</span>' +
       '<p class="guide-fine">This is a research study testing a possible treatment &mdash; not an approved medicine.</p>' +
       '<div class="guide-btnrow"><a class="btn small" href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">View on ClinicalTrials.gov &rarr;</a>' +
-      (isRec ? '<button class="btn small" data-go-tab="action">Check eligibility &rarr;</button>' : '') + '</div>' +
+      (isRec ? '<button type="button" class="btn small" data-go-tab="action">Check eligibility &rarr;</button>' : '') + '</div>' +
       '</div>';
   }).join('');
   if (!cards) cards = '<p class="guide-sub">No studies are recorded for this condition in our data right now. That doesn&rsquo;t mean none exist &mdash; ' +
     'try searching <a href="https://clinicaltrials.gov/" target="_blank" rel="noopener">ClinicalTrials.gov</a> directly, or ask your doctor.</p>';
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="hub">&larr; Back</button>' +
+    '<button type="button" class="guide-back" data-nav="action">&larr; Your next step</button>' +
     '<h2 class="guide-h">What research is happening</h2>' +
     '<p class="guide-sub">' + trials.length + ' studies recorded for ' + esc2(guideName(d)) +
     (rec.length ? ', <strong>' + rec.length + ' recruiting now</strong>' : '') + '.</p>' +
@@ -590,8 +772,6 @@ function vResearch() {
     bridgeHTML() +
     '</div>';
 }
-
-/* ---- 4d: connections ---- */
 
 function vConnections() {
   var d = nodesById[G.diseaseId];
@@ -611,21 +791,20 @@ function vConnections() {
   }).join('');
   if (!cards) cards = '<p class="guide-sub">No related conditions are recorded for this disease in our data yet.</p>';
   return '<div class="guide-pane">' +
-    '<button class="guide-back" data-nav="hub">&larr; Back</button>' +
+    '<button type="button" class="guide-back" data-nav="action">&larr; Your next step</button>' +
     '<h2 class="guide-h">Related communities</h2>' +
     '<p class="guide-sub">Conditions that share biology with ' + esc2(guideName(d)) + '. Their communities may have built things yours can reuse &mdash; ' +
     'registries, study designs, hard-won experience.</p>' +
     cards +
-    '<div class="guide-btnrow"><button class="btn primary" data-nav="export">Create your full dossier &rarr;</button></div>' +
+    '<div class="guide-btnrow"><button type="button" class="btn primary" data-nav="export">Create your full dossier &rarr;</button></div>' +
     bridgeHTML() +
     '</div>';
 }
-
-/* ---- Screen 5: export ---- */
+/* ---- Dossier (printable; kept whole, back returns to the action screen) ---- */
 
 function vExport() {
   var d = nodesById[G.diseaseId];
-  if (!d) return vLanding();
+  if (!d) return vSearch();
   var orgs = orgsFor(d.id), trials = trialsFor(d.id), rel = relatedFor(d.id).slice(0, 6);
   var genes = genesFor(d.id), phenos = phenosFor(d.id), assets = assetsFor(d.id);
   var quotes = quotesFor(d.id, 3);
@@ -638,7 +817,7 @@ function vExport() {
   var others = trials.filter(function (t) { return ((t.extra && t.extra.status) || '').toUpperCase().indexOf('RECRUIT') !== 0; });
 
   var h = '<div class="guide-pane" id="guideExportDoc">' +
-    '<button class="guide-back" data-nav="connections">&larr; Back</button>' +
+    '<button type="button" class="guide-back" data-nav="action">&larr; Your next step</button>' +
     '<h2 class="guide-h">Your dossier: ' + esc2(guideName(d)) + '</h2>' +
     '<p class="guide-sub">Everything our atlas holds on this condition, in one place. Take it to your doctor, your family, or your patient group. ' +
     'You&rsquo;re doing the right thing by looking. Generated ' + new Date().toLocaleDateString() + '.</p>' +
@@ -704,7 +883,7 @@ function vExport() {
 
   h += '<p class="guide-fine">Sources: every connection in the atlas carries its evidence &mdash; open the Explore tab and click any edge to see the source quote and paper. ' +
     'This dossier is information to discuss with your care team, not medical advice.</p>' +
-    '<div class="guide-btnrow"><button class="btn primary" id="guidePrint">Print / save as PDF</button></div>' +
+    '<div class="guide-btnrow"><button type="button" class="btn primary" id="guidePrint">Print / save as PDF</button></div>' +
     bridgeHTML() +
     '</div>';
   return h;
@@ -732,7 +911,7 @@ function wireGuide(scope) {
     }
     G.query = val;
     var r = interpret(val);
-    if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; go('confirm'); }
+    if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; go('confirm'); }
     else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; go('ambiguous'); }
     else go('nomatch');
   }
@@ -744,11 +923,33 @@ function wireGuide(scope) {
       submit();
     });
   });
+  scope.querySelectorAll('[data-role]').forEach(function (b) {
+    b.addEventListener('click', function () { setRole(b.getAttribute('data-role')); go('search'); });
+  });
   scope.querySelectorAll('[data-nav]').forEach(function (b) {
-    b.addEventListener('click', function () { go(b.getAttribute('data-nav')); });
+    b.addEventListener('click', function () {
+      if (b.classList && b.classList.contains('guide-link') && b.getAttribute('data-nav') === 'landing') { /* role change */ }
+      go(b.getAttribute('data-nav'));
+    });
   });
   scope.querySelectorAll('[data-pick]').forEach(function (b) {
-    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.candidates = []; go('confirm'); });
+    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; go('confirm'); });
+  });
+  scope.querySelectorAll('[data-certain]').forEach(function (b) {
+    b.addEventListener('click', function () { G.certain = b.getAttribute('data-certain') === 'yes'; go('action'); });
+  });
+  scope.querySelectorAll('input[data-ph]').forEach(function (box) {
+    box.addEventListener('change', function () {
+      var d = nodesById[G.diseaseId];
+      var phenos = d ? phenosFor(d.id).slice(0, 4) : [];
+      var p = phenos[parseInt(box.getAttribute('data-ph'), 10)];
+      if (!p) return;
+      var key = p.id || p.label;
+      G.confirmedPhenos = G.confirmedPhenos || [];
+      var i = G.confirmedPhenos.indexOf(key);
+      if (box.checked && i === -1) G.confirmedPhenos.push(key);
+      if (!box.checked && i !== -1) G.confirmedPhenos.splice(i, 1);
+    });
   });
   var pr = scope.querySelector('#guidePrint');
   if (pr) pr.addEventListener('click', function () { window.print(); });
@@ -762,7 +963,7 @@ function guideBoot() {
   if (!window.__atlasReady || typeof GRAPH === 'undefined' || !GRAPH) { setTimeout(guideBoot, 250); return; }
   initGuide();
   // Debug/test handle (harmless in production), mirrors window.__atlas in app.js.
-  window.__guide = { interpret: interpret, guideName: guideName, orgsFor: orgsFor, trialsFor: trialsFor, phenosFor: phenosFor, genesFor: genesFor, relatedFor: relatedFor, researchersFor: researchersFor, go: go, state: G };
+  window.__guide = { interpret: interpret, guideName: guideName, orgsFor: orgsFor, trialsFor: trialsFor, phenosFor: phenosFor, genesFor: genesFor, relatedFor: relatedFor, researchersFor: researchersFor, recruitingTrials: recruitingTrials, recommendAction: recommendAction, go: go, setRole: setRole, getRole: getRole, state: G };
 }
 guideBoot();
 
