@@ -1602,6 +1602,13 @@ function refreshAmb(scope) {
     twrap.innerHTML = compareTableInnerHTML();
     wirePicks(twrap);
   }
+  /* Bring the re-ranked cards into view — the parent just acted and should
+   * see the result. Only on wide screens: there the rail is fixed so ticking
+   * stays put; on narrow screens the rail sits above the cards and scrolling
+   * would yank the parent away from the checkboxes they're still ticking. */
+  if (cands && window.innerWidth > 1024) {
+    cands.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
   scope.querySelectorAll('input[data-ambph]').forEach(function (box) {
     box.addEventListener('change', function () {
