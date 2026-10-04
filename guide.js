@@ -913,12 +913,13 @@ function ambFilterSymptoms() {
   });
   var total = G.candidates.length;
   out.sort(function (a, b) {
-    /* Distinguishing symptoms first: present in some but not all candidates. */
+    /* Distinguishing symptoms first (present in some but not all candidates),
+     * then the most recognizable across the atlas. */
     var da = (a.n > 0 && a.n < total) ? 0 : 1, db = (b.n > 0 && b.n < total) ? 0 : 1;
     if (da !== db) return da - db;
     return phenoDegree(b.p) - phenoDegree(a.p);
   });
-  return out.slice(0, 16).map(function (s) { return s.p; });
+  return out.slice(0, 20).map(function (s) { return s.p; });
 }
 function ambMatchCount(d) {
   var f = G.ambFilter || {}, n = 0;
@@ -940,11 +941,27 @@ function ambFilterHTML() {
     '<p class="guide-fine">The list below re-orders itself around your picks, most matches first. Untick to see everything again \u2014 nothing is hidden for good.</p>' +
     '<div class="guide-checks">' + boxes + '</div></div>';
 }
-function ambCardsHTML() {
+function ambRanked() {
+  /* Most matches first; ties go to the fullest record, so a parent lands on
+   * the entry with the most complete picture (e.g. the general condition
+   * rather than a subtype) when the data can't split them. */
+  return G.candidates.slice().sort(function (a, b) {
+    var m = ambMatchCount(b) - ambMatchCount(a);
+    if (m !== 0) return m;
+    return phenosFor(b.id).length - phenosFor(a.id).length;
+  });
+}
+function ambResultsHTML() {
   var f = G.ambFilter || {};
   var picked = Object.keys(f).filter(function (k) { return f[k]; });
-  var ranked = G.candidates.slice().sort(function (a, b) { return ambMatchCount(b) - ambMatchCount(a); });
-  return ranked.map(function (d) {
+  var ranked = ambRanked();
+  var banner = '';
+  if (picked.length && ranked.length && ambMatchCount(ranked[0]) > 0) {
+    banner = '<div class="guide-closest">' +
+      'Based on what you picked, <strong>' + esc2(guideName(ranked[0])) + '</strong> matches most closely in our data.' +
+      ' <span class="guide-fine">Only a clinician can diagnose.</span></div>';
+  }
+  return banner + ranked.map(function (d, i) {
     /* Candidate cards speak plain language: skip lab/enzyme findings (not
      * something a parent can recognize) and translate the rest. */
     var cardPhenos = phenosFor(d.id).filter(function (p) { return phenoGroupIndex(p) !== LAB_GI; });
@@ -956,7 +973,8 @@ function ambCardsHTML() {
       ? '<span class="guide-cand-m' + (ambMatchCount(d) > 0 ? ' hit' : '') + '">' +
         (ambMatchCount(d) > 0 ? 'Matches ' + ambMatchCount(d) + ' of ' + picked.length + ' you picked' : 'Doesn\u2019t match what you picked \u2014 still listed so nothing is missed') + '</span>'
       : '';
-    return '<button type="button" class="guide-cand" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
+    var isTop = picked.length && i === 0 && ambMatchCount(d) > 0;
+    return '<button type="button" class="guide-cand' + (isTop ? ' top' : '') + '" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' + badge +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
       (nOrg ? '<span class="guide-cand-n">' + nOrg + ' patient group' + (nOrg === 1 ? '' : 's') + ' connected</span>'
@@ -979,7 +997,7 @@ function vAmbiguous() {
     '<p class="guide-sub">' + via + ' Only a clinician can diagnose &mdash; pick the one that sounds closest, or tell us none fit.</p>' +
     compare +
     ambFilterHTML() +
-    '<div class="guide-cands">' + ambCardsHTML() + '</div>' +
+    '<div class="guide-cands">' + ambResultsHTML() + '</div>' +
     '<button type="button" class="btn" data-nav="nomatch">None of these seem right</button>' +
     '</div>';
 }
@@ -1481,7 +1499,7 @@ function wireGuide(scope) {
       /* Re-render only the cards, in place — no scroll jump. */
       var cands = scope.querySelector('.guide-cands');
       if (cands) {
-        cands.innerHTML = ambCardsHTML();
+        cands.innerHTML = ambResultsHTML();
         cands.querySelectorAll('[data-pick]').forEach(function (b) {
           b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = seedConfirmedFromFilter(G.diseaseId); G.phenoExpanded = false; go('confirm'); });
         });
