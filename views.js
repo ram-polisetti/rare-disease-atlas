@@ -102,7 +102,7 @@ const PERSONAS = [
   {
     id: 'priya',
     title: "I'm scouting therapeutic opportunities",
-    desc: 'Browse disease families to see which disease groups share biology your approach could address.',
+    desc: 'Browse related disease groups to see which share biology your approach could address.',
     cta: 'Browse clusters'
   },
   {
