@@ -213,8 +213,8 @@ function wiScenarioA() {
   if (recruiting.length) recruiting.slice(0, 4).forEach(function (t) { html += wiTrialLine(t); });
   else html += '<p class="wi-unknown">None currently recruiting in our graph for this disease.</p>';
   if (isMPS3A) {
-    html += '<p class="wi-note">Fayuvi&rsquo;s FDA approval rested on a single-arm study vs an external natural-history control &mdash; ' +
-      'your study&rsquo;s data could serve future trials the same way.</p>';
+    html += '<p class="wi-note">Fayuvi&rsquo;s FDA approval relied on a single-arm study compared with an external natural-history control, as reported at approval. ' +
+      'Your study&rsquo;s data could serve future trials the same way.</p>';
   }
 
   html += '<h4>Gaps to fill</h4><ul class="assume-list">';
