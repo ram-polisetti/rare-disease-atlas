@@ -1058,9 +1058,23 @@ function compareHTML(cands) {
 /* Inline symptom filter for the ambiguous screen: parents tick symptoms
  * they've noticed and the candidate list re-orders live around their picks.
  * Nothing is ever hidden for good — unticking restores the full list. */
+/* The diseases still in play: once the visitor starts ticking symptoms,
+ * only the matching ones count — the ruled-out rest stop contributing
+ * symptoms to the filter list. */
+function ambVisibleCandidates() {
+  var f = G.ambFilter || {};
+  var picked = Object.keys(f).filter(function (k) { return f[k]; });
+  var ranked = ambRanked();
+  if (!picked.length) return ranked;
+  var matching = ranked.filter(function (d) { return ambMatchCount(d) > 0; });
+  var rest = ranked.filter(function (d) { return ambMatchCount(d) === 0; });
+  if (matching.length && rest.length) return matching;
+  return ranked;
+}
 function ambFilterSymptoms() {
+  var cands = ambVisibleCandidates();
   var seen = {}, out = [];
-  G.candidates.forEach(function (d) {
+  cands.forEach(function (d) {
     phenosFor(d.id).forEach(function (p) {
       if (phenoGroupIndex(p) === LAB_GI) return;
       var lbl = String(p.label || '').toLowerCase();
@@ -1071,7 +1085,7 @@ function ambFilterSymptoms() {
       seen[k].n++;
     });
   });
-  var total = G.candidates.length;
+  var total = cands.length;
   out.sort(function (a, b) {
     /* Distinguishing symptoms first (present in some but not all candidates),
      * then the most recognizable across the atlas. */
@@ -1079,7 +1093,7 @@ function ambFilterSymptoms() {
     if (da !== db) return da - db;
     return phenoDegree(b.p) - phenoDegree(a.p);
   });
-  return out.slice(0, 20).map(function (s) { return s.p; });
+  return out.slice(0, 12).map(function (s) { return s.p; });
 }
 function ambMatchCount(d) {
   var f = G.ambFilter || {}, n = 0;
@@ -1089,7 +1103,7 @@ function ambMatchCount(d) {
   return n;
 }
 function ambFilterHTML() {
-  if (!G.candidates || G.candidates.length < 2) return '';
+  if (!G.candidates || ambVisibleCandidates().length < 2) return '';
   var syms = ambFilterSymptoms();
   if (!syms.length) return '';
   var f = G.ambFilter || {};
@@ -1100,7 +1114,7 @@ function ambFilterHTML() {
   return '<div class="guide-amfilter">' +
     '<div class="guide-amfilter-head"><h3 class="guide-h3">Not sure which one? Tick symptoms you\u2019ve noticed.</h3>' +
     '<button type="button" class="guide-link" data-ambclear>Clear all</button></div>' +
-    '<p class="guide-fine">The list below re-orders itself around your picks, most matches first. Untick to see everything again \u2014 nothing is hidden for good.</p>' +
+    '<p class="guide-fine">Tick to narrow the diseases; the symptom list itself shrinks to match what\u2019s still in play. Untick to see everything again \u2014 nothing is hidden for good.</p>' +
     '<div class="guide-checks">' + boxes + '</div></div>';
 }
 function ambRanked() {
@@ -1156,9 +1170,10 @@ function ambResultsHTML() {
   /* Once the parent starts picking, focus the list on what matches. The rest
    * collapse into a one-click expander — still listed so nothing is missed,
    * but no longer competing for attention. */
-  var matching = ranked.filter(function (d) { return ambMatchCount(d) > 0; });
-  var rest = ranked.filter(function (d) { return ambMatchCount(d) === 0; });
-  if (!matching.length || !rest.length) return banner + ranked.map(card).join('');
+  var visible = ambVisibleCandidates();
+  var matching = visible;
+  var rest = ranked.filter(function (d) { return visible.indexOf(d) === -1; });
+  if (!rest.length) return banner + ranked.map(card).join('');
   return banner + matching.map(card).join('') +
     '<details class="guide-rest"><summary>Show ' + rest.length + ' that don&rsquo;t match your picks ' +
     '<span class="guide-fine">— still listed so nothing is missed</span></summary>' +
@@ -1687,7 +1702,33 @@ function wireGuide(scope) {
   });
 /* Re-render the ambiguous screen's live regions in place — cards, comparison
  * table — with no scroll jump. Used by symptom ticks and Clear all. */
+function wireAmbFilter(scope) {
+  scope.querySelectorAll('input[data-ambph]').forEach(function (box) {
+    box.addEventListener('change', function () {
+      G.ambFilter = G.ambFilter || {};
+      var k = box.getAttribute('data-ambph');
+      if (box.checked) G.ambFilter[k] = true; else delete G.ambFilter[k];
+      refreshAmb(scope);
+    });
+  });
+  var ambClear = scope.querySelector('[data-ambclear]');
+  if (ambClear) ambClear.addEventListener('click', function () {
+    G.ambFilter = {};
+    refreshAmb(scope);
+  });
+}
 function refreshAmb(scope) {
+  /* The symptom filter re-derives from the diseases still in play, so it
+   * shrinks as the visitor narrows down — and retires itself at one. */
+  var fpanel = scope.querySelector('.guide-amfilter');
+  if (fpanel) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = ambFilterHTML();
+    var fresh = tmp.firstElementChild;
+    if (fresh) fpanel.replaceWith(fresh);
+    else fpanel.remove();
+    wireAmbFilter(scope);
+  }
   var cands = scope.querySelector('.guide-cands');
   if (cands) {
     cands.innerHTML = ambResultsHTML();
@@ -1706,20 +1747,7 @@ function refreshAmb(scope) {
     cands.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
-  scope.querySelectorAll('input[data-ambph]').forEach(function (box) {
-    box.addEventListener('change', function () {
-      G.ambFilter = G.ambFilter || {};
-      var k = box.getAttribute('data-ambph');
-      if (box.checked) G.ambFilter[k] = true; else delete G.ambFilter[k];
-      refreshAmb(scope);
-    });
-  });
-  var ambClear = scope.querySelector('[data-ambclear]');
-  if (ambClear) ambClear.addEventListener('click', function () {
-    G.ambFilter = {};
-    scope.querySelectorAll('input[data-ambph]').forEach(function (b) { b.checked = false; });
-    refreshAmb(scope);
-  });
+  wireAmbFilter(scope);
   var more = scope.querySelector('#phenoMore');
   if (more) more.addEventListener('click', function () { G.phenoExpanded = true; go('confirm'); });
   var pr = scope.querySelector('#guidePrint');
