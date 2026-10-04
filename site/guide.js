@@ -535,8 +535,27 @@ function interpret(q) {
   var low = q.trim().toLowerCase();
   if (low.length < 2) return { kind: 'nomatch' };
 
+  function diseasesForGene(g) {
+    var ds = {};
+    inEdges(g.id, 'associated_with_gene').concat(inEdges(g.id, 'caused_by_variant_in'))
+      .forEach(function (e) { if (nodesById[e.source] && nodesById[e.source].type === 'disease') ds[e.source] = 1; });
+    return Object.keys(ds).map(function (id) { return nodesById[id]; });
+  }
+  function findGene(exactOnly) {
+    return GRAPH.nodes.filter(function (n) { return n.type === 'gene'; }).filter(function (g) {
+      var names = [g.label].concat(g.synonyms || []).map(function (s) { return s.toLowerCase(); });
+      return exactOnly ? names.indexOf(low) !== -1 :
+        names.some(function (n) { return n.indexOf(low) === 0 || low.indexOf(n) === 0; });
+    })[0];
+  }
+  // 0. exact gene symbol -> its diseases. A bare symbol ("NAGLU") is a gene
+  // lookup even when a disease synonym happens to contain it — check first.
+  var hits = [];
+  var geneExact = findGene(true);
+  if (geneExact) hits = diseasesForGene(geneExact);
+
   // 1. disease: substring match on labels + synonyms
-  var hits = diseaseNodes().filter(function (d) {
+  if (!hits.length) hits = diseaseNodes().filter(function (d) {
     var names = [d.label].concat(d.synonyms || []).map(function (s) { return s.toLowerCase(); });
     return names.some(function (n) { return n.indexOf(low) !== -1 || (low.length > 4 && low.indexOf(n) !== -1); });
   });
@@ -556,19 +575,10 @@ function interpret(q) {
     var fz = fuzzySuggest(low) || (stripped && stripped !== low ? fuzzySuggest(stripped) : null);
     if (fz && nodesById[fz.id] && nodesById[fz.id].type === 'disease') hits = [nodesById[fz.id]];
   }
-  // 3. gene symbol -> its diseases
+  // 3. gene prefix -> its diseases
   if (!hits.length) {
-    var gene = GRAPH.nodes.filter(function (n) { return n.type === 'gene'; }).filter(function (g) {
-      var names = [g.label].concat(g.synonyms || []).map(function (s) { return s.toLowerCase(); });
-      return names.indexOf(low) !== -1 ||
-        names.some(function (n) { return n.indexOf(low) === 0 || low.indexOf(n) === 0; });
-    })[0];
-    if (gene) {
-      var ds = {};
-      inEdges(gene.id, 'associated_with_gene').concat(inEdges(gene.id, 'caused_by_variant_in'))
-        .forEach(function (e) { if (nodesById[e.source] && nodesById[e.source].type === 'disease') ds[e.source] = 1; });
-      hits = Object.keys(ds).map(function (id) { return nodesById[id]; });
-    }
+    var genePre = findGene(false);
+    if (genePre) hits = diseasesForGene(genePre);
   }
   if (hits.length === 1) return { kind: 'disease', id: hits[0].id };
   if (hits.length > 1) return { kind: 'ambiguous', candidates: hits, via: 'name' };
@@ -628,16 +638,16 @@ var ROLE_EXAMPLES = {
   care: [
     'My son was diagnosed with Sanfilippo',
     'The doctor said something about MPS III',
-    'He can\u2019t walk anymore and they don\u2019t know why'
+    'He can\'t walk anymore and they don\'t know why'
   ],
   patient: [
     'I was diagnosed with Fabry',
     'The doctor said something about MPS II',
-    'I can\u2019t walk anymore and they don\u2019t know why'
+    'I can\'t walk anymore and they don\'t know why'
   ],
-  org: ['Tay-Sachs', 'Niemann-Pick type C', 'HEXB'],
+  org: ['Tay-Sachs', 'Niemann-Pick disease type A', 'HEXB'],
   scout: ['Pompe disease', 'GAA', 'Fabry disease'],
-  researcher: ['HEXB', 'NAGLU', 'lysosomal storage']
+  researcher: ['HEXB', 'NAGLU', 'GAA']
 };
 
 /* ---------------- guide state + rendering ---------------- */
@@ -796,9 +806,9 @@ function vSearch() {
     '<button id="guideGo" class="btn primary">Find my community &rarr;</button>' +
     '</div>' +
     '<div class="guide-examples"><span>Try:</span>' +
-    '<button type="button" class="chip" data-ex="My son was diagnosed with Sanfilippo">My son was diagnosed with Sanfilippo</button>' +
-    '<button type="button" class="chip" data-ex="The doctor said something about MPS III">The doctor said something about MPS III</button>' +
-    '<button type="button" class="chip" data-ex="He can\'t walk anymore and they don\'t know why">He can&rsquo;t walk anymore and they don&rsquo;t know why</button>' +
+    (ROLE_EXAMPLES[G.role] || ROLE_EXAMPLES.care).map(function (t) {
+      return '<button type="button" class="chip" data-ex="' + esc2(t) + '">' + esc2(t) + '</button>';
+    }).join('') +
     '</div>' +
     '<p class="guide-fine">We&rsquo;ll never guess a diagnosis. We only show what&rsquo;s actually in our data &mdash; and we say so when we don&rsquo;t have it.</p>' +
     '</div>';

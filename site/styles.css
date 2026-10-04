@@ -64,6 +64,7 @@ body {
   border-bottom-color: var(--accent);
   font-weight: 600;
 }
+.tab-desc { margin: 6px 0 0; color: var(--ink-soft); font-size: 13.5px; min-height: 1.4em; }
 
 /* ---------- mode: settings, prompts, subway legend ---------- */
 

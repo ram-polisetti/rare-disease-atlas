@@ -457,6 +457,36 @@ function renderRecent() {
 
 /* ---------------- 10. Honest Gaps dashboard ---------------- */
 
+function gapRefLink(e) {
+  const ref = e.source_ref;
+  if (!ref) return '';
+  return /^https?:\/\//.test(ref)
+    ? ' <a href="' + esc(ref) + '" target="_blank" rel="noopener">reference &rarr;</a>'
+    : ' <span class="item-sub">(' + esc(ref) + ')</span>';
+}
+
+/* What references a disease actually has, grouped by source — so a visitor
+ * can see exactly where coverage is thin, not just that it is. */
+function gapRefsHtml(diseaseId) {
+  const byDb = {};
+  incidentEdges(diseaseId).forEach(function (e) {
+    const db = e.source_db || 'unspecified';
+    (byDb[db] = byDb[db] || []).push(e);
+  });
+  const dbs = Object.keys(byDb).sort();
+  if (!dbs.length) return '<p class="item-sub">No linked references recorded for this disease.</p>';
+  return '<ul class="gap-list">' + dbs.map(function (db) {
+    const es = byDb[db];
+    const items = es.slice(0, 3).map(function (e) {
+      const other = nodesById[e.source === diseaseId ? e.target : e.source];
+      return '<li>' + esc(displayName(other)) + ' &mdash; ' + esc(e.relation) + gapRefLink(e) + '</li>';
+    }).join('');
+    return '<li><strong>' + esc(db) + '</strong> &mdash; ' + es.length + ' link' + (es.length > 1 ? 's' : '') +
+      '<ul>' + items + '</ul>' +
+      (es.length > 3 ? '<p class="item-sub">Plus ' + (es.length - 3) + ' more.</p>' : '') + '</li>';
+  }).join('') + '</ul>';
+}
+
 function initGaps() {
   const body = vEl('gapsBody');
   const diseases = GRAPH.nodes.filter(function (n) { return n.type === 'disease'; });
@@ -477,9 +507,10 @@ function initGaps() {
     .slice(0, 8);
 
   let html = '<div class="cards">';
-  html += '<article class="card"><h2>Thinly covered diseases</h2><p>Diseases with the fewest linked papers and trials in this slice. Treat conclusions about them as preliminary.</p><ul class="gap-list">' +
+  html += '<article class="card"><h2>Thinly covered diseases</h2><p>Diseases with the fewest linked papers and trials in this slice. Treat conclusions about them as preliminary. Expand any disease to see exactly which references exist &mdash; and which kinds are missing.</p><ul class="gap-list">' +
     thin.map(function (t) {
-      return '<li><strong>' + esc(displayName(t.d)) + '</strong> &mdash; ' + t.lit + ' linked sources, ' + t.tr + ' trials, ' + t.org + ' patient orgs</li>';
+      return '<li><details><summary><strong>' + esc(displayName(t.d)) + '</strong> &mdash; ' + t.lit + ' linked sources, ' + t.tr + ' trials, ' + t.org + ' patient orgs</summary>' +
+        gapRefsHtml(t.d.id) + '</details></li>';
     }).join('') + '</ul></article>';
 
   html += '<article class="card"><h2>Source limitations</h2><ul class="gap-list">' +
@@ -489,9 +520,13 @@ function initGaps() {
     '<li>Preprints have not been peer-reviewed; they are labeled as such wherever they appear.</li>' +
     '</ul></article>';
 
-  const lowConf = GRAPH.edges.filter(function (e) { return e.evidence === 'inferred' && e.confidence === 'low'; }).length;
-  html += '<article class="card"><h2>Low-confidence regions</h2><p><strong>' + lowConf +
-    '</strong> edges are flagged inferred + low &mdash; the weakest derivations in the graph. They are kept visible and labeled, never hidden.</p>' +
+  const lowEdges = GRAPH.edges.filter(function (e) { return e.evidence === 'inferred' && e.confidence === 'low'; });
+  html += '<article class="card"><h2>Low-confidence regions</h2><p><strong>' + lowEdges.length +
+    '</strong> edges are flagged inferred + low &mdash; the weakest derivations in the graph. They are kept visible and labeled, never hidden. Here they are, exactly:</p>' +
+    '<ul class="gap-list">' + lowEdges.map(function (e) {
+      const s = nodesById[e.source], t = nodesById[e.target];
+      return '<li>' + esc(displayName(s)) + ' &mdash; ' + esc(e.relation) + ' &rarr; ' + esc(displayName(t)) + gapRefLink(e) + '</li>';
+    }).join('') + '</ul>' +
     '<p class="item-sub">Rule of thumb: treat inferred links as leads to investigate, not facts to act on.</p></article>';
 
   const years = GRAPH.edges.map(function (e) { return parseInt(e.publication_year, 10) || 0; }).filter(Boolean);
@@ -1208,6 +1243,7 @@ function toggleEligibility(item, nct, url) {
       '<li>Diagnosis: ' + (dx ? esc(dx) : '<em>not entered</em>') + ' \u2014 most rare-disease trials require genetic confirmation.</li>' +
       '<li>Travel: ' + (travel ? esc(travel) : '<em>not entered</em>') + ' \u2014 check the trial\u2019s site locations.</li>' +
       '</ul><p><a class="btn small" href="' + esc(url) + '" target="_blank" rel="noopener">Confirm on ClinicalTrials.gov &rarr;</a></p>' +
+      '<p class="item-sub">If ClinicalTrials.gov shows an error page, search the ' + esc(nct) + ' number on their homepage &mdash; their site sometimes blocks shared or hotel networks.</p>' +
       '<p class="item-sub">Eligibility can only be confirmed by the trial team. Bring this checklist to the conversation.</p>';
   });
 }
