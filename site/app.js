@@ -797,11 +797,20 @@ function initPatientAction() {
   const start = (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start) || null;
   if (start && nodesById[start]) sel.value = start;
   sel.addEventListener('change', function () { state.selectedDisease = sel.value; renderPatientAction(sel.value); });
+  var printBtn = el('actionPrint');
+  if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
   var initial = (state.selectedDisease && nodesById[state.selectedDisease]) ? state.selectedDisease : sel.value;
   sel.value = initial;
   state.selectedDisease = sel.value;
   renderPatientAction(sel.value);
 }
+
+/* ---------------- patient action ("Your Disease") ----------------
+ * Build 3: page reordered by urgency for a stressed parent.
+ * Order: status banner → what to do now → what changed recently →
+ * treatment status → patient orgs → enrolling research → ways to
+ * contribute → research assets & gaps (collapsed). Never invent data:
+ * anything missing is labeled "not recorded". */
 
 function actionNeighbors(diseaseId, type) {
   const out = [];
@@ -813,6 +822,84 @@ function actionNeighbors(diseaseId, type) {
   return out;
 }
 
+/* Approved therapies recorded in the graph (treats edges). */
+function actionApprovedTherapies(diseaseId) {
+  const out = [];
+  incidentEdges(diseaseId).forEach(function (e) {
+    if (e.relation !== 'treats') return;
+    const other = e.source === diseaseId ? e.target : e.source;
+    const n = nodesById[other];
+    if (n) out.push({ node: n, edge: e });
+  });
+  return out;
+}
+
+/* Contribution routes: operational registries linked to the disease, plus
+ * registries maintained by linked patient orgs. */
+function actionRegistries(diseaseId) {
+  const seen = {}, out = [];
+  function add(n) { if (n && !seen[n.id]) { seen[n.id] = 1; out.push(n); } }
+  actionNeighbors(diseaseId, 'asset').forEach(function (a) {
+    const st = (a.node.extra && a.node.extra.stage) || '';
+    if (/registry/i.test(a.node.label) && st === 'operational') add(a.node);
+  });
+  actionNeighbors(diseaseId, 'patient_org').forEach(function (o) {
+    incidentEdges(o.node.id).forEach(function (e) {
+      if (e.relation !== 'maintains_asset') return;
+      const other = e.source === o.node.id ? e.target : e.source;
+      const n = nodesById[other];
+      if (n && n.type === 'asset') add(n);
+    });
+  });
+  return out;
+}
+
+/* Researchers studying this disease (investigates edges) — contact via a
+ * patient group or their institution, never assumed in the data. */
+function actionResearchers(diseaseId) {
+  return actionNeighbors(diseaseId, 'researcher').filter(function (r) {
+    return r.edge.relation === 'investigates';
+  });
+}
+
+/* Material updates for this disease, classified plainly. Reuses recency data
+ * on nodes/edges (therapy_status as_of, recruiting trials, recent
+ * publication years). Limited to a few items. */
+function actionRecent(diseaseId, recruiting, ts) {
+  const items = [];
+  if (ts && ts.note) {
+    items.push({
+      kind: 'Treatment status',
+      text: ts.note + (ts.as_of ? ' (recorded ' + ts.as_of + ')' : '')
+    });
+  }
+  recruiting.forEach(function (t) {
+    const ex = t.node.extra || {};
+    items.push({
+      kind: 'Trial recruiting',
+      text: t.node.label + (ex.nct ? ' (' + ex.nct + ')' : '') + '.'
+    });
+  });
+  incidentEdges(diseaseId).forEach(function (e) {
+    const py = parseInt(e.publication_year, 10) || 0;
+    if (py >= 2025) {
+      const other = e.source === diseaseId ? e.target : e.source;
+      const n = nodesById[other];
+      if (!n) return;
+      items.push({
+        kind: 'Research finding',
+        text: (e.note || (humanize(e.relation) + ': ' + displayName(n))) +
+          ' (published ' + py + ')'
+      });
+    }
+  });
+  return items.slice(0, 4);
+}
+
+function actionPlural(n, one, many) {
+  return n + ' ' + (n === 1 ? one : many);
+}
+
 function renderPatientAction(diseaseId) {
   const d = nodesById[diseaseId];
   const body = el('actionBody');
@@ -820,19 +907,71 @@ function renderPatientAction(diseaseId) {
 
   const trials = actionNeighbors(diseaseId, 'trial');
   const recruiting = trials.filter(function (t) {
-    return (t.node.extra && t.node.extra.status) === 'RECRUITING';
+    return /^RECRUIT/.test(String((t.node.extra && t.node.extra.status) || ''));
   });
   const others = trials.filter(function (t) {
-    return !((t.node.extra && t.node.extra.status) === 'RECRUITING');
+    return !(/^RECRUIT/.test(String((t.node.extra && t.node.extra.status) || '')));
   });
   const orgs = actionNeighbors(diseaseId, 'patient_org');
   const assets = actionNeighbors(diseaseId, 'asset');
+  const regs = actionRegistries(diseaseId);
+  const researchers = actionResearchers(diseaseId);
+  const ts = d.extra && d.extra.therapy_status;
+  const therapies = actionApprovedTherapies(diseaseId);
   const cluster = GRAPH.clusters.find(function (c) { return c.id === d.cluster_id; });
+  const recent = actionRecent(diseaseId, recruiting, ts);
+  const name = displayName(d);
+
+  // Anything actionable in the data at all?
+  const actionable = recruiting.length || others.length || orgs.length ||
+    regs.length || (ts && ts.note) || therapies.length;
 
   let html = '';
 
-  // Therapy status banner (e.g. the Fayuvi pivot).
-  const ts = d.extra && d.extra.therapy_status;
+  // (a) Status banner — one honest line, computed from the graph.
+  const treatLine = therapies.length
+    ? 'Approved treatment: ' + therapies.map(function (t) { return displayName(t.node); }).join('; ') + '.'
+    : 'No approved treatment recorded.';
+  html += '<div class="status-banner" role="status"><strong>' + esc(name) + '</strong>: ' +
+    esc(treatLine) + ' ' +
+    esc(actionPlural(recruiting.length, 'trial', 'trials')) + ' recruiting. ' +
+    esc(actionPlural(orgs.length, 'patient organization', 'patient organizations')) + '.</div>';
+
+  // (b) Current care & safety — what to do now, calm and plain.
+  html += '<section class="action-sec" aria-label="What to do now"><h2>What to do now</h2>';
+  if (actionable) {
+    html += '<p>A clinical geneticist &mdash; or the specialist who follows this condition &mdash; is the right ' +
+      'first call. They can confirm the diagnosis, explain what to watch for, and connect you to care and ' +
+      'research. Everything on this page is only what our atlas actually holds; where our data is silent, ' +
+      'we say so.</p>';
+  } else {
+    html += '<p class="permission">No trials, treatments, organizations, or registries are recorded for ' +
+      esc(name) + ' in our data yet. <strong>Calling a specialist or a genetics clinic is still a real ' +
+      'action &mdash; and it is the right one.</strong> Nothing here is your fault; the options simply ' +
+      'are not in our data. You are doing the right thing by looking.</p>';
+  }
+  html += '<ul class="next-list">' +
+    '<li><strong>What happens next:</strong> the clinician confirms the diagnosis and explains what to watch for.</li>' +
+    '<li>Jot down the symptoms and timeline you have seen &mdash; a few lines is enough. Bring any records you already have; you do not need to gather everything first.</li>' +
+    '<li>Ask: who follows this condition, and who would they trust for a second opinion?</li>' +
+    '</ul></section>';
+
+  // What changed recently (the Recent merge).
+  if (recent.length) {
+    html += '<section class="action-sec" aria-label="What changed recently"><h2>What changed recently</h2>' +
+      '<ul class="recent-list">' + recent.map(function (i) {
+        return '<li><strong>' + esc(i.kind) + ':</strong> ' + esc(i.text) + '</li>';
+      }).join('') + '</ul></section>';
+  }
+
+  // (c) Treatment status.
+  html += '<section class="action-sec" aria-label="Treatment status"><h2>Treatment status</h2>';
+  if (therapies.length) {
+    therapies.forEach(function (t) {
+      html += '<div class="action-item"><div class="item-title">' + esc(displayName(t.node)) + '</div>' +
+        (t.edge.note ? '<div class="item-sub">' + esc(t.edge.note.slice(0, 240)) + '</div>' : '') + '</div>';
+    });
+  }
   if (ts && ts.note) {
     const link = linkifyRef(ts.source_ref);
     html += '<div class="therapy-banner"><strong>Latest therapy development</strong>' +
@@ -840,8 +979,6 @@ function renderPatientAction(diseaseId) {
       (link ? ' <a href="' + esc(link.url) + '" target="_blank" rel="noopener">Source &rarr;</a>' : '') +
       '</div>';
   }
-
-  // Fayuvi eligibility: who is outside the label, and their path.
   if (ts && ts.fayuvi) {
     html += '<div class="fayuvi-alert"><strong>Who can&rsquo;t access Fayuvi — and their path</strong>' +
       '<ul class="excluded-list">' +
@@ -850,13 +987,35 @@ function renderPatientAction(diseaseId) {
       '<li><strong>Their path:</strong> ' + esc(ts.their_path || '') + '</li>' +
       '</ul></div>';
   }
+  if (!therapies.length && !(ts && ts.note)) {
+    html += '<p class="item-sub">No treatment status recorded in our data.</p>';
+  }
+  html += '</section>';
 
-  html += '<p class="section-lede">For <strong>' + esc(displayName(d)) + '</strong> — what a family can do this week.</p>';
-  html += '<div class="action-grid">';
+  // (d) Patient organizations.
+  html += '<section class="action-sec" aria-label="Patient organizations"><h2>Patient organizations (' + orgs.length + ')</h2>';
+  if (!orgs.length) {
+    html += '<p class="item-sub">No patient organizations recorded for this disease. If one exists that we ' +
+      'missed, your specialist&rsquo;s office usually knows it.</p>';
+  }
+  orgs.forEach(function (o) {
+    const url = (o.node.extra && o.node.extra.url) || null;
+    const assetsOffered = (o.node.extra && o.node.extra.assets) || [];
+    html += '<div class="action-item"><div class="item-title">' +
+      (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(displayName(o.node)) + '</a>'
+           : esc(displayName(o.node))) + '</div>' +
+      (assetsOffered.length ? '<div class="item-sub">' + esc(assetsOffered.join('; ')) + '</div>' : '') +
+      '</div>';
+  });
+  html += '</section>';
 
-  // Trials
-  html += '<div class="action-card"><h2>Clinical trials (' + trials.length + ')</h2>';
-  if (!trials.length) html += '<p class="item-sub">No trials linked in the graph yet.</p>';
+  // (e) Enrolling research — recruiting first.
+  html += '<section class="action-sec" aria-label="Enrolling research"><h2>Enrolling research (' + trials.length + ')</h2>';
+  html += '<p class="item-sub"><strong>These are studies, not treatments.</strong> A study listed here does not ' +
+    'mean your child is eligible &mdash; ask your doctor about eligibility before contacting anyone.</p>';
+  if (!trials.length) {
+    html += '<p class="item-sub">No trials recorded for this disease.</p>';
+  }
   recruiting.concat(others).forEach(function (t) {
     const ex = t.node.extra || {};
     const status = ex.status || 'UNKNOWN';
@@ -870,36 +1029,43 @@ function renderPatientAction(diseaseId) {
       (phases ? esc(phases) + ' · ' : '') + (ex.sponsor ? esc(ex.sponsor) : '') +
       '</div></div>';
   });
-  html += '</div>';
+  html += '</section>';
 
-  // Patient orgs
-  html += '<div class="action-card"><h2>Patient organizations (' + orgs.length + ')</h2>';
-  if (!orgs.length) html += '<p class="item-sub">No organizations linked in the graph yet.</p>';
-  orgs.forEach(function (o) {
-    const url = (o.node.extra && o.node.extra.url) || null;
-    const assetsOffered = (o.node.extra && o.node.extra.assets) || [];
-    html += '<div class="action-item"><div class="item-title">' +
-      (url ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(displayName(o.node)) + '</a>'
-           : esc(displayName(o.node))) + '</div>' +
-      (assetsOffered.length ? '<div class="item-sub">' + esc(assetsOffered.join('; ')) + '</div>' : '') +
-      '</div>';
-  });
-  html += '</div>';
+  // (f) Ways to contribute.
+  html += '<section class="action-sec" aria-label="Ways to contribute"><h2>Ways to contribute</h2>';
+  if (!regs.length && !researchers.length) {
+    html += '<p class="item-sub">No contribution routes recorded for this disease yet. Asking your specialist ' +
+      'about registries or studies is itself a contribution &mdash; families who ask make research happen.</p>';
+  }
+  if (regs.length) {
+    html += '<p><strong>Registries</strong> &mdash; sharing data helps researchers understand the condition:</p>';
+    regs.forEach(function (r) {
+      html += '<div class="action-item"><div class="item-title">' + esc(displayName(r)) + '</div>' +
+        '<div class="item-sub">Operational registry &mdash; ask your doctor about joining.</div></div>';
+    });
+  }
+  if (researchers.length) {
+    html += '<p><strong>Researchers studying this condition</strong> &mdash; a patient group or your doctor can ' +
+      'help families reach them; we do not list contact details:</p><ul class="gap-list">' +
+      researchers.map(function (r) { return '<li>' + esc(r.node.label) + '</li>'; }).join('') + '</ul>';
+  }
+  html += '</section>';
 
-  // Reusable assets
-  html += '<div class="action-card"><h2>Reusable assets (' + assets.length + ')</h2>';
-  if (!assets.length) html += '<p class="item-sub">No reusable assets linked in the graph yet.</p>';
-  assets.forEach(function (a) {
-    const stage = (a.node.extra && a.node.extra.stage) || '';
-    html += '<div class="action-item"><div class="item-title">' + esc(displayName(a.node)) + '</div>' +
-      '<div class="item-sub">' + esc((a.node.description || '').slice(0, 200)) +
-      (stage ? ' · Stage: ' + esc(humanize(stage)) : '') + '</div></div>';
-  });
-  html += '</div>';
-
-  // Research gaps
-  html += '<div class="action-card"><h2>Open research gaps</h2>';
+  // (g) Research assets & open gaps — collapsed; for leaders/researchers.
+  html += '<details class="action-details"><summary>Research assets &amp; open gaps (for patient leaders and researchers)</summary>';
+  if (assets.length) {
+    html += '<h3 class="guide-h3">Reusable assets (' + assets.length + ')</h3>';
+    assets.forEach(function (a) {
+      const stage = (a.node.extra && a.node.extra.stage) || '';
+      html += '<div class="action-item"><div class="item-title">' + esc(displayName(a.node)) + '</div>' +
+        '<div class="item-sub">' + esc((a.node.description || '').slice(0, 200)) +
+        (stage ? ' · Stage: ' + esc(humanize(stage)) : '') + '</div></div>';
+    });
+  } else {
+    html += '<p class="item-sub">No reusable assets recorded for this disease.</p>';
+  }
   const gaps = cluster && cluster.gaps ? cluster.gaps : [];
+  html += '<h3 class="guide-h3">Open research gaps</h3>';
   if (gaps.length) {
     html += '<ul class="gap-list">' + gaps.map(function (g) { return '<li>' + esc(g) + '</li>'; }).join('') + '</ul>';
   } else {
@@ -908,10 +1074,12 @@ function renderPatientAction(diseaseId) {
   if (cluster && cluster.next_experiment) {
     html += '<div class="kv-line"><strong>Proposed next step:</strong> ' + esc(cluster.next_experiment) + '</div>';
   }
-  html += '</div>';
+  html += '<p><button type="button" class="btn" id="actionGapsBtn">Open Gaps &amp; Limits</button></p>';
+  html += '</details>';
 
-  html += '</div>';
   body.innerHTML = html;
+  const gb = el('actionGapsBtn');
+  if (gb) gb.addEventListener('click', function () { switchTab('gaps'); });
 }
 
 /* ---------------- 10x impact ---------------- */
