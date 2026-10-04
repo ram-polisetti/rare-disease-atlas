@@ -720,6 +720,20 @@ body.amb-rail .guide-compare { max-width: 680px; }
   .guide-amb-side { position: static; width: auto; border-left: 0; overflow: visible; }
   body.amb-rail .guide-body { margin: 0 auto; max-width: 760px; }
 }
+/* Real side-by-side comparison table (top 3 candidates). */
+.guide-compare-table-wrap { overflow-x: auto; margin: 18px 0 6px; }
+.guide-compare-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .93rem; }
+.guide-compare-table caption { text-align: left; font-weight: 600; padding: 0 0 10px; font-size: 1rem; color: var(--ink); }
+.guide-compare-table th, .guide-compare-table td { padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.guide-compare-table thead th { border-bottom: 2px solid var(--line); text-align: center; vertical-align: bottom; }
+.guide-compare-table thead th .guide-link { font-weight: 700; font-size: 1rem; }
+.guide-compare-table tbody th { text-align: left; font-weight: 500; color: var(--ink); }
+.guide-compare-table td { text-align: center; }
+.guide-compare-table td.yes { color: #047857; font-weight: 700; }
+.guide-compare-table td.no { color: #9ca3af; }
+.guide-compare-rowhead td { background: rgba(26,86,219,.05); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); text-align: left; }
+body.dark .guide-compare-table td.yes { color: #6ee7b7; }
+body.dark .guide-compare-rowhead td { background: rgba(157,185,247,.08); }
 /* Text-button link inside guide fine print (e.g. "skip this check"). */
 .guide-linklike { background: none; border: none; padding: 0; color: #1a56db; text-decoration: underline; cursor: pointer; font: inherit; }
 body.dark .guide-linklike { color: #9db9f7; }

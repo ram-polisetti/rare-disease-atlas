@@ -854,6 +854,71 @@ function vConfirm() {
 /* Symptom comparison (Build B): side-by-side view of candidate matches.
  * Shared symptoms (why they're confused), differentiating symptoms per disease,
  * and a "what makes this one different" line. Never diagnoses. */
+/* Picking a disease from the guide: shared by candidate cards, the
+ * comparison table headers, and the compare cards. */
+function pickDisease(id) {
+  G.diseaseId = id; G.certain = null;
+  G.confirmedPhenos = seedConfirmedFromFilter(id);
+  G.phenoExpanded = false; go('confirm');
+}
+function wirePicks(container) {
+  container.querySelectorAll('[data-pick]').forEach(function (b) {
+    b.addEventListener('click', function () { pickDisease(b.getAttribute('data-pick')); });
+  });
+}
+
+/* Real side-by-side comparison table: the top-ranked candidates as columns,
+ * symptoms as rows. Check = recorded in our data for that condition,
+ * dash = not recorded. Scoped to the top 3 — with up to 24 matches a full
+ * table would be unreadable. Re-renders on every tick so it always reflects
+ * the current ranking. */
+function compareTableInnerHTML() {
+  var top = ambRanked().slice(0, 3);
+  if (top.length < 2) return '';
+  var phenosBy = top.map(function (d) {
+    var seen = {}, out = [];
+    phenosFor(d.id).forEach(function (p) {
+      if (phenoGroupIndex(p) === LAB_GI) return;
+      var k = (p.label || '').toLowerCase();
+      if (k.indexOf('inheritance') !== -1 || / onset$/.test(k)) return;
+      if (k && !seen[k]) { seen[k] = 1; out.push({ key: k, label: plainSymptom(p.label) }); }
+    });
+    return out;
+  });
+  var counts = {}, labelOf = {};
+  phenosBy.forEach(function (ps) { ps.forEach(function (p) {
+    counts[p.key] = (counts[p.key] || 0) + 1;
+    if (!labelOf[p.key]) labelOf[p.key] = p.label;
+  }); });
+  var shared = Object.keys(counts).filter(function (k) { return counts[k] > 1; }).slice(0, 6);
+  var unique = Object.keys(counts).filter(function (k) { return counts[k] === 1; }).slice(0, 9);
+  function row(k) {
+    var tds = top.map(function (d, i) {
+      var has = phenosBy[i].some(function (p) { return p.key === k; });
+      return '<td class="' + (has ? 'yes' : 'no') + '"' +
+        (has ? ' title="Recorded in our data"' : ' title="Not recorded in our data"') + '>' +
+        (has ? '✓' : '—') + '</td>';
+    }).join('');
+    return '<tr><th scope="row">' + esc2(labelOf[k]) + '</th>' + tds + '</tr>';
+  }
+  var head = top.map(function (d) {
+    return '<th scope="col"><button type="button" class="guide-link" data-pick="' + d.id + '">' + esc2(guideName(d)) + '</button></th>';
+  }).join('');
+  var body = '';
+  if (shared.length) body += '<tr class="guide-compare-rowhead"><td colspan="' + (top.length + 1) + '">Symptoms they share</td></tr>' +
+    shared.map(row).join('');
+  if (unique.length) body += '<tr class="guide-compare-rowhead"><td colspan="' + (top.length + 1) + '">Only one of them has, in our data</td></tr>' +
+    unique.map(row).join('');
+  var n = G.candidates.length;
+  var picked = Object.keys(G.ambFilter || {}).filter(function (k) { return G.ambFilter[k]; }).length;
+  return '<table class="guide-compare-table">' +
+    '<caption>Side by side: the top ' + top.length + ' of ' + n + ' matches' +
+    (picked ? ', ordered by the symptoms you picked.' : '.') + '</caption>' +
+    '<thead><tr><th scope="col"><span class="guide-fine">Symptom</span></th>' + head + '</tr></thead>' +
+    '<tbody>' + body + '</tbody></table>' +
+    '<p class="guide-fine">✓ = recorded in our data &middot; — = not recorded in our data &middot; ' +
+    'Only a clinician can diagnose.</p>';
+}
 function compareHTML(cands) {
   var phenosBy = cands.map(function (d) {
     var seen = {}, out = [];
@@ -894,6 +959,7 @@ function compareHTML(cands) {
   return '<div class="guide-compare">' +
     '<h3 class="guide-h3">How our data tells them apart</h3>' +
     '<p class="guide-sub">You&rsquo;re doing the right thing by looking closely. These conditions can look alike &mdash; here&rsquo;s how our data tells them apart. Only a clinician can diagnose.</p>' +
+    '<div class="guide-compare-table-wrap">' + compareTableInnerHTML() + '</div>' +
     (shared.length ? '<div class="guide-compare-shared"><strong>Symptoms they share</strong> (why they can be confused): ' + esc2(shared.slice(0, 8).join('; ')) + '</div>'
       : '<div class="guide-compare-shared">Our data doesn&rsquo;t record overlapping symptoms for these.</div>') +
     '<div class="guide-compare-cards">' + cards + '</div>' +
@@ -1476,9 +1542,7 @@ function wireGuide(scope) {
       go(b.getAttribute('data-nav'));
     });
   });
-  scope.querySelectorAll('[data-pick]').forEach(function (b) {
-    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = seedConfirmedFromFilter(G.diseaseId); G.phenoExpanded = false; go('confirm'); });
-  });
+  wirePicks(scope);
   scope.querySelectorAll('[data-certain]').forEach(function (b) {
     b.addEventListener('click', function () {
       G.certain = b.getAttribute('data-certain') === 'yes';
@@ -1511,13 +1575,16 @@ function wireGuide(scope) {
       G.ambFilter = G.ambFilter || {};
       var k = box.getAttribute('data-ambph');
       if (box.checked) G.ambFilter[k] = true; else delete G.ambFilter[k];
-      /* Re-render only the cards, in place — no scroll jump. */
+      /* Re-render the cards and the comparison table in place — no scroll jump. */
       var cands = scope.querySelector('.guide-cands');
       if (cands) {
         cands.innerHTML = ambResultsHTML();
-        cands.querySelectorAll('[data-pick]').forEach(function (b) {
-          b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = seedConfirmedFromFilter(G.diseaseId); G.phenoExpanded = false; go('confirm'); });
-        });
+        wirePicks(cands);
+      }
+      var twrap = scope.querySelector('.guide-compare-table-wrap');
+      if (twrap) {
+        twrap.innerHTML = compareTableInnerHTML();
+        wirePicks(twrap);
       }
     });
   });
