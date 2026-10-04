@@ -154,6 +154,11 @@ main { max-width: 1240px; margin: 0 auto; padding: 18px 22px 40px; }
 .view-stats { color: var(--ink-faint); font-size: 13px; margin-left: auto; }
 
 .explore-grid { display: grid; grid-template-columns: 1fr 330px; gap: 14px; }
+/* Explore takes the whole screen: the graph needs room when the data gets big. */
+body.wide-explore main { max-width: none; }
+body.wide-explore .explore-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+body.wide-explore .canvas-wrap { min-height: 480px; height: calc(100vh - 350px); }
+body.wide-explore #network { height: calc(100vh - 350px); min-height: 480px; }
 .canvas-wrap {
   position: relative;
   background: var(--surface);
