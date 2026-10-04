@@ -193,10 +193,18 @@ function init() {
   var loadingEl = el('loading');
   if (loadingEl) loadingEl.style.display = 'none';
   var metaEl = el('graphMeta');
-  if (metaEl) metaEl.textContent =
-    GRAPH.nodes.length.toLocaleString() + ' entries · ' +
-    GRAPH.edges.length.toLocaleString() + ' connections · ' +
-    (GRAPH.clusters || []).length + ' disease families';
+  if (metaEl) {
+    /* Plain-language subtitle: name what the entries are, and hush the
+     * cluster count — parents care about coverage, not our taxonomy. */
+    var byType = {};
+    (GRAPH.nodes || []).forEach(function (n) { var t = n.type || '?'; byType[t] = (byType[t] || 0) + 1; });
+    var ct = function (t) { return (byType[t] || 0).toLocaleString(); };
+    metaEl.innerHTML =
+      ct('disease') + ' diseases &middot; ' + ct('phenotype') + ' symptoms &middot; ' + ct('trial') + ' trials &middot; ' +
+      ct('gene') + ' genes &middot; ' + ct('patient_org') + ' patient groups' +
+      ' <span class="meta-sub">&mdash; ' + GRAPH.edges.length.toLocaleString() +
+      ' connections across ' + (GRAPH.clusters || []).length + ' related groups</span>';
+  }
   var footEl = el('footerStats');
   if (footEl) footEl.textContent =
     'Slice: ' + (GRAPH.meta && GRAPH.meta.slice ? GRAPH.meta.slice : 'rare diseases') + '.';
