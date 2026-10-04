@@ -36,8 +36,7 @@
     <button type="button" role="tab" id="tab-clusters" data-tab="clusters" aria-controls="view-clusters" aria-selected="false">Clusters</button>
     <button type="button" role="tab" id="tab-endpoints" data-tab="endpoints" aria-controls="view-endpoints" aria-selected="false">Endpoints</button>
     <button type="button" role="tab" id="tab-whatif" data-tab="whatif" aria-controls="view-whatif" aria-selected="false">What If</button>
-    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false">Path to the Next Milestone</button>
-    <button type="button" role="tab" id="tab-settings" data-tab="settings" aria-controls="view-settings" aria-selected="false">Settings</button>
+    <button type="button" role="tab" id="tab-impact" data-tab="impact" aria-controls="view-impact" aria-selected="false">The 10x Case</button>
   </nav>
   <p class="tab-desc" id="tabDesc" aria-live="polite"></p>
 </header>
@@ -66,6 +65,10 @@
       <label class="check" title="Show only literature edges from randomized trials or meta-analyses"><input type="checkbox" id="strongOnly"> RCT or stronger</label>
       <span id="viewStats" class="view-stats" aria-live="polite"></span>
     </div>
+    <details class="typefilter">
+      <summary>Show / hide entry types</summary>
+      <div id="typeToggles" class="type-toggles"></div>
+    </details>
     <div class="explore-grid">
       <div class="canvas-wrap">
         <div id="network" role="img" aria-label="Knowledge graph canvas. Use the search to explore nodes and connections."></div>
@@ -79,7 +82,7 @@
 
   <!-- ============ CLUSTERS ============ -->
   <section id="view-clusters" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-clusters" hidden>
-    <p class="section-lede">Disease groups that share a reusable mechanism &mdash; the unit of cross-disease learning.</p>
+    <p class="section-lede">Diseases that break the same thing in the body. When one gets a treatment, a registry, or a study design, the others in its group can often reuse it &mdash; that is why the atlas groups them.</p>
     <div id="clusterCards" class="cards"></div>
     <hr class="section-div">
     <h2 class="subhead">Compare diseases</h2>
@@ -187,13 +190,6 @@
     <div id="endpointsBody"></div>
   </section>
 
-  <!-- ============ SETTINGS ============ -->
-  <section id="view-settings" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-settings" hidden>
-    <h2 class="subhead">Settings</h2>
-    <div class="card settings-card">
-      <p class="section-lede">All twelve tabs are visible to everyone — Guide, Your Disease, Journey, What&rsquo;s New, Gaps &amp; Limits, Contradictions, Explore, Clusters, Endpoints, What If, Path to the Next Milestone, and these Settings. Night mode, reading level, and accessibility live in the header above.</p>
-    </div>
-  </section>
 </main>
 
 <footer>

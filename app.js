@@ -57,7 +57,7 @@ const TYPE_COLORS = {
   funding:     '#b45309',
   paper:       '#525252'
 };
-const ACCENT = '#1a56db';
+const ACCENT = '#0f766e';
 const EDGE_COLOR = '#c4c9d1';
 const CONTRADICT_COLOR = '#d97777';
 
@@ -71,11 +71,10 @@ const TAB_DESCS = {
   gaps: 'Where the atlas is weak, thin, or silent \u2014 with the exact references, so you can see what\u2019s missing.',
   contradictions: 'Places where the evidence disagrees with itself.',
   explore: 'Search the full knowledge graph: every entry, every connection, and the evidence behind each link.',
-  clusters: 'Groups of diseases that share the same underlying biology.',
+  clusters: 'Diseases that break the same machinery in the body \u2014 so progress on one can help the others.',
   endpoints: 'What clinical trials measure \u2014 and which diseases measure the same things.',
   whatif: 'Ask \u201cwhat would change if\u2026\u201d and see what the data supports.',
-  impact: 'The concrete next step a community could take, and what it would unlock.',
-  settings: 'Reading level, night mode, and accessibility options.'
+  impact: 'One worked example: how sharing could cut a study from 5.5 years to 2.2.',
 };
 function renderTabDesc() {
   const d = el('tabDesc');
@@ -91,7 +90,8 @@ const state = {
   strongOnly: false,
   journeyStep: 0,
   selectedDisease: null,
-  lastNode: null
+  lastNode: null,
+  hiddenTypes: {}
 };
 
 let net = null;        // explore vis-network
@@ -235,7 +235,6 @@ function init() {
   initSearch();
   initExploreControls();
   initTabs();
-  initSettings();
   initClusters();
   initPatientAction();
   initJourney();
@@ -282,17 +281,12 @@ function setDisease(id) {
   try { localStorage.setItem(DISEASE_KEY, id); } catch (err) {}
 }
 
-/* All twelve tabs are visible to everyone — no mode gate. */
+/* All eleven tabs are visible to everyone — no mode gate. */
 function initTabs() {
   document.querySelectorAll('.tabs button').forEach(function (btn) {
     btn.removeAttribute('hidden');
     btn.addEventListener('click', function () { switchTab(btn.dataset.tab); });
   });
-}
-
-function initSettings() {
-  /* The research-tools toggle was removed with the mode gate; settings now
-   * only hosts night mode, reading level, and accessibility (wired elsewhere). */
 }
 
 function switchTab(name) {
@@ -441,6 +435,24 @@ function initExploreControls() {
     state.strongOnly = ev.target.checked;
     renderExplore();
   });
+  /* Entry-type toggles: let the visitor show or hide whole kinds of nodes. */
+  const tt = el('typeToggles');
+  if (tt) {
+    const types = Object.keys(TYPE_COLORS).filter(function (t) {
+      return GRAPH.nodes.some(function (n) { return n.type === t; });
+    });
+    tt.innerHTML = types.map(function (t) {
+      return '<label class="check"><input type="checkbox" data-ntype="' + esc(t) + '" checked>' +
+        '<span class="tdot" style="background:' + TYPE_COLORS[t] + '"></span>' + esc(humanize(t)) + '</label>';
+    }).join('');
+    tt.querySelectorAll('input').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        if (this.checked) delete state.hiddenTypes[this.dataset.ntype];
+        else state.hiddenTypes[this.dataset.ntype] = true;
+        renderExplore();
+      });
+    });
+  }
 }
 
 /* Evidence filters apply only to literature-sourced edges (those carrying
@@ -516,6 +528,15 @@ function renderExplore(explicitIds, note) {
     ids = new Set();
   }
 
+  /* Entry-type toggles: hide whole kinds of nodes. The starting point stays. */
+  const hidden = state.hiddenTypes || {};
+  const hiddenList = Object.keys(hidden).filter(function (t) { return hidden[t]; });
+  if (hiddenList.length) {
+    ids = new Set(Array.from(ids).filter(function (id) {
+      return id === center || !hidden[nodesById[id].type];
+    }));
+  }
+
   let truncated = 0;
   if (ids.size > 150) {
     // Deterministic cap: keep highest-degree nodes first.
@@ -536,18 +557,22 @@ function renderExplore(explicitIds, note) {
     const isCenter = id === center;
     return {
       id: id,
-      label: shortLabel(n),
+      label: (function () {
+        if (id !== center) return shortLabel(n);
+        var full = displayName(n);
+        return full.length > 42 ? full.slice(0, 42) + '\u2026' : full;
+      })(),
       title: esc(displayName(n)) + ' — ' + esc(humanize(n.type)) +
              (n.description ? '\n' + esc(n.description.slice(0, 140)) : ''),
       shape: 'dot',
-      size: isCenter ? 22 : 12,
+      size: isCenter ? 30 : 12,
       color: {
         background: TYPE_COLORS[n.type] || '#888',
         border: isCenter ? ACCENT : '#ffffff',
         highlight: { background: TYPE_COLORS[n.type] || '#888', border: ACCENT }
       },
-      borderWidth: isCenter ? 4 : 2,
-      font: { size: 12, color: '#333' }
+      borderWidth: isCenter ? 5 : 2,
+      font: { size: isCenter ? 15 : 12, color: '#333', bold: isCenter }
     };
   }));
 
@@ -596,6 +621,7 @@ function renderExplore(explicitIds, note) {
     ' connections' + (center && nodesById[center] ? ' centered on ' + displayName(nodesById[center]) : '') + '.';
   const stats = ids.size + ' entries · ' + edgeList.length + ' connections' +
     (truncated ? ' · capped at 150 (showing the most connected entries)' : '') +
+    (hiddenList.length ? ' · hiding: ' + hiddenList.map(function (t) { return humanize(t); }).join(', ') : '') +
     (note ? ' · ' + note : '');
   el('viewStats').textContent = stats;
 
@@ -733,9 +759,9 @@ function initClusters() {
     const gaps = (c.gaps || []).join(' ');
     return '<article class="card">' +
       '<h2>' + esc(c.label) + '</h2>' +
-      '<div class="count">' + c.members.length + ' members</div>' +
+      '<div class="count">' + c.members.length + ' diseases</div>' +
       '<p>' + esc(c.summary || '') + '</p>' +
-      (c.shared_mechanism ? '<div class="kv-line"><strong>Shared mechanism:</strong> ' + esc(c.shared_mechanism) + '</div>' : '') +
+      (c.shared_mechanism ? '<div class="kv-line"><strong>What they share:</strong> ' + esc(c.shared_mechanism) + '</div>' : '') +
       (assets ? '<div class="kv-line"><strong>Reusable assets:</strong> ' + esc(assets) + '</div>' : '') +
       (gaps ? '<div class="kv-line"><strong>Gaps:</strong> ' + esc(gaps) + '</div>' : '') +
       (c.next_experiment ? '<div class="kv-line"><strong>Next experiment:</strong> ' + esc(c.next_experiment) + '</div>' : '') +
@@ -1077,7 +1103,13 @@ function initImpact() {
     return '<div class="gantt-track"><div class="gantt-bar ' + cls + '" style="width:' +
       Math.round(100 * years / maxY) + '%"></div></div>';
   }
-  let html = '<p class="section-lede">' + esc(tx.title || 'The 10x case') + '</p>';
+  let html = '<div class="ep-intro"><strong>What is this?</strong> One fully worked example of what ' +
+    '&ldquo;sharing&rdquo; is worth, in years. A Sanfilippo A natural-history study built from scratch takes about ' +
+    '5.5 years in this model; reusing the MPS I/II registry design and pooling across subtypes cuts it to about 2.2 years. ' +
+    '<strong>These are modeled estimates, not measured results</strong> &mdash; every assumption is listed below. ' +
+    '<strong>Why only one disease?</strong> Modeling takes careful assumptions, and Sanfilippo A is the one fully worked through so far. ' +
+    'The method is the point: any disease with reusable designs and registries can run the same math.</div>';
+  html += '<p class="section-lede">' + esc(tx.title || 'The 10x case') + '</p>';
   html += '<div class="gantt">';
   html += '<div class="gantt-row"><div class="gantt-label">Baseline: ' + esc(tx.baseline_label || 'siloed study') + '</div>' +
     bar(tx.baseline_years, 'baseline') + '<div class="gantt-years">' + tx.baseline_years + ' yrs</div></div>';
