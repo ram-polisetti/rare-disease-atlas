@@ -194,9 +194,9 @@ function init() {
   if (loadingEl) loadingEl.style.display = 'none';
   var metaEl = el('graphMeta');
   if (metaEl) metaEl.textContent =
-    GRAPH.nodes.length.toLocaleString() + ' nodes · ' +
-    GRAPH.edges.length.toLocaleString() + ' edges · ' +
-    (GRAPH.clusters || []).length + ' mechanism clusters';
+    GRAPH.nodes.length.toLocaleString() + ' entries · ' +
+    GRAPH.edges.length.toLocaleString() + ' connections · ' +
+    (GRAPH.clusters || []).length + ' disease families';
   var footEl = el('footerStats');
   if (footEl) footEl.textContent =
     'Slice: ' + (GRAPH.meta && GRAPH.meta.slice ? GRAPH.meta.slice : 'rare diseases') + '.';
@@ -556,10 +556,10 @@ function renderExplore(explicitIds, note) {
     sumEl.setAttribute('aria-live', 'polite');
     el('network').parentNode.insertBefore(sumEl, el('network'));
   }
-  sumEl.textContent = 'Network graph showing ' + ids.size + ' nodes and ' + edgeList.length +
+  sumEl.textContent = 'Network graph showing ' + ids.size + ' entries and ' + edgeList.length +
     ' connections' + (center && nodesById[center] ? ' centered on ' + displayName(nodesById[center]) : '') + '.';
-  const stats = ids.size + ' nodes · ' + edgeList.length + ' edges' +
-    (truncated ? ' · capped at 150 (showing highest-degree nodes)' : '') +
+  const stats = ids.size + ' entries · ' + edgeList.length + ' connections' +
+    (truncated ? ' · capped at 150 (showing the most connected entries)' : '') +
     (note ? ' · ' + note : '');
   el('viewStats').textContent = stats;
 
