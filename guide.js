@@ -731,6 +731,11 @@ function renderGuide() {
   body.innerHTML = h;
   wireGuide(body);
   wireBridge(body);
+  /* Narrow-it-down right rail: body class widens the guide column while the
+   * rail is viewport-fixed; pin the rail's top below the site header. */
+  var rail = body.querySelector('.guide-amb-side');
+  document.body.classList.toggle('amb-rail', !!rail);
+  syncRailTop();
   // Tier-1 tap-for-definition across the guide conversation (additive).
   if (typeof markTerms === 'function') markTerms(body);
 }
@@ -1526,9 +1531,20 @@ function initGuide() {
   renderGuide();
 }
 
+/* Pin the viewport-fixed symptom rail below the site header. The header
+ * height varies with viewport width (controls wrap), so measure it live.
+ * Harmless on views without a rail. */
+function syncRailTop() {
+  var side = document.querySelector('.guide-amb-side');
+  if (!side) return;
+  var bar = document.querySelector('.topbar');
+  side.style.top = (bar ? Math.ceil(bar.getBoundingClientRect().height) : 0) + 'px';
+}
+
 function guideBoot() {
   if (!window.__atlasReady || typeof GRAPH === 'undefined' || !GRAPH) { setTimeout(guideBoot, 250); return; }
   initGuide();
+  window.addEventListener('resize', syncRailTop);
   // Debug/test handle (harmless in production), mirrors window.__atlas in app.js.
   window.__guide = { interpret: interpret, guideName: guideName, orgsFor: orgsFor, trialsFor: trialsFor, phenosFor: phenosFor, genesFor: genesFor, relatedFor: relatedFor, researchersFor: researchersFor, recruitingTrials: recruitingTrials, recommendAction: recommendAction, go: go, setRole: setRole, getRole: getRole, state: G };
 }
