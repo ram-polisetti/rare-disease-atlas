@@ -1035,10 +1035,19 @@ function ambResultsHTML() {
   var f = G.ambFilter || {};
   var picked = Object.keys(f).filter(function (k) { return f[k]; });
   var ranked = ambRanked();
+  /* Ties are common and the parent can see the counts — so the banner and the
+   * highlight must never crown a single winner when several tie for the top. */
+  var topN = ranked.length ? ambMatchCount(ranked[0]) : 0;
+  var leaders = topN > 0 ? ranked.filter(function (d) { return ambMatchCount(d) === topN; }) : [];
   var banner = '';
-  if (picked.length && ranked.length && ambMatchCount(ranked[0]) > 0) {
-    banner = '<div class="guide-closest">' +
-      'Based on what you picked, <strong>' + esc2(guideName(ranked[0])) + '</strong> matches most closely in our data.' +
+  if (picked.length && leaders.length) {
+    var tieNote = leaders.length === 1
+      ? 'Based on what you picked, <strong>' + esc2(guideName(leaders[0])) + '</strong> matches most closely in our data.'
+      : leaders.length <= 3
+        ? 'Based on what you picked, <strong>' + leaders.length + ' conditions tie</strong> for the closest match in our data: ' +
+          leaders.map(function (d) { return esc2(guideName(d)); }).join(', ') + '.'
+        : 'Based on what you picked, <strong>' + leaders.length + ' conditions tie</strong> for the closest match in our data &mdash; they&rsquo;re highlighted below.';
+    banner = '<div class="guide-closest">' + tieNote +
       ' <span class="guide-fine">Only a clinician can diagnose.</span></div>';
   }
   function card(d, i) {
@@ -1053,7 +1062,7 @@ function ambResultsHTML() {
       ? '<span class="guide-cand-m' + (ambMatchCount(d) > 0 ? ' hit' : '') + '">' +
         (ambMatchCount(d) > 0 ? 'Matches ' + ambMatchCount(d) + ' of ' + picked.length + ' you picked' : 'Doesn\u2019t match what you picked \u2014 still listed so nothing is missed') + '</span>'
       : '';
-    var isTop = picked.length && i === 0 && ambMatchCount(d) > 0;
+    var isTop = leaders.indexOf(d) !== -1;
     return '<button type="button" class="guide-cand' + (isTop ? ' top' : '') + '" data-pick="' + d.id + '" aria-label="' + esc2(guideName(d)) + '">' +
       '<strong>' + esc2(guideName(d)) + '</strong>' + badge +
       (phenos ? '<span class="guide-cand-ph">' + phenos + '</span>' : '') +
