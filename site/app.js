@@ -266,17 +266,23 @@ function init() {
  * persisted so it survives reloads. */
 const DISEASE_KEY = 'rda_disease';
 
+/* The shared disease must always be a disease node. Stale saved values (e.g. a
+ * trial or gene id written by an older build) are ignored, never surfaced. */
+function isDiseaseNode(id) {
+  return !!(id && nodesById[id] && nodesById[id].type === 'disease');
+}
 function getDisease() {
-  if (state.selectedDisease && nodesById[state.selectedDisease]) return state.selectedDisease;
+  if (isDiseaseNode(state.selectedDisease)) return state.selectedDisease;
   try {
     const saved = localStorage.getItem(DISEASE_KEY);
-    if (saved && nodesById[saved]) { state.selectedDisease = saved; return saved; }
+    if (isDiseaseNode(saved)) { state.selectedDisease = saved; return saved; }
+    if (saved) localStorage.removeItem(DISEASE_KEY);
   } catch (err) {}
   return null;
 }
 
 function setDisease(id) {
-  if (!id || !nodesById[id]) return;
+  if (!isDiseaseNode(id)) return;
   state.selectedDisease = id;
   try { localStorage.setItem(DISEASE_KEY, id); } catch (err) {}
 }

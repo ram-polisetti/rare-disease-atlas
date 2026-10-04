@@ -1,36 +1,19 @@
-# DRAFT: Team video outline (about 3 minutes, solo entry)
+# DRAFT: Team video outline (60 seconds max, solo entry)
 
 **Status: DRAFT, awaiting Charan's review. Charan records and narrates this himself. Nothing here is final without his go-ahead.**
 
-Updated 2026-10-04 to match the deployed site.
+About 140 words. Charan on camera for the whole minute, cutting to the site where noted.
 
-## 0:00 to 0:30, who built it
+## Script
 
-Charan Polisetti, a solo entrant: DBA candidate in Applied AI, former Amazon transportation analytics, and an applied-AI builder who works on how AI decision systems are governed. He built this with a set of AI agents doing scoped work under his direction (data pulls, code, copy review), and he made the calls on scope, sources, and what the site is allowed to claim.
+**0:00 to 0:15, who I am** [Charan on camera.]
+"I am Charan Polisetti, a solo entrant. I am a DBA candidate in Applied AI and former Amazon transportation analytics. I build AI decision systems and study how they are governed. AI agents did scoped work under my direction. I made every call on scope, sources, and what the site may claim."
 
-[On screen: Charan on camera, then the live site.]
+**0:15 to 0:35, the call I had to make** [Your Disease tab, Sanfilippo A treatment section.]
+"Mid-build, the pipeline claimed Sanfilippo A had no approved therapy. Verification found the FDA approved Fayuvi on September 17th, 2026. I threw the claim out and rewrote around the verified approval. The rule since: the site never says no treatment unless that is verified."
 
-## 0:30 to 1:00, why rare diseases
+**0:35 to 0:50, who it is for** [Guide tab, then Endpoints.]
+"Parents get a guided path that ends in one clear next step. Advocates get study scenarios and a printable summary. Researchers get diseases that could share measurements, with the reminder that sharing a measurement is not sharing biology."
 
-From inside one rare disease, the evidence looks thin. From the level of shared biology, there is a lot of it: papers, registries, and trial designs for related conditions that nobody has linked. The failure mode is the same one Charan studies in other decision systems: good evidence, fragmented and hard to use. The atlas links it and keeps every link traceable.
-
-## 1:00 to 1:40, the Fayuvi correction
-
-Mid-build, the pipeline produced a claim that had to be thrown out: "no FDA-approved therapy for Sanfilippo A." Verification found that the FDA approved Fayuvi on September 17, 2026, for young children whose development is still on track. The journey was rewritten around the verified approval, and the site now shows who qualifies and who may fall outside the label. The rule since then: the site never says a disease has no treatment unless that is verified.
-
-[On screen: Your Disease for MPS IIIA, treatment status section.]
-
-## 1:40 to 2:25, who it is for
-
-- **A parent** starts on the Guide: types what they see, checks the "You asked / We understood" trail, narrows by symptoms, and leaves with one next step and a printable summary for a clinician. Plain-language reading and accessibility options are one click away.
-- **An advocate** like Maria, a composite Sanfilippo A family advocate (not a real person), uses Journey and What If to see what a natural-history study would take, and The 10x Case for one modeled estimate of the time sharing could save (about 5.5 years down to about 2.2, modeled, not measured).
-- **A researcher** uses Explore, Clusters, and Endpoints to find diseases that could share measurements, with the reminder that sharing a measurement is not sharing biology.
-
-## 2:25 to 3:00, what is next
-
-The lysosomal slice is a template. The pipeline is source-driven, so a new disease family starts with new pull scripts, not a rewrite. Next steps: add the approved treatments not yet in the graph, review endpoint candidates with clinicians, and ask patient organizations to review the journeys. Live demo: https://ram-polisetti.github.io/rare-disease-atlas/
-
-## Notes for recording
-
-- Keep the agent mention short and accurate: they did scoped tasks, Charan directed and decided.
-- Do not describe Maria as a real patient, and do not imply the National MPS Society endorsed anything.
+**0:50 to 1:00, close** [Charan on camera.]
+"The lysosomal slice is a template. The pipeline is source-driven, so the next disease family starts with new pull scripts, not a rewrite."
