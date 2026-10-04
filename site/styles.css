@@ -686,6 +686,9 @@ body.dark .guide-cand-n { color: #9db9f7; }
 body.dark .guide-amfilter { background: #16233f; border-color: #2c4a7c; }
 body.dark .guide-cand-m { color: #9ca3af; }
 body.dark .guide-cand-m.hit { color: #6ee7b7; }
+/* Text-button link inside guide fine print (e.g. "skip this check"). */
+.guide-linklike { background: none; border: none; padding: 0; color: #1a56db; text-decoration: underline; cursor: pointer; font: inherit; }
+body.dark .guide-linklike { color: #9db9f7; }
 /* Symptom comparison (Build B): calm, roomy, one idea per card. */
 .guide-compare { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px; margin: 18px 0; }
 .guide-compare-shared { background: #fff; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px; margin: 10px 0 14px; font-size: .95rem; line-height: 1.55; }
