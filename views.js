@@ -1215,10 +1215,17 @@ function decorateTrials() {
     const link = item.querySelector('a[href*="clinicaltrials.gov"]');
     if (!link) return;
     item.dataset.eligDone = '1';
-    const nct = link.textContent.trim();
+    const nct = (link.href.match(/NCT\d{8}/i) || link.textContent.match(/NCT\d{8}/i) || [''])[0].toUpperCase();
+    const copy = document.createElement('button');
+    copy.className = 'btn small'; copy.textContent = 'Copy NCT'; copy.setAttribute('aria-label', 'Copy ' + nct);
+    copy.addEventListener('click', async function () {
+      try { await navigator.clipboard.writeText(nct); copy.textContent = 'Copied'; }
+      catch (err) { copy.textContent = 'Copy manually: ' + nct; }
+    });
+    link.insertAdjacentElement('afterend', copy);
     const btn = document.createElement('button');
     btn.className = 'btn small elig-btn';
-    btn.textContent = 'Check eligibility';
+    btn.textContent = 'Prepare eligibility checklist';
     btn.addEventListener('click', function () { toggleEligibility(item, nct, link.href); });
     item.appendChild(btn);
   });
@@ -1278,7 +1285,7 @@ function diseaseProfile(id) {
   return {
     node: n, genes: genes, mechs: mechs, trials: trials.length, recruiting: recruiting,
     orgs: orgs.length, assets: assets.length,
-    therapy: (ts && ts.note && !/^[A-Z0-9_\-]+$/.test(ts.note.trim())) ? ts.note : 'No approved therapy recorded in the graph.',
+    therapy: (ts && ts.note && !/^[A-Z0-9_\-]+$/.test(ts.note.trim())) ? ts.note : 'Our data does not record a treatment. This does not establish whether approved treatments exist.',
     gaps: cluster && cluster.gaps ? cluster.gaps.length : 0
   };
 }
@@ -1387,33 +1394,43 @@ function initNightMode() {
 
 function initA11y() {
   const btn = vEl('a11yToggle');
-  let panel = vEl('a11yPanel');
-  if (!panel) {
-    panel = document.createElement('div');
-    panel.id = 'a11yPanel';
-    panel.className = 'a11y-panel';
-    panel.hidden = true;
-    panel.innerHTML =
-      '<h3>Accessibility</h3>' +
-      '<label class="check"><input type="checkbox" id="a11yDys"> Easier-to-read text (wider spacing, simpler letterforms)</label>' +
-      '<label class="check"><input type="checkbox" id="a11yMotion"> Reduce motion</label>' +
-      '<label class="check"><input type="checkbox" id="a11yFocus"> Focus mode (hide navigation, one thing at a time)</label>' +
-      '<p><button class="btn small" id="a11yPrint">Print-friendly view</button></p>' +
-      '<p class="item-sub">Medical terms are underlined throughout the atlas \u2014 tap any of them for a plain-language definition.</p>';
-    document.querySelector('.topbar').appendChild(panel);
+  if (!btn || btn.dataset.a11yBound) return;
+  btn.dataset.a11yBound = '1';
+  const panel = document.createElement('div');
+  panel.id = 'a11yPanel'; panel.className = 'a11y-panel'; panel.hidden = true;
+  panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Accessibility settings');
+  panel.innerHTML = '<div class="action-head"><h3>Accessibility</h3><button type="button" class="btn small" id="a11yClose">Close</button></div>' +
+    '<label class="check"><input type="checkbox" id="a11yDys"> Dyslexia-friendly text</label>' +
+    '<label class="check"><input type="checkbox" id="a11yMotion"> Reduce motion</label>' +
+    '<label class="check"><input type="checkbox" id="a11yFocus"> Focus mode (hide secondary navigation and decoration)</label>' +
+    '<label class="check"><input type="checkbox" id="a11yLarge"> Larger text</label>';
+  document.querySelector('.topbar').appendChild(panel);
+  btn.setAttribute('aria-controls', panel.id);
+  function setOpen(open, restoreFocus) {
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-pressed', String(open));
+    if (restoreFocus) btn.focus();
   }
-  btn.addEventListener('click', function () {
-    panel.hidden = !panel.hidden;
-    btn.setAttribute('aria-pressed', panel.hidden ? 'false' : 'true');
+  setOpen(false);
+  btn.addEventListener('click', function () { setOpen(panel.hidden); });
+  vEl('a11yClose').addEventListener('click', function () { setOpen(false, true); });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !panel.hidden) setOpen(false, true);
   });
-  vEl('a11yDys').addEventListener('change', function (ev) {
-    document.body.classList.toggle('a11y-dys', ev.target.checked);
+  document.addEventListener('click', function (ev) {
+    if (!panel.hidden && !panel.contains(ev.target) && !btn.contains(ev.target)) setOpen(false);
   });
-  vEl('a11yMotion').addEventListener('change', function (ev) {
-    document.body.classList.toggle('a11y-motion', ev.target.checked);
+  const options = { a11yDys: 'a11y-dys', a11yMotion: 'a11y-motion', a11yFocus: 'a11y-focus', a11yLarge: 'a11y-large' };
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('atlas-a11y') || '{}') || {}; } catch (err) {}
+  Object.keys(options).forEach(function (id) {
+    const input = vEl(id), cls = options[id];
+    input.checked = saved[cls] === true;
+    document.body.classList.toggle(cls, input.checked);
+    input.addEventListener('change', function () {
+      document.body.classList.toggle(cls, input.checked); saved[cls] = input.checked;
+      try { localStorage.setItem('atlas-a11y', JSON.stringify(saved)); } catch (err) {}
+    });
   });
-  vEl('a11yFocus').addEventListener('change', function (ev) {
-    document.body.classList.toggle('a11y-focus', ev.target.checked);
-  });
-  vEl('a11yPrint').addEventListener('click', function () { window.print(); });
 }

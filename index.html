@@ -22,7 +22,7 @@
         <button type="button" class="seg-btn" data-reading="detailed" role="radio" aria-checked="false" title="Adds study types and dates">Detailed</button>
       </div>
       <button id="nightToggle" class="btn small" aria-pressed="false" title="Dark theme for nighttime reading">Night mode</button>
-      <button id="a11yToggle" class="btn small" aria-pressed="false" title="Dyslexia-friendly text, focus mode, print view">Accessibility</button>
+      <button id="a11yToggle" class="btn small" aria-pressed="false" title="Text spacing, motion, focus mode, and text size">Accessibility</button>
     </div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Atlas views">
@@ -136,11 +136,12 @@
   <section id="view-journey" class="view" role="tabpanel" tabindex="0" aria-labelledby="tab-journey" hidden>
     <p class="section-lede">Every family is at a different place. Choose where you are right now, and you will see only the next two or three things that matter from here &mdash; nothing more, and in no fixed order. Steps link into real atlas data wherever it exists; anything not recorded says so.</p>
     <div class="action-head journey-disease-row">
+      <h2 id="journeySelectedDisease"></h2>
       <label for="journeyDisease" class="control-label">Disease</label>
       <select id="journeyDisease"></select>
     </div>
     <details class="card journey-example">
-      <summary><strong>See one family&rsquo;s path</strong> <span class="item-sub">&mdash; Maria and Sanfilippo syndrome type A</span></summary>
+      <summary><strong>Sanfilippo A example</strong> <span class="item-sub">Sanfilippo syndrome type A</span></summary>
       <div id="mariaPath"></div>
     </details>
     <h2 class="subhead journey-q" id="journeyQ" tabindex="-1">Where are you right now?</h2>

@@ -327,7 +327,7 @@ function switchTab(name) {
     const jsel = el('journeyDisease');
     const cur = getDisease();
     if (jsel && cur) jsel.value = cur;
-    if (state.journeyState) renderJourneySteps();
+    renderJourneySteps();
   }
   if (name === 'explore') {
     // The graph follows the disease the visitor is already looking at.
@@ -936,7 +936,7 @@ function renderPatientAction(diseaseId) {
   // (a) Status banner — one honest line, computed from the graph.
   const treatLine = therapies.length
     ? 'Approved treatment: ' + therapies.map(function (t) { return displayName(t.node); }).join('; ') + '.'
-    : 'No approved treatment recorded.';
+    : (ts && ts.note ? ts.note : 'Our data does not record a treatment. Ask your specialist about current options.');
   html += '<div class="status-banner" role="status"><strong>' + esc(name) + '</strong>: ' +
     esc(treatLine) + ' ' +
     esc(actionPlural(recruiting.length, 'trial', 'trials')) + ' recruiting. ' +
@@ -1208,7 +1208,7 @@ function journeyOrgHtml(orgs, name) {
   let html = '<ul class="jlist">' + orgs.slice(0, 3).map(function (o) {
     const url = o.extra && o.extra.url;
     return '<li>' + esc(displayName(o)) +
-      (url ? ' &mdash; <a href="' + esc(url) + '" target="_blank" rel="noopener">website &rarr;</a>' : '') + '</li>';
+      (url ? ': <a href="' + esc(url) + '" target="_blank" rel="noopener">website &rarr;</a>' : '') + '</li>';
   }).join('') + '</ul>';
   if (orgs.length > 3) html += '<p class="item-sub">Plus ' + (orgs.length - 3) + ' more recorded in the graph.</p>';
   return html;
@@ -1220,7 +1220,7 @@ function journeyTrialHtml(recruiting) {
     const label = displayName(t);
     const short = label.length > 90 ? label.slice(0, 90) + '\u2026' : label;
     return '<li>' + esc(short) +
-      (url ? ' &mdash; <a href="' + esc(url) + '" target="_blank" rel="noopener">trial listing &rarr;</a>' : '') + '</li>';
+      (url ? ': <a href="' + esc(url) + '" target="_blank" rel="noopener">trial listing &rarr;</a>' : '') + '</li>';
   }).join('') + '</ul>';
   if (recruiting.length > 3) html += '<p class="item-sub">Plus ' + (recruiting.length - 3) + ' more recruiting trials in the graph.</p>';
   return html;
@@ -1238,86 +1238,46 @@ function journeyAssetHtml(assets, name) {
 
 /* Step text, per state. Bodies are calm guidance; data appears only via
  * the graph-backed extra HTML. kinds: 'step' | 'pause' | 'deadend'. */
+function journeyEvidenceHTML(id, types) {
+  const edges = incidentEdges(id).filter(function (e) {
+    const n = nodesById[e.source === id ? e.target : e.source];
+    return n && (!types || types.indexOf(n.type) !== -1);
+  });
+  return '<details><summary>Evidence behind this step</summary>' + (edges.length ?
+    '<ul class="jlist">' + edges.map(function (e) {
+      const n = nodesById[e.source === id ? e.target : e.source];
+      const ref = linkifyRef(e.source_ref);
+      return '<li>' + esc(displayName(n)) + ': ' + esc(e.source_db || 'Source not recorded') + ' ' +
+        (ref ? '<a href="' + esc(ref.url) + '" target="_blank" rel="noopener">' + esc(e.source_ref) + '</a>' : esc(e.source_ref || 'Reference not recorded')) +
+        ' (' + esc(e.evidence || 'Evidence type not recorded') + ')</li>';
+    }).join('') + '</ul>' : '<p>Our data does not record evidence for this step.</p>') + '</details>';
+}
+
 function journeyStateSteps(stateId, id) {
-  const p = journeyProfile(id);
-  const name = p.name;
-  const PAUSE_BODY = 'You do not have to do everything today. It is okay to stop here and just care for your child. Nothing in this atlas expires.';
-  if (stateId === 'uncertain') {
-    return [
-      { kind: 'step', title: 'Get a precise diagnosis first',
-        body: 'A geneticist or metabolic specialist can confirm the exact condition, usually with a gene test. Everything else in this atlas \u2014 care, trials, research \u2014 depends on having the right name. If a test is already scheduled, you are already doing the right thing.' },
-      { kind: 'pause', title: 'You can stop here', body: PAUSE_BODY },
-      { kind: 'step', title: 'When you have a name, come back',
-        body: 'Type the diagnosis into the Your Disease page and you will see what the atlas records: care, treatments, organizations, and research.',
-        links: [{ tab: 'action', label: 'Open the Your Disease page' }] }
-    ];
-  }
-  if (stateId === 'confirmed') {
-    let therapyNote = 'No approved therapy is recorded in the graph.';
-    try {
-      const dp = diseaseProfile(id);
-      if (dp && dp.therapy) therapyNote = dp.therapy.length > 200 ? dp.therapy.slice(0, 200) + '\u2026' : dp.therapy;
-    } catch (err) {}
-    return [
-      { kind: 'step', title: 'Read what is recorded about ' + name,
-        body: 'Start with the treatment status as the atlas records it: ' + therapyNote,
-        links: [{ tab: 'action', label: 'Open your disease page' }] },
-      { kind: 'step', title: 'Find a specialist team and a patient community',
-        body: 'Other families with ' + name + ' are the fastest route to practical knowledge. Recorded in the graph:',
-        extra: journeyOrgHtml(p.orgs, name) },
-      { kind: 'pause', title: 'You can stop here', body: PAUSE_BODY }
-    ];
-  }
-  if (stateId === 'care') {
-    const steps = [];
-    if (p.approved.length) {
-      steps.push({ kind: 'step', title: 'Ask your specialist about what is recorded',
-        body: 'The graph records the following as treating ' + name + '. Only your clinician can say whether any of them fits your child.',
-        extra: '<ul class="jlist">' + p.approved.slice(0, 3).map(function (a) {
-          return '<li>' + esc(displayName(a)) + '</li>';
-        }).join('') + '</ul>',
-        links: [{ tab: 'action', label: 'See the full treatment picture' }] });
-    } else {
-      steps.push({ kind: 'deadend', title: 'No approved treatment is recorded yet',
-        body: 'This is a real dead end, and other families have stood exactly here. What they did next: joined the patient organization so they would hear first when research opened, asked their specialist about clinical trials, and looked at what neighboring diseases had tried. None of that fixes today, and it is okay to grieve that.',
-        extra: journeyOrgHtml(p.orgs, name),
-        links: [{ tab: 'action', label: 'Open your disease page' }] });
-    }
-    steps.push({ kind: 'pause', title: 'You can stop here', body: PAUSE_BODY });
-    return steps;
-  }
-  if (stateId === 'research') {
-    const steps = [];
-    if (p.recruiting.length) {
-      steps.push({ kind: 'step', title: p.recruiting.length + ' trial' + (p.recruiting.length > 1 ? 's are' : ' is') + ' recorded as recruiting',
-        body: 'Trials ask a lot of families. Read each listing carefully, then talk to your specialist before contacting anyone.',
-        extra: journeyTrialHtml(p.recruiting),
-        links: [{ tab: 'action', label: 'See all linked research' }] });
-    } else {
-      steps.push({ kind: 'deadend', title: 'No trial is recruiting for ' + name + ' yet',
-        body: 'That is what the graph records, and it is an honest dead end. Here is what others did at this point: they joined the patient organization to be told first when a trial opened, and they supported or joined a natural-history study or registry \u2014 the step that usually has to come before any trial can exist.',
-        extra: journeyOrgHtml(p.orgs, name),
-        links: [{ tab: 'gaps', label: 'Read the Gaps & Limits page' }] });
-    }
-    steps.push({ kind: 'step', title: 'Read what is still unknown before you decide',
-      body: 'The Gaps & Limits page says plainly what science does not know yet. Knowing the limits first makes every later conversation calmer.',
-      links: [{ tab: 'gaps', label: 'Open Gaps & Limits' }] });
-    steps.push({ kind: 'pause', title: 'Watching and waiting is a valid choice',
-      body: 'Research moves slowly. You are allowed to put this down and come back in a few months.' });
-    return steps;
-  }
-  /* 'group' */
-  return [
-    { kind: 'step', title: 'See who already organizes around ' + name,
-      body: 'You may not need to start from zero. Recorded in the graph:',
-      extra: journeyOrgHtml(p.orgs, name) },
-    { kind: 'step', title: 'Look at research assets that could be reused',
-      body: 'Registries, study designs, and shared tools from this or neighboring diseases are the cheapest way to start.',
-      extra: journeyAssetHtml(p.assets, name) },
-    { kind: 'step', title: 'See how one family thought about it',
-      body: 'Maria\u2019s path below shows how a Sanfilippo A advocate moved from diagnosis to a concrete research proposal, reusing work from neighboring diseases instead of starting from scratch.',
-      links: [{ tab: 'maria', label: 'Read Maria\u2019s path' }] }
-  ];
+  const p = journeyProfile(id), name = p.name;
+  const genes = actionNeighbors(id, 'gene').map(function (x) { return displayName(x.node); });
+  const ts = p.node.extra && p.node.extra.therapy_status;
+  const treatment = ts && ts.note ? ts.note : p.approved.length ?
+    'Approved treatments recorded: ' + p.approved.map(function (n) { return displayName(n); }).join('; ') + '.' :
+    'Our data does not record a treatment for this disease. This does not establish whether approved treatments exist. Ask your specialist about current options.';
+  const cluster = GRAPH.clusters.find(function (c) { return c.id === p.node.cluster_id; });
+  const gaps = cluster && cluster.gaps || [];
+  const steps = {
+    uncertain: [{ title: 'Confirm the diagnosis of ' + name,
+      body: 'Only a clinician can diagnose. Genes linked in our data: ' + (genes.join(', ') || 'none recorded') + '. Ask a geneticist or metabolic specialist which tests are appropriate.', types: ['gene'] }],
+    confirmed: [{ title: 'Read what is recorded about ' + name, body: treatment, types: ['therapy', 'drug'] },
+      { title: 'Find a patient community', body: 'Patient organizations linked to ' + name + ' in our data:', extra: journeyOrgHtml(p.orgs, name), types: ['patient_org'] }],
+    care: [{ title: 'Discuss treatment and care for ' + name, body: treatment, types: ['therapy', 'drug'], links: [{ tab: 'action', label: 'See the full treatment picture' }] }],
+    research: [{ title: 'Research recorded for ' + name,
+      body: p.nTrials + ' trials are linked in our data; ' + p.recruiting.length + ' are recorded as recruiting. Status can change. The trial team must confirm current recruitment and eligibility.',
+      extra: journeyTrialHtml(p.recruiting), types: ['trial'] },
+      { title: 'Evidence gaps', body: gaps.length ? 'These gaps are recorded for this disease group, rather than established for every individual disease: ' + gaps.join('; ') : 'Our data does not record specific evidence gaps for this disease. Missing records do not mean the evidence is complete.', types: null }],
+    group: [{ title: 'Organizations linked to ' + name, body: 'Start by discussing existing community resources.', extra: journeyOrgHtml(p.orgs, name), types: ['patient_org'] },
+      { title: 'Research assets linked to ' + name, body: 'Ask the asset owner about access, consent, and suitability before planning research.', extra: journeyAssetHtml(p.assets, name), types: ['asset'] }]
+  };
+  return (steps[stateId] || []).map(function (step) {
+    step.kind = 'step'; step.extra = (step.extra || '') + journeyEvidenceHTML(id, step.types); return step;
+  }).concat([{ kind: 'pause', title: 'You can pause here', body: 'You do not have to do everything today. Bring these questions to your care team when you are ready.' }]);
 }
 
 function journeyStepCard(s, id) {
@@ -1381,6 +1341,11 @@ function selectJourneyState(id, focusSteps) {
 function renderJourneySteps() {
   const box = el('journeySteps');
   if (!box) return;
+  const selected = getDisease();
+  const heading = el('journeySelectedDisease');
+  if (heading) heading.textContent = selected ? displayName(nodesById[selected]) : 'Choose a disease';
+  const example = document.querySelector('.journey-example');
+  if (example) example.hidden = !selected || selected !== (GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start);
   if (!state.journeyState) {
     box.innerHTML = '<p class="section-lede">Choose a situation above \u2014 the next steps will appear here.</p>';
     return;
@@ -1413,24 +1378,11 @@ function wireJourneyLinks(box) {
 /* Maria's worked example: state-by-state, faithful to her recorded path. */
 function renderMariaPath() {
   const box = el('mariaPath');
-  if (!box || box.dataset.built) return;
-  box.dataset.built = '1';
-  function ms(title, body) {
-    return '<div class="maria-state"><h3>' + title + '</h3><p>' + body + '</p></div>';
-  }
-  box.innerHTML =
-    '<p class="maria-intro">Maria is a mother whose child has Sanfilippo syndrome type A, the patient leader in this challenge. ' +
-    '<span class="item-sub">Maria is a composite example drawn from Sanfilippo A families\u2019 shared path \u2014 not one real family\u2019s full story.</span></p>' +
-    ms('Diagnosis confirmed',
-      'Her child\u2019s diagnosis was Sanfilippo syndrome type A (mucopolysaccharidosis type 3A). Genetic testing showed variants in the SGSH gene, which carries the instructions for the sulfamidase enzyme: when the gene is broken, waste piles up inside brain cells.') +
-    ms('Seeking care',
-      'In September 2026 the FDA approved Fayuvi for pediatric Sanfilippo A \u2014 but only for children whose neurodevelopmental function is still preserved. The label names no age cutoff and no genotype exclusions. So the urgent question became: who qualifies, and what is the path for everyone else? The National MPS Society supports families affected by MPS I, II and III.') +
-    ms('Considering research',
-      'Because Sanfilippo A breaks the same cellular recycling system as MPS I and MPS II, Maria looked sideways. MPS I has had an approved treatment and a published patient registry since 2003; the Hunter Outcome Survey worked out practical rules for consent and tracking treatment. The plan: reuse the public MPS I/II registry design \u2014 the design is public, but patients\u2019 data is not \u2014 then check diagnosis, concurrent trials, consent, age, and developmental stage.') +
-    ms('Building a patient group',
-      'The concrete proposal: a clinician-led Sanfilippo natural-history study, with eligibility rules adjusted for Sanfilippo and measurements focused on the brain \u2014 keeping treated and untreated patients in separate groups so the results stay honest. The National MPS Society was seen as a natural convenor. It has not agreed to this proposal.') +
-    '<p class="item-sub">Drawn from Maria\u2019s recorded journey in the atlas: diagnosis, the SGSH gene, the shared GAG-catabolism pathway with MPS I and II, the National MPS Society, the reusable registry design, and the clinician-led natural-history proposal.</p>';
-  if (typeof markTerms === 'function') markTerms(box);
+  const id = GRAPH.journeys && GRAPH.journeys.maria && GRAPH.journeys.maria.start;
+  if (!box || !nodesById[id]) return;
+  box.innerHTML = '<p>This optional example uses the Sanfilippo A graph records. It is not a family history.</p>' +
+    journeyStateSteps('confirmed', id).concat(journeyStateSteps('group', id)).map(function (step) { return journeyStepCard(step, id); }).join('');
+  wireJourneyLinks(box);
 }
 
 function initJourney() {
@@ -1443,7 +1395,7 @@ function initJourney() {
     if (cur) { sel.value = cur; setDisease(cur); }
     sel.addEventListener('change', function () {
       setDisease(sel.value);
-      if (state.journeyState) renderJourneySteps();
+      renderJourneySteps();
     });
   }
   renderJourneyStates();

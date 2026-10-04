@@ -754,6 +754,50 @@ function safeUrl(u) {
   return 'https://clinicaltrials.gov/';
 }
 
+function sessionReportHTML() {
+  var d = nodesById[G.diseaseId];
+  var h = '<article id="guideSessionReport"><h1>Rare Disease Atlas: family report</h1><p>Prepared ' + new Date().toLocaleDateString() + '. Matches in our data are not a diagnosis. Only a clinician can diagnose.</p>';
+  h += '<h2>Search trail</h2>' + ((G.searchHistory || []).map(function (entry) { return entry.trail; }).join('') || queryTrailHTML());
+  var considered = {};
+  (G.searchHistory || []).forEach(function (entry) { entry.ids.forEach(function (id) { considered[id] = true; }); });
+  (G.candidates || []).forEach(function (c) { considered[c.id || (c.node && c.node.id)] = true; });
+  if (d) considered[d.id] = true;
+  h += '<h2>Candidate diseases considered</h2><ul>' + Object.keys(considered).filter(function (id) { return nodesById[id]; }).map(function (id) { return '<li>' + esc2(guideName(nodesById[id])) + '</li>'; }).join('') + '</ul>';
+  if (G.candidates.length > 1) h += compareHTML(G.candidates);
+  h += '<h2>Information shared in this session</h2><p>Role: ' + esc2(G.role || 'not specified') + '. Diagnosis confirmation: ' + esc2(G.certain == null ? 'not specified' : G.certain) + '.</p>';
+  var recognized = (G.confirmedPhenos || []).concat(Object.keys(G.ambFilter || {}).filter(function (k) { return G.ambFilter[k]; }));
+  h += '<p>Symptoms selected: ' + (recognized.length ? esc2(recognized.map(function (k) { return plainSymptom(phenoLabel(k)); }).join('; ')) : 'none selected') + '.</p>';
+  if (d) {
+    h += '<h2>Selected disease: ' + esc2(guideName(d)) + '</h2><h3>At a glance</h3><p>' + esc2(d.description || 'Description not recorded.') + '</p>';
+    h += '<p>Genes: ' + esc2(genesFor(d.id).map(function (g) { return g.label; }).join(', ') || 'not recorded') + '. Trials: ' + trialsFor(d.id).length + '; recruiting: ' + recruitingTrials(d.id).length + '. Patient groups: ' + orgsFor(d.id).length + '. Symptoms recorded: ' + phenosFor(d.id).length + '.</p>';
+    h += '<p>Patient groups: ' + esc2(orgsFor(d.id).map(function (o) { return o.label; }).join('; ') || 'not recorded') + '.</p>';
+    h += vExport();
+    h += '<h2>Key evidence and sources</h2>' + journeyEvidenceHTML(d.id);
+  } else {
+    h += '<h2>Next steps</h2><p>Discuss the candidate conditions and symptoms with a geneticist or metabolic specialist. This comparison cannot confirm a diagnosis.</p>';
+    Object.keys(considered).filter(function (id) { return nodesById[id]; }).forEach(function (id) { h += '<h3>' + esc2(guideName(nodesById[id])) + '</h3>' + journeyEvidenceHTML(id); });
+  }
+  return h + '</article>';
+}
+
+function printSessionReport() {
+  var report = document.getElementById('guidePrintReport');
+  if (!report) { report = document.createElement('div'); report.id = 'guidePrintReport'; document.body.appendChild(report); }
+  report.innerHTML = sessionReportHTML();
+  report.querySelectorAll('details').forEach(function (detail) { detail.open = true; });
+  document.body.classList.add('printing-guide');
+  window.print();
+}
+window.addEventListener('afterprint', function () { document.body.classList.remove('printing-guide'); });
+window.addEventListener('beforeprint', function () {
+  if (typeof state !== 'undefined' && state.tab === 'guide') {
+    var report = document.getElementById('guidePrintReport');
+    if (!report) { report = document.createElement('div'); report.id = 'guidePrintReport'; document.body.appendChild(report); }
+    report.innerHTML = sessionReportHTML(); report.querySelectorAll('details').forEach(function (detail) { detail.open = true; });
+    document.body.classList.add('printing-guide');
+  }
+});
+
 function renderGuide() {
   var body = el('guideBody');
   if (!body) return;
@@ -773,6 +817,7 @@ function renderGuide() {
   else if (G.screen === 'research') h = vResearch();
   else if (G.screen === 'connections') h = vConnections();
   else if (G.screen === 'export') h = vExport();
+  if (['confirm', 'ambiguous', 'action', 'families', 'understand', 'research', 'connections', 'export'].indexOf(G.screen) !== -1) h = '<p><button type="button" class="btn" data-print-session>Print / save as PDF</button></p>' + h;
   body.innerHTML = h;
   wireGuide(body);
   wireBridge(body);
@@ -1504,7 +1549,7 @@ function vResearch() {
       '<span class="guide-trial-meta">' + esc2(p.meta) + '</span>' +
       '<p class="guide-fine">This is a research study testing a possible treatment &mdash; not an approved medicine.</p>' +
       '<div class="guide-btnrow"><a class="btn small" href="' + esc2(safeUrl(p.url)) + '" target="_blank" rel="noopener">View on ClinicalTrials.gov &rarr;</a>' +
-      (isRec ? '<button type="button" class="btn small" data-go-tab="action">Check eligibility &rarr;</button>' : '') + '</div>' +
+      (isRec ? '<button type="button" class="btn small" data-go-tab="action">Prepare eligibility checklist &rarr;</button>' : '') + '</div>' +
       '</div>';
   }).join('');
   if (!cards) cards = '<p class="guide-sub">No studies are recorded for this condition in our data right now. That doesn&rsquo;t mean none exist &mdash; ' +
@@ -1676,6 +1721,8 @@ function wireGuide(scope) {
     G.query = val;
     var r = interpret(val);
     G.how = r.how || null;
+    G.searchHistory = G.searchHistory || [];
+    G.searchHistory.push({ trail: queryTrailHTML(), ids: r.kind === 'disease' ? [r.id] : (r.candidates || []).map(function (c) { return c.id || (c.node && c.node.id); }) });
     if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); }
     else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; G.ambFilter = {}; go('ambiguous'); }
     else go('nomatch');
@@ -1775,8 +1822,7 @@ function refreshAmb(scope) {
   wireAmbFilter(scope);
   var more = scope.querySelector('#phenoMore');
   if (more) more.addEventListener('click', function () { G.phenoExpanded = true; go('confirm'); });
-  var pr = scope.querySelector('#guidePrint');
-  if (pr) pr.addEventListener('click', function () { window.print(); });
+  scope.querySelectorAll('#guidePrint, [data-print-session]').forEach(function (pr) { pr.addEventListener('click', printSessionReport); });
 }
 
 function initGuide() {
