@@ -549,6 +549,42 @@ body.dark .guide-action-card .guide-list { color: var(--ink); }
 body.dark .guide-otherpaths { background: var(--surface); border-color: var(--line); }
 body.dark .guide-otherpaths summary { color: var(--ink); }
 body.dark .guide-op-sub { color: var(--ink-faint); }
+/* Catch-all: every remaining hardcoded light background / dark text in the sheet. */
+body.dark .badge { background: #2e323c; color: var(--ink); }
+body.dark .badge.conf-high { background: #123a2b; color: #7fe0a8; }
+body.dark .badge.conf-medium { background: #3a2f16; color: #f2c94c; }
+body.dark .badge.conf-low { background: #2e323c; color: var(--ink-soft); }
+body.dark .badge.warn { background: #3a1d1d; color: #f0a0a0; }
+body.dark .status.recruiting { background: #123a2b; color: #7fe0a8; }
+body.dark .status.notrecruiting { background: #2e323c; color: var(--ink-soft); }
+body.dark .dot.done { background: #2e323c; color: var(--ink); }
+body.dark .j-badge-pause { background: #232b45; color: #9db9f7; }
+body.dark .gantt-track { background: #2e323c; }
+body.dark .gantt-bar.baseline { background: #5b6472; }
+body.dark .compare-table th, body.dark .compare-table td { border-color: #2e323c; }
+body.dark .compare-table thead th { background: #1a1e26; color: var(--ink); }
+body.dark .compare-table td { color: var(--ink-soft); }
+body.dark .compare-table td.wi-unknown { background: #2a2415; color: var(--ink-faint); }
+body.dark .guide-nextstep { background: #3a2f16; border-color: #6b5a2e; color: var(--ink); }
+body.dark .guide-org p { color: var(--ink-soft); }
+body.dark .verified { background: #123a2b; color: #7fe0a8; }
+body.dark .guide-safety { background: #1a1e26; color: var(--ink-soft); }
+body.dark .guide-trial { background: var(--surface); border-color: var(--line); }
+body.dark .guide-trial strong { color: var(--ink); }
+body.dark .guide-trial { color: var(--ink-soft); }
+body.dark .guide-trial-meta { color: #9db9f7; }
+body.dark .guide-honesty { background: #2e2118; border-color: #6b4a2e; color: var(--ink); }
+body.dark .guide-conn { background: var(--surface); border-color: var(--line); }
+body.dark .guide-conn strong { color: var(--ink); }
+body.dark .guide-conn { color: var(--ink-soft); }
+body.dark .ep-caveat { background: #3a2f16; border-left-color: #e0a82e; color: var(--ink); }
+body.dark .guide-role { background: var(--surface); border-color: var(--line); color: var(--ink); }
+body.dark .guide-role span, body.dark .guide-role small { color: var(--ink-soft); }
+body.dark .guide-role[aria-checked="true"] { border-color: var(--accent); background: #232b45; }
+body.dark .guide-role strong { color: var(--ink); }
+body.dark .ref { color: var(--ink-faint); }
+body.dark .guide-compare-why { color: #9db9f7; }
+body.dark .guide-cand-n { color: #9db9f7; }
 
 /* ---------- mobile pass (2am phone) ---------- */
 @media (max-width: 700px) {
