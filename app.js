@@ -61,6 +61,27 @@ const ACCENT = '#1a56db';
 const EDGE_COLOR = '#c4c9d1';
 const CONTRADICT_COLOR = '#d97777';
 
+/* One plain-language line per tab, shown under the tab bar so nobody has to
+ * guess what a tab means. */
+const TAB_DESCS = {
+  guide: 'Answer one question at a time \u2014 describe symptoms or a diagnosis and we\u2019ll narrow it down together.',
+  action: 'Everything the atlas records about one condition: genes, symptoms, trials, and patient groups.',
+  journey: 'The path families usually walk, plotted from this disease\u2019s actual data \u2014 trials, organizations, and research.',
+  recent: 'The newest research and trials added to the atlas.',
+  gaps: 'Where the atlas is weak, thin, or silent \u2014 with the exact references, so you can see what\u2019s missing.',
+  contradictions: 'Places where the evidence disagrees with itself.',
+  explore: 'Search the full knowledge graph: every entry, every connection, and the evidence behind each link.',
+  clusters: 'Groups of diseases that share the same underlying biology.',
+  endpoints: 'What clinical trials measure \u2014 and which diseases measure the same things.',
+  whatif: 'Ask \u201cwhat would change if\u2026\u201d and see what the data supports.',
+  impact: 'The concrete next step a community could take, and what it would unlock.',
+  settings: 'Reading level, night mode, and accessibility options.'
+};
+function renderTabDesc() {
+  const d = el('tabDesc');
+  if (d) d.textContent = TAB_DESCS[state.tab] || '';
+}
+
 const state = {
   tab: 'guide',
   center: null,
@@ -210,6 +231,7 @@ function init() {
     'Slice: ' + (GRAPH.meta && GRAPH.meta.slice ? GRAPH.meta.slice : 'rare diseases') + '.';
 
   buildTypeLegend();
+  renderTabDesc();
   initSearch();
   initExploreControls();
   initTabs();
@@ -294,6 +316,7 @@ function switchTab(name) {
   });
   document.querySelectorAll('.view').forEach(function (v) { v.hidden = true; });
   el('view-' + name).hidden = false;
+  renderTabDesc();
   if (name === 'action') {
     const dsel = el('diseaseSelect');
     const cur = getDisease();
