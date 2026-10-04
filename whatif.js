@@ -373,6 +373,7 @@ function renderWhatIf() {
   html += '<div class="wi-export"><button class="btn" id="wiExport">Export comparison (print)</button>' +
     (active ? '<span class="wi-note">Active: ' + esc(active === 'both' ? 'both scenarios' : 'Scenario ' + active.toUpperCase()) + '</span>' : '') + '</div>';
 
+  html += '<div class="tech-detail"><h3>Model assumptions and parameters</h3><p>This is a planning scenario, not a prediction of clinical benefit. Counts use recorded graph connections; shared biology does not establish treatment transfer. Investigator availability, funding, and patient participation are assumed, not confirmed. Recruitment status is a snapshot that must be checked with trial teams.</p></div>';
   body.innerHTML = html;
 
   var sel = document.getElementById('wiDisease');

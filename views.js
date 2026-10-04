@@ -688,19 +688,6 @@ const READING_KEY = 'atlas_reading';
 let reading = 'standard';
 try { reading = localStorage.getItem(READING_KEY) || 'standard'; } catch (err) {}
 
-/* Plain-language rewrites of Maria's journey "why" texts. Faithful
- * simplifications of the originals — no new facts introduced. */
-const PLAIN_WHY = [
-  'Sanfilippo A is a rare brain disease in children. A new gene therapy called Fayuvi was approved in September 2026, but only for young children whose development is still on track. The urgent question for families: who qualifies \u2014 and what is the path for everyone else?',
-  'The SGSH gene carries instructions for an enzyme that cleans up waste inside brain cells. When this gene is broken, the waste piles up and causes Sanfilippo A.',
-  'The broken enzyme is one step in the cell\u2019s recycling system for a substance called heparan sulfate. Other diseases break different steps of the same recycling system \u2014 so their research may overlap.',
-  'MPS I is a related disease with a similar recycling problem. It has had an approved enzyme treatment since 2003 and a published patient registry researchers can learn from. But its treatment helps the body, not the brain \u2014 so it cannot simply be assumed to work for Sanfilippo.',
-  'MPS II (Hunter syndrome) is another related disease, with an approved treatment since 2006. Its large patient registry worked out practical rules for consent and tracking treatment \u2014 rules Sanfilippo researchers could reuse instead of inventing their own.',
-  'The National MPS Society supports families affected by MPS I, II, and III. It is a natural convenor to bring these communities together around a shared research plan.',
-  'Instead of designing a patient study from scratch, researchers can reuse the public MPS I/II registry design \u2014 then adjust it for Sanfilippo\u2019s diagnosis, ages, and brain symptoms. Note: the study design is public, but patients\u2019 data is not.',
-  'The concrete next step: a clinician-led study that follows Sanfilippo patients over time, with clear rules for who can join and measurements focused on the brain \u2014 keeping treated and untreated patients in separate groups so the results are honest.'
-];
-
 /* Plain-language definitions for technical terms. Standard medical
  * explanations, pre-written (never generated on the fly). */
 const GLOSSARY = {
@@ -826,12 +813,6 @@ function initReading() {
     btn.setAttribute('aria-checked', on ? 'true' : 'false');
     btn.addEventListener('click', function () { setReading(btn.dataset.reading); });
   });
-  // stepPanel was removed in Build 4 (state-based journey); observe only if present.
-  const stepPanel0 = vEl('stepPanel');
-  if (stepPanel0) {
-    new MutationObserver(function () { applyReading(); })
-      .observe(stepPanel0, { childList: true });
-  }
   document.body.classList.remove('reading-plain', 'reading-standard', 'reading-detailed');
   document.body.classList.add('reading-' + (['plain', 'standard', 'detailed'].indexOf(reading) >= 0 ? reading : 'standard'));
   applyReading();
@@ -851,35 +832,53 @@ function setReading(r) {
     btn.setAttribute('aria-checked', on ? 'true' : 'false');
   });
   applyReading();
+  let toast = vEl('readingToast');
+  if (!toast) { toast = document.createElement('div'); toast.id = 'readingToast'; toast.className = 'reading-toast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast); }
+  toast.textContent = vEl('readingCaption').textContent; toast.hidden = false;
+  clearTimeout(window.atlasReadingToastTimer);
+  window.atlasReadingToastTimer = setTimeout(function () { toast.hidden = true; }, 4000);
 }
 
 function applyReading() {
-  const sp = vEl('stepPanel');
-  if (!sp) return;
-  const whyEl = sp.querySelector('.why');
-  if (!whyEl) return;
-  if (!whyEl.dataset.orig) whyEl.dataset.orig = whyEl.textContent;
-  const i = (typeof state.journeyStep === 'number') ? state.journeyStep : 0;
-  if (reading === 'plain' && PLAIN_WHY[i]) {
-    whyEl.textContent = PLAIN_WHY[i];
-  } else if (reading === 'detailed') {
-    let extra = '';
-    try {
-      const steps = journeySteps();
-      if (i > 0 && steps[i]) {
-        const e = edgeBetween(steps[i - 1].node, steps[i].node);
-        if (e) {
-          extra = ' [Link: ' + humanize(e.relation) +
-            (e.evidence_type ? ' \u00b7 ' + evidenceLabel(e.evidence_type) : '') +
-            (e.publication_year ? ' \u00b7 ' + e.publication_year : '') +
-            ' \u00b7 confidence ' + e.confidence + ']';
-        }
-      }
-    } catch (err) {}
-    whyEl.textContent = whyEl.dataset.orig + extra;
-  } else {
-    whyEl.textContent = whyEl.dataset.orig;
+  const captions = {
+    plain: 'Plain language: simpler wording, with technical metadata and jargon badges hidden.',
+    standard: 'Standard: atlas wording, with medical definitions available on tap.',
+    detailed: 'Detailed: showing study types, dates, source IDs, and inline explanations throughout the atlas.'
+  };
+  let caption = vEl('readingCaption');
+  if (!caption) {
+    caption = document.createElement('p'); caption.id = 'readingCaption';
+    caption.className = 'reading-caption'; caption.setAttribute('aria-live', 'polite');
+    document.querySelector('.reading-seg').insertAdjacentElement('afterend', caption);
   }
+  caption.textContent = captions[reading] || captions.standard;
+  document.querySelectorAll('[data-reading]').forEach(function (btn) { btn.title = captions[btn.dataset.reading]; });
+  document.querySelectorAll('.inline-definition, .plain-definition').forEach(function (el) { el.remove(); });
+  if (reading === 'plain') simplifyAtlasTerms(document);
+  if (reading === 'detailed') expandAtlasDefinitions(document);
+}
+
+function simplifyAtlasTerms(root) {
+  root.querySelectorAll('.gloss, .defterm').forEach(function (term) {
+    if (term.nextElementSibling && term.nextElementSibling.classList.contains('plain-definition')) return;
+    const definition = GLOSSARY[term.dataset.term];
+    if (!definition) return;
+    const explanation = document.createElement('span'); explanation.className = 'plain-definition';
+    explanation.textContent = definition;
+    term.classList.add('has-plain-definition'); term.insertAdjacentElement('afterend', explanation);
+  });
+}
+
+function expandAtlasDefinitions(root) {
+  root.querySelectorAll('.gloss, .defterm').forEach(function (term) {
+    if (term.nextElementSibling && term.nextElementSibling.classList.contains('inline-definition')) return;
+    const definition = GLOSSARY[term.dataset.term] || (TIER1[term.dataset.term] || {}).plain;
+    if (!definition) return;
+    const explanation = document.createElement('span');
+    explanation.className = 'inline-definition tech-detail';
+    explanation.textContent = ' (' + definition + ')';
+    term.insertAdjacentElement('afterend', explanation);
+  });
 }
 
 /* ---------------- glossary: tap-to-define ---------------- */
@@ -898,7 +897,7 @@ function markTerms(root) {
     acceptNode: function (node) {
       if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       const p = node.parentElement;
-      if (!p || p.closest('.gloss, .defterm, .defexp, script, style, a, button, input, select, textarea, .suggestions')) {
+      if (!p || p.closest('.gloss, .defterm, .defexp, .inline-definition, .plain-definition, script, style, a, button, input, select, textarea, .suggestions')) {
         return NodeFilter.FILTER_REJECT;
       }
       return NodeFilter.FILTER_ACCEPT;
@@ -952,6 +951,8 @@ function markTerms(root) {
     frag.appendChild(document.createTextNode(text.slice(pos)));
     node.parentNode.replaceChild(frag, node);
   });
+  if (reading === 'detailed') expandAtlasDefinitions(root);
+  if (reading === 'plain') simplifyAtlasTerms(root);
 }
 
 /* ---------------- tier-1: inline inline-expansion ---------------- */

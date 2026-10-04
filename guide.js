@@ -531,8 +531,20 @@ function therapyBannerHTML(d) {
 var STOP = {};
 ('a,an,the,my,son,daughter,child,kid,was,were,is,are,with,has,have,had,he,she,they,them,his,her,our,of,to,in,on,at,for,and,or,just,been,got,getting,about,what,when,why,how,do,does,did,can,could,would,should,i,you,we,it,this,that,these,those,from,by,as,not,no,yes,me,him,us,very,more,most,now,today,old,age,doctor,said,says,diagnosed,diagnosis,disease,syndrome,condition,ill,sick,problem,problems,help,please,find,know,think,might,maybe,couldnt,cant,wont,dont').split(',').forEach(function (w) { STOP[w] = 1; });
 
+/* Everyday descriptions expand only in symptom matching, preserving gene lookup. */
+var LAY_SYMPTOMS = {
+  speak: ['speech', 'talking', 'aphasia', 'anarthria', 'dysarthria'],
+  talk: ['speech', 'talking', 'aphasia'],
+  see: ['vision', 'visual', 'sight', 'blindness'],
+  seeing: ['vision', 'visual', 'sight', 'blindness'],
+  walk: ['walking', 'gait', 'ataxia'],
+  hear: ['hearing', 'deafness'],
+  swallow: ['swallowing', 'dysphagia'],
+  breathe: ['breathing', 'respiratory'],
+  balance: ['balance', 'ataxia', 'gait']
+};
 function interpret(q) {
-  var low = q.trim().toLowerCase();
+  var low = q.trim().toLowerCase().replace(/[’']/g, '').replace(/\bcannot\b/g, 'cant');
   if (low.length < 2) return { kind: 'nomatch' };
 
   function diseasesForGene(g) {
@@ -593,6 +605,7 @@ function interpret(q) {
 
   // 4. symptom -> phenotype token match -> candidate diseases
   var toks = low.split(/[^a-z0-9]+/).filter(function (t) { return t.length > 2 && !STOP[t]; });
+  var concepts = toks.map(function (t) { return [t].concat(LAY_SYMPTOMS[t] || []); });
   if (toks.length) {
     var scores = {};
     var phenoHits = [];
@@ -600,11 +613,10 @@ function interpret(q) {
       if (n.type !== 'phenotype') return;
       var words = ([n.label].concat(n.synonyms || [])).join(' ').toLowerCase().split(/[^a-z0-9]+/);
       var m = 0;
-      toks.forEach(function (t) {
-        for (var i = 0; i < words.length; i++) {
-          var w = words[i];
-          if (w === t || (w.length > 4 && t.length > 3 && (w.indexOf(t) === 0 || t.indexOf(w) === 0))) { m++; break; }
-        }
+      concepts.forEach(function (terms) {
+        if (terms.some(function (t) { return words.some(function (w) {
+          return w === t || (w.length > 4 && t.length > 3 && (w.indexOf(t) === 0 || t.indexOf(w) === 0));
+        }); })) m++;
       });
       if (m > 0) {
         phenoHits.push({ label: plainSymptom(n.label), m: m });
@@ -818,6 +830,8 @@ function renderGuide() {
   else if (G.screen === 'connections') h = vConnections();
   else if (G.screen === 'export') h = vExport();
   if (['confirm', 'ambiguous', 'action', 'families', 'understand', 'research', 'connections', 'export'].indexOf(G.screen) !== -1) h = '<p><button type="button" class="btn" data-print-session>Print / save as PDF</button></p>' + h;
+  var evidenceIds = G.diseaseId ? [G.diseaseId] : (G.candidates || []).map(function (c) { return c.id || (c.node && c.node.id); });
+  if (evidenceIds.length) h += '<div class="tech-detail"><h3>Evidence metadata</h3><p>Evidence type describes how a connection was studied; source IDs identify the original records. A graph match is not a diagnosis.</p>' + evidenceIds.filter(function (id) { return nodesById[id]; }).map(function (id) { return journeyEvidenceHTML(id); }).join('') + '</div>';
   body.innerHTML = h;
   wireGuide(body);
   wireBridge(body);

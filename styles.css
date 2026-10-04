@@ -531,7 +531,7 @@ footer {
 .a11y-panel h3 { margin: 0; font-size: 14px; }
 body.a11y-dys { --font: Verdana, Tahoma, "Segoe UI", sans-serif; letter-spacing: 0.02em; word-spacing: 0.08em; line-height: 1.7; }
 body.a11y-motion * { animation: none !important; transition: none !important; }
-body.a11y-focus .tabs, body.a11y-focus footer, body.a11y-focus .header-controls { display: none; }
+body.a11y-focus footer { display: none; }
 body.a11y-focus main { max-width: 760px; }
 
 /* ---------- night mode ---------- */
@@ -933,3 +933,23 @@ body.amb-rail .guide-compare, .guide-amb-main { max-width: none; width: 100%; }
   #guidePrintReport a { overflow-wrap: anywhere; }
   #guidePrintReport a[href]::after { content: ' (' attr(href) ')'; font-size: 8pt; }
 }
+
+/* Reader options apply to content on every tab. */
+body.a11y-dys main * { line-height: 1.8 !important; letter-spacing: .035em !important; word-spacing: .12em !important; text-align: left !important; font-style: normal !important; }
+body.a11y-large main { zoom: 1.2; }
+body.a11y-focus .section-lede, body.a11y-focus .brand p { display: none; }
+body.a11y-focus main { max-width: none; }
+.reading-caption { flex-basis: 100%; margin: 4px 0; font-size: 12px; color: var(--ink-soft); }
+.reading-toast { position: fixed; bottom: 20px; right: 20px; z-index: 120; max-width: 420px; padding: 12px 16px; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; }
+.inline-definition { color: var(--ink-soft); font-size: .92em; }
+body.reading-plain .badge, body.reading-plain .ep-deriv, body.reading-plain .ep-tier, body.reading-plain .conf-badge { display: none; }
+body.reading-plain .gloss { border: none; cursor: text; }
+body.amb-rail .guide-pane { padding-right: 0; }
+.guide-amb-side { position: static !important; width: 100% !important; max-height: none !important; border-left: 0 !important; }
+.guide-body:has(.guide-compare) { max-width: none; width: 100%; }
+@media print { .reading-toast, .reading-caption { display: none !important; } }
+
+body:not(.reading-plain) .plain-definition { display: none; }
+body.reading-plain .has-plain-definition { display: none; }
+body.reading-plain .defexp { display: none; }
+@media print { #guidePrintReport .tech-detail { display: block !important; } }
