@@ -543,6 +543,12 @@ body.dark .wi-item { color: var(--ink-soft); }
 body.dark .limit-callout { background: #2a1d1d; color: #e8a0a0; border-left-color: #d97777; }
 body.dark .limit-callout strong { color: #f0b0b0; }
 body.dark .wi-note { background: var(--surface); border: 1px solid var(--line); color: var(--ink-soft); }
+body.dark .guide-action-card { background: #3a2f16; border-color: #b45309; }
+body.dark .guide-action-card .guide-sub, body.dark .guide-action-card .guide-fine,
+body.dark .guide-action-card .guide-list { color: var(--ink); }
+body.dark .guide-otherpaths { background: var(--surface); border-color: var(--line); }
+body.dark .guide-otherpaths summary { color: var(--ink); }
+body.dark .guide-op-sub { color: var(--ink-faint); }
 
 /* ---------- mobile pass (2am phone) ---------- */
 @media (max-width: 700px) {
