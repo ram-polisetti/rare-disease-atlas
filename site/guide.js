@@ -766,6 +766,7 @@ function vLanding() {
 /* ---- Step 2 of 4: disease-or-symptom search ---- */
 
 function vSearch() {
+  var ph = isNight() ? "What brings you here tonight?" : "What brings you here today?";
   return '<div class="guide-pane">' +
     '<button type="button" class="guide-back" data-nav="landing">&larr; Who I&rsquo;m here as</button>' +
     '<h2 class="guide-h">Tell us what you know.</h2>' +
@@ -773,7 +774,7 @@ function vSearch() {
     roleLine() +
     '<p class="guide-sub">A diagnosis name, a gene, or symptoms in plain words. One thing at a time is fine.</p>' +
     '<div class="guide-searchrow">' +
-    '<input id="guideQ" type="text" autocomplete="off" spellcheck="false" aria-label="Describe your situation" placeholder="What brings you here tonight?">' +
+    '<input id="guideQ" type="text" autocomplete="off" spellcheck="false" aria-label="Describe your situation" placeholder="' + ph + '">' +
     '<button id="guideGo" class="btn primary">Find my community &rarr;</button>' +
     '</div>' +
     '<div class="guide-examples"><span>Try:</span>' +
