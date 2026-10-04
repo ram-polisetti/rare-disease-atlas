@@ -1655,12 +1655,12 @@ function vExport() {
     (genes.length ? '<ul class="guide-list">' + genes.map(function (g) { return '<li><strong>' + esc2(g.label) + '</strong></li>'; }).join('') + '</ul>'
       : '<p class="guide-fine">We don&rsquo;t have the gene recorded yet.</p>');
 
-  h += '<h3 class="guide-h3">Symptoms families often notice</h3>' +
+  h += '<h3 class="guide-h3">Symptoms recorded for this condition</h3>' +
     (phenos.length ? '<ul class="guide-list">' + phenos.slice(0, 10).map(function (p) { return '<li>' + esc2(plainSymptom(p.label)) + '</li>'; }).join('') + '</ul>'
       : '<p class="guide-fine">We don&rsquo;t have symptoms recorded yet.</p>') +
     '<p class="guide-fine">Every child is different &mdash; this list can&rsquo;t predict your child&rsquo;s path. Only a clinician can diagnose.</p>';
 
-  h += '<h3 class="guide-h3">Measurements researchers share</h3>';
+  h += '<h3 class="guide-h3">Measurements that could be shared</h3><p class="guide-fineprint">Matched from recorded symptoms, not from trial protocols. Whether each test suits this condition needs a specialist\u2019s review.</p>';
   if (eps === null) h += '<p class="guide-fine">Endpoint data isn&rsquo;t loaded in this view.</p>';
   else if (!eps.length) h += '<p class="guide-fine">No shared measurements recorded for this condition yet.</p>';
   else h += '<ul class="guide-list">' + eps.slice(0, 8).map(function (r) {
