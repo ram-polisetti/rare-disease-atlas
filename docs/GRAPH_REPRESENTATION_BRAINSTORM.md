@@ -70,3 +70,22 @@ High comfort — reads like Mayo Clinic/NIH, causality is imposed by grammar ins
 High comfort — the disease stays the visual anchor, bounded and calm, no hairball possible by construction. Medium cost — radial layout with progressive disclosure is real frontend work under deadline pressure. Highest visual distinction for judges, but the most build risk tonight. Best positioned as the signature "wow" view if time allows after #1 and #2.
 
 **What stays:** the full network view remains for the researcher persona, moved behind the answer-first screens so a parent never lands in it by accident.
+
+---
+
+## Term explanation for parents (added per user request)
+
+**Problem:** the demo has a 40-term glossary, but a separate glossary page is not enough. A stressed parent encounters jargon inline — gene symbols like SGSH, phrases like "enzyme replacement therapy" or "natural history study" — and will not leave the page to look things up. Both models were asked independently; they converged unusually tightly.
+
+### Where they agree
+1. **Tap-any-jargon inline definitions.** Medical terms get a subtle dotted underline; tapping opens a small card in place with the shortest useful explanation first. No navigation away, no lost place. (Codex #1, Claude #1 — nearly identical proposals.)
+2. **Layered depth, never one fixed level.** One sentence → why it matters → full clinical definition. Most parents stop at layer one; a parent preparing for an appointment goes deeper. Labels signal depth without judgment. (Codex #4 "layered explanation sheet," Claude #4 "progressive depth cards.")
+3. **Mirror the parent's own question.** A visible "What does this mean?" affordance — beside high-impact phrases (Codex) or at the end of dense paragraphs (Claude) — because the parent is already thinking it and should not need medical vocabulary to ask for help.
+4. **Plain-language mode that keeps the clinical term visible.** A persistent toggle rewrites sentences in plain words but preserves the medical term in parentheses, so parents recognize it later in appointments and reports. Both versions stay available; nothing is hidden or softened. (Codex #3, Claude #2.)
+5. **Plain words, not wrong words.** Both models independently warned: simplification must never sacrifice medical accuracy or severity. The clinical term stays visible precisely so the parent is not misled.
+
+### Nuance worth keeping
+Codex would place "What does this mean?" selectively beside decision-relevant terms (to avoid clutter and keep the signal trustworthy); Claude would add a persistent edge icon that works on any highlighted text, even untagged terms — a visible safety net. Both are cheap to build; the persistent trigger covers the long tail the taggers miss.
+
+### Recommendation
+Ship in this order: (1) tap-inline definitions on tagged terms with layered depth — highest value, bounded work; (2) plain-language toggle — one control that simplifies every screen at once; (3) persistent "what does this mean?" trigger for untagged text.
