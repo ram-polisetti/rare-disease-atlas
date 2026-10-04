@@ -243,14 +243,10 @@ function setRole(r) {
   if (!ROLES[r]) r = null;
   try { localStorage.setItem(ROLE_KEY, r || ''); } catch (e) {}
   G.role = r;
-  /* The guide's role question answers the first-visit mode prompt too —
-   * never ask twice. Researchers get researcher mode; everyone else parent. */
+  /* The guide's role question personalizes wording. Tab visibility is no
+   * longer gated by role — every tab is visible to everyone. */
   try {
-    var box = document.getElementById('modePrompt');
-    if (box) box.hidden = true;
     localStorage.setItem('rda_mode_asked', '1');
-    var atlas = window.__atlas;
-    if (atlas && atlas.setMode) atlas.setMode(r === 'researcher' ? 'researcher' : 'parent');
   } catch (e) {}
 }
 function roleShort() { return G.role ? ROLES[G.role].short : null; }
@@ -972,7 +968,12 @@ function wireGuide(scope) {
     b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; go('confirm'); });
   });
   scope.querySelectorAll('[data-certain]').forEach(function (b) {
-    b.addEventListener('click', function () { G.certain = b.getAttribute('data-certain') === 'yes'; go('action'); });
+    b.addEventListener('click', function () {
+      G.certain = b.getAttribute('data-certain') === 'yes';
+      var atlas = window.__atlas;
+      if (atlas && atlas.setDisease && G.diseaseId) atlas.setDisease(G.diseaseId);
+      go('action');
+    });
   });
   scope.querySelectorAll('input[data-ph]').forEach(function (box) {
     box.addEventListener('change', function () {
