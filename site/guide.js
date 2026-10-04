@@ -965,7 +965,7 @@ function wireGuide(scope) {
     }
     G.query = val;
     var r = interpret(val);
-    if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; go('confirm'); }
+    if (r.kind === 'disease') { G.diseaseId = r.id; G.candidates = []; G.via = null; G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); }
     else if (r.kind === 'ambiguous') { G.candidates = r.candidates; G.via = r.via; go('ambiguous'); }
     else go('nomatch');
   }
@@ -987,7 +987,7 @@ function wireGuide(scope) {
     });
   });
   scope.querySelectorAll('[data-pick]').forEach(function (b) {
-    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; go('confirm'); });
+    b.addEventListener('click', function () { G.diseaseId = b.getAttribute('data-pick'); G.certain = null; G.confirmedPhenos = []; G.phenoExpanded = false; go('confirm'); });
   });
   scope.querySelectorAll('[data-certain]').forEach(function (b) {
     b.addEventListener('click', function () {
