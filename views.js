@@ -25,6 +25,7 @@ function viewsBoot() {
   initRecent();
   initGaps();
   initSubway();
+  initSubwayToggle();
   initReading();
   initGlossary();
   initEligibility();
@@ -499,6 +500,15 @@ function initGaps() {
           : '<p>No publication years recorded on literature edges.</p>') + '</article>';
   html += '</div>';
   body.innerHTML = html;
+}
+
+/* ---------------- 5b. Subway view toggle (inside Clusters) ---------------- */
+
+function initSubwayToggle() {
+  const tg = vEl('subwayToggle');
+  const wrap = vEl('subwayInClusters');
+  if (!tg || !wrap) return;
+  tg.addEventListener('change', function () { wrap.hidden = !tg.checked; });
 }
 
 /* ---------------- 5. Mechanism Subway Map ---------------- */

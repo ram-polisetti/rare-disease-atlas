@@ -206,6 +206,7 @@ function init() {
   initSearch();
   initExploreControls();
   initTabs();
+  initSettings();
   initClusters();
   initPatientAction();
   initJourney();
@@ -222,20 +223,146 @@ function init() {
     state: state,
     getNet: function () { return net; },
     showNode: showNode, showEdge: showEdge,
-    stepTo: stepTo, renderExplore: renderExplore, switchTab: switchTab
+    stepTo: stepTo, renderExplore: renderExplore, switchTab: switchTab,
+    getMode: getMode, setMode: setMode, applyMode: applyMode
   };
   window.__atlasReady = true;
 }
 
 /* ---------------- tabs ---------------- */
 
+/* Parent / researcher mode. Persisted in localStorage under key rda_mode.
+ * Parent mode (default) shows the calm parent-facing views; researcher mode
+ * additionally reveals the research tools. */
+const MODE_KEY = 'rda_mode';
+const MODE_ASKED_KEY = 'rda_mode_asked';
+const RESEARCHER_TABS = ['explore', 'clusters', 'endpoints', 'whatif', 'impact'];
+const RESEARCHER_TAB_LABELS = {
+  explore: 'Explore', clusters: 'Clusters', endpoints: 'Endpoints',
+  whatif: 'What If', impact: 'Path to the Next Milestone'
+};
+
+function getMode() {
+  try { return localStorage.getItem(MODE_KEY) === 'researcher' ? 'researcher' : 'parent'; }
+  catch (err) { return 'parent'; }
+}
+
+function setMode(mode) {
+  if (mode !== 'researcher') mode = 'parent';
+  try { localStorage.setItem(MODE_KEY, mode); } catch (err) {}
+  applyMode();
+}
+
+function isResearcherTab(name) { return RESEARCHER_TABS.indexOf(name) !== -1; }
+
+function applyMode() {
+  const researcher = getMode() === 'researcher';
+  document.querySelectorAll('.tabs button').forEach(function (btn) {
+    if (isResearcherTab(btn.dataset.tab)) {
+      if (researcher) btn.removeAttribute('hidden');
+      else btn.setAttribute('hidden', '');
+    }
+  });
+  const tg = el('researchToggle');
+  if (tg) tg.checked = researcher;
+  const note = el('modeNote');
+  if (note) {
+    note.textContent = researcher
+      ? 'You are in researcher mode. All research tools are visible in the tab bar above.'
+      : 'You are in parent mode. The research tools (Explore, Clusters, Endpoints, What If, Path to the Next Milestone) are hidden. Turn on "Show research tools" to reveal them.';
+  }
+  // If the current tab just became unavailable, land somewhere sensible.
+  if (isResearcherTab(state.tab) && !researcher && window.__atlasReady) switchTab('guide');
+}
+
 function initTabs() {
   document.querySelectorAll('.tabs button').forEach(function (btn) {
     btn.addEventListener('click', function () { switchTab(btn.dataset.tab); });
   });
+  applyMode();
+}
+
+/* Pending researcher-tab request: set when a parent-mode visitor clicks a
+ * link/button to a research tool. The gentle prompt offers the mode switch. */
+let pendingResearchTab = null;
+
+function offerResearcherMode(name) {
+  pendingResearchTab = name;
+  const label = RESEARCHER_TAB_LABELS[name] || name;
+  const txt = el('researchPromptText');
+  if (txt) txt.textContent = label + ' is a research tool. Turn on researcher mode to see it?';
+  const p = el('researchPrompt');
+  if (p) { p.hidden = false; const b = el('researchPromptEnable'); if (b) b.focus(); }
+}
+
+function hideResearchPrompt() {
+  const p = el('researchPrompt');
+  if (p) p.hidden = true;
+  pendingResearchTab = null;
+}
+
+function initResearchPrompt() {
+  const en = el('researchPromptEnable');
+  if (en) en.addEventListener('click', function () {
+    setMode('researcher');
+    const t = pendingResearchTab;
+    hideResearchPrompt();
+    if (t) switchTab(t);
+  });
+  const stay = el('researchPromptStay');
+  if (stay) stay.addEventListener('click', hideResearchPrompt);
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape') hideResearchPrompt();
+  });
+}
+
+/* First-visit prompt: small, non-blocking, never shown again once answered
+ * or dismissed. */
+function initModePrompt() {
+  const box = el('modePrompt');
+  if (!box) return;
+  let asked = false;
+  try { asked = localStorage.getItem(MODE_ASKED_KEY) === '1'; } catch (err) {}
+  if (asked) return;
+  box.hidden = false;
+  function done(choice) {
+    if (choice === 'parent' || choice === 'researcher') setMode(choice);
+    try { localStorage.setItem(MODE_ASKED_KEY, '1'); } catch (err) {}
+    box.hidden = true;
+  }
+  box.querySelectorAll('[data-mode-choice]').forEach(function (b) {
+    b.addEventListener('click', function () { done(b.dataset.modeChoice); });
+  });
+}
+
+function initSettings() {
+  const tg = el('researchToggle');
+  if (tg) {
+    tg.addEventListener('change', function () {
+      setMode(tg.checked ? 'researcher' : 'parent');
+    });
+  }
+  initResearchPrompt();
+  initModePrompt();
 }
 
 function switchTab(name) {
+  // Structural redirects (Start merged into Guide; Subway lives inside Clusters).
+  if (name === 'start') name = 'guide';
+  if (name === 'subway') {
+    name = 'clusters';
+    var st = el('subwayToggle');
+    if (st && !st.checked) { st.checked = true; st.dispatchEvent(new Event('change')); }
+    var wrap = el('subwayInClusters');
+    if (wrap) wrap.hidden = false;
+  }
+  // Research tools are gated in parent mode: never land silently on a hidden tab.
+  if (isResearcherTab(name) && getMode() !== 'researcher') {
+    offerResearcherMode(name);
+    return;
+  }
+  var view = el('view-' + name);
+  if (!view) name = 'guide'; // unknown tab ids fall back to the front door
   state.tab = name;
   document.querySelectorAll('.tabs button').forEach(function (btn) {
     const on = btn.dataset.tab === name;
