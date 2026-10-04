@@ -1082,6 +1082,8 @@ function renderPatientAction(diseaseId) {
   body.innerHTML = html;
   const gb = el('actionGapsBtn');
   if (gb) gb.addEventListener('click', function () { switchTab('gaps'); });
+  // Tier-1 tap-for-definition on the Your Disease page (additive).
+  if (typeof markTerms === 'function') markTerms(body);
 }
 
 /* ---------------- 10x impact ---------------- */

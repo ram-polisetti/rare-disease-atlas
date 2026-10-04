@@ -365,6 +365,7 @@ function initContradictions() {
       btn.innerHTML = watchedSet().indexOf(btn.dataset.watch) !== -1 ? 'Watching &#10003;' : 'Watch this disagreement';
     });
   });
+  markTerms(body);
 }
 
 function watchedSet() {
@@ -451,6 +452,7 @@ function renderRecent() {
       (byYear[y].length > 30 ? '<p class="item-sub">+' + (byYear[y].length - 30) + ' more in ' + esc(y) + '</p>' : '') +
       '</div>';
   }).join('');
+  markTerms(body);
 }
 
 /* ---------------- 10. Honest Gaps dashboard ---------------- */
@@ -499,6 +501,7 @@ function initGaps() {
           : '<p>No publication years recorded on literature edges.</p>') + '</article>';
   html += '</div>';
   body.innerHTML = html;
+  markTerms(body);
 }
 
 /* ---------------- 5b. Subway view toggle (inside Clusters) ---------------- */
@@ -677,10 +680,12 @@ const GLOSSARY = {
   'intrathecal': 'Delivered directly into the fluid around the spinal cord, to reach the brain and nervous system.',
   'newborn screening': 'Testing babies shortly after birth for certain diseases, so treatment can start before symptoms appear.',
   'natural history study': 'A study that follows patients over time to document how a disease progresses without treatment \u2014 the baseline future trials are measured against.',
+  'natural-history study': 'A study that follows patients over time to document how a disease progresses without treatment \u2014 the baseline future trials are measured against.',
   'clinical trial': 'A research study testing a treatment in people, run in phases with strict safety monitoring.',
   'phase 1': 'The first trial phase: mainly tests safety in a small group.',
   'phase 2': 'The second trial phase: tests whether the treatment works, in a larger group.',
   'phase 3': 'The final trial phase before approval: compares the treatment against standard care in a large group.',
+  'phase 4': 'After a treatment is approved: keeps tracking safety in the general population.',
   'placebo': 'An inactive stand-in (like a sugar pill) used as a comparison so researchers can tell what the treatment itself does.',
   'endpoint': 'The specific thing a trial measures to decide whether a treatment works \u2014 for example, a memory test score or a brain scan result.',
   'biomarker': 'Something measurable in the body (in blood, urine, or scans) that tracks whether a disease is getting better or worse.',
@@ -709,6 +714,74 @@ const GLOSSARY = {
   'x-linked': 'A disease pattern where the faulty gene sits on the X chromosome \u2014 it affects boys more often and more severely.'
 };
 const GLOSS_KEYS = Object.keys(GLOSSARY).sort(function (a, b) { return b.length - a.length; });
+
+/* ---------------- Tier-1 tap-for-definition ----------------
+ * Jargon-tier agreement (FULL_SITE_BRAINSTORM.md): tier 1 = gene symbols,
+ * trial phases, "natural history study", "endpoint", "biomarker".
+ * One source of truth: GLOSSARY above holds the layer-1 (plain,
+ * one-sentence) definition; TIER1_LAYERS adds layer-2 ("why it matters")
+ * and layer-3 (clinical). Gene entries are built from the graph's gene
+ * nodes at boot — labels from node.label, clinical text verbatim from
+ * node.description (never rewritten). No LLM at runtime: static
+ * dictionary only, offline-safe. */
+const TIER1_LAYERS = {
+  'natural history study': {
+    why: 'You may be asked to join one even when no treatment exists yet: the records become the comparison group that future trials are measured against.',
+    clinical: 'An observational, non-interventional study that documents the natural course of a disease — symptom onset, progression, and outcomes — to establish endpoints and baselines for future trials.'
+  },
+  'natural-history study': {
+    why: 'You may be asked to join one even when no treatment exists yet: the records become the comparison group that future trials are measured against.',
+    clinical: 'An observational, non-interventional study that documents the natural course of a disease — symptom onset, progression, and outcomes — to establish endpoints and baselines for future trials.'
+  },
+  'endpoint': {
+    why: 'When a specialist names the endpoint a trial uses, it tells you what kind of improvement the trial is actually looking for.',
+    clinical: 'A precisely defined variable in a trial protocol used to assess treatment effect. The primary endpoint determines whether the trial counts as a success for regulators.'
+  },
+  'biomarker': {
+    why: 'Biomarkers let doctors track the disease without waiting for symptoms to change — which is why trials and natural-history studies measure them.',
+    clinical: 'An objective, quantifiable characteristic — molecular, imaging, or physiological — that indicates a biological process and is used to monitor disease or treatment response.'
+  },
+  'phase 1': {
+    why: 'Safety results come first — the phase tells you how much is known about a treatment so far.',
+    clinical: 'First-in-human trials, typically in dozens of participants, focused on safety, tolerability, and dosing rather than whether the treatment works.'
+  },
+  'phase 2': {
+    why: 'Phase 2 is where researchers first learn whether a treatment might actually help — and side effects become clearer.',
+    clinical: 'Trials in tens to hundreds of participants that test effectiveness and further evaluate safety, still under close monitoring.'
+  },
+  'phase 3': {
+    why: 'Phase 3 results are the evidence regulators use to decide whether a treatment gets approved.',
+    clinical: 'Large trials comparing the treatment against the current standard of care, providing the evidence regulators require for approval.'
+  },
+  'phase 4': {
+    why: 'Approval is not the end of safety monitoring — phase 4 watches for rare or long-term effects in everyday use.',
+    clinical: 'Post-marketing studies that monitor long-term safety and effectiveness after approval, in larger and more diverse populations.'
+  }
+};
+const GENE_TIER1_WHY = 'Gene symbols are how genetic test reports and trial listings name a gene — matching the symbol to your report is the fastest way to find relevant trials and specialists.';
+/* key (lowercase) -> { plain, why, clinical }; built lazily so GRAPH is ready. */
+const TIER1 = {};
+let TIER1_KEYS = null;
+
+function buildTier1() {
+  if (TIER1_KEYS) return;
+  if (GRAPH && GRAPH.nodes) {
+    GRAPH.nodes.forEach(function (n) {
+      if (!n || n.type !== 'gene' || !n.label) return;
+      const key = String(n.label).toLowerCase();
+      const desc = String(n.description || '');
+      let plain = desc;
+      const m = desc.match(/\.\s+((?:Deficiency|Mutations|Loss)[^.]*\.)/i);
+      if (m) plain = m[1];
+      TIER1[key] = { plain: plain, why: GENE_TIER1_WHY, clinical: desc };
+    });
+  }
+  Object.keys(TIER1_LAYERS).forEach(function (k) {
+    TIER1[k] = { plain: GLOSSARY[k] || '', why: TIER1_LAYERS[k].why, clinical: TIER1_LAYERS[k].clinical };
+  });
+  const merged = Object.keys(TIER1).concat(GLOSS_KEYS.filter(function (k) { return !TIER1[k]; }));
+  TIER1_KEYS = merged.sort(function (a, b) { return b.length - a.length; });
+}
 
 function initReading() {
   tagRadioGroup('[data-reading]', 'Reading level');
@@ -777,11 +850,13 @@ function isWordBoundary(low, idx, len) {
 
 function markTerms(root) {
   if (!root) return;
+  buildTier1();
+  const keys = TIER1_KEYS;
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
       if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       const p = node.parentElement;
-      if (!p || p.closest('.gloss, script, style, a, button, input, select, textarea, .suggestions')) {
+      if (!p || p.closest('.gloss, .defterm, .defexp, script, style, a, button, input, select, textarea, .suggestions')) {
         return NodeFilter.FILTER_REJECT;
       }
       return NodeFilter.FILTER_ACCEPT;
@@ -796,8 +871,8 @@ function markTerms(root) {
     let pos = 0, found = false;
     while (pos < low.length) {
       let best = null, bestIdx = -1;
-      for (let k = 0; k < GLOSS_KEYS.length; k++) {
-        const key = GLOSS_KEYS[k];
+      for (let k = 0; k < keys.length; k++) {
+        const key = keys[k];
         const idx = low.indexOf(key, pos);
         if (idx !== -1 && isWordBoundary(low, idx, key.length) &&
             (bestIdx === -1 || idx < bestIdx || (idx === bestIdx && key.length > best.length))) {
@@ -807,20 +882,75 @@ function markTerms(root) {
       if (best === null) break;
       found = true;
       frag.appendChild(document.createTextNode(text.slice(pos, bestIdx)));
-      const span = document.createElement('span');
-      span.className = 'gloss';
-      span.dataset.term = best;
-      span.textContent = text.slice(bestIdx, bestIdx + best.length);
-      span.setAttribute('tabindex', '0');
-      span.setAttribute('role', 'button');
-      span.setAttribute('aria-label', best + ': tap for definition');
-      frag.appendChild(span);
+      const matched = text.slice(bestIdx, bestIdx + best.length);
+      let tag;
+      if (TIER1[best]) {
+        /* Tier-1 term: a real <button> that expands an inline,
+         * three-layer definition right after itself. */
+        tag = document.createElement('button');
+        tag.type = 'button';
+        tag.className = 'defterm';
+        tag.dataset.term = best;
+        tag.setAttribute('aria-expanded', 'false');
+        tag.setAttribute('aria-label', matched + ': show definition');
+      } else {
+        tag = document.createElement('span');
+        tag.className = 'gloss';
+        tag.dataset.term = best;
+        tag.setAttribute('tabindex', '0');
+        tag.setAttribute('role', 'button');
+        tag.setAttribute('aria-label', best + ': tap for definition');
+      }
+      tag.textContent = matched;
+      frag.appendChild(tag);
       pos = bestIdx + best.length;
       low = low; // unchanged; text unchanged
     }
     if (!found) return;
     frag.appendChild(document.createTextNode(text.slice(pos)));
     node.parentNode.replaceChild(frag, node);
+  });
+}
+
+/* ---------------- tier-1: inline inline-expansion ---------------- */
+
+function closeDefterms(root) {
+  (root || document).querySelectorAll('.defexp').forEach(function (d) {
+    d.hidden = true;
+    const b = d.previousElementSibling;
+    if (b && b.classList && b.classList.contains('defterm')) b.setAttribute('aria-expanded', 'false');
+  });
+}
+
+/* Toggle the inline three-layer definition directly after a .defterm
+ * button. Inline (never a modal) so the reader keeps their place;
+ * dismissible via the button again, the Close button, or Escape. */
+function toggleDefterm(btn) {
+  if (!btn) return;
+  const sib = btn.nextElementSibling;
+  if (sib && sib.classList && sib.classList.contains('defexp')) {
+    const open = !sib.hidden;
+    sib.hidden = open;
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    return;
+  }
+  buildTier1();
+  const def = TIER1[btn.dataset.term] || { plain: '', why: '', clinical: '' };
+  const exp = document.createElement('span');
+  exp.className = 'defexp';
+  exp.setAttribute('role', 'definition');
+  exp.innerHTML = '<span class="defexp-card">' +
+    '<span class="defexp-layer"><span class="defexp-tag">In plain words</span> ' + esc(def.plain || '') + '</span>' +
+    '<span class="defexp-layer"><span class="defexp-tag">Why it matters</span> ' + esc(def.why || '') + '</span>' +
+    '<span class="defexp-layer"><span class="defexp-tag">Clinical meaning</span> ' + esc(def.clinical || '') + '</span>' +
+    '<button type="button" class="defexp-close btn small">Close</button></span>';
+  btn.setAttribute('aria-expanded', 'true');
+  btn.after(exp);
+  exp.querySelector('.defexp-close').addEventListener('click', function (ev) {
+    ev.stopPropagation();
+    exp.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.focus();
   });
 }
 
@@ -840,6 +970,8 @@ function initGlossary() {
     vEl('glossClose').addEventListener('click', function () { tip.hidden = true; });
   }
   document.addEventListener('click', function (ev) {
+    const d = ev.target.closest('.defterm');
+    if (d) { ev.stopPropagation(); toggleDefterm(d); return; }
     const g = ev.target.closest('.gloss');
     if (g) { ev.stopPropagation(); showTip(g); return; }
     if (!ev.target.closest('#glossTip')) tip.hidden = true;
@@ -848,7 +980,7 @@ function initGlossary() {
     if (ev.key === 'Enter' && ev.target.classList && ev.target.classList.contains('gloss')) {
       showTip(ev.target);
     }
-    if (ev.key === 'Escape') tip.hidden = true;
+    if (ev.key === 'Escape') { tip.hidden = true; closeDefterms(); }
   });
   // Wrap node/edge panels so every view gets definitions.
   const _showNode = showNode;
